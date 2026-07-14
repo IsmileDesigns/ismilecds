@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Leo Law | Ismile Creative &amp; Digital Solutions</title>
+  <meta name="description" content="Brand identity and web design concept for Leo Law a law firm built on authority, trust, and gold-standard legal representation. Built by Ismile Creative & Digital Solutions."/>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--amber:#FBA92C;--warm-black:#1A1410;--white:#FFFFFF;--off-white:#FAF8F5;--mid:#6B6460;--bd:rgba(255,255,255,0.08);--bdl:rgba(26,20,16,0.09);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden;scroll-behavior:auto}
+    body{background:var(--warm-black);color:var(--white);font-family:'Assistant',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+    .cursor-dot{position:absolute;width:8px;height:8px;background:var(--white);border-radius:50%;transform:translate(-50%,-50%);}
+    .cursor-ring{position:absolute;width:36px;height:36px;border:1px solid rgba(255,255,255,0.6);border-radius:50%;transform:translate(-50%,-50%);}
+    .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--amber);z-index:200;width:0%;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 56px;height:76px;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,border-color 0.5s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(26,20,16,0.94);backdrop-filter:blur(14px);border-bottom-color:var(--bd);}
+    .nav-logo img{height:40px;width:auto;display:block;background:transparent;}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-cta{font-family:'Bebas Neue',sans-serif!important;font-size:15px!important;background:var(--amber);color:var(--warm-black)!important;padding:8px 18px;border-radius:3px;transition:background 0.2s;letter-spacing:0.1em!important;}
+    .nav-cta:hover{background:#ffc04d;}
+    .nav-cta::after{display:none!important;}
+    .nav-dropdown-wrap{position:relative}
+    .nav-dropdown-trigger{display:flex;align-items:center;gap:5px}
+    .nav-chevron{transition:transform 0.2s}
+    .nav-dropdown-wrap:hover .nav-chevron,.nav-dropdown-wrap.open .nav-chevron{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:6px;list-style:none;min-width:210px;padding:8px 0;opacity:0;visibility:hidden;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;z-index:200;}
+    .nav-dropdown-wrap:hover .nav-dropdown,.nav-dropdown-wrap.open .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+    .nav-dropdown li a{display:block;padding:10px 20px;font-size:14px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s,padding-left 0.2s;white-space:nowrap;}
+    .nav-dropdown li a::after{display:none!important;}
+    .nav-dropdown li a:hover{color:var(--amber);padding-left:26px}
+    .btn-a{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;background:var(--amber);color:var(--warm-black);padding:13px 30px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.2s;}
+    .btn-a:hover{background:#ffc04d;transform:translateY(-2px);}
+    .btn-o{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:0.1em;background:transparent;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.55);padding:11px 24px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+    .btn-o:hover{border-color:var(--amber);color:var(--amber);}
+    footer{background:#100d0a;padding:68px 56px 44px;}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
+    .footer-logo img{height:48px;width:auto;display:block;margin-bottom:16px;background:transparent;}
+    .footer-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.3);}
+    .footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:20px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .footer-links a{font-size:17px;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s,padding-left 0.2s;display:inline-block;}
+    .footer-links a:hover{color:var(--amber);padding-left:6px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;flex-wrap:wrap;gap:16px;}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.18);}
+    .footer-social{display:flex;gap:18px;}
+    .footer-social a{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
+    .footer-social a:hover{color:var(--amber);}
+    @media(max-width:768px){nav{padding:0 24px;}.nav-links{display:none;}footer{padding:48px 24px 32px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+
+    /* Hero */
+    .project-hero{min-height:60vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 56px 56px;overflow:hidden;}
+    .project-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;}
+    .project-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(16,10,6,0.97) 0%,rgba(16,10,6,0.65) 45%,rgba(16,10,6,0.2) 100%);}
+    .project-cat{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;position:relative;z-index:1;}
+    .project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,7vw,96px);line-height:0.9;letter-spacing:0.02em;color:var(--white);max-width:900px;position:relative;z-index:1;}
+    .project-meta{display:flex;gap:40px;margin-top:28px;position:relative;z-index:1;flex-wrap:wrap;}
+    .project-meta-label{font-size:13px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:5px;}
+    .project-meta-value{font-size:14px;font-weight:400;color:rgba(255,255,255,0.6);}
+
+    /* Back link */
+    .project-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;padding:44px 56px 0;transition:color 0.2s;}
+    .project-back:hover{color:var(--amber);}
+
+    /* Split layout */
+    .project-split{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding:48px 56px 120px;align-items:start;}
+
+    /* Left: sticky image gallery */
+    .project-gallery{position:sticky;top:96px;display:flex;flex-direction:column;gap:16px;}
+    .project-gallery-img{width:100%;height:auto;display:block;border-radius:10px;border:1px solid var(--bd);}
+
+    /* Right: case study */
+    .project-case > p{font-size:16px;font-weight:300;line-height:1.88;color:rgba(255,255,255,0.55);margin-bottom:24px;}
+    .project-case h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3vw,36px);letter-spacing:0.04em;color:var(--white);margin:48px 0 14px;}
+    .project-case h2:first-child{margin-top:0;}
+    .project-case h3{font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin:28px 0 10px;}
+    .project-case ul,.project-case ol{padding-left:22px;margin-bottom:24px;}
+    .project-case li{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+    .project-case strong{color:rgba(255,255,255,0.82);font-weight:600;}
+
+    /* Tags */
+    .project-tags{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 48px;}
+    .project-tag{font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border:1px solid rgba(251,169,44,0.22);border-radius:3px;color:rgba(251,169,44,0.6);}
+
+    /* CTA box */
+    .project-cta-box{background:rgba(251,169,44,0.07);border:1px solid rgba(251,169,44,0.18);border-radius:12px;padding:36px 40px;margin-top:56px;text-align:center;}
+    .project-cta-box p{font-size:15px;font-weight:300;color:rgba(255,255,255,0.4)!important;margin-bottom:20px!important;}
+
+    @media(max-width:900px){
+      .project-split{grid-template-columns:1fr;padding:40px 24px 80px;gap:40px;}
+      .project-gallery{position:static;}
+    }
+    @media(max-width:768px){
+      .project-hero{padding:100px 24px 48px;}
+      .project-back{padding:36px 24px 0;}
+      .project-meta{gap:24px;}
+      .project-cta-box{padding:28px 20px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav id="nav">
+    <a href="./Index.html" class="nav-logo"><img src="./logo.png" alt="Ismile" /></a>
+    <ul class="nav-links">
+      <li><a href="./Index.html">Home</a></li>
+      <li class="nav-dropdown-wrap">
+        <a href="#" class="nav-dropdown-trigger">Services <svg class="nav-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></a>
+        <ul class="nav-dropdown">
+          <li><a href="./brand-identity.html">Brand Identity</a></li>
+          <li><a href="./web-design.html">Web Design</a></li>
+          <li><a href="./digital-marketing.html">Digital Marketing</a></li>
+          <li><a href="./systems-automations.html">Systems &amp; Automations</a></li>
+          <li><a href="./business-consulting.html">Business Consulting</a></li>
+        </ul>
+      </li>
+      <li><a href="./portfolio.html">Portfolio</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="nav-cta">BOOK A FREE CALL</a></li>
+    </ul>
+  </nav>
+
+  <header class="project-hero">
+    <img class="project-hero-img" src="https://images.unsplash.com/photo-1764113697577-b5899b9a339d?fm=jpg&q=80&w=1920&auto=format&fit=crop" alt="Lady Justice statue Leo Law" />
+    <div class="project-hero-overlay"></div>
+    <p class="project-cat" data-r>Brand Identity + Web Design Concept</p>
+    <h1 class="project-title" data-r>Leo Law</h1>
+    <div class="project-meta" data-r>
+      <div class="project-meta-item">
+        <p class="project-meta-label">Industry</p>
+        <p class="project-meta-value">Legal Services</p>
+      </div>
+      <div class="project-meta-item">
+        <p class="project-meta-label">Type</p>
+        <p class="project-meta-value">Concept Project</p>
+      </div>
+      <div class="project-meta-item">
+        <p class="project-meta-label">Services</p>
+        <p class="project-meta-value">Logo Design, Web Design</p>
+      </div>
+    </div>
+  </header>
+
+  <a href="./portfolio.html" class="project-back" data-r>&#8592; Back to Portfolio</a>
+
+  <div class="project-split">
+    <div class="project-gallery" data-r>
+      <img class="project-gallery-img" src="Leo-law-logo.png" alt="Leo Law Logo Design" loading="lazy" />
+      <img class="project-gallery-img" src="LeoLaw-Site-mockup.png" alt="Leo Law Website Homepage Mockup" loading="lazy" />
+    </div>
+
+    <article class="project-case">
+      <p>Leo Law required a brand presence that communicated exactly what their clients need to feel before they ever pick up the phone: <strong>authority, trust, and the certainty that they've found the right firm.</strong> This concept project explores what a law firm identity looks like when every design decision earns its place.</p>
+
+      <div class="project-tags">
+        <span class="project-tag">Logo Design</span>
+        <span class="project-tag">Brand Identity</span>
+        <span class="project-tag">Web Design</span>
+        <span class="project-tag">Concept Project</span>
+      </div>
+
+      <h2>The Brief</h2>
+      <p>Law firms have a branding problem. Most either lean so hard into tradition that they disappear into a sea of identical serif logos and navy blue websites, or they over-correct into a sleek minimalism that strips out the gravitas the industry demands. Leo Law needed something different a visual identity that commands the room without sacrificing warmth, and a website that converts prospects into clients from the first scroll.</p>
+      <p>The concept had to work across a full-service firm spanning Family &amp; Divorce Law, Criminal Defense, Corporate &amp; Business Law, Real Estate Litigation, Personal Injury, Banking Law, Education Law, and Markets &amp; Securities. Every practice area different. One brand that holds them all.</p>
+
+      <h2>What We Built</h2>
+
+      <h3>Logo Design</h3>
+      <p>The Leo Law mark centres on a regal lion holding the scales of justice a symbol that does double work. The lion speaks to strength, courage, and the relentless advocacy every client deserves. The scales ground it in law and balance. Rendered in gold on deep navy, the mark carries the weight of a firm that has been trusted for decades, even for a firm just beginning to build that reputation.</p>
+      <p>The circular badge format with the firm name and "Attorneys at Law" set in classic capital serif gives the logo the kind of timeless authority that works on letterheads, courtroom briefs, digital headers, and embossed business cards without losing a single point of impact.</p>
+
+      <h3>Colour &amp; Typography System</h3>
+      <p>The palette is built around <strong>deep navy and burnished gold</strong> colours that have communicated prestige in the legal world for a reason, but executed here with precision rather than default. Dark backgrounds elevate the gold to something that feels earned. Typography pairs a commanding serif display face with clean, readable body copy so the site feels both weighty and effortlessly navigable.</p>
+
+      <h3>Web Design Concept</h3>
+      <p>The homepage opens with a bold editorial statement: <em>"Justice Is Not A Privilege. It's Your Right."</em> a headline designed to stop a prospective client mid-scroll and make them feel seen. The hero section layers Lady Justice imagery behind the type, creating depth and gravitas without clutter.</p>
+      <p>Below the fold, the site architecture is deliberate. Practice area cards give every service its own clear identity while keeping the visual system cohesive. The "Why Choose LeoLaw" section built on trust, results, and integrity gives prospects the reassurance they need before they commit to a consultation. Stats (25+ years active, 1,240+ cases won, 98% success rate) are surfaced prominently because in legal, credibility is the conversion tool.</p>
+      <p>The firm profile section introduces Michael Phillips, Senior Partner &amp; Founder, with photography and a personal statement because people hire lawyers, not law firms, and the site needed to reflect that. A "Transparent Pricing" callout and a persistent Free Consultation CTA remove the two biggest barriers to contact in the legal sector: fear of the unknown and fear of the cost.</p>
+      <p>The scrolling practice area marquee at the base of the hero keeps the firm's full scope visible without requiring a separate page every practice area is a searchable keyword, every one is a signal to a prospective client that Leo Law handles exactly what they're dealing with.</p>
+
+      <h2>The Result</h2>
+      <p>The Leo Law concept demonstrates what happens when legal branding is treated as a strategic asset rather than a formality. Every element the lion mark, the gold-on-navy palette, the headline hierarchy, the content architecture is built to do one thing: <strong>make a prospective client feel certain they've found the right firm.</strong></p>
+      <p>This is the standard legal branding should be held to. Not a generic template dressed up in firm colours, but a considered identity that works as hard as the attorneys it represents.</p>
+
+      <div class="project-cta-box">
+        <p>Need a brand and website that commands the room in your industry?</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+          <a href="./LeoLaw/leo-law-index.html" class="btn-o" target="_blank">
+            VIEW THE DEMO
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 13 13"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5"/></svg>
+          </a>
+          <a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="btn-a">
+            BOOK A FREE STRATEGY CALL
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 13 13"><path d="M2 6.5h9M6.5 2l4.5 4.5-4.5 4.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div><div class="footer-logo"><img src="./logo.png" alt="Ismile"/></div><p class="footer-desc">Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs serious about growth.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/></div></div>
+      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./brand-identity.html">Brand Identity</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems &amp; Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
+      <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Ismile Creative &amp; Digital Solutions. All rights reserved. Toronto, Canada.</p><div class="footer-social"><a href="https://www.instagram.com/ismilecds" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.behance.net/IsmileDesigns" aria-label="Behance"><svg width="20" height="14" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 1.5h5.7v1.3h-5.7V1.5zm2.7 3.2c-3.5 0-5.9 2.4-5.9 5.9 0 3.6 2.3 5.9 6 5.9 2.6 0 4.4-1.1 5.4-3.2h-2.8c-.4.7-1.4 1.1-2.4 1.1-1.6 0-2.8-.9-3-2.7H24c.2-3.8-1.8-7-5.8-7zm-2.7 4.6c.2-1.4 1.2-2.3 2.6-2.3 1.4 0 2.5.9 2.5 2.3h-5.1zM0 .3h6.7c2.4 0 4.7.8 4.7 3.5 0 1.4-.7 2.4-1.9 3 1.7.5 2.7 1.7 2.7 3.5 0 3-2.3 4.2-5 4.2H0V.3zm3.2 5.6h3c1.2 0 1.9-.5 1.9-1.7S7.3 2.6 6 2.6H3.2v3.3zm0 5.7h3.4c1.3 0 2.2-.6 2.2-1.9 0-1.4-1-1.9-2.3-1.9H3.2v3.8z"/></svg></a></div></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.4,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  lenis.on('scroll',ScrollTrigger.update);
+  const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.to(dot,{x:mx,y:my,duration:0.1});});
+  gsap.ticker.add(()=>{rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;gsap.set(ring,{x:rx,y:ry});});
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{gsap.to(ring,{scale:2.2,opacity:0.4,duration:0.3});gsap.to(dot,{scale:0.4,duration:0.3});});
+    el.addEventListener('mouseleave',()=>{gsap.to(ring,{scale:1,opacity:1,duration:0.3});gsap.to(dot,{scale:1,duration:0.3});});
+  });
+  lenis.on('scroll',({scroll,limit})=>{document.getElementById('progressBar').style.width=(scroll/limit*100)+'%';});
+  lenis.on('scroll',({scroll})=>{document.getElementById('nav').classList.toggle('scrolled',scroll>60);});
+  document.querySelectorAll('[data-r]').forEach(el=>{
+    gsap.fromTo(el,{opacity:0,y:44},{opacity:1,y:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 83%'}});
+  });
+  </script>
+</body>
+</html>

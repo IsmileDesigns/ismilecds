@@ -1,0 +1,2225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leolaw – Dedicated To One Client At A Time</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0b1628;
+      --navy2:   #0f1e35;
+      --navy3:   #162640;
+      --navy4:   #1e3250;
+      --gold:    #c8952f;
+      --gold2:   #e8b84b;
+      --gold3:   #f5d080;
+      --white:   #ffffff;
+      --off-white: #f8f5ef;
+      --grey:    #8a95a3;
+      --text:    #2c3a4a;
+      --border:  rgba(200,149,47,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; }
+    img { display: block; width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── CURSOR GLOW ──────────────────────────────────────────── */
+    .cursor-glow {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(200,149,47,0.08) 0%, transparent 70%);
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s linear;
+    }
+
+    /* ── REVEAL ANIMATIONS ───────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
+    .reveal.up { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
+    .reveal-left.up { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s cubic-bezier(.16,1,.3,1), transform 0.8s cubic-bezier(.16,1,.3,1); }
+    .reveal-right.up { opacity: 1; transform: translateX(0); }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* ── NOISE OVERLAY ───────────────────────────────────────── */
+    .noise::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ── GOLD ACCENT LINE ─────────────────────────────────────── */
+    .accent-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .accent-line::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .accent-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-title--light { color: var(--white); }
+
+    .lead-text {
+      font-size: 1rem;
+      color: var(--grey);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* ── BUTTON SYSTEM ───────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(.16,1,.3,1);
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.1);
+      transform: translateX(-101%);
+      transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+    }
+    .btn:hover::before { transform: translateX(0); }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(200,149,47,0.35);
+    }
+    .btn-gold:hover { box-shadow: 0 8px 32px rgba(200,149,47,0.5); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.6); }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn-outline-gold:hover { background: var(--gold); color: var(--white); }
+
+    .btn-arrow::after { content: '→'; transition: transform 0.3s; }
+    .btn-arrow:hover::after { transform: translateX(4px); }
+
+    /* ── NAV ─────────────────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0;
+      transition: background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s;
+    }
+    #navbar.scrolled {
+      background: rgba(11,22,40,0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 0 rgba(200,149,47,0.15), 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 96px;
+      gap: 20px;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s cubic-bezier(.16,1,.3,1);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta { flex-shrink: 0; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 24px; height: 1.5px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ── HERO ─────────────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=2400&q=85') center/cover no-repeat;
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(11,22,40,0.97) 0%, rgba(11,22,40,0.88) 50%, rgba(11,22,40,0.3) 100%);
+    }
+
+    .hero-overlay-geo {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at -10% 50%, rgba(200,149,47,0.06) 0%, transparent 60%);
+    }
+
+    #hero .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-line {
+      width: 48px; height: 1px;
+      background: var(--gold);
+    }
+    .hero-eyebrow span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 0.97;
+      margin-bottom: 28px;
+    }
+    .hero-title em {
+      display: block;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.85;
+      margin-bottom: 44px;
+      max-width: 440px;
+    }
+
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .trust-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .trust-num span { color: var(--white); }
+    .trust-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-top: 2px;
+    }
+    .trust-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 24px 28px;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .hero-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hero-practice-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-practice-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.83rem;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: color 0.2s;
+    }
+    .hero-practice-list li:last-child { border-bottom: none; }
+    .hero-practice-list li::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hero-practice-list li:hover { color: var(--white); }
+
+    .hero-badge {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 100px; height: 100px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(200,149,47,0.4);
+    }
+    .hero-badge .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-badge .label {
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    /* ── MARQUEE STRIP ────────────────────────────────────────── */
+    #strip {
+      background: var(--gold);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .strip-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .strip-item {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 0 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .strip-dot {
+      width: 5px; height: 5px;
+      background: var(--navy);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── PRACTICE AREAS ───────────────────────────────────────── */
+    #practice {
+      padding: 120px 0;
+      background: var(--off-white);
+      position: relative;
+    }
+
+    .practice-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .practice-header-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 24px;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .practice-card {
+      position: relative;
+      background: var(--navy);
+      padding: 44px 32px;
+      cursor: default;
+      overflow: hidden;
+      transition: background 0.4s;
+    }
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.4s cubic-bezier(.16,1,.3,1);
+    }
+    .practice-card:hover::before { width: 100%; }
+    .practice-card:hover { background: var(--navy3); }
+
+    .practice-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      position: absolute;
+      top: 16px; right: 20px;
+      pointer-events: none;
+    }
+
+    .practice-icon-wrap {
+      width: 48px; height: 48px;
+      border: 1px solid rgba(200,149,47,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .practice-card:hover .practice-icon-wrap {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .practice-icon-wrap svg { width: 20px; height: 20px; fill: var(--gold); transition: fill 0.3s; }
+    .practice-card:hover .practice-icon-wrap svg { fill: var(--white); }
+
+    .practice-card h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .practice-card p {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      transition: color 0.3s;
+    }
+    .practice-card:hover p { color: rgba(255,255,255,0.6); }
+
+    /* ── WHY CHOOSE US ────────────────────────────────────────── */
+    #why {
+      padding: 120px 0;
+      background: var(--white);
+    }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .why-visual { position: relative; }
+
+    .why-img-main {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.92);
+    }
+
+    .why-img-accent {
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 240px;
+      height: 280px;
+      object-fit: cover;
+      border: 6px solid var(--white);
+      box-shadow: 0 20px 60px rgba(11,22,40,0.2);
+    }
+
+    .why-badge-float {
+      position: absolute;
+      top: 40px;
+      right: -30px;
+      background: var(--gold);
+      padding: 24px 28px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(200,149,47,0.4);
+    }
+    .why-badge-float .big { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .why-badge-float .small { font-size: 0.65rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.85); margin-top: 4px; }
+
+    .why-text { padding-left: 20px; }
+
+    .why-text p {
+      color: var(--grey);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .why-features { margin-bottom: 40px; display: flex; flex-direction: column; gap: 20px; }
+
+    .why-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px;
+      border: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .why-feature:hover {
+      border-color: var(--border);
+      background: rgba(200,149,47,0.02);
+    }
+
+    .feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      opacity: 0.5;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .feature-text h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .feature-text p { font-size: 0.83rem; color: var(--grey); margin: 0; line-height: 1.7; }
+
+    .why-signature {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+    .sig-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .sig-info strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .sig-info span { font-size: 0.75rem; color: var(--grey); letter-spacing: 0.5px; }
+
+    /* ── PROCESS ─────────────────────────────────────────────── */
+    #process {
+      background: var(--navy);
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #process::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(200,149,47,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .process-header { text-align: center; margin-bottom: 80px; }
+    .process-header .accent-line { justify-content: center; }
+    .process-header .accent-line::before { display: none; }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.05);
+      position: relative;
+    }
+
+    .process-step {
+      background: var(--navy);
+      padding: 52px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .process-step:hover { background: var(--navy3); }
+
+    .process-step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 6rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      position: absolute;
+      top: 16px; right: 24px;
+    }
+
+    .step-icon-wrap {
+      width: 56px; height: 56px;
+      border: 1px solid rgba(200,149,47,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 28px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .process-step:hover .step-icon-wrap { background: var(--gold); border-color: var(--gold); }
+    .step-icon-wrap svg { width: 22px; height: 22px; fill: var(--gold); transition: fill 0.3s; }
+    .process-step:hover .step-icon-wrap svg { fill: var(--white); }
+
+    .process-step h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .process-step p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.8; }
+
+    /* ── STATS ────────────────────────────────────────────────── */
+    #stats {
+      background: var(--navy2);
+      padding: 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-box {
+      padding: 72px 40px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width 0.5s cubic-bezier(.16,1,.3,1);
+    }
+    .stat-box:hover::after { width: 80%; }
+    .stat-box:hover { background: rgba(255,255,255,0.02); }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-num .suffix { color: var(--gold); }
+
+    .stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── SERVICES ─────────────────────────────────────────────── */
+    #services {
+      padding: 120px 0;
+      background: var(--off-white);
+    }
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      margin-bottom: 64px;
+      gap: 40px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-img-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .service-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(.16,1,.3,1);
+    }
+    .service-card:hover .service-img-wrap img { transform: scale(1.06); }
+
+    .service-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,22,40,0.6) 0%, transparent 60%);
+    }
+
+    .service-cat-tag {
+      position: absolute;
+      bottom: 16px; left: 20px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: rgba(11,22,40,0.8);
+      padding: 4px 10px;
+    }
+
+    .service-body {
+      padding: 32px 28px 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .service-card:hover .service-body { border-color: var(--gold); }
+
+    .service-body h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .service-body p { font-size: 0.83rem; color: var(--grey); line-height: 1.8; flex: 1; margin-bottom: 20px; }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: gap 0.3s;
+    }
+    .read-more::after { content: '→'; transition: transform 0.3s; }
+    .read-more:hover { gap: 14px; }
+    .read-more:hover::after { transform: translateX(4px); }
+
+    /* ── TEAM ─────────────────────────────────────────────────── */
+    #team {
+      padding: 120px 0;
+      background: var(--white);
+    }
+
+    .team-header { text-align: center; max-width: 560px; margin: 0 auto 64px; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .team-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-photo-wrap { position: relative; height: 420px; overflow: hidden; }
+    .team-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(.16,1,.3,1);
+      filter: grayscale(20%);
+    }
+    .team-card:hover .team-photo { transform: scale(1.04); filter: grayscale(0%); }
+
+    .team-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,22,40,0.85) 0%, rgba(11,22,40,0) 55%);
+    }
+
+    .team-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 28px;
+      transform: translateY(48px);
+      transition: transform 0.4s cubic-bezier(.16,1,.3,1);
+    }
+    .team-card:hover .team-content { transform: translateY(0); }
+
+    .team-content h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .team-content span {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .team-social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s 0.1s, transform 0.4s 0.1s;
+    }
+    .team-card:hover .team-social-row { opacity: 1; transform: translateY(0); }
+    .team-social-row a {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.72rem;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .team-social-row a:hover { background: var(--gold); border-color: var(--gold); color: var(--white); }
+
+    /* ── TESTIMONIALS ─────────────────────────────────────────── */
+    #testimonials {
+      padding: 120px 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    #testimonials::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.02);
+      position: absolute;
+      top: -80px; left: -20px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testi-header { text-align: center; max-width: 560px; margin: 0 auto 64px; }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .testi-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 48px 44px;
+      position: relative;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .testi-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(200,149,47,0.2); }
+
+    .testi-quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      line-height: 0.6;
+      margin-bottom: 24px;
+      opacity: 0.6;
+    }
+
+    .stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 20px; }
+
+    .testi-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .testi-person { display: flex; align-items: center; gap: 16px; }
+    .testi-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(200,149,47,0.4);
+    }
+    .testi-name strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+    .testi-name span { font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
+
+    /* ── TIMELINE ─────────────────────────────────────────────── */
+    #timeline {
+      padding: 120px 0;
+      background: var(--off-white);
+    }
+
+    .timeline-header { text-align: center; max-width: 560px; margin: 0 auto 80px; }
+
+    .timeline-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 20px; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      padding: 60px 28px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .tl-dot {
+      width: 12px; height: 12px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin: 0 auto 32px;
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 0 4px rgba(200,149,47,0.2);
+    }
+
+    .tl-year {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .tl-event {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .tl-desc { font-size: 0.82rem; color: var(--grey); line-height: 1.7; }
+
+    /* ── CASES + CONTACT ──────────────────────────────────────── */
+    #cases {
+      padding: 120px 0;
+      background: var(--white);
+    }
+
+    .cases-inner {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .cases-header { margin-bottom: 40px; }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .blog-card {
+      background: var(--off-white);
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .blog-card:hover { background: var(--navy); }
+
+    .blog-img {
+      height: 160px;
+      overflow: hidden;
+    }
+    .blog-img img, .blog-img-placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(.16,1,.3,1);
+    }
+    .blog-card:hover .blog-img img { transform: scale(1.06); }
+
+    .blog-img-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blog-body { padding: 20px 20px 24px; }
+    .blog-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .blog-date { font-size: 0.68rem; color: var(--grey); transition: color 0.3s; }
+    .blog-card:hover .blog-date { color: rgba(255,255,255,0.4); }
+    .blog-cat {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--white);
+      padding: 2px 8px;
+    }
+    .blog-body h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.45;
+      transition: color 0.3s;
+    }
+    .blog-card:hover .blog-body h4 { color: var(--white); }
+
+    /* Contact Form ─────────────────────────────────────────────── */
+    .contact-form-wrap h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .contact-form-wrap .lead-text { margin-bottom: 32px; font-size: 0.88rem; }
+
+    .form-group { margin-bottom: 14px; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #dde3eb;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.83rem;
+      color: var(--text);
+      background: var(--off-white);
+      transition: border-color 0.25s, background 0.25s;
+      outline: none;
+      resize: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+      background: var(--white);
+    }
+    .form-group textarea { height: 120px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* ── AWARDS STRIP ─────────────────────────────────────────── */
+    #awards {
+      padding: 60px 0;
+      background: var(--navy2);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .awards-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .award-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .award-item:hover { color: rgba(255,255,255,0.7); }
+    .award-icon {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(200,149,47,0.25);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .award-icon svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ── FOOTER ───────────────────────────────────────────────── */
+    #footer {
+      background: var(--navy);
+      padding: 100px 0 0;
+      position: relative;
+    }
+    #footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(200,149,47,0.3), transparent);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .footer-logo span { color: var(--gold); }
+
+    .footer-about {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .newsletter-form { display: flex; }
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      background: rgba(255,255,255,0.04);
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .newsletter-form input:focus { border-color: rgba(200,149,47,0.4); }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.25); }
+    .newsletter-form button {
+      background: var(--gold);
+      border: none;
+      padding: 12px 20px;
+      color: var(--white);
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .newsletter-form button:hover { background: var(--gold2); }
+
+    .footer-col h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+    .footer-col h5::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      display: flex; align-items: center; gap: 10px;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .footer-links a::before { content: ''; color: var(--gold); font-size: 0.65rem; }
+    .footer-links a:hover { color: rgba(255,255,255,0.75); gap: 14px; }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .footer-contact-icon {
+      width: 32px; height: 32px;
+      border: 1px solid rgba(200,149,47,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .footer-contact-icon svg { width: 14px; height: 14px; fill: currentColor; }
+    .footer-contact-text { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
+
+    .footer-bar {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 24px 0;
+    }
+    .footer-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-bar-inner p { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-socials a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.72rem;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .footer-socials a:hover { border-color: var(--gold); color: var(--gold); background: rgba(200,149,47,0.06); }
+
+    /* ── BACK TO TOP ──────────────────────────────────────────── */
+    #back-top {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      width: 48px; height: 48px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(200,149,47,0.3);
+    }
+    #back-top.show { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(200,149,47,0.5); }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .practice-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 900px) {
+      #hero .container { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .why-inner { grid-template-columns: 1fr; gap: 60px; }
+      .why-img-accent { display: none; }
+      .why-text { padding-left: 0; }
+      .process-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .cases-inner { grid-template-columns: 1fr; }
+      .timeline-track { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .timeline-track::before { display: none; }
+      .timeline-item { padding-top: 0; }
+      .tl-dot { position: relative; top: auto; left: auto; transform: none; margin-bottom: 16px; }
+      .awards-inner { flex-wrap: wrap; gap: 24px; justify-content: center; }
+      .practice-header { grid-template-columns: 1fr; gap: 24px; }
+      .practice-header-right { align-items: flex-start; }
+      .services-header { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .container { padding: 0 24px; }
+      #hero { padding-top: 80px; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 80px; left: 0; right: 0;
+        background: rgba(11,22,40,0.97);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 20px;
+        z-index: 999;
+        border-top: 1px solid rgba(200,149,47,0.15);
+      }
+    }
+
+    @media (max-width: 540px) {
+      .practice-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .footer-bar-inner { flex-direction: column; gap: 12px; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ── NAV ──────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><img src="logo.png" alt="Leolaw" style="height:80px;width:auto;display:block;" /></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#practice">Practice Areas</a></li>
+        <li><a href="#why">About</a></li>
+        <li><a href="#cases">Case Study</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#cases">Blog</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+
+      <a href="#cases" class="btn btn-gold nav-cta">Free Consultation</a>
+
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-geo"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">
+        <span class="hero-eyebrow-line"></span>
+        <span>Trusted Legal Representation Since 1981</span>
+      </div>
+      <h1 class="hero-title reveal delay-1">
+        Justice Is Not<br />A Privilege.
+        <em>It's Your Right.</em>
+      </h1>
+      <p class="hero-sub reveal delay-2">
+        We combine deep legal expertise with an unwavering commitment to every client.
+        One case. One focus. Results you can count on.
+      </p>
+      <div class="hero-btns reveal delay-3">
+        <a href="#cases" class="btn btn-gold btn-arrow">Free Consultation</a>
+        <a href="#why" class="btn btn-outline-white">Our Story</a>
+      </div>
+
+      <div class="hero-trust reveal delay-4">
+        <div class="trust-item">
+          <div class="trust-num">25<span>+</span></div>
+          <div class="trust-label">Years Active</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-num">1,240<span>+</span></div>
+          <div class="trust-label">Cases Won</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-num">98<span>%</span></div>
+          <div class="trust-label">Success Rate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal-right delay-2">
+      <div class="hero-card">
+        <div class="hero-badge">
+          <div class="num">A+</div>
+          <div class="label">Rated<br>Firm</div>
+        </div>
+        <div class="hero-card-title">Practice Areas</div>
+        <ul class="hero-practice-list">
+          <li>Family &amp; Divorce Law</li>
+          <li>Criminal Defense</li>
+          <li>Corporate &amp; Business Law</li>
+          <li>Real Estate Litigation</li>
+          <li>Personal Injury</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MARQUEE ───────────────────────────────────────────────── -->
+<div id="strip">
+  <div class="strip-track" aria-hidden="true">
+    <!-- doubled for seamless loop -->
+    <div class="strip-item">Family Law <span class="strip-dot"></span></div>
+    <div class="strip-item">Criminal Defense <span class="strip-dot"></span></div>
+    <div class="strip-item">Corporate Law <span class="strip-dot"></span></div>
+    <div class="strip-item">Real Estate <span class="strip-dot"></span></div>
+    <div class="strip-item">Banking Law <span class="strip-dot"></span></div>
+    <div class="strip-item">Personal Injury <span class="strip-dot"></span></div>
+    <div class="strip-item">Markets &amp; Securities <span class="strip-dot"></span></div>
+    <div class="strip-item">Education Law <span class="strip-dot"></span></div>
+    <div class="strip-item">Family Law <span class="strip-dot"></span></div>
+    <div class="strip-item">Criminal Defense <span class="strip-dot"></span></div>
+    <div class="strip-item">Corporate Law <span class="strip-dot"></span></div>
+    <div class="strip-item">Real Estate <span class="strip-dot"></span></div>
+    <div class="strip-item">Banking Law <span class="strip-dot"></span></div>
+    <div class="strip-item">Personal Injury <span class="strip-dot"></span></div>
+    <div class="strip-item">Markets &amp; Securities <span class="strip-dot"></span></div>
+    <div class="strip-item">Education Law <span class="strip-dot"></span></div>
+  </div>
+</div>
+
+<!-- ── PRACTICE AREAS ────────────────────────────────────────── -->
+<section id="practice">
+  <div class="container">
+    <div class="practice-header">
+      <div class="reveal">
+        <div class="accent-line"><span class="accent-label">What We Do</span></div>
+        <h2 class="section-title">Legal expertise<br /><em>across every domain.</em></h2>
+        <p class="lead-text">From individual disputes to complex corporate litigation, our attorneys bring decades of focused experience to every matter we handle.</p>
+      </div>
+      <div class="practice-header-right reveal delay-2">
+        <a href="#services" class="btn btn-outline-gold btn-arrow">All Services</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 0 40px; max-width: 1240px; margin: 0 auto;">
+    <div class="practice-grid">
+      <div class="practice-card reveal delay-1">
+        <div class="practice-num">01</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+        <h4>Family Law</h4>
+        <p>Compassionate guidance through divorce, custody, and adoption proceedings.</p>
+      </div>
+      <div class="practice-card reveal delay-2">
+        <div class="practice-num">02</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M13 2v1.26l7 2.33V7h1v2h-1.09L17 17h3v2H4v-2h3L4.09 9H3V7h1V5.59l7-2.33V2h2zm-1 3.06L6.17 7H17.8L12 5.06zM7.1 9l2.45 8H9.6L7.1 9zm9.8 0l-2.5 8h.06l2.44-8z"/></svg></div>
+        <h4>Criminal Defense</h4>
+        <p>Aggressive representation to protect your rights at every stage of proceedings.</p>
+      </div>
+      <div class="practice-card reveal delay-3">
+        <div class="practice-num">03</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.99 16.01 1 13.5 1h-3C8 1 6 2.99 6 4.66c0 .46.11.9.18 1.34H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6.5-3c.83 0 1.5.67 1.5 1.5S14.33 6 13.5 6h-3C9.67 6 9 5.33 9 4.5S9.67 3 10.5 3h3zM20 19H4V8h16v11z"/></svg></div>
+        <h4>Business Law</h4>
+        <p>From incorporation to complex M&amp;A disputes we protect your enterprise.</p>
+      </div>
+      <div class="practice-card reveal delay-4">
+        <div class="practice-num">04</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+        <h4>Real Estate</h4>
+        <p>Expert counsel for property transactions, disputes, and development matters.</p>
+      </div>
+      <div class="practice-card reveal delay-1">
+        <div class="practice-num">05</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zM11.5 1L2 6v2h19V6l-9.5-5z"/></svg></div>
+        <h4>Banking Law</h4>
+        <p>Regulatory compliance, lending disputes, and financial institution matters.</p>
+      </div>
+      <div class="practice-card reveal delay-2">
+        <div class="practice-num">06</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/></svg></div>
+        <h4>Personal Injury</h4>
+        <p>Fighting for maximum compensation after accidents and negligence claims.</p>
+      </div>
+      <div class="practice-card reveal delay-3">
+        <div class="practice-num">07</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18V15c0 1.1 2.69 3 7 3s7-1.9 7-3v-3.82L22 9 12 3z"/></svg></div>
+        <h4>Education Law</h4>
+        <p>Protecting student rights, faculty disputes, and institutional compliance.</p>
+      </div>
+      <div class="practice-card reveal delay-4">
+        <div class="practice-num">08</div>
+        <div class="practice-icon-wrap"><svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99l1.5 1.5z"/></svg></div>
+        <h4>Markets &amp; Securities</h4>
+        <p>Securities litigation, regulatory enforcement, and investor protection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY CHOOSE US ──────────────────────────────────────────── -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-visual reveal-left">
+        <img
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=85"
+          alt="Senior Attorney"
+          class="why-img-main"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&q=80"
+          alt="Courtroom"
+          class="why-img-accent"
+        />
+        <div class="why-badge-float">
+          <div class="big">25+</div>
+          <div class="small">Years of<br />Excellence</div>
+        </div>
+      </div>
+
+      <div class="why-text reveal-right">
+        <div class="accent-line"><span class="accent-label">Why Choose Leolaw</span></div>
+        <h2 class="section-title">A firm built on <em>trust, results,</em> and integrity.</h2>
+        <p>At Leolaw, we don't just practice law we live it. Our attorneys have successfully handled thousands of cases across diverse practice areas, building a reputation for thoroughness and results that speak for themselves.</p>
+        <p>Every client deserves personalized attention. We listen carefully, strategize precisely, and advocate fiercely because your future matters to us as much as it does to you.</p>
+
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="feature-num">01</div>
+            <div class="feature-text">
+              <h5>Unmatched Legal Defense</h5>
+              <p>Aggressive courtroom representation backed by decades of precedent knowledge and strategic thinking.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="feature-num">02</div>
+            <div class="feature-text">
+              <h5>Board-Certified Specialists</h5>
+              <p>Every practice area staffed with dedicated, credentialed specialists not generalists.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="feature-num">03</div>
+            <div class="feature-text">
+              <h5>Client-First Approach</h5>
+              <p>One client at a time. We limit our caseload so your matter always gets our full attention.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-signature">
+          <img
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&q=80"
+            alt="Michael Phillips"
+            class="sig-avatar"
+          />
+          <div class="sig-info">
+            <strong>Michael Phillips</strong>
+            <span>Senior Partner &amp; Founder, Leolaw</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ─────────────────────────────────────────────────── -->
+<section id="stats">
+  <div class="container" style="padding: 0;">
+    <div class="stats-grid">
+      <div class="stat-box reveal">
+        <div class="stat-num"><span class="counter" data-target="840">0</span><span class="suffix">+</span></div>
+        <div class="stat-label">Business Partners</div>
+      </div>
+      <div class="stat-box reveal delay-1">
+        <div class="stat-num"><span class="counter" data-target="1240">0</span><span class="suffix">+</span></div>
+        <div class="stat-label">Cases Won</div>
+      </div>
+      <div class="stat-box reveal delay-2">
+        <div class="stat-num"><span class="counter" data-target="98">0</span><span class="suffix">%</span></div>
+        <div class="stat-label">Success Rate</div>
+      </div>
+      <div class="stat-box reveal delay-3">
+        <div class="stat-num"><span class="counter" data-target="320">0</span><span class="suffix">+</span></div>
+        <div class="stat-label">Expert Attorneys</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ────────────────────────────────────────────────── -->
+<section id="process">
+  <div class="container">
+    <div class="process-header">
+      <div class="accent-line reveal"><span class="accent-label" style="color:var(--gold);">Our Process</span></div>
+      <h2 class="section-title section-title--light reveal delay-1">Three steps to <em>your best outcome.</em></h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-step-num">01</div>
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+        </div>
+        <h4>Free Consultation</h4>
+        <p>Schedule a confidential, no-obligation consultation with a senior attorney. We assess your case and outline your options clearly and honestly.</p>
+      </div>
+      <div class="process-step reveal delay-2">
+        <div class="process-step-num">02</div>
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+        </div>
+        <h4>Strategic Review</h4>
+        <p>We analyze every document and piece of evidence thoroughly. Our team builds the most robust possible strategy tailored to your specific circumstances.</p>
+      </div>
+      <div class="process-step reveal delay-4">
+        <div class="process-step-num">03</div>
+        <div class="step-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        </div>
+        <h4>Transparent Pricing</h4>
+        <p>No hidden fees. We provide clear, competitive pricing with flexible payment plans so legal excellence remains accessible to everyone who needs it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ────────────────────────────────────────────────── -->
+<section id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="reveal">
+        <div class="accent-line"><span class="accent-label">Our Services</span></div>
+        <h2 class="section-title">Legal solutions <em>tailored to you.</em></h2>
+      </div>
+      <a href="#cases" class="btn btn-outline-gold btn-arrow reveal delay-2">All Services</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal delay-1">
+        <div class="service-img-wrap">
+          <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Family Law" />
+          <div class="service-img-overlay"></div>
+          <div class="service-cat-tag">Personal</div>
+        </div>
+        <div class="service-body">
+          <h3>Family &amp; Divorce Law</h3>
+          <p>Compassionate representation for divorce, custody, adoption, and all family matters with sensitivity and absolute discretion.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="service-img-wrap">
+          <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&q=80" alt="Criminal Defense" />
+          <div class="service-img-overlay"></div>
+          <div class="service-cat-tag">Criminal</div>
+        </div>
+        <div class="service-body">
+          <h3>Criminal Defense</h3>
+          <p>Aggressive, strategic representation to protect your rights and freedom at every stage of the criminal justice process.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+      <div class="service-card reveal delay-3">
+        <div class="service-img-wrap">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80" alt="Business Law" />
+          <div class="service-img-overlay"></div>
+          <div class="service-cat-tag">Business</div>
+        </div>
+        <div class="service-body">
+          <h3>Corporate &amp; Business Law</h3>
+          <p>From incorporation to contracts, mergers, and disputes we help businesses operate securely and grow confidently.</p>
+          <a href="#" class="read-more">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ───────────────────────────────────────────────────── -->
+<section id="team">
+  <div class="container">
+    <div class="team-header reveal">
+      <div class="accent-line" style="justify-content:center;"><span class="accent-label">Our Attorneys</span></div>
+      <h2 class="section-title">Meet the minds<br /><em>behind your case.</em></h2>
+      <p class="lead-text" style="margin: 0 auto;">Board-certified specialists with decades of combined experience across every major area of law.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal delay-1">
+        <div class="team-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&q=80" alt="John Fletcher" class="team-photo" />
+          <div class="team-overlay"></div>
+          <div class="team-content">
+            <span>Criminal Lawyer</span>
+            <h4>John Fletcher</h4>
+            <div class="team-social-row">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="Twitter">tw</a>
+              <a href="#" aria-label="Facebook">fb</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal delay-2">
+        <div class="team-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80" alt="Michael Wagou" class="team-photo" />
+          <div class="team-overlay"></div>
+          <div class="team-content">
+            <span>Corporate Lawyer</span>
+            <h4>Michael Wagou</h4>
+            <div class="team-social-row">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="Twitter">tw</a>
+              <a href="#" aria-label="Facebook">fb</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card reveal delay-3">
+        <div class="team-photo-wrap">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&q=80" alt="Alex Mitchell" class="team-photo" />
+          <div class="team-overlay"></div>
+          <div class="team-content">
+            <span>General Lawyer</span>
+            <h4>Alex Mitchell</h4>
+            <div class="team-social-row">
+              <a href="#" aria-label="LinkedIn">in</a>
+              <a href="#" aria-label="Twitter">tw</a>
+              <a href="#" aria-label="Facebook">fb</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ───────────────────────────────────────────── -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testi-header reveal">
+      <div class="accent-line" style="justify-content:center;"><span class="accent-label">Testimonials</span></div>
+      <h2 class="section-title section-title--light">What our clients <em>say about us.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal delay-1">
+        <div class="testi-quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">
+          Leolaw handled my property dispute with exceptional professionalism. Their team was thorough, responsive, and delivered beyond every expectation.
+          I felt truly supported every step of the way. I cannot recommend them enough.
+        </p>
+        <div class="testi-person">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&q=80" alt="John Smith" class="testi-avatar" />
+          <div class="testi-name">
+            <strong>John Smith</strong>
+            <span>Building Owner, New York</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal delay-2">
+        <div class="testi-quote-mark">"</div>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">
+          I was overwhelmed navigating the legal system alone. Leolaw stepped in and made the entire process clear and manageable. Their attorneys are
+          knowledgeable, patient, and genuinely care about their clients' outcomes.
+        </p>
+        <div class="testi-person">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80" alt="Allien John" class="testi-avatar" />
+          <div class="testi-name">
+            <strong>Allien John</strong>
+            <span>Client, 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TIMELINE ───────────────────────────────────────────────── -->
+<section id="timeline">
+  <div class="container">
+    <div class="timeline-header reveal">
+      <div class="accent-line" style="justify-content:center;"><span class="accent-label">Our History</span></div>
+      <h2 class="section-title">Built over decades. <em>Trusted by thousands.</em></h2>
+      <p class="lead-text" style="margin: 16px auto 0; text-align:center;">From a two-partner firm on Manhattan's Lower East Side to one of New York's most recognized legal practices.</p>
+    </div>
+    <div class="timeline-track">
+      <div class="timeline-item reveal delay-1">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1981</div>
+        <div class="tl-event">The Firm Is Founded</div>
+        <p class="tl-desc">Partners Michael Phillips and David Reeves established Leolaw in a single-room office in Lower Manhattan, taking on their first family law and criminal defense cases with a commitment to client-first representation.</p>
+      </div>
+      <div class="timeline-item reveal delay-2">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1996</div>
+        <div class="tl-event">Landmark Case Victory</div>
+        <p class="tl-desc">Leolaw secured a $14.2M verdict in a complex corporate fraud case at the time one of the largest civil judgments in the Southern District of New York establishing the firm's reputation in high-stakes litigation.</p>
+      </div>
+      <div class="timeline-item reveal delay-3">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2008</div>
+        <div class="tl-event">Expansion &amp; Recognition</div>
+        <p class="tl-desc">Following rapid growth to 80+ attorneys across four practice groups, Leolaw was named to the New York Law Journal's "Go-To Law Firms" list and opened its second office in Midtown, specializing in real estate and business law.</p>
+      </div>
+      <div class="timeline-item reveal delay-4">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2019</div>
+        <div class="tl-event">Rated #1 in New York</div>
+        <p class="tl-desc">With over 1,200 cases won and a 98% client success rate, Leolaw received the AV Preeminent® rating from Martindale-Hubbell and was ranked among the top 10 personal injury and criminal defense firms in New York State.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES + CONTACT ────────────────────────────────── -->
+<section id="cases">
+  <div class="container">
+    <div class="cases-inner">
+      <div>
+        <div class="cases-header reveal">
+          <div class="accent-line"><span class="accent-label">Recent Posts</span></div>
+          <h2 class="section-title">Recent <em>Case Studies</em></h2>
+        </div>
+        <div class="blog-grid">
+          <div class="blog-card reveal delay-1">
+            <div class="blog-img">
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Family Mediation" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-date">June 13, 2019</span>
+                <span class="blog-cat">Family</span>
+              </div>
+              <h4>How Is Mediation Useful in Family Law?</h4>
+            </div>
+          </div>
+          <div class="blog-card reveal delay-2">
+            <div class="blog-img">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="Corporate Contracts" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-date">June 13, 2019</span>
+                <span class="blog-cat">Business</span>
+              </div>
+              <h4>Corporate Liability in Cross-Border Contracts</h4>
+            </div>
+          </div>
+          <div class="blog-card reveal delay-3">
+            <div class="blog-img">
+              <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=600&q=80" alt="Criminal Hearing" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-date">May 20, 2019</span>
+                <span class="blog-cat">Criminal</span>
+              </div>
+              <h4>What to Know Before Your First Criminal Hearing</h4>
+            </div>
+          </div>
+          <div class="blog-card reveal delay-4">
+            <div class="blog-img">
+              <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&q=80" alt="Civil Protection" style="width:100%;height:100%;object-fit:cover;" />
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta">
+                <span class="blog-date">Apr 8, 2019</span>
+                <span class="blog-cat">Civil</span>
+              </div>
+              <h4>Stopping Domestic Violence Through Civil Protection Orders</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap reveal delay-2">
+        <div class="accent-line"><span class="accent-label">Get In Touch</span></div>
+        <h3>Send Us a Message</h3>
+        <p class="lead-text">Fill out the form and one of our senior attorneys will respond within 24 hours.</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" placeholder="First Name" required aria-label="First Name" />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Last Name" required aria-label="Last Name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email Address" required aria-label="Email" />
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number" aria-label="Phone" />
+          </div>
+          <div class="form-group">
+            <select aria-label="Practice Area">
+              <option value="" disabled selected>Select Practice Area</option>
+              <option>Family Law</option>
+              <option>Criminal Defense</option>
+              <option>Business Law</option>
+              <option>Real Estate</option>
+              <option>Personal Injury</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Describe your legal matter…" required aria-label="Message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">Send Message →</button>
+          <p id="formMsg" style="margin-top:14px;font-size:0.82rem;color:var(--gold);display:none;text-align:center;">
+            ✓ Message received. We'll be in touch within 24 hours.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AWARDS ─────────────────────────────────────────────────── -->
+<section id="awards">
+  <div class="container">
+    <div class="awards-inner">
+      <div class="award-item reveal">
+        <div class="award-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <span>Best Law Firm 2023</span>
+      </div>
+      <div class="award-item reveal delay-1">
+        <div class="award-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div>
+        <span>AV Preeminent Rated</span>
+      </div>
+      <div class="award-item reveal delay-2">
+        <div class="award-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+        <span>Super Lawyers 2022</span>
+      </div>
+      <div class="award-item reveal delay-3">
+        <div class="award-icon"><svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.34C18 2.99 16.01 1 13.5 1h-3C8 1 6 2.99 6 4.66c0 .46.11.9.18 1.34H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2z"/></svg></div>
+        <span>Top 100 Trial Lawyers</span>
+      </div>
+      <div class="award-item reveal delay-4">
+        <div class="award-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+        <span>Fortune 500 Counsel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="footer-logo"><img src="logo.png" alt="Leolaw" style="height:80px;width:auto;display:block;margin-bottom:16px;" /></a>
+        <p class="footer-about">
+          Leolaw has been a trusted name in legal advocacy since 1981. We are committed to justice, integrity,
+          and putting clients first one case at a time, across five continents.
+        </p>
+        <form class="newsletter-form" onsubmit="return false;">
+          <input type="email" placeholder="Your email address…" aria-label="Newsletter email" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#practice">Practice Areas</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#cases">Case Studies</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="#services">Family Law</a></li>
+          <li><a href="#services">Business Law</a></li>
+          <li><a href="#services">Criminal Defense</a></li>
+          <li><a href="#practice">Real Estate</a></li>
+          <li><a href="#practice">Personal Injury</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          </div>
+          <div class="footer-contact-text">123 Justice Avenue<br />New York, NY 10001</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div class="footer-contact-text">+1 (800) 555-0199</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="footer-contact-text">contact@leolaw.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div class="container">
+      <div class="footer-bar-inner">
+        <p>© 2026 Leolaw Law Firm. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><img src="fb.png" alt="Facebook" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'" /></a>
+          <a href="#" aria-label="Instagram"><img src="IG.png" alt="Instagram" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'" /></a>
+          <a href="#" aria-label="TikTok"><img src="tt.png" alt="TikTok" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'" /></a>
+          <a href="#" aria-label="YouTube"><img src="YT.png" alt="YouTube" style="width:16px;height:16px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.5;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</div>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+<script>
+  /* Cursor glow */
+  const glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+  });
+
+  /* Hero bg subtle zoom on load */
+  const heroBg = document.getElementById('heroBg');
+  setTimeout(() => heroBg.classList.add('loaded'), 100);
+
+  /* Nav scroll */
+  const navbar = document.getElementById('navbar');
+  const backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    backTop.classList.toggle('show', window.scrollY > 500);
+  }, { passive: true });
+
+  /* Hamburger */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  /* Scroll reveal */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('up');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* Stats counter */
+  const counters = document.querySelectorAll('.counter[data-target]');
+  let counted = false;
+  function animateCounters() {
+    if (counted) return;
+    counted = true;
+    counters.forEach(el => {
+      const target = +el.dataset.target;
+      const duration = 2000;
+      const start = performance.now();
+      (function step(now) {
+        const p = Math.min((now start) / duration, 1);
+        const ease = 1 Math.pow(1 p, 4);
+        el.textContent = Math.round(ease * target).toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+      })(performance.now());
+    });
+  }
+  const statsSection = document.getElementById('stats');
+  new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) animateCounters();
+  }, { threshold: 0.3 }).observe(statsSection);
+
+  /* Contact form */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const msg = document.getElementById('formMsg');
+    msg.style.display = 'block';
+    e.target.reset();
+    setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  }
+</script>
+</body>
+</html>

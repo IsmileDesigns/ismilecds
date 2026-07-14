@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidamo Specialty Coffee</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --dark:   #0c0804;
+            --dark2:  #161008;
+            --brown:  #7a5133;
+            --gold:   #c8a96e;
+            --cream:  #f4ede3;
+            --muted:  #9a7d60;
+            --white:  #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 22px 64px;
+            display: flex; justify-content: space-between; align-items: center;
+            transition: background .35s, padding .35s;
+        }
+        nav.scrolled {
+            background: rgba(12,8,4,.94);
+            backdrop-filter: blur(12px);
+            padding: 14px 64px;
+            border-bottom: 1px solid rgba(200,169,110,.12);
+        }
+        .nav-logo img { height: 48px; width: auto; }
+        .nav-links { display: flex; gap: 40px; list-style: none; }
+        .nav-links a {
+            color: rgba(244,237,227,.8); text-decoration: none;
+            font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+            font-weight: 400; transition: color .3s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-cta {
+            border: 1px solid var(--gold); color: var(--gold);
+            padding: 10px 26px; font-size: 11px; letter-spacing: 2px;
+            text-transform: uppercase; text-decoration: none;
+            font-family: 'Inter', sans-serif; transition: all .3s;
+        }
+        .nav-cta:hover { background: var(--gold); color: var(--dark); }
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .nav-toggle span { width: 24px; height: 1px; background: var(--cream); display: block; }
+
+        /* ─── HERO ─── */
+        #hero {
+            height: 100vh; min-height: 720px;
+            position: relative; display: flex; align-items: center;
+            overflow: hidden; background: var(--dark);
+        }
+        .hero-radial {
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse 60% 70% at 68% 55%, rgba(122,81,51,.22) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            padding: 0 64px; max-width: 620px;
+        }
+        .eyebrow {
+            font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 26px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .eyebrow::before { content:''; width: 38px; height: 1px; background: var(--gold); flex-shrink: 0; }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(54px, 7.5vw, 100px);
+            line-height: 0.9; font-weight: 400;
+            color: var(--white); margin-bottom: 28px;
+        }
+        .hero-title em { font-style: italic; color: var(--gold); }
+        .hero-sub {
+            font-size: 16px; line-height: 1.85; color: var(--muted);
+            font-weight: 300; margin-bottom: 48px; max-width: 400px;
+        }
+        .hero-btns { display: flex; gap: 24px; align-items: center; }
+        .btn-primary {
+            background: var(--gold); color: var(--dark);
+            padding: 16px 42px; text-decoration: none;
+            font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+            font-weight: 600; font-family: 'Inter', sans-serif; transition: all .3s; display: inline-block;
+        }
+        .btn-primary:hover { background: var(--cream); transform: translateY(-2px); }
+        .btn-ghost {
+            color: rgba(244,237,227,.75); text-decoration: none;
+            font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+            border-bottom: 1px solid rgba(244,237,227,.3); padding-bottom: 2px; transition: all .3s;
+        }
+        .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+        /* Hero bean image large, right side */
+        .hero-bean {
+            position: absolute; right: -60px; top: 50%;
+            transform: translateY(-50%);
+            width: 58%; max-width: 820px;
+            z-index: 1;
+            animation: beanFloat 7s ease-in-out infinite;
+            filter: drop-shadow(0 40px 80px rgba(0,0,0,.7));
+        }
+        @keyframes beanFloat {
+            0%,100% { transform: translateY(-50%) translateX(0) rotate(0deg); }
+            50%      { transform: translateY(-53%) translateX(-14px) rotate(1.5deg); }
+        }
+
+        .hero-scroll {
+            position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            color: var(--muted); font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+            z-index: 2;
+        }
+        .scroll-bar {
+            width: 1px; height: 48px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            animation: scrollPulse 2.2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+            50%  { opacity: 1; transform: scaleY(1); transform-origin: top; }
+            100% { opacity: 0; transform: scaleY(1); transform-origin: top; }
+        }
+
+        /* ─── STATS BAR ─── */
+        .stats-bar {
+            background: var(--brown);
+            padding: 32px 64px;
+            display: grid; grid-template-columns: repeat(4,1fr); gap: 0;
+        }
+        .stat { text-align: center; border-right: 1px solid rgba(255,255,255,.18); }
+        .stat:last-child { border-right: none; }
+        .stat-num { font-family: 'Playfair Display', serif; font-size: 44px; color: var(--white); font-weight: 700; }
+        .stat-lbl { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.65); margin-top: 4px; }
+
+        /* ─── ABOUT ─── */
+        #about {
+            padding: 130px 64px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center;
+            background: var(--dark2);
+        }
+        .sec-tag {
+            font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 22px;
+            display: flex; align-items: center; gap: 14px;
+        }
+        .sec-tag::before { content:''; width: 30px; height: 1px; background: var(--gold); flex-shrink: 0; }
+        .sec-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 4vw, 58px); line-height: 0.95;
+            font-weight: 400; color: var(--white); margin-bottom: 24px;
+        }
+        .sec-title em { font-style: italic; color: var(--gold); }
+        .sec-text { font-size: 15px; line-height: 1.95; color: var(--muted); font-weight: 300; margin-bottom: 14px; }
+
+        .img-stack { position: relative; height: 570px; }
+        .img-main {
+            position: absolute; right: 0; top: 0;
+            width: 80%; height: 460px; object-fit: cover;
+        }
+        .img-accent {
+            position: absolute; left: 0; bottom: 0;
+            width: 52%; height: 285px; object-fit: cover;
+            border: 6px solid var(--dark2);
+        }
+        .img-badge {
+            position: absolute; right: -8px; bottom: 90px;
+            background: var(--gold); color: var(--dark);
+            width: 118px; height: 118px; border-radius: 50%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif; text-align: center;
+        }
+        .img-badge .yr { font-size: 34px; font-weight: 700; line-height: 1; }
+        .img-badge .yr-lbl { font-size: 10px; letter-spacing: 1px; margin-top: 3px; }
+
+        /* ─── SPECIALTIES ─── */
+        #specialties { padding: 130px 64px; background: var(--dark); }
+        .sec-hdr { text-align: center; margin-bottom: 72px; }
+        .sec-hdr .sec-tag { justify-content: center; }
+        .sec-hdr .sec-tag::before { display: none; }
+        .sec-hdr .sec-tag::after { content:''; width: 30px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+        .spec-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+        .spec-card {
+            text-align: center; padding: 52px 32px;
+            border: 1px solid rgba(200,169,110,.14); position: relative; overflow: hidden;
+            transition: border-color .35s, transform .35s;
+        }
+        .spec-card::after {
+            content:''; position: absolute; inset: 0;
+            background: rgba(200,169,110,.06); opacity: 0; transition: opacity .35s;
+        }
+        .spec-card:hover { border-color: var(--gold); transform: translateY(-6px); }
+        .spec-card:hover::after { opacity: 1; }
+        .spec-img { width: 130px; height: 130px; object-fit: contain; margin-bottom: 26px; }
+        .spec-name { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--white); margin-bottom: 14px; }
+        .spec-desc { font-size: 14px; color: var(--muted); line-height: 1.85; font-weight: 300; }
+
+        /* ─── MENU ─── */
+        #menu { padding: 130px 64px; background: var(--dark2); }
+        .menu-tabs {
+            display: flex; justify-content: center; gap: 0; margin-bottom: 52px;
+            border-bottom: 1px solid rgba(200,169,110,.18);
+        }
+        .m-tab {
+            padding: 14px 34px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+            cursor: pointer; color: var(--muted); background: none; border: none;
+            border-bottom: 2px solid transparent; margin-bottom: -1px;
+            font-family: 'Inter', sans-serif; transition: all .3s;
+        }
+        .m-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+        .m-tab:hover { color: var(--gold); }
+        .m-panel { display: none; }
+        .m-panel.active { display: block; }
+        .menu-grid { display: grid; grid-template-columns: repeat(2,1fr); }
+        .m-item {
+            display: flex; gap: 20px;
+            padding: 28px 40px 28px 0;
+            border-bottom: 1px solid rgba(200,169,110,.09); align-items: flex-start;
+        }
+        .m-item:nth-child(even) {
+            padding-left: 40px; padding-right: 0;
+            border-left: 1px solid rgba(200,169,110,.09);
+        }
+        .m-thumb {
+            width: 68px; height: 68px; object-fit: cover;
+            border-radius: 50%; flex-shrink: 0;
+        }
+        .m-info { flex: 1; }
+        .m-head { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .m-name { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--white); font-weight: 500; }
+        .m-price { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--gold); font-weight: 600; }
+        .m-desc { font-size: 13px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+        /* ─── GALLERY ─── */
+        #gallery { padding: 130px 64px; background: var(--dark); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: 290px 290px;
+            gap: 10px; margin-top: 60px;
+        }
+        .g-item { overflow: hidden; position: relative; }
+        .g-item:first-child { grid-row: span 2; }
+        .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+        .g-item:hover img { transform: scale(1.06); }
+        .g-overlay {
+            position: absolute; inset: 0;
+            background: rgba(122,81,51,.48); opacity: 0; transition: opacity .3s;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 30px;
+        }
+        .g-item:hover .g-overlay { opacity: 1; }
+
+        /* ─── TESTIMONIALS ─── */
+        #testimonials {
+            padding: 130px 64px; background: var(--brown); position: relative; overflow: hidden;
+        }
+        #testimonials::before {
+            content: '\201C'; position: absolute; top: -60px; left: 30px;
+            font-family: 'Playfair Display', serif; font-size: 420px;
+            color: rgba(255,255,255,.05); line-height: 1; pointer-events: none;
+        }
+        .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 60px; }
+        .test-card { background: rgba(255,255,255,.08); padding: 42px 36px; backdrop-filter: blur(8px); }
+        .test-stars { color: var(--gold); margin-bottom: 20px; letter-spacing: 3px; }
+        .test-quote {
+            font-family: 'Playfair Display', serif; font-style: italic;
+            font-size: 16px; line-height: 1.85; color: var(--white); margin-bottom: 28px;
+        }
+        .test-author { display: flex; align-items: center; gap: 14px; }
+        .test-avatar {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center;
+            font-family: 'Playfair Display', serif; font-size: 18px; color: white; flex-shrink: 0;
+        }
+        .test-name { font-weight: 600; font-size: 14px; color: white; }
+        .test-role { font-size: 12px; color: rgba(255,255,255,.55); margin-top: 2px; }
+
+        /* ─── RESERVATION ─── */
+        #reservation {
+            padding: 130px 64px; background: var(--dark2);
+            display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center;
+        }
+        .res-info h2 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 54px); line-height: 0.95; color: var(--white); margin-bottom: 22px; }
+        .res-info h2 em { font-style: italic; color: var(--gold); }
+        .res-info p { font-size: 15px; line-height: 1.9; color: var(--muted); margin-bottom: 40px; font-weight: 300; }
+        .hours { display: grid; gap: 0; }
+        .h-row {
+            display: flex; justify-content: space-between;
+            padding: 14px 0; border-bottom: 1px solid rgba(200,169,110,.1);
+        }
+        .h-day { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+        .h-time { font-size: 12px; color: var(--gold); font-weight: 500; }
+
+        .res-form {
+            background: rgba(255,255,255,.03); padding: 50px;
+            border: 1px solid rgba(200,169,110,.14);
+        }
+        .form-ttl { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--white); margin-bottom: 30px; }
+        .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+        .f-group { display: flex; flex-direction: column; margin-bottom: 14px; }
+        .f-group label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+        .f-group input, .f-group select, .f-group textarea {
+            background: rgba(255,255,255,.04); border: 1px solid rgba(200,169,110,.2);
+            color: var(--cream); padding: 13px 16px; font-family: 'Inter', sans-serif;
+            font-size: 14px; outline: none; transition: border-color .3s;
+        }
+        .f-group input:focus, .f-group select:focus, .f-group textarea:focus { border-color: var(--gold); }
+        .f-group select option { background: var(--dark2); }
+        .f-group textarea { resize: none; height: 80px; }
+        .f-submit {
+            width: 100%; background: var(--gold); color: var(--dark);
+            padding: 16px; font-family: 'Inter', sans-serif; font-size: 11px;
+            letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600;
+            border: none; cursor: pointer; transition: all .3s; margin-top: 6px;
+        }
+        .f-submit:hover { background: var(--cream); transform: translateY(-2px); }
+
+        /* ─── FOOTER ─── */
+        footer { background: var(--dark); padding: 72px 64px 28px; border-top: 1px solid rgba(200,169,110,.1); }
+        .footer-top { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 56px; }
+        .f-brand img { height: 46px; margin-bottom: 20px; }
+        .f-brand p { font-size: 14px; color: var(--muted); line-height: 1.8; font-weight: 300; margin-bottom: 24px; }
+        .socials { display: flex; gap: 10px; }
+        .soc {
+            width: 36px; height: 36px; border: 1px solid rgba(200,169,110,.3);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 600;
+            transition: all .3s;
+        }
+        .soc:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+        .f-col h4 { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+        .f-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+        .f-col ul li a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .3s; }
+        .f-col ul li a:hover { color: var(--gold); }
+        .f-col address { font-style: normal; font-size: 14px; color: var(--muted); line-height: 1.9; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 28px; border-top: 1px solid rgba(200,169,110,.08);
+        }
+        .footer-bottom p { font-size: 12px; color: rgba(154,125,96,.45); }
+
+        /* ─── SCROLL ANIMATIONS ─── */
+        .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+        .fade-up.in { opacity: 1; transform: translateY(0); }
+        .fade-up:nth-child(2) { transition-delay: .12s; }
+        .fade-up:nth-child(3) { transition-delay: .24s; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1100px) {
+            nav, nav.scrolled { padding-left: 40px; padding-right: 40px; }
+            #about, #menu, #specialties, #gallery, #testimonials, #reservation, footer { padding-left: 40px; padding-right: 40px; }
+            .stats-bar { padding: 28px 40px; }
+            .hero-content { padding: 0 40px; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 16px 24px; }
+            nav.scrolled { padding: 12px 24px; }
+            .nav-links, .nav-cta { display: none; }
+            .nav-toggle { display: flex; }
+            .hero-content { padding: 0 24px; max-width: 100%; }
+            .hero-bean { width: 100%; right: -25%; opacity: .18; }
+            .stats-bar { grid-template-columns: repeat(2,1fr); padding: 24px; gap: 0; }
+            .stat:nth-child(2) { border-right: none; }
+            .stat:nth-child(3) { border-top: 1px solid rgba(255,255,255,.1); }
+            #about { grid-template-columns: 1fr; padding: 80px 24px; gap: 40px; }
+            .img-stack { height: 360px; }
+            #specialties { padding: 80px 24px; }
+            .spec-grid { grid-template-columns: 1fr; gap: 20px; }
+            #menu { padding: 80px 24px; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .m-item:nth-child(even) { padding-left: 0; border-left: none; }
+            #gallery { padding: 80px 24px; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+            .g-item:first-child { grid-row: span 1; }
+            #testimonials { padding: 80px 24px; }
+            .test-grid { grid-template-columns: 1fr; }
+            #reservation { grid-template-columns: 1fr; padding: 80px 24px; gap: 48px; }
+            .res-form { padding: 30px 24px; }
+            .f-row { grid-template-columns: 1fr; }
+            footer { padding: 60px 24px 24px; }
+            .footer-top { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav id="nav">
+    <a href="#hero" class="nav-logo"><img src="Logo-sidamo.png" alt="Sidamo Coffee"></a>
+    <ul class="nav-links">
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#specialties">Specialties</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reservation">Visit Us</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+    <div class="hero-radial"></div>
+    <div class="hero-content">
+        <div class="eyebrow fade-up">Specialty Coffee</div>
+        <h1 class="hero-title fade-up">Where Every<br><em>Cup</em> Tells<br>a Story</h1>
+        <p class="hero-sub fade-up">Sourced from the highlands of Ethiopia, roasted with intention, and brewed with care coffee the way it was always meant to be.</p>
+        <div class="hero-btns fade-up">
+            <a href="#menu" class="btn-primary">Explore Menu</a>
+            <a href="#about" class="btn-ghost">Our Story</a>
+        </div>
+    </div>
+    <!-- Hero coffee bean large floating PNG -->
+    <img
+        src="fallingcoffeebeans.png"
+        alt="Coffee Beans"
+        class="hero-bean"
+    >
+</section>
+
+<!-- ─── STATS BAR ─── -->
+<div class="stats-bar">
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-lbl">Origins Sourced</div></div>
+    <div class="stat"><div class="stat-num">8K+</div><div class="stat-lbl">Happy Guests</div></div>
+    <div class="stat"><div class="stat-num">25</div><div class="stat-lbl">Menu Items</div></div>
+    <div class="stat"><div class="stat-num">4.9</div><div class="stat-lbl">Average Rating</div></div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+    <div class="fade-up">
+        <div class="sec-tag">Our Story</div>
+        <h2 class="sec-title">Rooted in <em>Ethiopian</em> Coffee Heritage</h2>
+        <p class="sec-text">Sidamo takes its name from one of Ethiopia's most celebrated coffee-growing regions the birthplace of coffee itself. We honour that legacy by sourcing beans directly from smallholder farms and presenting them in their most expressive form.</p>
+        <p class="sec-text">Every drink we serve is a reflection of craft, patience, and a deep respect for the land and people behind each bean. We believe great coffee is the result of an unbroken chain of care, from soil to your cup.</p>
+        <a href="#menu" class="btn-primary" style="margin-top:20px;display:inline-block;">View Our Menu</a>
+    </div>
+    <div class="img-stack fade-up">
+        <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39368.jpg" alt="Coffee ritual" class="img-main">
+        <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39393.jpg" alt="Coffee preparation" class="img-accent">
+        <div class="img-badge"><span class="yr">2018</span><span class="yr-lbl">Est.</span></div>
+    </div>
+</section>
+
+<!-- ─── SPECIALTIES ─── -->
+<section id="specialties">
+    <div class="sec-hdr fade-up">
+        <div class="sec-tag">What We Offer</div>
+        <h2 class="sec-title">Our <em>Signature</em> Creations</h2>
+    </div>
+    <div class="spec-grid">
+        <div class="spec-card fade-up">
+            <img src="hot-coffee-in-a-white-cup-with-foamy-cream-and-rich-aroma-on-a-bright-background-png.png" alt="Espresso" class="spec-img">
+            <h3 class="spec-name">Single Origin Espresso</h3>
+            <p class="spec-desc">Pure, unadulterated expression of origin. Our rotating single-origin espresso showcases the unique character of each growing region.</p>
+        </div>
+        <div class="spec-card fade-up">
+            <img src="pngtree-coffee-cup-transparent-background-png-image_14596291.png" alt="Pour Over" class="spec-img">
+            <h3 class="spec-name">Signature Pour Over</h3>
+            <p class="spec-desc">A meditative brewing ritual. Our baristas carefully pour to extract the brightest, cleanest flavours from each carefully selected bean.</p>
+        </div>
+        <div class="spec-card fade-up">
+            <img src="cup-of-coffee-clipart-design-illustration-free-png.png" alt="Cold Brew" class="spec-img">
+            <h3 class="spec-name">Ethiopian Cold Brew</h3>
+            <p class="spec-desc">Steeped 18 hours in cold water, our Ethiopian cold brew delivers smooth, complex flavours with natural sweetness and zero bitterness.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ─── MENU ─── -->
+<section id="menu">
+    <div class="sec-hdr fade-up">
+        <div class="sec-tag">Taste the Difference</div>
+        <h2 class="sec-title">Our <em>Menu</em></h2>
+    </div>
+
+    <div class="menu-tabs">
+        <button class="m-tab active" data-tab="espresso">Espresso Bar</button>
+        <button class="m-tab" data-tab="filter">Filter Coffee</button>
+        <button class="m-tab" data-tab="cold">Cold Drinks</button>
+        <button class="m-tab" data-tab="food">Light Bites</button>
+    </div>
+
+    <!-- Espresso -->
+    <div class="m-panel active" id="tab-espresso">
+        <div class="menu-grid">
+            <div class="m-item">
+                <img src="cup-of-coffee-clipart-design-illustration-free-png.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Single Espresso</span><span class="m-price">$4.00</span></div>
+                    <p class="m-desc">A single shot of our rotating seasonal espresso. Bright, complex, and perfectly pulled.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="hot-coffee-in-a-white-cup-with-foamy-cream-and-rich-aroma-on-a-bright-background-png.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Americano</span><span class="m-price">$5.00</span></div>
+                    <p class="m-desc">Espresso with hot water, preserving the crema and full complexity of the shot.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="pngtree-coffee-cup-transparent-background-png-image_14596291.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Cappuccino</span><span class="m-price">$5.50</span></div>
+                    <p class="m-desc">Equal parts espresso, steamed milk, and velvety foam. A timeless classic done right.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="cup-of-coffee-clipart-design-illustration-free-png.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Flat White</span><span class="m-price">$5.50</span></div>
+                    <p class="m-desc">Double ristretto with silky microfoam. Intense, velvety, and deeply satisfying.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="hot-coffee-in-a-white-cup-with-foamy-cream-and-rich-aroma-on-a-bright-background-png.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Sidamo Latte</span><span class="m-price">$6.00</span></div>
+                    <p class="m-desc">Our signature latte with a whisper of cardamom and a touch of Ethiopian honey.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="pngtree-coffee-cup-transparent-background-png-image_14596291.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Cortado</span><span class="m-price">$5.00</span></div>
+                    <p class="m-desc">Equal parts espresso and warm milk bold coffee forward, perfectly cut.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="m-panel" id="tab-filter">
+        <div class="menu-grid">
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39393.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Pour Over</span><span class="m-price">$7.00</span></div>
+                    <p class="m-desc">Handcrafted with your choice of single origin. Bright, clean, and tea-like.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39411.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Chemex</span><span class="m-price">$8.00</span></div>
+                    <p class="m-desc">Elegant and clean. Serves two perfect for sharing a quiet moment.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39416.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Batch Brew</span><span class="m-price">$4.50</span></div>
+                    <p class="m-desc">Daily rotating filter coffee. Consistent, approachable, and always fresh.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39371.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">AeroPress</span><span class="m-price">$6.50</span></div>
+                    <p class="m-desc">Full-bodied and smooth. Brewed under gentle pressure for a truly unique cup.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cold -->
+    <div class="m-panel" id="tab-cold">
+        <div class="menu-grid">
+            <div class="m-item">
+                <img src="cup-of-coffee-clipart-design-illustration-free-png.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Cold Brew</span><span class="m-price">$6.50</span></div>
+                    <p class="m-desc">18-hour cold steep. Smooth, chocolatey, and naturally sweet without a trace of bitterness.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="hot-coffee-in-a-white-cup-with-foamy-cream-and-rich-aroma-on-a-bright-background-png.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Iced Latte</span><span class="m-price">$6.00</span></div>
+                    <p class="m-desc">Espresso over ice with your choice of milk. Refreshing, balanced, and endlessly satisfying.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="pngtree-coffee-cup-transparent-background-png-image_14596291.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Nitro Cold Brew</span><span class="m-price">$7.50</span></div>
+                    <p class="m-desc">Silky cascading nitrogen cold brew. Creamy without any dairy, beautiful to watch.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="cup-of-coffee-clipart-design-illustration-free-png.png" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Ethiopian Tonic</span><span class="m-price">$7.00</span></div>
+                    <p class="m-desc">Espresso over sparkling tonic water. Bright, effervescent, and beautifully complex.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food -->
+    <div class="m-panel" id="tab-food">
+        <div class="menu-grid">
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39368.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Butter Croissant</span><span class="m-price">$4.50</span></div>
+                    <p class="m-desc">Flaky, buttery, and golden. Baked fresh each morning by our partner bakery.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39416.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Sourdough Toast</span><span class="m-price">$8.00</span></div>
+                    <p class="m-desc">House sourdough with labneh, dukkah, and a generous drizzle of local honey.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39411.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Coffee Cardamom Cake</span><span class="m-price">$7.00</span></div>
+                    <p class="m-desc">Inspired by Ethiopian coffee ceremony spices. Moist, aromatic, and deeply comforting.</p>
+                </div>
+            </div>
+            <div class="m-item">
+                <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39371.jpg" class="m-thumb" alt="">
+                <div class="m-info">
+                    <div class="m-head"><span class="m-name">Granola Bowl</span><span class="m-price">$9.00</span></div>
+                    <p class="m-desc">House-made granola with seasonal fruits, yogurt, and a drizzle of local honey.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── GALLERY ─── -->
+<section id="gallery">
+    <div class="sec-hdr fade-up">
+        <div class="sec-tag">Visual Moments</div>
+        <h2 class="sec-title">Inside <em>Sidamo</em></h2>
+    </div>
+    <div class="gallery-grid">
+        <div class="g-item">
+            <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39368.jpg" alt="Gallery 1">
+            <div class="g-overlay">+</div>
+        </div>
+        <div class="g-item">
+            <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39371.jpg" alt="Gallery 2">
+            <div class="g-overlay">+</div>
+        </div>
+        <div class="g-item">
+            <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39393.jpg" alt="Gallery 3">
+            <div class="g-overlay">+</div>
+        </div>
+        <div class="g-item">
+            <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39411.jpg" alt="Gallery 4">
+            <div class="g-overlay">+</div>
+        </div>
+        <div class="g-item">
+            <img src="kaboompics_minimal-coffee-aesthetic-with-dark-tones-and-texture-39416.jpg" alt="Gallery 5">
+            <div class="g-overlay">+</div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+    <div class="sec-hdr fade-up">
+        <div class="sec-tag">What People Say</div>
+        <h2 class="sec-title" style="color:white;">Voices of Our <em>Community</em></h2>
+    </div>
+    <div class="test-grid">
+        <div class="test-card fade-up">
+            <div class="test-stars">★★★★★</div>
+            <p class="test-quote">"Sidamo completely changed how I think about coffee. The pour over here is unlike anything I've had anywhere else. A truly special, unhurried place."</p>
+            <div class="test-author">
+                <div class="test-avatar">S</div>
+                <div><div class="test-name">Sarah Mitchell</div><div class="test-role">Coffee Enthusiast</div></div>
+            </div>
+        </div>
+        <div class="test-card fade-up">
+            <div class="test-stars">★★★★★</div>
+            <p class="test-quote">"The atmosphere is stunning and the coffee is even better. I come here every morning it has become my ritual. The baristas truly know their craft."</p>
+            <div class="test-author">
+                <div class="test-avatar">J</div>
+                <div><div class="test-name">James Okafor</div><div class="test-role">Regular Guest</div></div>
+            </div>
+        </div>
+        <div class="test-card fade-up">
+            <div class="test-stars">★★★★★</div>
+            <p class="test-quote">"The best specialty coffee in the city. The Ethiopian cold brew is transcendent. I love how thoughtfully they source and present each single origin."</p>
+            <div class="test-author">
+                <div class="test-avatar">L</div>
+                <div><div class="test-name">Layla Hassan</div><div class="test-role">Food Writer</div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── RESERVATION ─── -->
+<section id="reservation">
+    <div class="res-info fade-up">
+        <div class="sec-tag">Join Us</div>
+        <h2>Come for the <em>Coffee,</em><br>Stay for the Moment</h2>
+        <p>Whether you are planning a quiet morning alone or a gathering with friends, we would love to host you. Reservations are available for groups of four or more.</p>
+        <div class="hours">
+            <div class="h-row"><span class="h-day">Monday – Friday</span><span class="h-time">7:00 AM – 8:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Saturday</span><span class="h-time">8:00 AM – 9:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Sunday</span><span class="h-time">9:00 AM – 6:00 PM</span></div>
+            <div class="h-row"><span class="h-day">Location</span><span class="h-time">42 Roaster Lane, NYC</span></div>
+        </div>
+    </div>
+    <div class="res-form fade-up">
+        <h3 class="form-ttl">Reserve a Table</h3>
+        <div class="f-row">
+            <div class="f-group"><label>First Name</label><input type="text" placeholder="Your name"></div>
+            <div class="f-group"><label>Last Name</label><input type="text" placeholder="Your surname"></div>
+        </div>
+        <div class="f-row">
+            <div class="f-group"><label>Date</label><input type="date"></div>
+            <div class="f-group"><label>Time</label>
+                <select>
+                    <option>Select time</option>
+                    <option>8:00 AM</option><option>9:00 AM</option><option>10:00 AM</option>
+                    <option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option>
+                    <option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option>
+                    <option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option>
+                </select>
+            </div>
+        </div>
+        <div class="f-row">
+            <div class="f-group"><label>Guests</label>
+                <select>
+                    <option>4 guests</option><option>5 guests</option><option>6 guests</option>
+                    <option>7 guests</option><option>8+ guests</option>
+                </select>
+            </div>
+            <div class="f-group"><label>Phone</label><input type="tel" placeholder="Your phone number"></div>
+        </div>
+        <div class="f-group"><label>Special Requests</label><textarea placeholder="Dietary requirements or notes…"></textarea></div>
+        <button class="f-submit">Confirm Reservation</button>
+    </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+    <div class="footer-top">
+        <div class="f-brand">
+            <img src="Logo-sidamo.png" alt="Sidamo Coffee">
+            <p>Specialty coffee rooted in Ethiopian tradition. Every cup is a journey from origin to your hands.</p>
+            <div class="socials">
+                <a href="#" class="soc">in</a>
+                <a href="#" class="soc">ig</a>
+                <a href="#" class="soc">tw</a>
+                <a href="#" class="soc">fb</a>
+            </div>
+        </div>
+        <div class="f-col">
+            <h4>Navigate</h4>
+            <ul>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#specialties">Specialties</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reservation">Reserve</a></li>
+            </ul>
+        </div>
+        <div class="f-col">
+            <h4>Menu</h4>
+            <ul>
+                <li><a href="#menu">Espresso Bar</a></li>
+                <li><a href="#menu">Filter Coffee</a></li>
+                <li><a href="#menu">Cold Drinks</a></li>
+                <li><a href="#menu">Light Bites</a></li>
+            </ul>
+        </div>
+        <div class="f-col">
+            <h4>Contact</h4>
+            <address>
+                42 Roaster Lane<br>
+                New York, NY 10001<br><br>
+                hello@sidamocoffee.com<br>
+                +1 (212) 555-0198
+            </address>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Sidamo Coffee. All rights reserved.</p>
+        <p>Crafted with a passion for great coffee.</p>
+    </div>
+</footer>
+
+<script>
+    // Sticky nav
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Menu tabs
+    document.querySelectorAll('.m-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.m-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.m-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        });
+    });
+
+    // Scroll-in fade animations
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+    // Hero items stagger in on load
+    window.addEventListener('load', () => {
+        document.querySelectorAll('#hero .fade-up').forEach((el, i) => {
+            setTimeout(() => el.classList.add('in'), 200 + i * 160);
+        });
+    });
+</script>
+
+</body>
+</html>

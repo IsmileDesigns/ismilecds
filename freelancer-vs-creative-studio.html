@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Freelancer vs Creative Studio: Which One Does Your Business Actually Need? | Ismile Creative &amp; Digital Solutions</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--amber:#FBA92C;--warm-black:#1A1410;--white:#FFFFFF;--off-white:#FAF8F5;--mid:#6B6460;--bd:rgba(255,255,255,0.08);--bdl:rgba(26,20,16,0.09);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden;scroll-behavior:auto}
+    body{background:var(--warm-black);color:var(--white);font-family:'Assistant',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+    .cursor-dot{position:absolute;width:8px;height:8px;background:var(--white);border-radius:50%;transform:translate(-50%,-50%);}
+    .cursor-ring{position:absolute;width:36px;height:36px;border:1px solid rgba(255,255,255,0.6);border-radius:50%;transform:translate(-50%,-50%);}
+    .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--amber);z-index:200;width:0%;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 56px;height:76px;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,border-color 0.5s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(26,20,16,0.94);backdrop-filter:blur(14px);border-bottom-color:var(--bd);}
+    .nav-logo img{height:40px;width:auto;display:block;background:transparent;}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-cta{font-family:'Bebas Neue',sans-serif!important;font-size:15px!important;background:var(--amber);color:var(--warm-black)!important;padding:8px 18px;border-radius:3px;transition:background 0.2s;letter-spacing:0.1em!important;}
+    .nav-cta:hover{background:#ffc04d;}
+    .nav-cta::after{display:none!important;}
+    .nav-dropdown-wrap{position:relative}
+    .nav-dropdown-trigger{display:flex;align-items:center;gap:5px}
+    .nav-chevron{transition:transform 0.2s}
+    .nav-dropdown-wrap:hover .nav-chevron,.nav-dropdown-wrap.open .nav-chevron{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:6px;list-style:none;min-width:210px;padding:8px 0;opacity:0;visibility:hidden;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;z-index:200;}
+    .nav-dropdown-wrap:hover .nav-dropdown,.nav-dropdown-wrap.open .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+    .nav-dropdown li a{display:block;padding:10px 20px;font-size:14px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s,padding-left 0.2s;white-space:nowrap;}
+    .nav-dropdown li a::after{display:none!important;}
+    .nav-dropdown li a:hover{color:var(--amber);padding-left:26px}
+    .btn-a{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;background:var(--amber);color:var(--warm-black);padding:13px 30px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;}
+    .btn-a:hover{background:#ffc04d;transform:translateY(-2px);}
+    footer{background:#100d0a;padding:68px 56px 44px;}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
+    .footer-logo img{height:48px;width:auto;display:block;margin-bottom:16px;background:transparent;}
+    .footer-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.3);}
+    .footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:20px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .footer-links a{font-size:17px;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s,padding-left 0.2s;display:inline-block;}
+    .footer-links a:hover{color:var(--amber);padding-left:6px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;flex-wrap:wrap;gap:16px;}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.18);}
+    .footer-social{display:flex;gap:18px;}
+    .footer-social a{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
+    .footer-social a:hover{color:var(--amber);}
+    @media(max-width:768px){nav{padding:0 24px;}.nav-links{display:none;}footer{padding:48px 24px 32px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+    .post-hero{min-height:45vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 56px 64px;position:relative;overflow:hidden;}
+    .post-hero-bg{position:absolute;inset:0;}
+    .post-cat{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;position:relative;z-index:1;}
+    .post-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,80px);line-height:0.92;letter-spacing:0.02em;color:var(--white);max-width:940px;margin-bottom:24px;position:relative;z-index:1;}
+    .post-meta{font-size:13px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.28);position:relative;z-index:1;}
+    .post-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;padding:56px 56px 0;transition:color 0.2s;}
+    .post-back:hover{color:var(--amber);}
+    .post-body{max-width:780px;margin:0 auto;padding:56px 56px 120px;}
+    .post-body p{font-size:16px;font-weight:300;line-height:1.88;color:rgba(255,255,255,0.55);margin-bottom:24px;}
+    .post-body h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3.5vw,40px);letter-spacing:0.04em;color:var(--white);margin:52px 0 16px;}
+    .post-body h3{font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin:32px 0 12px;}
+    .post-body ul,.post-body ol{padding-left:22px;margin-bottom:24px;}
+    .post-body li{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+    .post-body strong{color:rgba(255,255,255,0.82);font-weight:600;}
+    .post-body img{max-width:100%;height:auto;display:block;border-radius:8px;margin:32px auto;}
+    .post-lead{font-size:17px!important;line-height:1.85!important;color:rgba(255,255,255,0.68)!important;margin-bottom:48px!important;}
+    .post-cta-box{background:rgba(251,169,44,0.07);border:1px solid rgba(251,169,44,0.18);border-radius:12px;padding:44px 48px;margin-top:64px;text-align:center;}
+    .post-cta-box h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.08em;color:var(--amber);margin-bottom:14px;text-transform:uppercase;}
+    .post-cta-box p{color:rgba(255,255,255,0.45)!important;margin-bottom:24px!important;}
+    @media(max-width:768px){.post-hero{padding:100px 24px 48px;}.post-back{padding:56px 24px 0;}.post-body{padding:40px 24px 80px;}.post-cta-box{padding:32px 24px;}}
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav id="nav">
+    <a href="./index.html" class="nav-logo"><img src="./logo.png" alt="Ismile" /></a>
+    <ul class="nav-links">
+      <li><a href="./Index.html">Home</a></li>
+      <li class="nav-dropdown-wrap">
+        <a href="#" class="nav-dropdown-trigger">Services <svg class="nav-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></a>
+        <ul class="nav-dropdown">
+          <li><a href="./brand-identity.html">Brand Identity</a></li>
+          <li><a href="./web-design.html">Web Design</a></li>
+          <li><a href="./digital-marketing.html">Digital Marketing</a></li>
+          <li><a href="./systems-automations.html">Systems &amp; Automations</a></li>
+          <li><a href="./business-consulting.html">Business Consulting</a></li>
+        </ul>
+      </li>
+      <li><a href="./portfolio.html">Portfolio</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="nav-cta">BOOK A FREE CALL</a></li>
+    </ul>
+  </nav>
+
+  <header class="post-hero">
+    <div class="post-hero-bg" style="background:linear-gradient(135deg,#1a1815,#2a2520);"></div>
+    <p class="post-cat" data-r>Business Strategy</p>
+    <h1 class="post-title" data-r>Freelancer vs Creative Studio: Which One Does Your Business Actually Need?</h1>
+    <p class="post-meta" data-r>April 16, 2026 &nbsp;·&nbsp; 10 min read</p>
+  </header>
+
+  <a href="./blog.html" class="post-back" data-r>&#8592; Back to Blog</a>
+
+  <article class="post-body">
+    <p class="post-lead">Somewhere between 'I'll do it myself' and 'I need a full marketing team,' there's a decision every growing business has to make. Do you hire a freelancer or bring in a creative studio?</p>
+    <p>Somewhere between &quot;I&#39;ll do it myself&quot; and &quot;I need a full marketing team,&quot; there&#39;s a decision every growing business has to make. Do you hire a freelancer or bring in a creative studio?</p>
+<p>The answer gets complicated fast because the two are often compared on price alone. That comparison is lazy and it leads to wasted money. A cheap freelancer who isn&#39;t right for your project costs more than an expensive studio that nails it. An expensive studio on a project a freelancer could have handled is budget you didn&#39;t need to spend.</p>
+<p>This post is an honest breakdown of when each one makes sense, what you&#39;re actually paying for at each tier, and the cost of getting the decision wrong. Full disclosure upfront: we run a creative studio. This isn&#39;t going to pretend studios are always the answer, because they aren&#39;t. Sometimes a freelancer is the smart call. The goal here is clarity, not a sales pitch.</p>
+<p><img src="blog-images/business-owner-comparing-options-cafe.jpg" alt="Small business owner thinking while comparing options on a laptop in a quiet cafe"></p>
+<h2>The price difference is real, but it&#39;s not the whole story</h2>
+<p>Freelancers typically charge 30 to 50% less than agencies or studios for similar work. For a website project, that might look like $3,000 to $8,000 with a freelancer versus $8,000 to $20,000 with a studio. For branding, freelancers usually run $1,500 to $5,000 while studios run $5,000 to $15,000 for comparable scope.</p>
+<p>That gap exists for real reasons. A freelancer has almost no overhead. One person working from home, no office, no employees, no insurance on multiple staff, no project managers running coordination. A studio is paying for a team. Designers, developers, strategists, copywriters, project managers, plus all the costs of running a business. The higher price reflects what you&#39;re actually getting: a coordinated team working on your project instead of one person juggling everything.</p>
+<p>The question that matters isn&#39;t &quot;which is cheaper&quot; but &quot;which is right for what you need to build.&quot; Those are different questions with different answers.</p>
+<h2>When a freelancer is the right call</h2>
+<p>Hiring a freelancer makes sense in specific situations. Not always. But often enough that it&#39;s worth being clear about when.</p>
+<p><strong>You have a defined, narrow scope.</strong> A single-page landing page. A logo refresh. A new brochure. Copy for five specific pages. When you know exactly what you want, the scope is tightly bounded, and it doesn&#39;t require coordination across multiple disciplines, a freelancer delivers that efficiently.</p>
+<p><strong>You&#39;re early-stage and budget-constrained.</strong> If you&#39;re pre-revenue or just starting to generate income, spending $15,000 on a branding project is probably premature. A freelance designer at $3,000 to $5,000 gets you something professional enough to launch and learn. You can upgrade to a studio later when you have traction and revenue to support it.</p>
+<p><strong>You already know what you need.</strong> Freelancers work best when the client comes in with a clear brief. You&#39;ve done the strategic thinking. You know what kind of visual direction you want. You just need someone skilled to execute it. The freelancer isn&#39;t being asked to figure out the problem, just to solve it.</p>
+<p><strong>You value direct access over structure.</strong> Working with a freelancer means you&#39;re talking directly to the person doing the work. No account manager, no layers of communication. If that flexibility and direct line matter to you more than process and predictability, a freelancer fits.</p>
+<p><strong>The project is small enough that one person can genuinely handle it.</strong> A 5-page website with standard functionality, a simple brand refresh, a set of social graphics, an email template. These are freelancer-scale projects.</p>
+<p><img src="blog-images/freelancer-working-alone-home-office.jpg" alt="Freelancer working alone at a laptop in a modern home office with plants and natural light"></p>
+<h2>When a creative studio is the right call</h2>
+<p>Studios justify their price tag on bigger, more complex, or more strategic work. Here&#39;s when that tier actually matters.</p>
+<p><strong>Your project spans multiple disciplines.</strong> A brand identity plus a website plus email templates plus marketing collateral. One freelancer rarely has the full skill set for all of those, so you&#39;d be coordinating multiple freelancers yourself, which is its own job. A studio has those people under one roof and coordinates them for you.</p>
+<p><strong>You need strategic thinking, not just execution.</strong> Studios typically start projects with discovery, research, positioning, and strategy before anything visual happens. If you&#39;re not sure what you need, if your business is at a pivot point, if you&#39;re entering a new market, or if your current brand isn&#39;t working and you don&#39;t know why, strategic studio work is worth the extra investment. A freelancer will often skip the strategic layer and jump straight to execution, which is efficient when strategy is clear and expensive when it isn&#39;t.</p>
+<p><strong>The work represents real business risk.</strong> If your website drives most of your leads and getting it wrong means months of lost revenue, the stakes justify hiring a team that has built similar sites many times before. 48% of people cite a website&#39;s design as the number one factor in deciding the credibility of a business. If your target client is going to judge you by your digital presence, that presence needs to work.</p>
+<p><strong>You need accountability and backup.</strong> Freelancers get sick, go on vacation, take on other clients, and occasionally disappear mid-project. This happens more often than people expect. A studio has redundancy built in. If the lead designer is out, someone else can pick up the thread. If the developer has a family emergency, the project doesn&#39;t stop. That accountability layer matters more as project stakes get higher.</p>
+<p><strong>You want the thing to be done right the first time.</strong> Studios typically have structured processes, quality review, and stakeholder sign-offs built in. That process feels like overhead when you&#39;re used to the scrappy freelance approach, but it&#39;s the reason studio work tends to hold up longer. You&#39;re paying for the infrastructure that prevents mistakes, not just the creative hours.</p>
+<h2>The hidden cost of getting this wrong</h2>
+<p>The mistake most small businesses make isn&#39;t picking the wrong tier. It&#39;s underestimating what happens when the fit is off.</p>
+<p>If you hire a freelancer for a project that was really studio-scale, the typical outcomes are predictable. The project drags on past the timeline. Communication breaks down because one person is trying to handle everything. Some pieces come out great and others are weaker because the freelancer isn&#39;t strong across every required discipline. You eventually hire someone else to fix the parts that didn&#39;t work, at which point you&#39;ve spent more money than a studio would have cost from the start.</p>
+<p>If you hire a studio for a project a skilled freelancer could have handled, the cost is different but still real. You&#39;re paying for process you don&#39;t need. You&#39;re getting strategic work for a problem that didn&#39;t require strategy. The timeline is longer than it had to be because studios are built for bigger scope. You spent $15,000 on something that could have been $4,000.</p>
+<p>A $5,000 freelancer who delivers work you need to redo with a studio at $15,000 actually costs you $20,000 total, not $15,000. That math is why scope and fit matter more than sticker price.</p>
+<h2>How to actually evaluate the fit</h2>
+<p>Here&#39;s a practical way to figure out which tier makes sense for your specific project.</p>
+<p><strong>List the disciplines your project touches.</strong> Design, development, strategy, copy, brand, UX, SEO, analytics. If the list is one or two, a freelancer might work. If it&#39;s four or more, you&#39;re almost certainly in studio territory unless you want to coordinate multiple freelancers yourself.</p>
+<p><strong>Assess the strategic clarity.</strong> Are you clear about what you need, or are you trying to figure that out? Clear brief equals freelancer-friendly. Unclear brief equals needing strategic partners.</p>
+<p><strong>Consider the revenue at stake.</strong> If this project affects revenue meaningfully (your website generates leads, your branding affects pricing, your marketing system drives growth), the investment should match the stakes. Saving $10,000 on a project that&#39;s going to drive $200,000 of revenue is a false economy.</p>
+<p><strong>Be honest about your own capacity to manage.</strong> Some business owners genuinely enjoy managing multiple freelancers and coordinating the pieces. Most don&#39;t. If project coordination isn&#39;t something you want to spend time on, a studio earns its fee by taking it off your plate.</p>
+<p><strong>Check your timeline.</strong> Freelancers can sometimes move faster on simple projects because decisions flow directly between you and them. Studios often deliver bigger scope faster than a single freelancer would, because multiple people work in parallel. Match the timeline expectation to the workflow.</p>
+<p><img src="blog-images/creative-studio-team-collaboration.jpg" alt="Creative studio team working together around a table with laptops and design materials"></p>
+<h2>The in-between option most people miss</h2>
+<p>There&#39;s a third option that often gets overlooked: a small studio or a boutique operation. Two to five people, running as a team but without the overhead of a mid-sized agency. You get the coordinated expertise of a studio at prices that sit between solo freelancer and big agency.</p>
+<p>For most small service businesses in Canada, a boutique studio is often the sweet spot. You&#39;re not paying for account managers and senior partners you&#39;ll never meet. You&#39;re working directly with the people doing the work, but you have the redundancy and discipline breadth of a team. Pricing usually lands 20 to 40% lower than traditional agencies, with quality that often matches or exceeds larger shops.</p>
+<p>This is the tier worth looking at if a solo freelancer feels too thin but a big agency feels like overkill. Most cities have a handful of boutique studios that fit this profile. Ask for referrals, check portfolios, and pay attention to whether their past work looks like the kind of project you&#39;re trying to run.</p>
+<h2>What to look for when hiring either</h2>
+<p>Regardless of which tier you pick, a few things separate the ones who deliver from the ones who disappoint.</p>
+<p><strong>Portfolio relevance.</strong> Have they done work that&#39;s similar to yours in scope, industry, or stakes? A freelancer whose portfolio is all indie brands might not serve a professional services business well. A studio whose portfolio is enterprise clients might be overkill for a local service business.</p>
+<p><strong>Process transparency.</strong> Can they walk you through how they work? Timelines, milestones, review stages, revision policy. Vague answers predict chaotic projects.</p>
+<p><strong>Client references.</strong> Call at least two past clients. Ask what worked, what didn&#39;t, whether they&#39;d hire them again, and how the team handled problems or timeline shifts. References reveal things portfolios can&#39;t.</p>
+<p><strong>Written scope and contract.</strong> Get everything in writing. Deliverables, timelines, payment terms, what happens if things go off track. Anyone who resists a clear contract is telling you something about how they run their business.</p>
+<p><strong>Communication style match.</strong> You&#39;re going to be working together for weeks or months. Do they respond quickly? Do their updates feel clear or chaotic? Do they feel like someone you want in your business? Skills matter but working style matters almost as much.</p>
+<h2>Frequently asked questions</h2>
+<p><strong>Is hiring a freelancer cheaper than hiring a studio?</strong></p>
+<p>Usually yes, by 30 to 50%. But the sticker price isn&#39;t the full picture. Factor in your time to manage the project, the risk of needing to redo work, and the cost of coordination if the project spans multiple disciplines. Sometimes a studio is cheaper once you account for total cost.</p>
+<p><strong>Can I hire a freelancer first and a studio later?</strong></p>
+<p>Absolutely, and it&#39;s a smart strategy for early-stage businesses. Start lean, learn from real customers, then upgrade to a studio when you have the revenue and clarity to justify it. The key is choosing the freelancer well so their work holds up long enough to be worth the investment.</p>
+<p><strong>What size project justifies a studio over a freelancer?</strong></p>
+<p>Rough rule: under $5,000 is usually freelancer territory. $5,000 to $15,000 depends on scope complexity. Over $15,000 is almost always better with a studio. These numbers shift by market and by discipline.</p>
+<p><strong>How do I know if a freelancer is reliable?</strong></p>
+<p>References, portfolio depth, and how they handle the sales conversation. A reliable freelancer shows up on time to the discovery call, responds within a business day, sends a clear proposal in writing, and doesn&#39;t pressure you to sign quickly. Red flags include vague pricing, portfolio work that all looks similar to templates, and reluctance to share client references.</p>
+<p><strong>Do studios ever turn down clients?</strong></p>
+<p>Good ones, yes. If a studio takes every project that comes in regardless of fit, they&#39;re prioritizing revenue over quality. Studios that turn down misaligned projects usually do better work on the projects they do take on.</p>
+<p><strong>What&#39;s the biggest mistake people make hiring either?</strong></p>
+<p>Choosing on price alone. The second biggest is choosing on portfolio alone without any conversation. Portfolios show what they can do. Conversations show how they work. You need both.</p>
+<h2>Where to start</h2>
+<p>If you&#39;re trying to figure out whether your next project needs a freelancer, a boutique studio, or something bigger, that conversation is worth having before you start asking for quotes. Otherwise you&#39;ll end up comparing proposals that are solving different problems.</p>
+<p>At Ismile Creative and Digital Solutions, we take on projects where a studio actually adds value. When it doesn&#39;t, we tell people plainly and often refer them to freelancers we trust. That honesty is rare in this industry, and it&#39;s the only way we know how to run a business we&#39;re proud of.</p>
+<p><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a free call</a> to talk through what you&#39;re trying to build. If we&#39;re the right fit, we&#39;ll tell you. If we aren&#39;t, we&#39;ll help you find someone who is.</p>
+<p>The right team matters more than the cheapest rate. Pick based on fit, not just price.</p>
+
+    <div class="post-cta-box" data-r>
+      <h3>Not sure which one your project actually needs?</h3>
+      <p>Book a free call to talk through what you're trying to build. If a studio is the right fit, we'll tell you. If a freelancer would serve you better, we'll tell you that too and often refer you to someone we trust.</p>
+      <a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="btn-a">Book a Free Call</a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-top">
+      <div><div class="footer-logo"><img src="./logo.png" alt="Ismile"/></div><p class="footer-desc">Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs serious about growth.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/></div></div>
+      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./brand-identity.html">Brand Identity</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems &amp; Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
+      <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Ismile Creative &amp; Digital Solutions. All rights reserved. Toronto, Canada.</p><div class="footer-social"><a href="https://www.instagram.com/ismilecds" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.behance.net/IsmileDesigns" aria-label="Behance"><svg width="20" height="14" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 1.5h5.7v1.3h-5.7V1.5zm2.7 3.2c-3.5 0-5.9 2.4-5.9 5.9 0 3.6 2.3 5.9 6 5.9 2.6 0 4.4-1.1 5.4-3.2h-2.8c-.4.7-1.4 1.1-2.4 1.1-1.6 0-2.8-.9-3-2.7H24c.2-3.8-1.8-7-5.8-7zm-2.7 4.6c.2-1.4 1.2-2.3 2.6-2.3 1.4 0 2.5.9 2.5 2.3h-5.1zM0 .3h6.7c2.4 0 4.7.8 4.7 3.5 0 1.4-.7 2.4-1.9 3 1.7.5 2.7 1.7 2.7 3.5 0 3-2.3 4.2-5 4.2H0V.3zm3.2 5.6h3c1.2 0 1.9-.5 1.9-1.7S7.3 2.6 6 2.6H3.2v3.3zm0 5.7h3.4c1.3 0 2.2-.6 2.2-1.9 0-1.4-1-1.9-2.3-1.9H3.2v3.8z"/></svg></a></div></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.4,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  lenis.on('scroll',ScrollTrigger.update);
+  const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.to(dot,{x:mx,y:my,duration:0.1});});
+  gsap.ticker.add(()=>{rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;gsap.set(ring,{x:rx,y:ry});});
+  document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{gsap.to(ring,{scale:2.2,opacity:0.4,duration:0.3});gsap.to(dot,{scale:0.4,duration:0.3});});
+    el.addEventListener('mouseleave',()=>{gsap.to(ring,{scale:1,opacity:1,duration:0.3});gsap.to(dot,{scale:1,duration:0.3});});
+  });
+  lenis.on('scroll',({scroll,limit})=>{document.getElementById('progressBar').style.width=(scroll/limit*100)+'%';});
+  lenis.on('scroll',({scroll})=>{document.getElementById('nav').classList.toggle('scrolled',scroll>60);});
+  document.querySelectorAll('[data-r]').forEach(el=>{
+    gsap.fromTo(el,{opacity:0,y:44},{opacity:1,y:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 83%'}});
+  });
+  gsap.to('.post-cat',{opacity:1,duration:0.6,delay:0.3});
+  gsap.to('.post-title',{opacity:1,duration:0.8,delay:0.4});
+  gsap.to('.post-meta',{opacity:1,duration:0.6,delay:0.6});
+  </script>
+</body>
+</html>

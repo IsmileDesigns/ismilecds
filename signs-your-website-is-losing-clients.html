@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>5 Signs Your Website Is Costing You Clients (And You Don't Even Know It) | Ismile Creative &amp; Digital Solutions</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--amber:#FBA92C;--warm-black:#1A1410;--white:#FFFFFF;--off-white:#FAF8F5;--mid:#6B6460;--bd:rgba(255,255,255,0.08);--bdl:rgba(26,20,16,0.09);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden;scroll-behavior:auto}
+    body{background:var(--warm-black);color:var(--white);font-family:'Assistant',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+    .cursor-dot{position:absolute;width:8px;height:8px;background:var(--white);border-radius:50%;transform:translate(-50%,-50%);}
+    .cursor-ring{position:absolute;width:36px;height:36px;border:1px solid rgba(255,255,255,0.6);border-radius:50%;transform:translate(-50%,-50%);}
+    .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--amber);z-index:200;width:0%;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 56px;height:76px;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,border-color 0.5s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(26,20,16,0.94);backdrop-filter:blur(14px);border-bottom-color:var(--bd);}
+    .nav-logo img{height:40px;width:auto;display:block;background:transparent;}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-cta{font-family:'Bebas Neue',sans-serif!important;font-size:15px!important;background:var(--amber);color:var(--warm-black)!important;padding:8px 18px;border-radius:3px;transition:background 0.2s;letter-spacing:0.1em!important;}
+    .nav-cta:hover{background:#ffc04d;}
+    .nav-cta::after{display:none!important;}
+    .nav-dropdown-wrap{position:relative}
+    .nav-dropdown-trigger{display:flex;align-items:center;gap:5px}
+    .nav-chevron{transition:transform 0.2s}
+    .nav-dropdown-wrap:hover .nav-chevron,.nav-dropdown-wrap.open .nav-chevron{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:6px;list-style:none;min-width:210px;padding:8px 0;opacity:0;visibility:hidden;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;z-index:200;}
+    .nav-dropdown-wrap:hover .nav-dropdown,.nav-dropdown-wrap.open .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+    .nav-dropdown li a{display:block;padding:10px 20px;font-size:14px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s,padding-left 0.2s;white-space:nowrap;}
+    .nav-dropdown li a::after{display:none!important;}
+    .nav-dropdown li a:hover{color:var(--amber);padding-left:26px}
+    .btn-a{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;background:var(--amber);color:var(--warm-black);padding:13px 30px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;}
+    .btn-a:hover{background:#ffc04d;transform:translateY(-2px);}
+    footer{background:#100d0a;padding:68px 56px 44px;}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
+    .footer-logo img{height:48px;width:auto;display:block;margin-bottom:16px;background:transparent;}
+    .footer-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.3);}
+    .footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:20px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .footer-links a{font-size:17px;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s,padding-left 0.2s;display:inline-block;}
+    .footer-links a:hover{color:var(--amber);padding-left:6px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;flex-wrap:wrap;gap:16px;}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.18);}
+    .footer-social{display:flex;gap:18px;}
+    .footer-social a{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
+    .footer-social a:hover{color:var(--amber);}
+    @media(max-width:768px){nav{padding:0 24px;}.nav-links{display:none;}footer{padding:48px 24px 32px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+    .post-hero{min-height:45vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 56px 64px;position:relative;overflow:hidden;}
+    .post-hero-bg{position:absolute;inset:0;}
+    .post-cat{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;position:relative;z-index:1;}
+    .post-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,80px);line-height:0.92;letter-spacing:0.02em;color:var(--white);max-width:940px;margin-bottom:24px;position:relative;z-index:1;}
+    .post-meta{font-size:13px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.28);position:relative;z-index:1;}
+    .post-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;padding:56px 56px 0;transition:color 0.2s;}
+    .post-back:hover{color:var(--amber);}
+    .post-body{max-width:780px;margin:0 auto;padding:56px 56px 120px;}
+    .post-body p{font-size:16px;font-weight:300;line-height:1.88;color:rgba(255,255,255,0.55);margin-bottom:24px;}
+    .post-body h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3.5vw,40px);letter-spacing:0.04em;color:var(--white);margin:52px 0 16px;}
+    .post-body h3{font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin:32px 0 12px;}
+    .post-body ul,.post-body ol{padding-left:22px;margin-bottom:24px;}
+    .post-body li{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+    .post-body strong{color:rgba(255,255,255,0.82);font-weight:600;}
+    .post-body img{max-width:100%;height:auto;display:block;border-radius:8px;margin:32px auto;}
+    .post-lead{font-size:17px!important;line-height:1.85!important;color:rgba(255,255,255,0.68)!important;margin-bottom:48px!important;}
+    .post-cta-box{background:rgba(251,169,44,0.07);border:1px solid rgba(251,169,44,0.18);border-radius:12px;padding:44px 48px;margin-top:64px;text-align:center;}
+    .post-cta-box h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.08em;color:var(--amber);margin-bottom:14px;text-transform:uppercase;}
+    .post-cta-box p{color:rgba(255,255,255,0.45)!important;margin-bottom:24px!important;}
+    @media(max-width:768px){.post-hero{padding:100px 24px 48px;}.post-back{padding:56px 24px 0;}.post-body{padding:40px 24px 80px;}.post-cta-box{padding:32px 24px;}}
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav id="nav">
+    <a href="./index.html" class="nav-logo"><img src="./logo.png" alt="Ismile" /></a>
+    <ul class="nav-links">
+      <li><a href="./Index.html">Home</a></li>
+      <li class="nav-dropdown-wrap">
+        <a href="#" class="nav-dropdown-trigger">Services <svg class="nav-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></a>
+        <ul class="nav-dropdown">
+          <li><a href="./brand-identity.html">Brand Identity</a></li>
+          <li><a href="./web-design.html">Web Design</a></li>
+          <li><a href="./digital-marketing.html">Digital Marketing</a></li>
+          <li><a href="./systems-automations.html">Systems &amp; Automations</a></li>
+          <li><a href="./business-consulting.html">Business Consulting</a></li>
+        </ul>
+      </li>
+      <li><a href="./portfolio.html">Portfolio</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="nav-cta">BOOK A FREE CALL</a></li>
+    </ul>
+  </nav>
+
+  <header class="post-hero">
+    <div class="post-hero-bg" style="background:linear-gradient(135deg,#101820,#1a2830);"></div>
+    <p class="post-cat" data-r>Web Design</p>
+    <h1 class="post-title" data-r>5 Signs Your Website Is Costing You Clients (And You Don't Even Know It)</h1>
+    <p class="post-meta" data-r>April 19, 2026 &nbsp;·&nbsp; 10 min read</p>
+  </header>
+
+  <a href="./blog.html" class="post-back" data-r>&#8592; Back to Blog</a>
+
+  <article class="post-body">
+    <p class="post-lead">Here's a hard truth most small business owners never hear. Your website is probably losing you clients every single week, and you have no way of seeing it happen.</p>
+    <p>Here&#39;s a hard truth most small business owners never hear. Your website is probably losing you clients every single week, and you have no way of seeing it happen.</p>
+<p>The visitor lands on your homepage. They spend 12 seconds looking around. Something feels off. They close the tab and search for a competitor. You never know they were there, you never know why they left, and you never know how much revenue walked out the door.</p>
+<p>This post covers the five most common reasons small business websites lose visitors, based on what we see when we audit sites for new clients. None of these are abstract design opinions. They&#39;re concrete, fixable issues that cost real money. Work through this as a checklist on your own site and be honest about what&#39;s there.</p>
+<p><img src="blog-images/website-analytics-dashboard-concerned-owner.jpg" alt="Laptop screen showing website analytics with a business owner looking concerned"></p>
+<h2>Sign 1: Your site takes more than 3 seconds to load</h2>
+<p>This is the most common killer of small business websites and the one most owners don&#39;t check. 53% of mobile users abandon a website that takes more than 3 seconds to load. That&#39;s over half of your mobile traffic gone before they see a single word of your copy.</p>
+<p>The typical culprits are oversized images, too many scripts running at once, video backgrounds that weren&#39;t optimized, and hosting plans that were cheap for a reason. A site that looks beautiful on your screen over fast home internet can be unusable on a phone with average 4G.</p>
+<p><strong>How to check:</strong> Run your site through Google PageSpeed Insights (free, takes 30 seconds). You want a score above 70 on mobile. Below 50 means you&#39;re bleeding visitors. The tool tells you exactly what&#39;s slowing it down.</p>
+<p><strong>How to fix:</strong> Compress every image before upload (TinyPNG is free). Remove scripts you don&#39;t actually need. Upgrade hosting if yours is on the cheap end. If the issue is a heavy animation or video that can&#39;t be trimmed, lazy-load it so it only triggers after the critical content appears.</p>
+<p>The irony of most small business websites is that the features owners are proudest of are the ones slowing the site down. Sliders, auto-playing videos, animated hero sections. Strip them down or optimize them properly. Speed is not optional anymore.</p>
+<h2>Sign 2: Visitors can&#39;t figure out what you do in 5 seconds</h2>
+<p>Open your homepage. Cover the logo. Read the first thing a new visitor sees. Would a total stranger know within 5 seconds who you help and what you do for them?</p>
+<p>If your hero section says &quot;Empowering brands to reach their full potential&quot; or &quot;We believe in the power of creativity&quot; or &quot;Where vision meets execution,&quot; the answer is no. That&#39;s positioning copy that sounds polished but tells a visitor nothing about what your business actually does.</p>
+<p>94% of first impressions are design-related, but the words on your hero section are inside that first impression. A vague tagline forces the visitor to work to figure out whether you&#39;re relevant to them, and most won&#39;t bother.</p>
+<p><strong>How to check:</strong> Show your homepage to someone who knows nothing about your business. Give them 5 seconds. Ask them to tell you what your business does and who it&#39;s for. If they can&#39;t, your hero section is broken.</p>
+<p><strong>How to fix:</strong> Rewrite your hero with two things. Who you help (specifically) and what outcome you deliver. &quot;Web design and branding for Toronto service businesses that want to stop looking like everyone else&quot; tells a visitor more in 14 words than most hero sections tell in 50.</p>
+<p>Clarity wins over cleverness every time. Clever taglines are for brands that already have recognition. Your job right now is to be so clear a distracted visitor understands your business in one glance.</p>
+<p><img src="blog-images/testing-website-on-mobile-phone.jpg" alt="Web designer testing website on mobile phone for speed and usability"></p>
+<h2>Sign 3: There&#39;s no clear next step</h2>
+<p>This is the most expensive mistake on small business websites. Visitors get to the end of reading about your services and there&#39;s no obvious thing to do next. No booking link. No clear call to action. No form. Just a vague invitation to &quot;get in touch&quot; somewhere at the bottom.</p>
+<p>Every page on your site should answer one question: what do I want this visitor to do next? If the answer is scattered across six different CTAs competing for attention, or worse, buried in a contact page three clicks away, your site is working against you.</p>
+<p>The data is clear. 70% of small business websites lack a clear call to action on their homepage. That&#39;s why most small business websites don&#39;t convert, even when the design is decent and the traffic is real.</p>
+<p><strong>How to check:</strong> Go through every main page of your site. For each page, write down the single action you want a visitor to take. Then check whether that action is the most visually prominent thing on the page. Not buried. Not optional. The primary thing.</p>
+<p><strong>How to fix:</strong> Pick one primary CTA per page. Make it visually stand out. Repeat it at least twice on longer pages (once near the top, once at the bottom, sometimes in the middle). Use action language: &quot;Book a free consultation,&quot; &quot;Get a quote,&quot; &quot;Start your project.&quot; Not &quot;Learn more,&quot; which is the weakest CTA in English.</p>
+<p>Secondary CTAs are fine but they need to be visually subordinate to the primary one. A page with three equal-weight buttons has no call to action. A page with one strong button and two quieter links has clear direction.</p>
+<h2>Sign 4: Your site looks broken on a phone</h2>
+<p>60% of traffic to a small business site comes from mobile devices. If your site doesn&#39;t work properly on a phone, you&#39;re losing more than half of your visitors before they do anything else.</p>
+<p>The common issues are text that&#39;s too small to read, buttons that are hard to tap, layouts that break or stack weirdly, navigation that disappears or doesn&#39;t work, images that overflow the screen, and forms that are painful to fill out with a thumb.</p>
+<p>75% of small business websites are not fully mobile-optimized. That&#39;s not a minor gap. It&#39;s the single biggest quality issue on the small business web, and it&#39;s often invisible to owners who build and review their sites on a desktop monitor.</p>
+<p><strong>How to check:</strong> Open your site on your phone. Don&#39;t just glance at the homepage. Click through every main page, try to scroll, try to tap buttons, try to fill out a form. Note every friction point. Then try it on someone else&#39;s phone, because different screen sizes expose different problems.</p>
+<p><strong>How to fix:</strong> Mobile fixes depend on what&#39;s broken. If the site is completely unresponsive, it needs to be rebuilt or migrated to a responsive framework. If the layout mostly works but has specific issues, a developer can usually fix individual breakpoints without rebuilding. If the content is just too dense for mobile, the answer is often to simplify rather than to reformat.</p>
+<p>The fundamental principle: design for mobile first, adapt up to desktop. Most small business sites were designed desktop-first and crammed onto mobile, which is why they feel wrong on a phone.</p>
+<p><img src="blog-images/browsing-small-business-website-smartphone.jpg" alt="Person using smartphone to browse a small business website on the go"></p>
+<h2>Sign 5: Your site has no proof anything you&#39;re claiming is true</h2>
+<p>Visitors land on your site. You tell them you&#39;re the best at what you do. You describe your services in glowing terms. You talk about your process, your values, your approach.</p>
+<p>Why should they believe any of it?</p>
+<p>Most small business websites are entirely claim and no evidence. No testimonials, no case studies, no client logos, no specific results, no before-and-after examples, nothing that lets a skeptical visitor verify that you actually deliver what you&#39;re promising. 75% of consumers judge a business&#39;s credibility based on website design, but design alone doesn&#39;t close the trust gap. Proof does.</p>
+<p>The trap most owners fall into is assuming their work should speak for itself, or that asking for testimonials feels awkward, or that they&#39;ll add social proof &quot;later.&quot; Later never comes, and the site keeps underperforming.</p>
+<p><strong>How to check:</strong> Count the specific, verifiable proof points on your homepage and services pages. Not &quot;we love our clients.&quot; Actual named testimonials, real client logos, specific outcomes, measurable results, dated case studies, links to work you&#39;ve completed. If the total is less than three, you have a proof problem.</p>
+<p><strong>How to fix:</strong> Reach out to your last five clients this week and ask for a testimonial. Make it easy, send them three questions: What problem were you solving when you hired us? What was the result? Would you recommend us to someone in a similar situation? Most clients will write something good within a day.</p>
+<p>Add client logos if you have permission. Build one case study that walks through a real project in detail. Add specific numbers wherever you can. &quot;Increased client bookings by 40% in the first quarter&quot; is worth more than &quot;helped them grow.&quot; Vague claims trigger skepticism. Specifics build trust.</p>
+<p>If you&#39;re early-stage and genuinely don&#39;t have testimonials yet, that&#39;s a different problem. Offer free or reduced-price work to a few clients in exchange for detailed testimonials and permission to use them. It&#39;s one of the fastest ways to build social proof from zero.</p>
+<h2>Bonus sign: Your contact method is broken or hidden</h2>
+<p>I was going to limit this to five but this one comes up too often to skip. Visitors who want to contact you can&#39;t figure out how. The contact form is on a third-level page buried in the menu. The email address is an image that can&#39;t be copied. The phone number isn&#39;t clickable on mobile. The booking link is dead.</p>
+<p>Test every contact method on your site right now. Submit the form and see if it actually delivers. Click the email and see if it opens your mail app. Call the number from your phone and confirm it rings. If any of these fail, you&#39;re losing clients who were ready to reach out.</p>
+<h2>The underlying problem</h2>
+<p>Almost every issue on this list traces back to one root cause. Small business websites are often built once, launched, and then treated as finished. Nobody audits them, nobody updates them, nobody tests them against real user behavior. Meanwhile, the web has moved on. Standards have risen. Visitor expectations have sharpened.</p>
+<p>A website is not a brochure you print once and distribute. It&#39;s more like a storefront that needs to be cleaned, restocked, and refreshed. The businesses that treat their site as living infrastructure are the ones converting visitors into clients. The businesses that treat it as a one-time project are the ones wondering why traffic is up but leads are flat.</p>
+<h2>Frequently asked questions</h2>
+<p><strong>How often should a small business update its website?</strong></p>
+<p>Content updates should happen monthly at minimum, ideally weekly if you&#39;re blogging. Full design refreshes are typically needed every 2 to 4 years. Technical maintenance (speed, security, broken links) should be checked quarterly. A site that hasn&#39;t been touched in 3 years is almost certainly costing you clients.</p>
+<p><strong>What&#39;s the single most important thing to fix on a small business website?</strong></p>
+<p>Mobile performance. If your site is slow or broken on phones, nothing else you fix will matter because most visitors are leaving before they reach anything else. Start there.</p>
+<p><strong>How do I know if my website is actually losing clients or just has low traffic?</strong></p>
+<p>Install Google Analytics (free) and look at bounce rate and average session duration. A bounce rate above 70% on your homepage and sessions under 30 seconds suggest visitors are arriving and leaving without engaging. That&#39;s a conversion problem, not a traffic problem.</p>
+<p><strong>Should I redesign my website or just fix what&#39;s broken?</strong></p>
+<p>Depends on how deep the issues go. If the fundamentals are sound (mobile works, site is fast, structure makes sense) and you just need better copy, clearer CTAs, and social proof, a refresh is enough. If the site was built poorly or on outdated tech, a rebuild is usually faster and cheaper than fixing everything piece by piece.</p>
+<p><strong>How much does a website audit cost?</strong></p>
+<p>Basic audits from agencies typically run $500 to $2,000. Some studios (ours included) offer free high-level audits for qualified prospects because the audit itself is often the start of a project. A DIY audit using this post plus Google PageSpeed Insights and Analytics costs nothing and catches most major issues.</p>
+<p><strong>Can I fix these myself or do I need a designer?</strong></p>
+<p>Depends on the issue. Speed problems and broken links, yes, usually DIY-able. Mobile issues and major design problems, usually not. CTA and copy issues, yes, if you&#39;re willing to rewrite. The fixes that require a designer are the ones where the underlying structure of the site is the problem.</p>
+<h2>Where to start</h2>
+<p>If you worked through this post and recognized your site in three or more of the signs, that&#39;s not a small problem. That&#39;s lost revenue compounding every week you don&#39;t address it.</p>
+<p>At Ismile Creative and Digital Solutions, we offer free website audits for service businesses that want a professional assessment of what&#39;s actually costing them clients. No sales pitch, just a real breakdown of what&#39;s working, what isn&#39;t, and what it would take to fix.</p>
+<p><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a free audit call</a> and we&#39;ll walk through your site together.</p>
+<p>The fastest way to grow revenue isn&#39;t more traffic. It&#39;s fixing the site that&#39;s leaking the traffic you already have.</p>
+
+    <div class="post-cta-box" data-r>
+      <h3>Want to know what your site is actually doing wrong?</h3>
+      <p>Book a free website audit call and we'll walk through your site together. A real breakdown of what's working, what isn't, and what it would take to stop the leak. No sales pitch, just a professional assessment.</p>
+      <a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="btn-a">Book a Free Audit</a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-top">
+      <div><div class="footer-logo"><img src="./logo.png" alt="Ismile"/></div><p class="footer-desc">Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs serious about growth.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/></div></div>
+      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./brand-identity.html">Brand Identity</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems &amp; Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
+      <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Ismile Creative &amp; Digital Solutions. All rights reserved. Toronto, Canada.</p><div class="footer-social"><a href="https://www.instagram.com/ismilecds" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.behance.net/IsmileDesigns" aria-label="Behance"><svg width="20" height="14" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 1.5h5.7v1.3h-5.7V1.5zm2.7 3.2c-3.5 0-5.9 2.4-5.9 5.9 0 3.6 2.3 5.9 6 5.9 2.6 0 4.4-1.1 5.4-3.2h-2.8c-.4.7-1.4 1.1-2.4 1.1-1.6 0-2.8-.9-3-2.7H24c.2-3.8-1.8-7-5.8-7zm-2.7 4.6c.2-1.4 1.2-2.3 2.6-2.3 1.4 0 2.5.9 2.5 2.3h-5.1zM0 .3h6.7c2.4 0 4.7.8 4.7 3.5 0 1.4-.7 2.4-1.9 3 1.7.5 2.7 1.7 2.7 3.5 0 3-2.3 4.2-5 4.2H0V.3zm3.2 5.6h3c1.2 0 1.9-.5 1.9-1.7S7.3 2.6 6 2.6H3.2v3.3zm0 5.7h3.4c1.3 0 2.2-.6 2.2-1.9 0-1.4-1-1.9-2.3-1.9H3.2v3.8z"/></svg></a></div></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.4,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  lenis.on('scroll',ScrollTrigger.update);
+  const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.to(dot,{x:mx,y:my,duration:0.1});});
+  gsap.ticker.add(()=>{rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;gsap.set(ring,{x:rx,y:ry});});
+  document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{gsap.to(ring,{scale:2.2,opacity:0.4,duration:0.3});gsap.to(dot,{scale:0.4,duration:0.3});});
+    el.addEventListener('mouseleave',()=>{gsap.to(ring,{scale:1,opacity:1,duration:0.3});gsap.to(dot,{scale:1,duration:0.3});});
+  });
+  lenis.on('scroll',({scroll,limit})=>{document.getElementById('progressBar').style.width=(scroll/limit*100)+'%';});
+  lenis.on('scroll',({scroll})=>{document.getElementById('nav').classList.toggle('scrolled',scroll>60);});
+  document.querySelectorAll('[data-r]').forEach(el=>{
+    gsap.fromTo(el,{opacity:0,y:44},{opacity:1,y:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 83%'}});
+  });
+  gsap.to('.post-cat',{opacity:1,duration:0.6,delay:0.3});
+  gsap.to('.post-title',{opacity:1,duration:0.8,delay:0.4});
+  gsap.to('.post-meta',{opacity:1,duration:0.6,delay:0.6});
+  </script>
+</body>
+</html>

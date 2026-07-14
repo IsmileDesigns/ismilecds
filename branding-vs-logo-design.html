@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Branding vs Logo Design: What's the Real Difference (And What Should You Actually Pay) | Ismile Creative &amp; Digital Solutions</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--amber:#FBA92C;--warm-black:#1A1410;--white:#FFFFFF;--off-white:#FAF8F5;--mid:#6B6460;--bd:rgba(255,255,255,0.08);--bdl:rgba(26,20,16,0.09);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden;scroll-behavior:auto}
+    body{background:var(--warm-black);color:var(--white);font-family:'Assistant',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+    .cursor-dot{position:absolute;width:8px;height:8px;background:var(--white);border-radius:50%;transform:translate(-50%,-50%);}
+    .cursor-ring{position:absolute;width:36px;height:36px;border:1px solid rgba(255,255,255,0.6);border-radius:50%;transform:translate(-50%,-50%);}
+    .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--amber);z-index:200;width:0%;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 56px;height:76px;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,border-color 0.5s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(26,20,16,0.94);backdrop-filter:blur(14px);border-bottom-color:var(--bd);}
+    .nav-logo img{height:40px;width:auto;display:block;background:transparent;}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-cta{font-family:'Bebas Neue',sans-serif!important;font-size:15px!important;background:var(--amber);color:var(--warm-black)!important;padding:8px 18px;border-radius:3px;transition:background 0.2s;letter-spacing:0.1em!important;}
+    .nav-cta:hover{background:#ffc04d;}
+    .nav-cta::after{display:none!important;}
+    .nav-dropdown-wrap{position:relative}
+    .nav-dropdown-trigger{display:flex;align-items:center;gap:5px}
+    .nav-chevron{transition:transform 0.2s}
+    .nav-dropdown-wrap:hover .nav-chevron,.nav-dropdown-wrap.open .nav-chevron{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:6px;list-style:none;min-width:210px;padding:8px 0;opacity:0;visibility:hidden;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;z-index:200;}
+    .nav-dropdown-wrap:hover .nav-dropdown,.nav-dropdown-wrap.open .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+    .nav-dropdown li a{display:block;padding:10px 20px;font-size:14px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s,padding-left 0.2s;white-space:nowrap;}
+    .nav-dropdown li a::after{display:none!important;}
+    .nav-dropdown li a:hover{color:var(--amber);padding-left:26px}
+    .btn-a{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;background:var(--amber);color:var(--warm-black);padding:13px 30px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;}
+    .btn-a:hover{background:#ffc04d;transform:translateY(-2px);}
+    footer{background:#100d0a;padding:68px 56px 44px;}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
+    .footer-logo img{height:48px;width:auto;display:block;margin-bottom:16px;background:transparent;}
+    .footer-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.3);}
+    .footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:20px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .footer-links a{font-size:17px;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s,padding-left 0.2s;display:inline-block;}
+    .footer-links a:hover{color:var(--amber);padding-left:6px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;flex-wrap:wrap;gap:16px;}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.18);}
+    .footer-social{display:flex;gap:18px;}
+    .footer-social a{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
+    .footer-social a:hover{color:var(--amber);}
+    @media(max-width:768px){nav{padding:0 24px;}.nav-links{display:none;}footer{padding:48px 24px 32px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+    .post-hero{min-height:45vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 56px 64px;position:relative;overflow:hidden;}
+    .post-hero-bg{position:absolute;inset:0;}
+    .post-cat{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;position:relative;z-index:1;}
+    .post-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,80px);line-height:0.92;letter-spacing:0.02em;color:var(--white);max-width:940px;margin-bottom:24px;position:relative;z-index:1;}
+    .post-meta{font-size:13px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.28);position:relative;z-index:1;}
+    .post-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;padding:56px 56px 0;transition:color 0.2s;}
+    .post-back:hover{color:var(--amber);}
+    .post-body{max-width:780px;margin:0 auto;padding:56px 56px 120px;}
+    .post-body p{font-size:16px;font-weight:300;line-height:1.88;color:rgba(255,255,255,0.55);margin-bottom:24px;}
+    .post-body h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3.5vw,40px);letter-spacing:0.04em;color:var(--white);margin:52px 0 16px;}
+    .post-body h3{font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin:32px 0 12px;}
+    .post-body ul,.post-body ol{padding-left:22px;margin-bottom:24px;}
+    .post-body li{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+    .post-body strong{color:rgba(255,255,255,0.82);font-weight:600;}
+    .post-body img{max-width:100%;height:auto;display:block;border-radius:8px;margin:32px auto;}
+    .post-lead{font-size:17px!important;line-height:1.85!important;color:rgba(255,255,255,0.68)!important;margin-bottom:48px!important;}
+    .post-cta-box{background:rgba(251,169,44,0.07);border:1px solid rgba(251,169,44,0.18);border-radius:12px;padding:44px 48px;margin-top:64px;text-align:center;}
+    .post-cta-box h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.08em;color:var(--amber);margin-bottom:14px;text-transform:uppercase;}
+    .post-cta-box p{color:rgba(255,255,255,0.45)!important;margin-bottom:24px!important;}
+    @media(max-width:768px){.post-hero{padding:100px 24px 48px;}.post-back{padding:56px 24px 0;}.post-body{padding:40px 24px 80px;}.post-cta-box{padding:32px 24px;}}
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav id="nav">
+    <a href="./index.html" class="nav-logo"><img src="./logo.png" alt="Ismile" /></a>
+    <ul class="nav-links">
+      <li><a href="./Index.html">Home</a></li>
+      <li class="nav-dropdown-wrap">
+        <a href="#" class="nav-dropdown-trigger">Services <svg class="nav-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></a>
+        <ul class="nav-dropdown">
+          <li><a href="./brand-identity.html">Brand Identity</a></li>
+          <li><a href="./web-design.html">Web Design</a></li>
+          <li><a href="./digital-marketing.html">Digital Marketing</a></li>
+          <li><a href="./systems-automations.html">Systems &amp; Automations</a></li>
+          <li><a href="./business-consulting.html">Business Consulting</a></li>
+        </ul>
+      </li>
+      <li><a href="./portfolio.html">Portfolio</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="nav-cta">BOOK A FREE CALL</a></li>
+    </ul>
+  </nav>
+
+  <header class="post-hero">
+    <div class="post-hero-bg" style="background:linear-gradient(135deg,#1e1510,#2e2018);"></div>
+    <p class="post-cat" data-r>Branding</p>
+    <h1 class="post-title" data-r>Branding vs Logo Design: What's the Real Difference (And What Should You Actually Pay)</h1>
+    <p class="post-meta" data-r>April 20, 2026 &nbsp;·&nbsp; 11 min read</p>
+  </header>
+
+  <a href="./blog.html" class="post-back" data-r>&#8592; Back to Blog</a>
+
+  <article class="post-body">
+    <p class="post-lead">There's a conversation that happens in the first 10 minutes of almost every discovery call with a new client. They say they need a logo. We start asking questions, and within a few minutes it's clear they don't actually need a logo. They need a brand.</p>
+    <p>There&#39;s a conversation that happens in the first 10 minutes of almost every discovery call with a new client. They say they need a logo. We start asking questions, and within a few minutes it&#39;s clear they don&#39;t actually need a logo. They need a brand.</p>
+<p>Those two words get used interchangeably, and the confusion costs small businesses real money. Some overspend by hiring a full branding agency when a logo was genuinely all they needed. Most underspend by buying a $50 logo and wondering two years later why their business still doesn&#39;t feel professional, why customers don&#39;t recognize them, and why they can&#39;t charge more than their competitors.</p>
+<p>This post breaks down the real difference between branding and logo design, what each one actually costs in Canada in 2026, and how to figure out which one your business needs right now. No agency upsell, no jargon. Just the honest breakdown.</p>
+<p><img src="blog-images/designer-brand-identity-workspace.jpg" alt="Designer working on brand identity concepts with color swatches and sketches on a desk"></p>
+<h2>Let&#39;s define the terms properly</h2>
+<p><strong>A logo</strong> is a single visual mark. It&#39;s the symbol, wordmark, or icon that sits at the top of your website and on your business card. That&#39;s it. A logo is one piece of your brand, not the whole thing.</p>
+<p><strong>Brand identity</strong> is the full visual system. It includes your logo, yes, but also your color palette, your typography, your imagery style, the patterns and textures you use, the way your visuals feel together across every touchpoint. Brand identity is what makes your Instagram feed, your website, your invoices, and your business card all feel like they belong to the same company.</p>
+<p><strong>Branding</strong> is the biggest of the three. It&#39;s the strategy, the positioning, the voice, the story, the reason your business exists and the promise you make to your customers. Branding is what your business stands for before any designer opens Illustrator. The logo and the identity are the visible result of the strategic work underneath.</p>
+<p>Think of it this way. Your logo is your face. Your brand identity is how you dress and carry yourself. Your brand is who you actually are. You can have a beautiful face and terrible style and no personality, and people will still feel like something is off. That&#39;s what a logo-only approach produces for most small businesses.</p>
+<h2>Why this matters more than most founders realize</h2>
+<p>60% of people do not trust businesses with poor logos, even if reviews are good. That stat alone should end the debate about whether design matters. But the deeper number is this: a good brand can boost revenue by up to 23% because customers are willing to pay more, refer more, and stay loyal to businesses that feel consistent and intentional.</p>
+<p>The trap most entrepreneurs fall into is thinking the logo is doing the heavy lifting. It isn&#39;t. The logo is recognizable only because the rest of the brand system reinforced it everywhere. When Nike shows you a swoosh, you feel things about that swoosh because of 40 years of consistent brand work. Your $50 Fiverr logo doesn&#39;t carry any of that weight. It can&#39;t, because there&#39;s nothing behind it.</p>
+<p>For a small business, this shows up in concrete ways. You can&#39;t raise your prices because your brand doesn&#39;t justify premium rates. Your marketing feels scattered because every piece looks slightly different. Customers forget you between touchpoints because nothing visually ties your communications together. You lose referrals because the business feels unprofessional even when the work is great.</p>
+<p><img src="blog-images/brand-identity-guidelines-document.jpg" alt="Brand identity guidelines document showing color palette typography and logo variations"></p>
+<h2>What each one actually costs in 2026</h2>
+<p>This is where the confusion gets expensive. Prices for &quot;branding&quot; range from $5 to $100,000 depending on who you ask, and that range is accurate because everyone is pricing a different scope of work. Here&#39;s what you&#39;re actually paying for at each tier.</p>
+<h3>Logo only ($200 to $1,500)</h3>
+<p>A freelance designer creates a logo mark in a few formats. That&#39;s it. No color system, no typography, no usage guidelines, no documentation. You get a file and you&#39;re on your own for how to use it.</p>
+<p>This tier works for very early-stage businesses testing an idea, or for established businesses that already have a brand system and just need a logo refresh. For a brand new business that needs to look professional across a website, social media, and marketing, a logo-only package leaves you with 80% of the work still to do.</p>
+<h3>Logo plus basic brand kit ($1,500 to $5,000)</h3>
+<p>This is where most small businesses should actually start. You get the logo, a defined color palette, typography selections, basic usage guidelines, and sometimes a business card template. The designer has thought about how your brand looks across multiple surfaces, not just on one file.</p>
+<p>At this tier you&#39;re usually working with a solid freelancer or a small studio. Quality varies more than price, which is why portfolio review matters more than shopping on price alone.</p>
+<h3>Full brand identity ($5,000 to $15,000)</h3>
+<p>You get the logo system (primary, secondary, and alternative versions), a comprehensive color palette with primary and accent colors, typography hierarchy for different contexts, imagery direction, iconography, pattern or texture libraries where relevant, and a 20 to 40 page brand guidelines document that shows how to use all of it correctly.</p>
+<p>This is what most growing service businesses actually need. The brand guidelines document is the piece most entrepreneurs underestimate. It&#39;s what lets every future marketing hire, designer, or contractor produce work that looks like it came from the same company.</p>
+<h3>Brand strategy plus identity ($10,000 to $30,000)</h3>
+<p>Now you&#39;re adding the strategic layer. Positioning work, competitor analysis, customer research, brand voice development, messaging framework, and then the identity system built on top of that strategy. This is the difference between a brand that looks good and a brand that actually positions you in the market.</p>
+<p>For businesses that are scaling, rebranding, or entering a competitive space, this tier is where the ROI shows up. You&#39;re not just buying design, you&#39;re buying clarity about what your business stands for and who it&#39;s for.</p>
+<h3>Full rebrand with research ($30,000 to $100,000+)</h3>
+<p>Workshops, audience research, naming, strategy, identity, messaging, website design, launch campaign, internal brand training. This is for established businesses undergoing a significant transformation, funded startups preparing to scale, or companies entering a new market. Most small businesses don&#39;t need this and shouldn&#39;t aim for it.</p>
+<p><img src="blog-images/small-business-owner-reviewing-brand-guidelines.jpg" alt="Small business owner reviewing printed brand guidelines and color samples at a studio table"></p>
+<h2>How to know which tier your business actually needs</h2>
+<p>The honest answer depends on three things: where your business is, what it&#39;s trying to become, and how visible it needs to be right now.</p>
+<p><strong>If you&#39;re pre-revenue or pre-launch:</strong> Start with a logo plus basic brand kit. Spend between $1,500 and $3,000. Don&#39;t invest in full brand strategy before you have customers, because you don&#39;t yet know what your actual market position is. Get professional enough to launch and learn.</p>
+<p><strong>If you&#39;re making money but feel invisible:</strong> You probably need a full brand identity. The fact that you&#39;re serving clients but not standing out suggests your strategy is clear enough but your visual system isn&#39;t doing the work. Budget $5,000 to $12,000 for a proper identity system.</p>
+<p><strong>If you&#39;re scaling and hitting a ceiling:</strong> The ceiling is almost always brand positioning, not product quality. You need strategy plus identity. At this stage, spending $10,000 to $25,000 on the right brand work often unlocks six-figure revenue growth over the following year.</p>
+<p><strong>If you&#39;ve outgrown your original brand:</strong> Rebrands cost 30 to 50% of a from-scratch project when you&#39;re building on a solid foundation, because research and strategy are partially done. Most established businesses refresh their brand every 5 to 10 years.</p>
+<h2>Where small businesses waste money</h2>
+<p>Two mistakes cost small businesses the most, and they pull in opposite directions.</p>
+<p><strong>Mistake one: buying cheap and buying twice.</strong> The $50 Fiverr logo that gets replaced six months later. The DIY Canva brand that falls apart the first time you need to print something. The generic template that looks like every other business in your space. When you add up what you spent on the cheap version, the time you lost using it, and the proper version you eventually hired someone to build, you paid more than if you had just started with a real designer.</p>
+<p><strong>Mistake two: overspending on strategy before you have traction.</strong> A $20,000 brand strategy for a business with 3 clients is backwards. You don&#39;t yet know what your market position should be because the market hasn&#39;t told you. At that stage, get something professional and clean, learn from real customers, and invest in full strategic branding once you have enough data to make it specific.</p>
+<p>The sweet spot for most small businesses is the middle: a proper brand identity at $5,000 to $12,000 from a designer or small studio who takes the work seriously. Not cheap. Not a rebrand. Somewhere that looks intentional, holds together across your site and social and business materials, and grows with you for the next three to five years.</p>
+<h2>What to look for when hiring</h2>
+<p>Regardless of your budget tier, a few things separate designers who will actually deliver value from ones who will hand you a file and disappear.</p>
+<p><strong>Portfolio depth.</strong> Can they show you three to five brands they&#39;ve built end to end, not just logos? Do those brands feel consistent across touchpoints? If the portfolio is all one-off logos with no context, they might be good at marks but weaker on systems.</p>
+<p><strong>Process.</strong> Ask about their process. A designer who jumps straight into Illustrator without discovery, research, or strategy questions is giving you aesthetics without thinking. A designer who asks about your business, customers, competitors, and goals before sketching anything is giving you design that actually serves your business.</p>
+<p><strong>Brand guidelines.</strong> Do they deliver written guidelines with the logo? If the answer is no, you&#39;re buying a logo, not a brand. Guidelines are what make the design usable by anyone else who touches your brand in the future.</p>
+<p><strong>Ownership and files.</strong> You should own everything they create. Editable source files, final exports in every format you need, and fonts or licenses documented clearly. Surprising how many cheap logo packages leave you without the editable files, which means you can&#39;t make changes without going back to pay for them.</p>
+<h2>Frequently asked questions</h2>
+<p><strong>Is a logo the same as a brand?</strong></p>
+<p>No. A logo is one piece of a brand. A brand includes your logo, colors, typography, imagery style, voice, messaging, and the strategic positioning underneath all of it. A logo alone is like a single outfit, a brand is your whole wardrobe plus how you carry yourself.</p>
+<p><strong>How much should a small business spend on branding in 2026?</strong></p>
+<p>Most small businesses get a complete brand identity for $5,000 to $12,000. A logo plus basic brand kit starts around $1,500 to $3,000. Full brand strategy plus identity runs $10,000 to $25,000. The right number depends on where your business is and what problem the branding is solving.</p>
+<p><strong>Can I use Canva or an AI tool to make my own logo?</strong></p>
+<p>For a very early-stage business testing an idea, yes. For any business you plan to grow past the test phase, no. Template and AI-generated logos are rarely unique enough to trademark, often look similar to other businesses using the same templates, and don&#39;t come with a brand system behind them. Fine for month one, limiting by month six.</p>
+<p><strong>What&#39;s the difference between a freelancer and an agency for branding?</strong></p>
+<p>Freelancers are typically 30 to 50% cheaper and give you direct access to the designer. Agencies cost more but bring a team with strategy, design, and sometimes copywriting under one roof. For small businesses, a solid freelancer or small studio usually delivers the best value. Big agencies are built for funded startups and mid-market companies, not early-stage service businesses.</p>
+<p><strong>How long does brand identity work take?</strong></p>
+<p>A logo plus basic brand kit typically takes 2 to 4 weeks. Full brand identity takes 4 to 8 weeks. Strategy plus identity runs 8 to 16 weeks depending on research depth. Anyone promising a full brand identity in under 2 weeks is cutting corners on process.</p>
+<p><strong>Do I need a brand strategy before I need a logo?</strong></p>
+<p>For most small businesses, some strategic thinking should happen before any design. You should know who your customer is, what problem you solve, and how you&#39;re different from competitors before a designer starts working. A designer can help with some of this, but a logo designed without any strategic input is usually decoration, not positioning.</p>
+<h2>Where to start</h2>
+<p>If you&#39;re trying to figure out which tier your business actually needs, that&#39;s the kind of thing worth talking through before you spend a dollar. At Ismile Creative and Digital Solutions, brand work starts with a real conversation about where your business is and where it&#39;s going, not a template package pitched to every prospect.</p>
+<p><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a free call</a> to figure out whether you need a logo, a full brand identity, or strategy first. No upsell, no pressure. Just clarity.</p>
+<p>Your brand is doing work whether you invest in it or not. Better to make it work for you.</p>
+
+    <div class="post-cta-box" data-r>
+      <h3>Not sure if you need a logo or a full brand?</h3>
+      <p>Book a free call and we'll figure out which tier your business actually needs before you spend a dollar. No upsell, no pressure. Just clarity on where branding investment makes sense for where you are right now.</p>
+      <a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="btn-a">Book a Free Call</a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-top">
+      <div><div class="footer-logo"><img src="./logo.png" alt="Ismile"/></div><p class="footer-desc">Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs serious about growth.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/></div></div>
+      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./brand-identity.html">Brand Identity</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems &amp; Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
+      <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Ismile Creative &amp; Digital Solutions. All rights reserved. Toronto, Canada.</p><div class="footer-social"><a href="https://www.instagram.com/ismilecds" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.behance.net/IsmileDesigns" aria-label="Behance"><svg width="20" height="14" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 1.5h5.7v1.3h-5.7V1.5zm2.7 3.2c-3.5 0-5.9 2.4-5.9 5.9 0 3.6 2.3 5.9 6 5.9 2.6 0 4.4-1.1 5.4-3.2h-2.8c-.4.7-1.4 1.1-2.4 1.1-1.6 0-2.8-.9-3-2.7H24c.2-3.8-1.8-7-5.8-7zm-2.7 4.6c.2-1.4 1.2-2.3 2.6-2.3 1.4 0 2.5.9 2.5 2.3h-5.1zM0 .3h6.7c2.4 0 4.7.8 4.7 3.5 0 1.4-.7 2.4-1.9 3 1.7.5 2.7 1.7 2.7 3.5 0 3-2.3 4.2-5 4.2H0V.3zm3.2 5.6h3c1.2 0 1.9-.5 1.9-1.7S7.3 2.6 6 2.6H3.2v3.3zm0 5.7h3.4c1.3 0 2.2-.6 2.2-1.9 0-1.4-1-1.9-2.3-1.9H3.2v3.8z"/></svg></a></div></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.4,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  lenis.on('scroll',ScrollTrigger.update);
+  const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.to(dot,{x:mx,y:my,duration:0.1});});
+  gsap.ticker.add(()=>{rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;gsap.set(ring,{x:rx,y:ry});});
+  document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{gsap.to(ring,{scale:2.2,opacity:0.4,duration:0.3});gsap.to(dot,{scale:0.4,duration:0.3});});
+    el.addEventListener('mouseleave',()=>{gsap.to(ring,{scale:1,opacity:1,duration:0.3});gsap.to(dot,{scale:1,duration:0.3});});
+  });
+  lenis.on('scroll',({scroll,limit})=>{document.getElementById('progressBar').style.width=(scroll/limit*100)+'%';});
+  lenis.on('scroll',({scroll})=>{document.getElementById('nav').classList.toggle('scrolled',scroll>60);});
+  document.querySelectorAll('[data-r]').forEach(el=>{
+    gsap.fromTo(el,{opacity:0,y:44},{opacity:1,y:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 83%'}});
+  });
+  gsap.to('.post-cat',{opacity:1,duration:0.6,delay:0.3});
+  gsap.to('.post-title',{opacity:1,duration:0.8,delay:0.4});
+  gsap.to('.post-meta',{opacity:1,duration:0.6,delay:0.6});
+  </script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ismile helps law firms, insurance brokers, and financial advisors build brands and digital systems that match the quality of their work. Toronto-based.">
+  <title>Ismile Branding & Digital for Professional Services Firms</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================
+       DESIGN TOKENS
+    ========================================= */
+    :root {
+      --bg:        #F7F5F0;
+      --text:      #0D0D0D;
+      --muted:     #5C5C5C;
+      --amber:     #FBA92C;
+      --rule:      #DEDAD3;
+      --white:     #FFFFFF;
+
+      --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:  'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --max-w:  1140px;
+      --gutter: 2rem;
+      --py:     6.5rem;
+    }
+
+    /* =========================================
+       RESET
+    ========================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; font-size: 16px; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    em { font-style: italic; }
+
+    /* =========================================
+       LAYOUT
+    ========================================= */
+    .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    /* =========================================
+       TYPE UTILITIES
+    ========================================= */
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* =========================================
+       SCROLL REVEAL
+    ========================================= */
+    .r {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .r.show { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* =========================================
+       BUTTON
+    ========================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      padding: 0.8125rem 1.875rem;
+      background: var(--text);
+      color: var(--white);
+      border: 1.5px solid var(--text);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn:hover { background: var(--amber); border-color: var(--amber); color: var(--text); }
+
+    .btn-solid-dark {
+      background: var(--text);
+      color: var(--white);
+      border-color: var(--text);
+    }
+    .btn-solid-dark:hover { background: rgba(13,13,13,0.8); border-color: rgba(13,13,13,0.8); color: var(--white); }
+
+    /* =========================================
+       NAV
+    ========================================= */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav__logo {
+      font-family: var(--serif);
+      font-size: 1.3125rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+    .nav__logo .dot { color: var(--amber); }
+
+    /* =========================================
+       HERO
+    ========================================= */
+    .hero {
+      padding: 6.5rem 0 5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .hero__kicker-rule {
+      width: 2rem;
+      height: 1.5px;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+    .hero__headline {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5.75vw, 5.625rem);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+      max-width: 900px;
+      margin-bottom: 3.25rem;
+    }
+    .hero__lower {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--rule);
+      align-items: end;
+    }
+    .hero__sub {
+      font-size: 1.0625rem;
+      line-height: 1.72;
+      color: var(--muted);
+      max-width: 460px;
+    }
+    .hero__action {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 2rem;
+    }
+    .hero__ghost-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .hero__ghost-link:hover { color: var(--text); border-color: var(--text); }
+
+    /* =========================================
+       SHARED SECTION HEADER
+    ========================================= */
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3.5rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .sec-title {
+      font-family: var(--serif);
+      font-size: clamp(1.625rem, 2.5vw, 2.25rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      max-width: 560px;
+    }
+
+    /* =========================================
+       PROBLEM SECTION
+    ========================================= */
+    .problem { padding: var(--py) 0; border-bottom: 1px solid var(--rule); }
+
+    .problem__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .prob {
+      padding: 2.25rem 2.75rem 2rem 0;
+      border-top: 2.5px solid var(--text);
+    }
+    .prob + .prob {
+      padding-left: 2.75rem;
+      border-left: 1px solid var(--rule);
+    }
+    .prob:last-child { padding-right: 0; }
+    .prob__h {
+      font-family: var(--serif);
+      font-size: 1.125rem;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.875rem;
+    }
+    .prob__p {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    /* =========================================
+       OUTCOMES SECTION
+    ========================================= */
+    .outcomes { padding: var(--py) 0; border-bottom: 1px solid var(--rule); }
+
+    .outcomes__grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .oc {
+      padding: 2.75rem 3.25rem 2.75rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .oc:nth-child(even) { padding-left: 3.25rem; padding-right: 0; border-left: 1px solid var(--rule); }
+    .oc__num {
+      font-family: var(--serif);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.125rem;
+    }
+    .oc__h {
+      font-family: var(--serif);
+      font-size: 1.3125rem;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.8125rem;
+    }
+    .oc__p {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    /* =========================================
+       CASE STUDY
+    ========================================= */
+    .work { padding: var(--py) 0; border-bottom: 1px solid var(--rule); }
+
+    .work__layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 5.5rem;
+      align-items: start;
+    }
+    .work__meta { position: sticky; top: 80px; }
+    .work__cat {
+      font-size: 0.6875rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 0.4375rem;
+    }
+    .work__name {
+      font-family: var(--serif);
+      font-size: 2.625rem;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.75rem;
+    }
+    .work__chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chip {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.375rem 0.8125rem;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+    }
+    .work__block {
+      padding: 2.25rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .work__block:last-child { border-bottom: 1px solid var(--rule); }
+    .work__block-lbl {
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+    .work__block-p {
+      font-size: 1rem;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+    .work__block-p strong { color: var(--text); font-weight: 500; }
+
+    /* =========================================
+       VALUES / WHY ISMILE
+    ========================================= */
+    .values { padding: var(--py) 0; border-bottom: 1px solid var(--rule); }
+
+    .values__grid { display: grid; grid-template-columns: repeat(2, 1fr); }
+    .val {
+      padding: 2.75rem 3.25rem 2.75rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .val:nth-child(even) { padding-left: 3.25rem; padding-right: 0; border-left: 1px solid var(--rule); }
+    .val__h {
+      font-family: var(--serif);
+      font-size: 1.1875rem;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.8125rem;
+    }
+    .val__p {
+      font-size: 0.9375rem;
+      line-height: 1.72;
+      color: var(--muted);
+    }
+
+    /* =========================================
+       TESTIMONIAL
+    ========================================= */
+    .testimonial { padding: var(--py) 0; border-bottom: 1px solid var(--rule); }
+
+    .testimonial__q {
+      font-family: var(--serif);
+      font-size: clamp(1.875rem, 3.5vw, 3.25rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+      max-width: 900px;
+    }
+    .testimonial__q::before {
+      content: '\201C';
+      display: block;
+      font-size: 1.3em;
+      color: var(--amber);
+      line-height: 0.8;
+      margin-bottom: 0.625rem;
+      font-style: normal;
+    }
+    .testimonial__attr { margin-top: 2.5rem; }
+    .testimonial__name { font-size: 0.9375rem; font-weight: 500; }
+    .testimonial__role { font-size: 0.875rem; color: var(--muted); margin-top: 0.1875rem; }
+
+    /* =========================================
+       FINAL CTA
+    ========================================= */
+    .cta { background: var(--amber); padding: 6.5rem 0; }
+    .cta__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+    .cta__copy {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.75vw, 3.125rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.022em;
+      color: var(--text);
+    }
+    .cta__sub {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: rgba(13, 13, 13, 0.62);
+      max-width: 420px;
+      line-height: 1.58;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+    .footer { padding: 2.625rem 0; }
+    .footer__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+    .footer__logo {
+      font-family: var(--serif);
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .footer__logo .dot { color: var(--amber); }
+    .footer__nav { display: flex; gap: 2rem; }
+    .footer__nav a { font-size: 0.8125rem; color: var(--muted); transition: color 0.2s; }
+    .footer__nav a:hover { color: var(--text); }
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.5rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer__copy { font-size: 0.75rem; color: var(--muted); }
+    .footer__policy { display: flex; gap: 1.5rem; }
+    .footer__policy a { font-size: 0.75rem; color: var(--muted); transition: color 0.2s; }
+    .footer__policy a:hover { color: var(--text); }
+
+    /* =========================================
+       RESPONSIVE TABLET
+    ========================================= */
+    @media (max-width: 960px) {
+      :root { --py: 4.5rem; }
+
+      .hero { padding: 4.5rem 0 4rem; }
+      .hero__lower { grid-template-columns: 1fr; gap: 2rem; }
+      .hero__action { justify-content: flex-start; }
+
+      .sec-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+
+      .problem__grid { grid-template-columns: 1fr; }
+      .prob { padding: 2rem 0 1.75rem; border-top: 2.5px solid var(--text); }
+      .prob + .prob { padding-left: 0; border-left: none; }
+
+      .outcomes__grid,
+      .values__grid { grid-template-columns: 1fr; }
+
+      .oc, .val { padding: 2.25rem 0; }
+      .oc:nth-child(even),
+      .val:nth-child(even) { padding-left: 0; border-left: none; }
+
+      .work__layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .work__meta { position: static; }
+
+      .cta__inner { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+    }
+
+    /* =========================================
+       RESPONSIVE MOBILE
+    ========================================= */
+    @media (max-width: 600px) {
+      :root { --py: 3.5rem; --gutter: 1.25rem; }
+      .hero { padding: 3.5rem 0 3rem; }
+      .nav__inner { height: 56px; }
+      .footer__top { flex-direction: column; align-items: flex-start; }
+      .footer__bottom { flex-direction: column; align-items: flex-start; }
+      .work__name { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================================================
+       NAV
+  ====================================================== -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">ismile<span class="dot">.</span></a>
+        <a href="#contact" class="btn">Book a Free Call</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ======================================================
+       HERO
+  ====================================================== -->
+  <section class="hero">
+    <div class="wrap">
+
+      <div class="hero__kicker r">
+        <div class="hero__kicker-rule"></div>
+        <span class="eyebrow">Branding &amp; Digital for Professional Services &mdash; Toronto</span>
+      </div>
+
+      <h1 class="hero__headline r d1">
+        You&rsquo;re good<br>at what you do.<br>
+        Your online presence<br>should <em>prove&nbsp;it</em>.
+      </h1>
+
+      <div class="hero__lower">
+        <p class="hero__sub r d2">
+          Professional services firms lose work every week to competitors who are no more qualified &mdash; they just look more established. We build the brand and digital infrastructure that closes that gap.
+        </p>
+        <div class="hero__action r d3">
+          <a href="#contact" class="btn">Book a Free Call</a>
+          <a href="#work" class="hero__ghost-link">See our work</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       PROBLEM
+  ====================================================== -->
+  <section class="problem" id="problems">
+    <div class="wrap">
+
+      <div class="sec-header r">
+        <h2 class="sec-title">What&rsquo;s actually holding your firm back online</h2>
+        <span class="eyebrow">The problem</span>
+      </div>
+
+      <div class="problem__grid">
+
+        <div class="prob r">
+          <h3 class="prob__h">A website that doesn&rsquo;t do any selling</h3>
+          <p class="prob__p">Your site has your contact information and a list of services. It doesn&rsquo;t build a case for why anyone should call you over the firm two streets over. That entire burden falls on referrals &mdash; which means you&rsquo;re completely exposed the moment referrals slow down.</p>
+        </div>
+
+        <div class="prob r d1">
+          <h3 class="prob__h">No visible reason to choose you</h3>
+          <p class="prob__p">Online, you look identical to every other firm in your category. Same services, same structure, same nothing. Prospects who find you cold have no basis to choose you over the next result, so they compare on price &mdash; a competition no one wins well.</p>
+        </div>
+
+        <div class="prob r d2">
+          <h3 class="prob__h">Materials that undercut your positioning</h3>
+          <p class="prob__p">Your proposals, letterhead, email signature &mdash; they don&rsquo;t reflect the quality of the work you actually deliver. That gap between what you do and how you present costs you clients you&rsquo;ll never know you lost.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       OUTCOMES
+  ====================================================== -->
+  <section class="outcomes" id="outcomes">
+    <div class="wrap">
+
+      <div class="sec-header r">
+        <h2 class="sec-title">What you have when we&rsquo;re done</h2>
+        <span class="eyebrow">The work</span>
+      </div>
+
+      <div class="outcomes__grid">
+
+        <div class="oc r">
+          <div class="oc__num">01</div>
+          <h3 class="oc__h">A brand that earns trust before the first call</h3>
+          <p class="oc__p">The positioning, identity, and voice to signal expertise immediately &mdash; across every touchpoint. Not just a logo. The full picture of how your firm presents itself to the world.</p>
+        </div>
+
+        <div class="oc r d1">
+          <div class="oc__num">02</div>
+          <h3 class="oc__h">A website that converts skeptical visitors</h3>
+          <p class="oc__p">Built to address objections, demonstrate authority, and make the next step obvious. For clients who weren&rsquo;t referred, it does the work a referral normally does.</p>
+        </div>
+
+        <div class="oc r d2">
+          <div class="oc__num">03</div>
+          <h3 class="oc__h">Systems that run without constant attention</h3>
+          <p class="oc__p">Lead capture, follow-up, intake workflows. Built properly once, maintained over time. You shouldn&rsquo;t need to babysit your own infrastructure or rebuild it every time something breaks.</p>
+        </div>
+
+        <div class="oc r d3">
+          <div class="oc__num">04</div>
+          <h3 class="oc__h">A platform that scales as the practice grows</h3>
+          <p class="oc__p">New location, new practice area, new partners &mdash; the foundation holds. We don&rsquo;t build for today and leave you to rebuild in three years when the business has moved on.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       CASE STUDY
+  ====================================================== -->
+  <section class="work" id="work">
+    <div class="wrap">
+
+      <div class="sec-header r">
+        <h2 class="sec-title">In practice</h2>
+        <span class="eyebrow">Featured work</span>
+      </div>
+
+      <div class="work__layout">
+
+        <div class="work__meta r">
+          <p class="work__cat">Immigration Law &mdash; Toronto</p>
+          <h3 class="work__name">Leo Law</h3>
+          <div class="work__chips">
+            <span class="chip">Brand Identity</span>
+            <span class="chip">Website</span>
+            <span class="chip">Client Intake</span>
+            <span class="chip">Systems</span>
+          </div>
+        </div>
+
+        <div class="r d1">
+          <div class="work__block">
+            <p class="work__block-lbl">The situation</p>
+            <p class="work__block-p">Leo Law was a growing, <strong>well-regarded immigration practice</strong> operating with a web presence that communicated none of that. The site said nothing about depth of experience or focus. Referrals came in consistently &mdash; cold traffic didn&rsquo;t. Intake was handled through a mix of email and phone calls that didn&rsquo;t scale and quietly leaked work.</p>
+          </div>
+          <div class="work__block">
+            <p class="work__block-lbl">What we built</p>
+            <p class="work__block-p">A complete brand identity: positioning, visual system, and tone of voice. A new website built around trust and conversion, not just information delivery. And an <strong>automated intake and qualification workflow</strong> that processes inquiries before anyone on the team needs to touch them.</p>
+          </div>
+          <div class="work__block">
+            <p class="work__block-lbl">What changed</p>
+            <p class="work__block-p">Conversion from cold channels improved. Intake no longer requires manual triage. The brand holds across every client-facing touchpoint &mdash; proposals, digital presence, communications. <strong>The practice now looks as good as it actually is.</strong> That&rsquo;s a sentence no firm should have to wait to say about itself.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       VALUES / WHY ISMILE
+  ====================================================== -->
+  <section class="values" id="why">
+    <div class="wrap">
+
+      <div class="sec-header r">
+        <h2 class="sec-title">Why firms choose us over a general agency</h2>
+        <span class="eyebrow">Why Ismile</span>
+      </div>
+
+      <div class="values__grid">
+
+        <div class="val r">
+          <h3 class="val__h">One team. No handoffs.</h3>
+          <p class="val__p">Brand, web, and digital systems under one roof. No gaps between a designer who doesn&rsquo;t understand development and a developer who doesn&rsquo;t care about copy. We hold the full picture from first brief through launch &mdash; and beyond.</p>
+        </div>
+
+        <div class="val r d1">
+          <h3 class="val__h">We start with the business problem.</h3>
+          <p class="val__p">Not &ldquo;what do you want it to look like?&rdquo; &mdash; but what needs to be different in twelve months, and what&rsquo;s currently in the way. Aesthetic decisions follow strategic ones. Every deliverable connects back to something that matters.</p>
+        </div>
+
+        <div class="val r d2">
+          <h3 class="val__h">Good-looking work that doesn&rsquo;t perform isn&rsquo;t a success.</h3>
+          <p class="val__p">We&rsquo;re accountable to outcomes &mdash; leads generated, conversions improved, time recovered. Not deliverables shipped. Design is a tool. We use it to solve problems, not to pad a portfolio.</p>
+        </div>
+
+        <div class="val r d3">
+          <h3 class="val__h">Built to last longer than the launch.</h3>
+          <p class="val__p">When you expand, add services, or bring on new partners, the systems hold. We don&rsquo;t build things that require a full rebuild in two years. You shouldn&rsquo;t have to start over every time the practice grows.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       TESTIMONIAL
+  ====================================================== -->
+  <section class="testimonial r">
+    <div class="wrap">
+
+      <blockquote class="testimonial__q">
+        Ismile changed how we show up. I stopped apologizing for our website in client meetings the week it launched.
+      </blockquote>
+
+      <div class="testimonial__attr">
+        <p class="testimonial__name">Marcus L.</p>
+        <p class="testimonial__role">Managing Partner &mdash; financial advisory firm, Toronto</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FINAL CTA
+  ====================================================== -->
+  <section class="cta" id="contact">
+    <div class="wrap">
+      <div class="cta__inner">
+
+        <div class="r">
+          <p class="cta__copy">Most firms know<br>they need this.<br>They keep putting it off.</p>
+          <p class="cta__sub">Book a 30-minute call. No pitch, no pressure &mdash; a straight conversation about what your firm actually needs and whether we&rsquo;re the right fit.</p>
+        </div>
+
+        <a href="mailto:hello@ismilecds.com" class="btn btn-solid-dark r d1">Book a Free Call</a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="footer">
+    <div class="wrap">
+
+      <div class="footer__top">
+        <a href="#" class="footer__logo">ismile<span class="dot">.</span></a>
+        <nav class="footer__nav">
+          <a href="#">Work</a>
+          <a href="#">Services</a>
+          <a href="#">About</a>
+          <a href="mailto:hello@ismilecds.com">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2026 Ismile Creative &amp; Digital Solutions. Toronto, Ontario.</p>
+        <div class="footer__policy">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ======================================================
+       SCROLL REVEAL
+  ====================================================== -->
+  <script>
+    (function () {
+      const io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('show');
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -28px 0px' }
+      );
+      document.querySelectorAll('.r').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

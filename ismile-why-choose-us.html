@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why Choose Us</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      color: #ede8dc;
+      padding: 64px 40px 72px;
+    }
+
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Top row: heading left, intro right */
+    .top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 72px;
+    }
+
+    .heading-block {}
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #b8945a;
+      margin-bottom: 16px;
+    }
+
+    .heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      color: #ede8dc;
+    }
+
+    .intro-block {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 4px;
+    }
+
+    .intro-text {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(237, 232, 220, 0.6);
+      max-width: 440px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #ede8dc;
+      text-decoration: none;
+      border: 1px solid rgba(237, 232, 220, 0.25);
+      border-radius: 100px;
+      padding: 12px 24px;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+      width: fit-content;
+    }
+
+    .cta-btn:hover {
+      border-color: #b8945a;
+      background: rgba(184, 148, 90, 0.08);
+      color: #b8945a;
+    }
+
+    .cta-btn svg {
+      width: 14px;
+      height: 14px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin-bottom: 0;
+    }
+
+    /* Reasons grid */
+    .reasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .reason {
+      padding: 40px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 24px;
+      align-items: start;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reason.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reason:nth-child(odd) {
+      padding-right: 48px;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .reason:nth-child(even) {
+      padding-left: 48px;
+    }
+
+    .reason:nth-child(3),
+    .reason:nth-child(4) {
+      border-bottom: none;
+    }
+
+    .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: #b8945a;
+      padding-top: 3px;
+      line-height: 1;
+    }
+
+    .reason-content {}
+
+    .reason-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: #ede8dc;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .reason-text {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(237, 232, 220, 0.55);
+    }
+
+    /* Hover state on reason */
+    .reason {
+      cursor: default;
+      transition:
+        opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reason:hover .reason-title {
+      color: #b8945a;
+      transition: color 0.2s ease;
+    }
+
+    .reason:hover .num {
+      transform: scale(1.15);
+      transition: transform 0.2s ease;
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      body { padding: 48px 20px 56px; }
+
+      .top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 48px;
+      }
+
+      .reasons {
+        grid-template-columns: 1fr;
+      }
+
+      .reason {
+        padding: 32px 0;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+
+      .reason:nth-child(odd) {
+        padding-right: 0;
+      }
+
+      .reason:nth-child(even) {
+        padding-left: 0;
+      }
+
+      .reason:last-child {
+        border-bottom: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <div class="top">
+      <div class="heading-block">
+        <p class="kicker">Why us</p>
+        <h2 class="heading">Why clients<br>choose us.</h2>
+      </div>
+      <div class="intro-block">
+        <p class="intro-text">Most businesses hire a designer, then a developer, then someone to run their ads, then someone to tie it all together. We skip that. Strategy, design, automations, and tech built as one system, by one team, around your actual business.</p>
+        <a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="cta-btn">
+          Get a Free Consultation
+          <svg viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="reasons">
+
+      <div class="reason" data-delay="0">
+        <span class="num">01</span>
+        <div class="reason-content">
+          <h3 class="reason-title">One team, full picture</h3>
+          <p class="reason-text">No handoff gaps. Design and tech are built together, not bolted together after the fact.</p>
+        </div>
+      </div>
+
+      <div class="reason" data-delay="100">
+        <span class="num">02</span>
+        <div class="reason-content">
+          <h3 class="reason-title">Built around your goals</h3>
+          <p class="reason-text">Your industry, your audience, your metrics. Nothing is copy-pasted from the last client.</p>
+        </div>
+      </div>
+
+      <div class="reason" data-delay="200">
+        <span class="num">03</span>
+        <div class="reason-content">
+          <h3 class="reason-title">Results over aesthetics</h3>
+          <p class="reason-text">We care about conversions, leads, and sales. Good-looking sites that don't perform aren't good enough.</p>
+        </div>
+      </div>
+
+      <div class="reason" data-delay="300">
+        <span class="num">04</span>
+        <div class="reason-content">
+          <h3 class="reason-title">Grows as you do</h3>
+          <p class="reason-text">Whether you're at launch or scaling, the systems we build don't need to be rebuilt later.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.reason');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseInt(el.dataset.delay) || 0;
+          setTimeout(() => el.classList.add('visible'), delay);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    items.forEach(el => observer.observe(el));
+
+    function postHeight() {
+      window.parent.postMessage({ type: 'height', value: document.body.scrollHeight }, '*');
+    }
+
+    new ResizeObserver(postHeight).observe(document.body);
+    postHeight();
+  </script>
+
+</body>
+</html>

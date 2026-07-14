@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>What Sharp, Intentional Work Actually Looks Like: The Ismile Approach | Ismile Creative &amp; Digital Solutions</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--amber:#FBA92C;--warm-black:#1A1410;--white:#FFFFFF;--off-white:#FAF8F5;--mid:#6B6460;--bd:rgba(255,255,255,0.08);--bdl:rgba(26,20,16,0.09);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden;scroll-behavior:auto}
+    body{background:var(--warm-black);color:var(--white);font-family:'Assistant',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+    .cursor-dot{position:absolute;width:8px;height:8px;background:var(--white);border-radius:50%;transform:translate(-50%,-50%);}
+    .cursor-ring{position:absolute;width:36px;height:36px;border:1px solid rgba(255,255,255,0.6);border-radius:50%;transform:translate(-50%,-50%);}
+    .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--amber);z-index:200;width:0%;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 56px;height:76px;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,border-color 0.5s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(26,20,16,0.94);backdrop-filter:blur(14px);border-bottom-color:var(--bd);}
+    .nav-logo img{height:40px;width:auto;display:block;background:transparent;}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-cta{font-family:'Bebas Neue',sans-serif!important;font-size:15px!important;background:var(--amber);color:var(--warm-black)!important;padding:8px 18px;border-radius:3px;transition:background 0.2s;letter-spacing:0.1em!important;}
+    .nav-cta:hover{background:#ffc04d;}
+    .nav-cta::after{display:none!important;}
+    .nav-dropdown-wrap{position:relative}
+    .nav-dropdown-trigger{display:flex;align-items:center;gap:5px}
+    .nav-chevron{transition:transform 0.2s}
+    .nav-dropdown-wrap:hover .nav-chevron,.nav-dropdown-wrap.open .nav-chevron{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:calc(100% + 18px);left:50%;transform:translateX(-50%) translateY(-6px);background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:6px;list-style:none;min-width:210px;padding:8px 0;opacity:0;visibility:hidden;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s;z-index:200;}
+    .nav-dropdown-wrap:hover .nav-dropdown,.nav-dropdown-wrap.open .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+    .nav-dropdown li a{display:block;padding:10px 20px;font-size:14px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s,padding-left 0.2s;white-space:nowrap;}
+    .nav-dropdown li a::after{display:none!important;}
+    .nav-dropdown li a:hover{color:var(--amber);padding-left:26px}
+    .btn-a{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;background:var(--amber);color:var(--warm-black);padding:13px 30px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;}
+    .btn-a:hover{background:#ffc04d;transform:translateY(-2px);}
+    footer{background:#100d0a;padding:68px 56px 44px;}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
+    .footer-logo img{height:48px;width:auto;display:block;margin-bottom:16px;background:transparent;}
+    .footer-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.3);}
+    .footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:20px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .footer-links a{font-size:17px;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s,padding-left 0.2s;display:inline-block;}
+    .footer-links a:hover{color:var(--amber);padding-left:6px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;flex-wrap:wrap;gap:16px;}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.18);}
+    .footer-social{display:flex;gap:18px;}
+    .footer-social a{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
+    .footer-social a:hover{color:var(--amber);}
+    @media(max-width:768px){nav{padding:0 24px;}.nav-links{display:none;}footer{padding:48px 24px 32px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+    .post-hero{min-height:45vh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px 56px 64px;position:relative;overflow:hidden;}
+    .post-hero-bg{position:absolute;inset:0;}
+    .post-cat{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;position:relative;z-index:1;}
+    .post-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,80px);line-height:0.92;letter-spacing:0.02em;color:var(--white);max-width:940px;margin-bottom:24px;position:relative;z-index:1;}
+    .post-meta{font-size:13px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.28);position:relative;z-index:1;}
+    .post-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);text-decoration:none;padding:56px 56px 0;transition:color 0.2s;}
+    .post-back:hover{color:var(--amber);}
+    .post-body{max-width:780px;margin:0 auto;padding:56px 56px 120px;}
+    .post-body p{font-size:16px;font-weight:300;line-height:1.88;color:rgba(255,255,255,0.55);margin-bottom:24px;}
+    .post-body h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(26px,3.5vw,40px);letter-spacing:0.04em;color:var(--white);margin:52px 0 16px;}
+    .post-body h3{font-size:15px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin:32px 0 12px;}
+    .post-body ul,.post-body ol{padding-left:22px;margin-bottom:24px;}
+    .post-body li{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+    .post-body strong{color:rgba(255,255,255,0.82);font-weight:600;}
+    .post-body img{max-width:100%;height:auto;display:block;border-radius:8px;margin:32px auto;}
+    .post-lead{font-size:17px!important;line-height:1.85!important;color:rgba(255,255,255,0.68)!important;margin-bottom:48px!important;}
+    .post-cta-box{background:rgba(251,169,44,0.07);border:1px solid rgba(251,169,44,0.18);border-radius:12px;padding:44px 48px;margin-top:64px;text-align:center;}
+    .post-cta-box h3{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:0.08em;color:var(--amber);margin-bottom:14px;text-transform:uppercase;}
+    .post-cta-box p{color:rgba(255,255,255,0.45)!important;margin-bottom:24px!important;}
+    @media(max-width:768px){.post-hero{padding:100px 24px 48px;}.post-back{padding:56px 24px 0;}.post-body{padding:40px 24px 80px;}.post-cta-box{padding:32px 24px;}}
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav id="nav">
+    <a href="./index.html" class="nav-logo"><img src="./logo.png" alt="Ismile" /></a>
+    <ul class="nav-links">
+      <li><a href="./Index.html">Home</a></li>
+      <li class="nav-dropdown-wrap">
+        <a href="#" class="nav-dropdown-trigger">Services <svg class="nav-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg></a>
+        <ul class="nav-dropdown">
+          <li><a href="./brand-identity.html">Brand Identity</a></li>
+          <li><a href="./web-design.html">Web Design</a></li>
+          <li><a href="./digital-marketing.html">Digital Marketing</a></li>
+          <li><a href="./systems-automations.html">Systems &amp; Automations</a></li>
+          <li><a href="./business-consulting.html">Business Consulting</a></li>
+        </ul>
+      </li>
+      <li><a href="./portfolio.html">Portfolio</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="nav-cta">BOOK A FREE CALL</a></li>
+    </ul>
+  </nav>
+
+  <header class="post-hero">
+    <div class="post-hero-bg" style="background:linear-gradient(135deg,#1a1410,#2e2018);"></div>
+    <p class="post-cat" data-r>Studio</p>
+    <h1 class="post-title" data-r>What Sharp, Intentional Work Actually Looks Like: The Ismile Approach</h1>
+    <p class="post-meta" data-r>April 15, 2026 &nbsp;·&nbsp; 9 min read</p>
+  </header>
+
+  <a href="./blog.html" class="post-back" data-r>&#8592; Back to Blog</a>
+
+  <article class="post-body">
+    <p class="post-lead">Most creative studios will tell you they care about quality. They will tell you their process is thorough. They will tell you they take the time to understand your business. The language is so standard at this point that it means almost nothing.</p>
+    <p>Most creative studios will tell you they care about quality. They will tell you their process is thorough. They will tell you they take the time to understand your business. The language is so standard at this point that it means almost nothing.</p>
+<p>So instead of adding another version of that, this post is what actually happens when you work with us. What we believe. How we approach projects. The kind of clients we take on and the kind we turn down. Why our work looks the way it does and why we&#39;d rather lose a project than compromise on how we do it.</p>
+<p>If you&#39;re considering hiring us, this is probably the post to read before the discovery call. And if we&#39;re not the right fit, we&#39;d rather you know now than three weeks into a project that isn&#39;t working.</p>
+<p><img src="blog-images/designer-intentional-work-clean-workspace.jpg" alt="Designer working on brand identity with attention to detail at a clean workspace"></p>
+<h2>What &quot;sharp, intentional&quot; actually means</h2>
+<p>Our tagline promise is sharp, intentional work. That&#39;s language, and language is cheap. Here&#39;s what it actually translates to in how we make decisions.</p>
+<p><strong>Sharp means the work is deliberate, not decorative.</strong> Every color, every typographic choice, every word, every interaction on a website should exist for a reason. If we can&#39;t explain why something is there, it shouldn&#39;t be. Most design work we see in the wild is soft: slightly vague taglines, middle-of-the-road color palettes, fonts picked because they look nice, compositions that don&#39;t prioritize anything. Sharp means we fight that instinct on every project. It means we choose. It means there&#39;s a point of view in the work.</p>
+<p><strong>Intentional means the design serves the business, not the other way around.</strong> Pretty is not enough. Unique is not enough. A brand or a website has to do a specific job: attract the right clients, position the business clearly, make selling easier, hold up over time. If our work is gorgeous but doesn&#39;t do those things, we&#39;ve failed. We&#39;d rather deliver a brand that&#39;s 85% as visually striking but does 100% of the commercial work than the opposite.</p>
+<p>This is harder than it sounds, because the temptation in creative work is to prioritize what looks impressive in a portfolio. We try not to. The portfolio should be a byproduct of work that actually moved our clients&#39; businesses forward, not the point.</p>
+<h2>The clients we work with</h2>
+<p>We are clear about this because being unclear about it costs us and costs the client. We work best with a specific kind of business, and we are not the right studio for everyone.</p>
+<p><strong>Entrepreneurs and service businesses at an inflection point.</strong> Most of our clients come to us at a moment of transition. They&#39;ve outgrown a DIY brand. They&#39;re launching something new. They&#39;re rebranding after a pivot. They&#39;re building their first real website because their business has gotten serious enough to need one. We are built for those moments. We are less useful to businesses that are just looking for a logo refresh or a template tweak.</p>
+<p><strong>Founders who care about their business looking the way they want it to look.</strong> Not vain, but attentive. Founders who have thought about the kind of brand they want to build and want a studio to help them articulate it. The work goes best when the client has strong opinions and is willing to defend them, because that gives us something real to work with.</p>
+<p><strong>Businesses where the brand is a meaningful part of the offer.</strong> Service providers, coaches, studios, agencies, consultants, boutique product businesses. Anyone whose positioning directly affects what they can charge and who they attract. For these businesses, the brand is an investment that compounds. For other kinds of businesses (commoditized products, volume operations) the brand matters less and a cheaper solution often makes more sense.</p>
+<p><strong>Clients who want to be involved but not in charge of the creative direction.</strong> The best working relationships are collaborative. You bring the business context, the vision for where you&#39;re headed, and the final say on whether the work feels right. We bring the expertise on how to translate that into a brand or website that does its job. If you want to direct every design decision, we&#39;re probably not the right studio for you. If you want to be consulted, not managed, we probably are.</p>
+<p><img src="blog-images/client-designer-collaboration-screen.jpg" alt="Small business owner collaborating with a designer reviewing work on screen"></p>
+<h2>The clients we turn down</h2>
+<p>Just as important as who we work with is who we don&#39;t. Here&#39;s who we tend to refer elsewhere.</p>
+<p><strong>Businesses looking for the cheapest option.</strong> We&#39;re not the cheapest and we don&#39;t want to be. If price is the main decision factor, there are great freelancers and lower-cost studios that will serve you better than we will. We&#39;d rather send you to them than take a project where we can&#39;t do the work at our standard.</p>
+<p><strong>Businesses that haven&#39;t validated their idea yet.</strong> Pre-revenue businesses sometimes come to us wanting full brand identity work. We usually push back. Until you have customers, you don&#39;t know what your actual market position is. Spending $10,000 on a brand that might not reflect where your business actually lands is backwards. We often suggest they hire a freelancer for something lean that gets them to market, then come back to us when they have traction.</p>
+<p><strong>Projects where the scope is unclear and the client doesn&#39;t want to do the work of clarifying it.</strong> Good creative work requires a real conversation about what the business needs. Some prospects want a quote without that conversation, which almost always produces bad outcomes. If someone isn&#39;t willing to invest an hour in a real discovery call, the project rarely goes well, regardless of the budget.</p>
+<p><strong>Businesses whose values don&#39;t align with ours.</strong> We&#39;ve turned down projects because the business model was extractive, because the target audience was misled about what they were buying, or because the work would contribute to something we didn&#39;t want to contribute to. This is rare, but it happens. We&#39;re trying to build a studio we&#39;re proud of, which means being selective about what we put out into the world.</p>
+<h2>How our process actually runs</h2>
+<p>Process language in creative work is usually fluff. Here&#39;s what ours actually looks like, step by step.</p>
+<p><strong>Discovery (week 1).</strong> A real conversation about your business. Not a generic intake form. We want to understand what you&#39;re building, who you&#39;re building it for, what&#39;s working now, what isn&#39;t, and what success looks like. This is where we find out whether the project you think you need is actually the project you need. Sometimes they&#39;re different.</p>
+<p><strong>Strategy (week 2).</strong> Before anything visual happens, we clarify positioning. Who you serve, what you stand for, what makes you different, how you talk about yourself. This step is where most branding projects fail when they&#39;re skipped. It&#39;s also the part that feels the least &quot;creative&quot; to clients, which is why some studios rush through it. We don&#39;t.</p>
+<p><strong>Creative direction (weeks 3 to 4).</strong> We present direction before we present design. Mood, typography systems, colour territory, and visual language. This is where we align on the feel of the brand before we commit to specific executions. It saves weeks of revisions later when you can say yes or no to the direction before we&#39;ve built pages or finalized logos.</p>
+<p><strong>Design and refinement (weeks 4 to 8).</strong> Actual creative output. Logo, brand system, website design, whatever the scope includes. Two rounds of revisions built in, with clear feedback checkpoints. We don&#39;t take feedback in unlimited loops because that usually produces worse work, not better work. Defined revision stages force real decisions.</p>
+<p><strong>Build and launch (weeks 8 to 12, for web projects).</strong> Development, testing, content integration, SEO setup, analytics. The part most studios rush. We take our time here because a beautifully designed site that&#39;s slow, broken on mobile, or untracked is not actually a finished project.</p>
+<p><strong>Handoff and support.</strong> You get everything you need to run your brand without us: editable files, guidelines, training on your website back-end, and recommendations for ongoing maintenance. We remain available for support after launch, but our goal is to make you independent, not dependent.</p>
+<p><img src="blog-images/web-design-mockups-wireframes-screen.jpg" alt="Web design mockups on a screen showing wireframes and final designs side by side"></p>
+<h2>What we charge and why</h2>
+<p>We don&#39;t publish prices on our site because the right pricing depends on scope, and scope depends on the discovery call. What we can say is what we&#39;re not.</p>
+<p>We are not the lowest-priced studio in Toronto. Projects generally start at ranges where a freelancer or cheaper shop would be below us. This reflects two things: the size of the team working on your project, and the time we spend on strategy and refinement that cheaper options skip.</p>
+<p>We are also not the most expensive. There are agencies in Toronto charging $50,000+ for brand work we would do for considerably less. That reflects our operating model. We&#39;re a focused studio, not a mid-market agency with layers of management and an office in a tower.</p>
+<p>For most of our clients, the investment lands in ranges that are meaningful but not prohibitive for a serious small or mid-sized business. We&#39;re happy to talk specifics in a discovery call once we understand what you actually need.</p>
+<h2>What we won&#39;t compromise on</h2>
+<p>Every studio has a list of things they protect. Here are ours.</p>
+<p><strong>We won&#39;t skip strategy.</strong> Clients occasionally ask to just jump to design because they&#39;re in a hurry or want to save budget. We don&#39;t do this. Strategy is what makes the design work. Skipping it produces decoration, not positioning.</p>
+<p><strong>We won&#39;t ship work we&#39;re not proud of.</strong> This sounds obvious but it&#39;s not universal. Sometimes a client pushes back hard on a creative decision and we genuinely believe our version is better for their business. We&#39;ll advocate for it, explain the reasoning, and if we can&#39;t convince them, we&#39;ll deliver what they want and be transparent about our concerns. What we won&#39;t do is quietly produce weaker work because pushback is uncomfortable.</p>
+<p><strong>We won&#39;t pad timelines.</strong> Some agencies stretch projects to charge more or make the process feel more valuable. We move as fast as the quality of the work allows. If something takes four weeks, we deliver in four weeks. If it takes eight, we deliver in eight. We don&#39;t invent ceremony.</p>
+<p><strong>We won&#39;t take projects we know we can&#39;t do well.</strong> If a prospective project falls outside our expertise (enterprise-scale e-commerce, highly regulated industries, technical products we don&#39;t understand), we say so and refer them to studios better equipped for it. We&#39;d rather lose the revenue than produce work we can&#39;t stand behind.</p>
+<h2>Why any of this matters to you</h2>
+<p>If you&#39;ve read this far, you&#39;re either considering hiring us or you&#39;re researching how studios like ours think. Either way, the point of this post isn&#39;t to convince you we&#39;re the only option. It&#39;s to give you enough information to know whether we&#39;re the right option for your specific situation.</p>
+<p>Good creative partnerships come from fit, not persuasion. If what you read here resonates, we&#39;re probably someone you&#39;d enjoy working with. If parts of it made you bristle, we&#39;re probably not the right studio for you, and that&#39;s fine. Better to know now.</p>
+<p>We work with a small number of clients each year. The work we put out is the work we want to be doing, with the businesses we want to be building for. That&#39;s the practical meaning of &quot;sharp, intentional&quot; in how we run the studio, not just how we make things.</p>
+<h2>Frequently asked questions</h2>
+<p><strong>Where is Ismile Creative and Digital Solutions based?</strong></p>
+<p>Toronto, Canada. We work with clients across Canada and remotely with clients elsewhere, but most of our in-person work happens in the GTA.</p>
+<p><strong>What services does the studio offer?</strong></p>
+<p>Brand identity, web design and development, digital marketing, and systems and automations for small and mid-sized service businesses. We don&#39;t do everything. We focus on the disciplines where we can genuinely deliver at the level we want to deliver.</p>
+<p><strong>How long do typical projects take?</strong></p>
+<p>Brand identity projects run 4 to 8 weeks. Full website projects run 8 to 14 weeks depending on scope. Combined brand plus web projects typically take 10 to 16 weeks. We don&#39;t rush timelines, but we don&#39;t invent them either.</p>
+<p><strong>What does a typical project cost?</strong></p>
+<p>It depends on scope. Small focused projects start in the low five figures. Larger brand and web engagements run higher. Pricing is discussed transparently once we understand the project scope through the discovery call.</p>
+<p><strong>Do you work with clients outside Toronto?</strong></p>
+<p>Yes. Most of our client communication happens remotely anyway. We&#39;ve worked with clients across Canada and internationally. The process doesn&#39;t change based on location.</p>
+<p><strong>What&#39;s the first step if I want to work with you?</strong></p>
+<p>Book a discovery call. 30 minutes, free, no pressure. We&#39;ll talk through your business, what you&#39;re trying to build, and whether we&#39;re the right studio for the project. If we are, we send a proposal. If we aren&#39;t, we&#39;ll tell you and often refer you to someone better suited.</p>
+<h2>Let&#39;s talk</h2>
+<p>If this sounds like the kind of studio partnership you&#39;re looking for, the next step is a conversation.</p>
+<p><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a free call</a> and we&#39;ll talk through what you&#39;re building. No sales pitch, no pressure. Just a real discussion about whether what we do lines up with what you need.</p>
+<p>We work with clients who want to build something serious. If that&#39;s you, we&#39;d love to hear what you&#39;re working on.</p>
+
+    <div class="post-cta-box" data-r>
+      <h3>Think we might be the right studio for you?</h3>
+      <p>Book a discovery call. 30 minutes, free, no pressure. We'll talk through your business, what you're trying to build, and whether what we do lines up with what you need.</p>
+      <a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="btn-a">Book a Discovery Call</a>
+    </div>
+  </article>
+
+  <footer>
+    <div class="footer-top">
+      <div><div class="footer-logo"><img src="./logo.png" alt="Ismile"/></div><p class="footer-desc">Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs serious about growth.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/></div></div>
+      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./brand-identity.html">Brand Identity</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems &amp; Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
+      <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 Ismile Creative &amp; Digital Solutions. All rights reserved. Toronto, Canada.</p><div class="footer-social"><a href="https://www.instagram.com/ismilecds" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.behance.net/IsmileDesigns" aria-label="Behance"><svg width="20" height="14" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 1.5h5.7v1.3h-5.7V1.5zm2.7 3.2c-3.5 0-5.9 2.4-5.9 5.9 0 3.6 2.3 5.9 6 5.9 2.6 0 4.4-1.1 5.4-3.2h-2.8c-.4.7-1.4 1.1-2.4 1.1-1.6 0-2.8-.9-3-2.7H24c.2-3.8-1.8-7-5.8-7zm-2.7 4.6c.2-1.4 1.2-2.3 2.6-2.3 1.4 0 2.5.9 2.5 2.3h-5.1zM0 .3h6.7c2.4 0 4.7.8 4.7 3.5 0 1.4-.7 2.4-1.9 3 1.7.5 2.7 1.7 2.7 3.5 0 3-2.3 4.2-5 4.2H0V.3zm3.2 5.6h3c1.2 0 1.9-.5 1.9-1.7S7.3 2.6 6 2.6H3.2v3.3zm0 5.7h3.4c1.3 0 2.2-.6 2.2-1.9 0-1.4-1-1.9-2.3-1.9H3.2v3.8z"/></svg></a></div></div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.4,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  lenis.on('scroll',ScrollTrigger.update);
+  const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.to(dot,{x:mx,y:my,duration:0.1});});
+  gsap.ticker.add(()=>{rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;gsap.set(ring,{x:rx,y:ry});});
+  document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{gsap.to(ring,{scale:2.2,opacity:0.4,duration:0.3});gsap.to(dot,{scale:0.4,duration:0.3});});
+    el.addEventListener('mouseleave',()=>{gsap.to(ring,{scale:1,opacity:1,duration:0.3});gsap.to(dot,{scale:1,duration:0.3});});
+  });
+  lenis.on('scroll',({scroll,limit})=>{document.getElementById('progressBar').style.width=(scroll/limit*100)+'%';});
+  lenis.on('scroll',({scroll})=>{document.getElementById('nav').classList.toggle('scrolled',scroll>60);});
+  document.querySelectorAll('[data-r]').forEach(el=>{
+    gsap.fromTo(el,{opacity:0,y:44},{opacity:1,y:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 83%'}});
+  });
+  gsap.to('.post-cat',{opacity:1,duration:0.6,delay:0.3});
+  gsap.to('.post-title',{opacity:1,duration:0.8,delay:0.4});
+  gsap.to('.post-meta',{opacity:1,duration:0.6,delay:0.6});
+  </script>
+</body>
+</html>

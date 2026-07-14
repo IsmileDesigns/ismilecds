@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      color: #0c0c0b;
+      padding: 64px 40px 80px;
+    }
+
+    .wrapper {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 64px;
+      flex-wrap: wrap;
+    }
+
+    .kicker {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #7a5c1e;
+      margin-bottom: 14px;
+    }
+
+    .heading {
+      font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      color: #0c0c0b;
+    }
+
+    .header-note {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(12, 12, 11, 0.55);
+      max-width: 320px;
+      text-align: right;
+      padding-bottom: 6px;
+    }
+
+    /* Service rows */
+    .services {
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .service {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-trigger {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      align-items: center;
+      gap: 28px;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 28px 0;
+      text-align: left;
+      color: #0c0c0b;
+      transition: background 0.2s ease;
+      position: relative;
+    }
+
+    .service-trigger::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #7a5c1e;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service.open .service-trigger::after,
+    .service-trigger:hover::after {
+      width: 100%;
+    }
+
+    .svc-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(100, 68, 10, 0.5);
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+
+    .service.open .svc-num,
+    .service-trigger:hover .svc-num {
+      color: #7a5c1e;
+    }
+
+    .svc-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 400;
+      line-height: 1.2;
+      transition: color 0.2s ease;
+    }
+
+    .service.open .svc-name,
+    .service-trigger:hover .svc-name {
+      color: #7a5c1e;
+    }
+
+    .svc-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .svc-category {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(12, 12, 11, 0.35);
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .service.open .svc-category,
+    .service-trigger:hover .svc-category {
+      color: rgba(100, 68, 10, 0.6);
+    }
+
+    .svc-icon {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .service.open .svc-icon,
+    .service-trigger:hover .svc-icon {
+      border-color: #7a5c1e;
+      background: rgba(100, 68, 10, 0.08);
+    }
+
+    .svc-icon svg {
+      width: 12px;
+      height: 12px;
+      fill: none;
+      stroke: rgba(12, 12, 11, 0.45);
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s ease;
+    }
+
+    .service.open .svc-icon svg {
+      transform: rotate(45deg);
+      stroke: #b8945a;
+    }
+
+    /* Expanded body */
+    .service-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-inner {
+      display: grid;
+      grid-template-columns: 52px 1fr 1fr;
+      gap: 28px;
+      padding: 0 0 36px;
+    }
+
+    .svc-spacer { /* aligns content under name */ }
+
+    .svc-desc {
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(12, 12, 11, 0.65);
+    }
+
+    .svc-tags {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+
+    .svc-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      font-weight: 400;
+      color: rgba(12, 12, 11, 0.55);
+    }
+
+    .svc-tag::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: #7a5c1e;
+      flex-shrink: 0;
+    }
+
+    /* Bottom CTA strip */
+    .cta-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 56px;
+      flex-wrap: wrap;
+    }
+
+    .cta-note {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(12, 12, 11, 0.5);
+    }
+
+    .cta-note em {
+      font-style: italic;
+      color: rgba(12, 12, 11, 0.7);
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: #ede8dc;
+      background: #0c0c0b;
+      text-decoration: none;
+      border: none;
+      border-radius: 100px;
+      padding: 13px 28px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover {
+      background: #2a2a2a;
+      transform: translateY(-1px);
+    }
+
+    .cta-btn svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 48px 20px 64px; }
+
+      .header { flex-direction: column; align-items: flex-start; }
+      .header-note { text-align: left; max-width: 100%; }
+
+      .service-trigger {
+        grid-template-columns: 40px 1fr 40px;
+        gap: 16px;
+      }
+
+      .svc-category { display: none; }
+
+      .service-inner {
+        grid-template-columns: 40px 1fr;
+        grid-template-rows: auto auto;
+        gap: 16px;
+      }
+
+      .svc-tags {
+        grid-column: 2;
+      }
+
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+
+
+
+    <div class="services">
+
+      <div class="service" data-delay="0">
+        <button class="service-trigger">
+          <span class="svc-num">01</span>
+          <span class="svc-name">Brand Identity</span>
+          <span class="svc-right">
+            <span class="svc-category">Branding</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 12 12"><path d="M2 2l8 8M10 2l-8 8"/></svg>
+            </span>
+          </span>
+        </button>
+        <div class="service-body">
+          <div class="service-inner">
+            <div class="svc-spacer"></div>
+            <p class="svc-desc">Your brand is the first decision people make about you before you say a word. We build complete visual identities from the ground up logos, color systems, typography, and the strategy behind all of it. Whether you're starting fresh or cleaning up something inconsistent, every touchpoint ends up looking intentional and working together.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Logo Design</span>
+              <span class="svc-tag">Visual Systems</span>
+              <span class="svc-tag">Brand Guidelines</span>
+              <span class="svc-tag">Color &amp; Typography</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service" data-delay="80">
+        <button class="service-trigger">
+          <span class="svc-num">02</span>
+          <span class="svc-name">Web Design &amp; Development</span>
+          <span class="svc-right">
+            <span class="svc-category">Web</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 12 12"><path d="M2 2l8 8M10 2l-8 8"/></svg>
+            </span>
+          </span>
+        </button>
+        <div class="service-body">
+          <div class="service-inner">
+            <div class="svc-spacer"></div>
+            <p class="svc-desc">Websites that look good and actually do the job. We design and build custom sites that convert visitors, load fast, and hold up on every device. No bloated templates, no generic layouts. From landing pages to full service sites, we build for clarity, speed, and results.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Custom Websites</span>
+              <span class="svc-tag">Landing Pages</span>
+              <span class="svc-tag">Portfolio Sites</span>
+              <span class="svc-tag">UX &amp; Copywriting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service" data-delay="160">
+        <button class="service-trigger">
+          <span class="svc-num">03</span>
+          <span class="svc-name">Digital Marketing</span>
+          <span class="svc-right">
+            <span class="svc-category">Marketing</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 12 12"><path d="M2 2l8 8M10 2l-8 8"/></svg>
+            </span>
+          </span>
+        </button>
+        <div class="service-body">
+          <div class="service-inner">
+            <div class="svc-spacer"></div>
+            <p class="svc-desc">Visibility without strategy is noise. We build and manage marketing systems that grow your audience, nurture leads, and move people toward action across social, email, and beyond. Content calendars, campaigns, and copy handled so you can stay focused on running the business.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Social Media</span>
+              <span class="svc-tag">Email Marketing</span>
+              <span class="svc-tag">Content Strategy</span>
+              <span class="svc-tag">Paid Ads</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service" data-delay="240">
+        <button class="service-trigger">
+          <span class="svc-num">04</span>
+          <span class="svc-name">Systems &amp; Automations</span>
+          <span class="svc-right">
+            <span class="svc-category">Automation</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 12 12"><path d="M2 2l8 8M10 2l-8 8"/></svg>
+            </span>
+          </span>
+        </button>
+        <div class="service-body">
+          <div class="service-inner">
+            <div class="svc-spacer"></div>
+            <p class="svc-desc">Manual processes cost you time you don't have. We map your operations and build automated workflows that handle the repetitive work from lead intake to follow-up to internal handoffs. CRM setup, Zapier, Make, and custom integrations. We build it, document it, and make sure you can run it without us.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">Workflow Automation</span>
+              <span class="svc-tag">CRM Setup</span>
+              <span class="svc-tag">Zapier / Make</span>
+              <span class="svc-tag">Process Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service" data-delay="320">
+        <button class="service-trigger">
+          <span class="svc-num">05</span>
+          <span class="svc-name">Business Consulting &amp; Virtual Support</span>
+          <span class="svc-right">
+            <span class="svc-category">Consulting</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 12 12"><path d="M2 2l8 8M10 2l-8 8"/></svg>
+            </span>
+          </span>
+        </button>
+        <div class="service-body">
+          <div class="service-inner">
+            <div class="svc-spacer"></div>
+            <p class="svc-desc">For business owners who need more than a service provider. We offer 1:1 strategy sessions to work through positioning, offers, and direction. Virtual business assistant support covers day-to-day admin and task coordination, and launch support keeps new offers and initiatives on track with structure and accountability from start to finish line.</p>
+            <div class="svc-tags">
+              <span class="svc-tag">1:1 Strategy Sessions</span>
+              <span class="svc-tag">Virtual Assistant</span>
+              <span class="svc-tag">Launch Support</span>
+              <span class="svc-tag">Project Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cta-strip">
+      <p class="cta-note">Not sure which service fits? <em>Let's figure it out together.</em></p>
+      <a href="https://koalendar.com/e/meet-with-yazmine-ismile" class="cta-btn">
+        Book a Free Strategy Call
+        <svg viewBox="0 0 12 12"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    const services = document.querySelectorAll('.service');
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseInt(el.dataset.delay) || 0;
+          setTimeout(() => el.classList.add('visible'), delay);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    services.forEach(s => observer.observe(s));
+
+    // Accordion
+    services.forEach(service => {
+      const trigger = service.querySelector('.service-trigger');
+      const body = service.querySelector('.service-body');
+      const inner = service.querySelector('.service-inner');
+
+      trigger.addEventListener('click', () => {
+        const isOpen = service.classList.contains('open');
+
+        services.forEach(s => {
+          s.classList.remove('open');
+          s.querySelector('.service-body').style.maxHeight = '0';
+        });
+
+        if (!isOpen) {
+          service.classList.add('open');
+          body.style.maxHeight = inner.scrollHeight + 'px';
+        }
+
+        setTimeout(postHeight, 480);
+      });
+    });
+
+    function postHeight() {
+      window.parent.postMessage({ type: 'height', value: document.body.scrollHeight }, '*');
+    }
+
+    new ResizeObserver(postHeight).observe(document.body);
+    postHeight();
+  </script>
+
+</body>
+</html>

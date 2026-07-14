@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      padding: 32px 20px 40px;
+      color: #1a1a1a;
+    }
+
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .item {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .item:hover {
+      border-color: #d1d5db;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+    }
+
+    .item.open {
+      border-color: #d1d5db;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .trigger {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 18px 20px;
+      text-align: left;
+      color: #1a1a1a;
+    }
+
+    .arrow {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 0 5px 8px;
+      border-color: transparent transparent transparent #6b7280;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, border-left-color 0.2s ease;
+      margin-top: 1px;
+    }
+
+    .item.open .arrow {
+      transform: rotate(90deg);
+      border-left-color: #b8945a;
+    }
+
+    .trigger-label {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .content {
+      padding: 4px 20px 20px 40px;
+      border-top: 1px solid #f3f4f6;
+    }
+
+    .desc {
+      color: #4b5563;
+      font-size: 14.5px;
+      line-height: 1.75;
+      font-weight: 400;
+    }
+
+    .desc p + p {
+      margin-top: 10px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      background: #fdf6ec;
+      border: 1px solid #e8d5b5;
+      border-radius: 4px;
+      color: #9a7440;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="accordion">
+
+    <div class="item">
+      <button class="trigger">
+        <span class="arrow"></span>
+        <span class="trigger-label">Brand Identity</span>
+      </button>
+      <div class="body">
+        <div class="content">
+          <div class="desc">
+            <p>Your brand is the first decision people make about you before you say a word. We build complete visual identities from the ground up logos, color systems, typography, and the strategy behind all of it.</p>
+            <p>Whether you're starting fresh or cleaning up something inconsistent, every touchpoint ends up looking intentional and working together.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Logo Design</span>
+            <span class="tag">Visual Systems</span>
+            <span class="tag">Brand Guidelines</span>
+            <span class="tag">Color &amp; Typography</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <button class="trigger">
+        <span class="arrow"></span>
+        <span class="trigger-label">Web Design &amp; Development</span>
+      </button>
+      <div class="body">
+        <div class="content">
+          <div class="desc">
+            <p>Websites that look good and actually do the job. We design and build custom sites that convert visitors, load fast, and hold up on every device. No bloated templates, no generic layouts.</p>
+            <p>From landing pages to full service sites, we build for clarity, speed, and results.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Custom Websites</span>
+            <span class="tag">Landing Pages</span>
+            <span class="tag">Portfolio Sites</span>
+            <span class="tag">UX &amp; Copywriting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <button class="trigger">
+        <span class="arrow"></span>
+        <span class="trigger-label">Digital Marketing</span>
+      </button>
+      <div class="body">
+        <div class="content">
+          <div class="desc">
+            <p>Visibility without strategy is noise. We build and manage marketing systems that grow your audience, nurture leads, and move people toward action across social, email, and beyond.</p>
+            <p>Content calendars, campaigns, and copy handled so you can stay focused on running the business.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Social Media</span>
+            <span class="tag">Email Marketing</span>
+            <span class="tag">Content Strategy</span>
+            <span class="tag">Paid Ads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <button class="trigger">
+        <span class="arrow"></span>
+        <span class="trigger-label">Systems &amp; Automations</span>
+      </button>
+      <div class="body">
+        <div class="content">
+          <div class="desc">
+            <p>Manual processes cost you time you don't have. We map your operations and build automated workflows that handle the repetitive work from lead intake to follow-up to internal handoffs.</p>
+            <p>CRM setup, Zapier, Make, and custom integrations. We build it, document it, and make sure you can run it without us.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Workflow Automation</span>
+            <span class="tag">CRM Setup</span>
+            <span class="tag">Zapier / Make</span>
+            <span class="tag">Process Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <button class="trigger">
+        <span class="arrow"></span>
+        <span class="trigger-label">Business Consulting &amp; Virtual Support</span>
+      </button>
+      <div class="body">
+        <div class="content">
+          <div class="desc">
+            <p>For business owners who need more than a service provider. We offer 1:1 strategy sessions to work through positioning, offers, and direction the thinking work that moves the needle.</p>
+            <p>Virtual business assistant support covers day-to-day admin and task coordination, and launch support keeps new offers and initiatives on track with structure and accountability from start to finish line.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">1:1 Strategy Sessions</span>
+            <span class="tag">Virtual Assistant</span>
+            <span class="tag">Launch Support</span>
+            <span class="tag">Project Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.item');
+
+    items.forEach(item => {
+      const trigger = item.querySelector('.trigger');
+      const body = item.querySelector('.body');
+      const content = item.querySelector('.content');
+
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        items.forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.body').style.maxHeight = '0';
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          body.style.maxHeight = content.scrollHeight + 'px';
+        }
+
+        setTimeout(postHeight, 420);
+      });
+    });
+
+    function postHeight() {
+      window.parent.postMessage({ type: 'height', value: document.body.scrollHeight }, '*');
+    }
+
+    new ResizeObserver(postHeight).observe(document.body);
+    postHeight();
+  </script>
+
+</body>
+</html>

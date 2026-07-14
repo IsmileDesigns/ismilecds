@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forma Pilates Studio | Toronto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F4EFE8;
+      --bone: #EAE3D8;
+      --charcoal: #1A1916;
+      --taupe: #9E9082;
+      --sage: #6D7A68;
+      --warm-white: #FDFAF6;
+      --accent: #C8A96E;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--warm-white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ============================
+       NAV
+    ============================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 52px;
+      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(253,250,246,0.96);
+      padding: 16px 52px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+      backdrop-filter: blur(8px);
+    }
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo img {
+      height: 80px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      transition: filter 0.4s;
+    }
+    nav.scrolled .nav-logo img {
+      filter: brightness(0);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 36px;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav.scrolled .nav-links a { color: var(--taupe); }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border: 1px solid rgba(255,255,255,0.6);
+      color: var(--warm-white);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    nav.scrolled .nav-cta {
+      border-color: var(--charcoal);
+      color: var(--charcoal);
+    }
+    .nav-cta:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--warm-white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--warm-white);
+      transition: background 0.4s;
+    }
+    nav.scrolled .hamburger span { background: var(--charcoal); }
+
+    /* ============================
+       HERO
+    ============================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('jessica-streser-5ai6kpW4NOw-unsplash.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      transform: scale(1.04);
+      animation: heroZoom 8s ease forwards;
+    }
+    @keyframes heroZoom {
+      to { transform: scale(1); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.45) 55%, rgba(10,9,8,0.2) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 52px 80px;
+      max-width: 820px;
+      animation: fadeUp 1.2s 0.3s both ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: #ffffff;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 7vw, 6rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: #ffffff;
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: #ffffff;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--accent);
+      color: var(--warm-white);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-primary:hover { background: #b8964f; }
+    .btn-outline {
+      display: inline-block;
+      padding: 15px 40px;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: var(--warm-white);
+      font-size: 0.74rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      right: 52px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: rgba(255,255,255,0.3);
+      animation: scrollLine 2s ease infinite;
+    }
+    @keyframes scrollLine {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+      100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+    }
+
+    /* ============================
+       MARQUEE TICKER
+    ============================ */
+    .ticker {
+      background: var(--charcoal);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker 22s linear infinite;
+    }
+    .ticker-item {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--bone);
+      padding: 0 36px;
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+    .ticker-item::after {
+      content: '*';
+      color: var(--accent);
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ============================
+       ABOUT
+    ============================ */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+      position: relative;
+    }
+    .about-images {
+      position: relative;
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .about-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      height: 140px;
+      z-index: 2;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--warm-white);
+      font-family: var(--font-display);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      animation: rotateBadge 20s linear infinite;
+    }
+    @keyframes rotateBadge {
+      from { transform: translateX(-50%) rotate(0deg); }
+      to { transform: translateX(-50%) rotate(360deg); }
+    }
+    .about-img-badge span {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 72px;
+      background: var(--warm-white);
+    }
+    .section-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: var(--sage); }
+    .section-body {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--taupe);
+      margin-bottom: 24px;
+    }
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin: 36px 0;
+      padding: 36px 0;
+      border-top: 1px solid var(--bone);
+      border-bottom: 1px solid var(--bone);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-top: 6px;
+    }
+
+    /* ============================
+       CLASSES
+    ============================ */
+    .classes {
+      padding: 100px 52px;
+      background: var(--cream);
+    }
+    .classes-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      gap: 40px;
+    }
+    .classes-header-left { max-width: 520px; }
+    .view-all {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--charcoal);
+      transition: all 0.3s;
+    }
+    .view-all:hover { color: var(--accent); border-color: var(--accent); }
+    .view-all::after { content: '->'; }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .class-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .class-card:first-child {
+      grid-column: span 2;
+    }
+    .class-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s ease;
+    }
+    .class-card:first-child img { height: 480px; }
+    .class-card:hover img { transform: scale(1.06); }
+    .class-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,25,22,0.78) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+      transition: background 0.4s;
+    }
+    .class-card:hover .class-overlay {
+      background: linear-gradient(to top, rgba(26,25,22,0.88) 0%, rgba(26,25,22,0.1) 70%);
+    }
+    .class-level {
+      font-size: 0.64rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .class-name {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 300;
+      color: var(--warm-white);
+      margin-bottom: 10px;
+    }
+    .class-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .class-card:hover .class-desc { max-height: 80px; }
+    .class-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 14px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.3s 0.1s;
+    }
+    .class-card:hover .class-link { opacity: 1; transform: translateY(0); }
+    .class-link::after { content: '->'; }
+
+    /* ============================
+       FEATURES / WHY US
+    ============================ */
+    .features {
+      padding: 100px 52px;
+      background: var(--charcoal);
+    }
+    .features-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .features-header .section-eyebrow {
+      justify-content: center;
+    }
+    .features-header .section-eyebrow::before { display: none; }
+    .features-header .section-title { color: var(--warm-white); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .feature-item {
+      background: var(--charcoal);
+      padding: 48px 40px;
+      transition: background 0.3s;
+    }
+    .feature-item:hover { background: #242320; }
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+    .feature-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 400;
+      color: var(--warm-white);
+      margin-bottom: 14px;
+    }
+    .feature-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ============================
+       GALLERY / STUDIO VIBE
+    ============================ */
+    .gallery {
+      padding: 100px 52px;
+      background: var(--warm-white);
+    }
+    .gallery-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+      align-items: end;
+    }
+    .gallery-body { color: var(--taupe); font-weight: 300; line-height: 1.8; font-size: 0.95rem; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto auto;
+      gap: 8px;
+    }
+    .g1 { grid-column: 1/5; grid-row: 1; }
+    .g2 { grid-column: 5/9; grid-row: 1; }
+    .g3 { grid-column: 9/13; grid-row: 1; }
+    .g4 { grid-column: 1/7; grid-row: 2; }
+    .g5 { grid-column: 7/13; grid-row: 2; }
+    .gallery-grid img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      height: 280px;
+      transition: opacity 0.4s;
+    }
+    .g4 img, .g5 img { height: 340px; }
+    .gallery-grid img:hover { opacity: 0.88; }
+
+    /* ============================
+       PRICING
+    ============================ */
+    .pricing {
+      padding: 100px 52px;
+      background: var(--cream);
+    }
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .pricing-header .section-eyebrow { justify-content: center; }
+    .pricing-header .section-eyebrow::before { display: none; }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .pricing-card {
+      background: var(--warm-white);
+      padding: 52px 44px;
+      transition: background 0.3s;
+    }
+    .pricing-card.featured {
+      background: var(--charcoal);
+    }
+    .pricing-card:hover:not(.featured) { background: var(--bone); }
+    .plan-name {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 20px;
+    }
+    .pricing-card.featured .plan-name { color: rgba(255,255,255,0.5); }
+    .plan-price {
+      font-family: var(--font-display);
+      font-size: 3.6rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pricing-card.featured .plan-price { color: var(--warm-white); }
+    .plan-period {
+      font-size: 0.8rem;
+      color: var(--taupe);
+      margin-bottom: 36px;
+    }
+    .pricing-card.featured .plan-period { color: rgba(255,255,255,0.5); }
+    .plan-features {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+    .plan-features li {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--taupe);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bone);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .pricing-card.featured .plan-features li {
+      color: rgba(255,255,255,0.65);
+      border-color: rgba(255,255,255,0.1);
+    }
+    .plan-features li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .plan-btn {
+      display: block;
+      text-align: center;
+      padding: 16px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--charcoal);
+      color: var(--charcoal);
+      transition: all 0.3s;
+    }
+    .plan-btn:hover { background: var(--charcoal); color: var(--warm-white); }
+    .pricing-card.featured .plan-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--warm-white);
+    }
+    .pricing-card.featured .plan-btn:hover { background: #b8964f; border-color: #b8964f; }
+
+    /* ============================
+       TESTIMONIALS
+    ============================ */
+    .testimonials {
+      padding: 100px 52px;
+      background: var(--warm-white);
+      overflow: hidden;
+    }
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .testimonials-header .section-eyebrow { justify-content: center; }
+    .testimonials-header .section-eyebrow::before { display: none; }
+
+    .testi-track-wrap {
+      overflow: hidden;
+    }
+    .testi-track {
+      display: flex;
+      gap: 24px;
+      animation: testiScroll 30s linear infinite;
+      width: max-content;
+    }
+    .testi-track:hover { animation-play-state: paused; }
+    @keyframes testiScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .testi-card {
+      width: 380px;
+      flex-shrink: 0;
+      background: var(--cream);
+      padding: 44px 40px;
+    }
+    .testi-stars {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+    .testi-quote {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--charcoal);
+      margin-bottom: 24px;
+    }
+    .testi-author {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+
+    /* ============================
+       CTA BANNER
+    ============================ */
+    .cta-banner {
+      position: relative;
+      height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('ahmet-kurt-y9zaDB1OR6U-unsplash.jpg');
+      background-size: cover;
+      background-position: center 20%;
+    }
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,25,22,0.65);
+    }
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 40px;
+    }
+    .cta-content .section-title { color: var(--warm-white); font-size: clamp(2.2rem, 4.5vw, 4rem); margin-bottom: 28px; }
+    .cta-content .section-title em { color: #ffffff; }
+    .cta-content p {
+      color: rgba(255,255,255,0.72);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* ============================
+       CONTACT
+    ============================ */
+    .contact {
+      padding: 100px 52px;
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-details {
+      margin: 36px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-item-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+    .contact-item-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5; }
+    .contact-item-text { font-size: 0.9rem; font-weight: 300; color: var(--taupe); line-height: 1.6; }
+    .contact-item-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .contact-form {}
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--warm-white);
+      border: 1px solid var(--bone);
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--accent); }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%;
+      padding: 18px;
+      background: var(--charcoal);
+      color: var(--warm-white);
+      font-size: 0.74rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      transition: background 0.3s;
+    }
+    .form-submit:hover { background: var(--accent); }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: var(--charcoal);
+      padding: 80px 52px 40px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand .logo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--warm-white);
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .footer-brand p {
+      font-size: 0.85rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.45);
+      max-width: 280px;
+      margin-bottom: 28px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 14px;
+    }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.75rem;
+      transition: all 0.3s;
+    }
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); }
+    .footer-social a svg { width: 16px; height: 16px; fill: currentColor; display: block; }
+    .footer-col h4 {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      margin-bottom: 22px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-col ul li a:hover { color: var(--accent); }
+    .footer-hours { font-size: 0.85rem; font-weight: 300; color: rgba(255,255,255,0.45); line-height: 1.9; }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-copy {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.04em;
+    }
+    .footer-credit {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.28);
+    }
+
+    /* ============================
+       MOBILE NAV
+    ============================ */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: var(--warm-white);
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 40px 40px;
+      transition: right 0.4s ease;
+      box-shadow: -8px 0 40px rgba(0,0,0,0.12);
+    }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--charcoal);
+    }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--bone);
+      display: block;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 199;
+      display: none;
+    }
+    .mobile-menu-overlay.open { display: block; }
+
+    /* ============================
+       SCROLL REVEALS
+    ============================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 1100px) {
+      .classes-grid { grid-template-columns: 1fr 1fr; }
+      .class-card:first-child { grid-column: span 2; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-cards { grid-template-columns: 1fr; }
+      .pricing-card.featured { order: -1; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 20px 28px; }
+      nav.scrolled { padding: 14px 28px; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-content { padding: 0 28px 60px; }
+      .hero-scroll { right: 28px; }
+
+      .about { grid-template-columns: 1fr; }
+      .about-images { height: 60vw; }
+      .about-content { padding: 60px 28px; }
+
+      .classes { padding: 70px 28px; }
+      .classes-header { flex-direction: column; align-items: flex-start; }
+      .classes-grid { grid-template-columns: 1fr; }
+      .class-card:first-child { grid-column: span 1; }
+
+      .features { padding: 70px 28px; }
+      .features-grid { grid-template-columns: 1fr; }
+
+      .gallery { padding: 70px 28px; }
+      .gallery-header { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; }
+      .g1, .g2, .g3 { grid-column: span 1; grid-row: auto; }
+      .g4, .g5 { grid-column: span 1; grid-row: auto; }
+      .gallery-grid img { height: 220px; }
+      .g4 img, .g5 img { height: 260px; }
+
+      .pricing { padding: 70px 28px; }
+      .testimonials { padding: 70px 28px; }
+
+      .contact { grid-template-columns: 1fr; padding: 70px 28px; gap: 50px; }
+
+      footer { padding: 60px 28px 32px; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="#" class="nav-logo"><img src="Forma%20logo.png" alt="Forma Pilates Studio" /></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#classes">Classes</a></li>
+      <li><a href="#gallery">Studio</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book a Class</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="menuClose">x</button>
+    <a href="#about">About</a>
+    <a href="#classes">Classes</a>
+    <a href="#gallery">Studio</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" style="color:var(--accent); margin-top:20px;">Book a Class</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Toronto's Premier Pilates Studio</p>
+      <h1>Move with<br><em>intention.</em><br>Live with strength.</h1>
+      <p class="hero-desc">Reformer, mat, and yoga classes designed around you. No gym culture. No noise. Just precise movement and real results.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Book a Free Class</a>
+        <a href="#classes" class="btn-outline">Explore Classes</a>
+      </div>
+    </div>
+    <span class="hero-scroll">Scroll</span>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Reformer Pilates</span>
+      <span class="ticker-item">Mat Pilates</span>
+      <span class="ticker-item">Yoga Flow</span>
+      <span class="ticker-item">Private Sessions</span>
+      <span class="ticker-item">Barre Classes</span>
+      <span class="ticker-item">Stretch & Recovery</span>
+      <span class="ticker-item">Group Classes</span>
+      <span class="ticker-item">All Levels Welcome</span>
+      <span class="ticker-item">Reformer Pilates</span>
+      <span class="ticker-item">Mat Pilates</span>
+      <span class="ticker-item">Yoga Flow</span>
+      <span class="ticker-item">Private Sessions</span>
+      <span class="ticker-item">Barre Classes</span>
+      <span class="ticker-item">Stretch & Recovery</span>
+      <span class="ticker-item">Group Classes</span>
+      <span class="ticker-item">All Levels Welcome</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-images">
+      <img src="roxana-popovici-aY5uOJ2o96g-unsplash.jpg" alt="Pilates reformer session" class="about-img-main" />
+    </div>
+    <div class="about-img-badge">
+      <span>Est.<br>2018<br>Toronto</span>
+    </div>
+    <div class="about-content">
+      <p class="section-eyebrow reveal">Our Story</p>
+      <h2 class="section-title reveal reveal-delay-1">A studio built on<br><em>precision</em> and care.</h2>
+      <p class="section-body reveal reveal-delay-2">Forma was built for people who want more than a workout. We believe every body is capable of more when it moves with proper form, good breath, and real attention. Our instructors bring clinical knowledge to every class, whether it's your first session or your hundredth.</p>
+      <p class="section-body reveal reveal-delay-2">We keep classes small, the studio clean, and the atmosphere honest. No hype, no fads, just work that lasts.</p>
+      <div class="about-stats reveal reveal-delay-3">
+        <div>
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Years Running</div>
+        </div>
+        <div>
+          <div class="stat-num">1,200+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div>
+          <div class="stat-num">12</div>
+          <div class="stat-label">Expert Instructors</div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary reveal reveal-delay-4">Book Your First Class</a>
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section class="classes" id="classes">
+    <div class="classes-header">
+      <div class="classes-header-left">
+        <p class="section-eyebrow reveal">What We Offer</p>
+        <h2 class="section-title reveal reveal-delay-1">Classes for every<br>body and <em>level.</em></h2>
+      </div>
+      <a href="#contact" class="view-all reveal">View Full Schedule</a>
+    </div>
+    <div class="classes-grid">
+      <div class="class-card reveal">
+        <img src="roxana-popovici-5JQxj-zc5ng-unsplash.jpg" alt="Reformer Pilates" />
+        <div class="class-overlay">
+          <span class="class-level">All Levels</span>
+          <h3 class="class-name">Reformer Pilates</h3>
+          <p class="class-desc">Our signature class. Controlled, spring-loaded resistance that strengthens and lengthens every muscle in the body. You'll feel it the next morning.</p>
+          <a href="#contact" class="class-link">Book This Class</a>
+        </div>
+      </div>
+      <div class="class-card reveal reveal-delay-1">
+        <img src="ahmet-kurt-ERZ4o_yEu6A-unsplash.jpg" alt="Power Pilates" />
+        <div class="class-overlay">
+          <span class="class-level">Advanced</span>
+          <h3 class="class-name">Power Pilates</h3>
+          <p class="class-desc">High-intensity work on the reformer. Dynamic, challenging, and built for those who are ready to push harder.</p>
+          <a href="#contact" class="class-link">Book This Class</a>
+        </div>
+      </div>
+      <div class="class-card reveal reveal-delay-2">
+        <img src="bruce-mars-gJtDg6WfMlQ-unsplash.jpg" alt="Mat Pilates" />
+        <div class="class-overlay">
+          <span class="class-level">All Levels</span>
+          <h3 class="class-name">Mat Pilates</h3>
+          <p class="class-desc">The original method, no machine needed. Pure body-weight control that builds a core most people never knew they had.</p>
+          <a href="#contact" class="class-link">Book This Class</a>
+        </div>
+      </div>
+      <div class="class-card reveal reveal-delay-1">
+        <img src="surface-Q0dJESwPjB8-unsplash.jpg" alt="Yoga Flow" />
+        <div class="class-overlay">
+          <span class="class-level">All Levels</span>
+          <h3 class="class-name">Yoga Flow</h3>
+          <p class="class-desc">Breath-led movement that builds flexibility, balance, and a quieter mind. Available in beginner and intermediate formats.</p>
+          <a href="#contact" class="class-link">Book This Class</a>
+        </div>
+      </div>
+      <div class="class-card reveal reveal-delay-2">
+        <img src="carl-barcelo-nqUHQkuVj3c-unsplash.jpg" alt="Stretch and Restore" />
+        <div class="class-overlay">
+          <span class="class-level">Recovery</span>
+          <h3 class="class-name">Stretch & Restore</h3>
+          <p class="class-desc">Active recovery for bodies that work hard. Designed to reduce tension, increase range of motion, and keep you training consistently.</p>
+          <a href="#contact" class="class-link">Book This Class</a>
+        </div>
+      </div>
+      <div class="class-card reveal reveal-delay-3">
+        <img src="jessica-streser-5ai6kpW4NOw-unsplash.jpg" alt="Functional Core" />
+        <div class="class-overlay">
+          <span class="class-level">Intermediate</span>
+          <h3 class="class-name">Functional Core</h3>
+          <p class="class-desc">Ground-based, high-rep core training that carries over into every other class you take and every other thing you do.</p>
+          <a href="#contact" class="class-link">Book This Class</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="features-header">
+      <p class="section-eyebrow">Why Forma</p>
+      <h2 class="section-title" style="color:var(--warm-white);">What sets us<br><em>apart.</em></h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 class="feature-title">Expert Instructors</h3>
+        <p class="feature-desc">Every instructor at Forma holds a full Pilates or yoga certification and goes through ongoing internal training. You will always know why you're doing what you're doing.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-1">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="feature-title">Flexible Scheduling</h3>
+        <p class="feature-desc">Morning, evening, weekends. Book online in under 60 seconds. Cancel up to 12 hours before without penalty. Your schedule runs your membership, not the other way around.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-2">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="feature-title">Boutique Studio Space</h3>
+        <p class="feature-desc">Small class sizes, top-line reformers, clean air, and a space that actually feels good to be in. No distractions. No waiting. Just work.</p>
+      </div>
+      <div class="feature-item reveal">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="feature-title">Real Community</h3>
+        <p class="feature-desc">Members here actually know each other's names. No cliques, no intimidation. We take the work seriously and take ourselves lightly.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-1">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 class="feature-title">Progress You Can Feel</h3>
+        <p class="feature-desc">Most new members notice posture and body-awareness changes within four weeks. We track your progress and adjust your class recommendations as you grow.</p>
+      </div>
+      <div class="feature-item reveal reveal-delay-2">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="feature-title">Central Toronto Location</h3>
+        <p class="feature-desc">Steps from TTC lines. Showers, lockers, and changerooms on-site. Getting here and getting ready should never be the reason you skip.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-header">
+      <div>
+        <p class="section-eyebrow reveal">Studio Vibe</p>
+        <h2 class="section-title reveal reveal-delay-1">This is what<br>Forma <em>looks like.</em></h2>
+      </div>
+      <div>
+        <p class="gallery-body reveal reveal-delay-2">Our studio is designed to feel like somewhere you actually want to be. Clean lines, natural light, warm materials. Equipment that's maintained and modern. A space that respects your time and your practice.</p>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <div class="g1 reveal"><img src="roxana-popovici-hiHBILFNah4-unsplash.jpg" alt="Studio reformer close up" /></div>
+      <div class="g2 reveal reveal-delay-1"><img src="ahmet-kurt-0fiVrPJg5kU-unsplash.jpg" alt="Pilates class in session" /></div>
+      <div class="g3 reveal reveal-delay-2"><img src="ahmet-kurt-FpbZ8fWL8Yk-unsplash.jpg" alt="Reformer pilates stretch" /></div>
+      <div class="g4 reveal"><img src="ahmet-kurt-y9zaDB1OR6U-unsplash.jpg" alt="Pilates reformer session" /></div>
+      <div class="g5 reveal reveal-delay-1"><img src="jessica-streser-5ai6kpW4NOw-unsplash.jpg" alt="Group pilates class" /></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-header">
+      <p class="section-eyebrow reveal">Membership</p>
+      <h2 class="section-title reveal reveal-delay-1">One price.<br>No <em>surprises.</em></h2>
+      <p class="section-body reveal reveal-delay-2" style="max-width:480px; margin:0 auto; color:var(--taupe);">All memberships include unlimited class bookings, app access, and one complimentary intro session with an instructor.</p>
+    </div>
+    <div class="pricing-cards">
+      <div class="pricing-card reveal">
+        <div class="plan-name">Drop-In</div>
+        <div class="plan-price">$28</div>
+        <div class="plan-period">per class</div>
+        <ul class="plan-features">
+          <li>Single class booking</li>
+          <li>Any class format</li>
+          <li>Equipment included</li>
+          <li>Locker access</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Book a Class</a>
+      </div>
+      <div class="pricing-card featured reveal reveal-delay-1">
+        <div class="plan-name">Monthly</div>
+        <div class="plan-price">$149</div>
+        <div class="plan-period">per month, billed monthly</div>
+        <ul class="plan-features">
+          <li>Unlimited classes</li>
+          <li>All class formats included</li>
+          <li>Priority booking (48h early)</li>
+          <li>Free intro session</li>
+          <li>10% off private sessions</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Start Membership</a>
+      </div>
+      <div class="pricing-card reveal reveal-delay-2">
+        <div class="plan-name">Class Pack</div>
+        <div class="plan-price">$110</div>
+        <div class="plan-period">5 classes, no expiry</div>
+        <ul class="plan-features">
+          <li>5 class credits</li>
+          <li>Any class format</li>
+          <li>Credits never expire</li>
+          <li>Shareable with a friend</li>
+        </ul>
+        <a href="#contact" class="plan-btn">Get Class Pack</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials-header">
+      <p class="section-eyebrow reveal">What Members Say</p>
+      <h2 class="section-title reveal reveal-delay-1">Real people,<br><em>real results.</em></h2>
+    </div>
+    <div class="testi-track-wrap">
+      <div class="testi-track">
+        <!-- Original set -->
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"I tried three other studios before Forma. The difference is the instructors actually watch you and correct your form. That's not something I found anywhere else."</p>
+          <div class="testi-author">Sasha M. Member since 2022</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"I have a bad back and was nervous to start. They modified every exercise for me without making a big deal of it. Three months in, I'm pain-free most days."</p>
+          <div class="testi-author">Denise R. Member since 2023</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"The reformer classes are no joke. I thought pilates would be easy. I was very wrong, and very happy about that."</p>
+          <div class="testi-author">Jordan K. Member since 2023</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"Booking is simple, the studio is spotless, and the instructors are consistent. Everything about this place works exactly the way it should."</p>
+          <div class="testi-author">Amara T. Member since 2021</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"I work long hours and need something that doesn't drain me further. The stretch and restore class is what keeps me functional every week."</p>
+          <div class="testi-author">Marcus L. Member since 2024</div>
+        </div>
+        <!-- Duplicate for infinite scroll -->
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"I tried three other studios before Forma. The difference is the instructors actually watch you and correct your form. That's not something I found anywhere else."</p>
+          <div class="testi-author">Sasha M. Member since 2022</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"I have a bad back and was nervous to start. They modified every exercise for me without making a big deal of it. Three months in, I'm pain-free most days."</p>
+          <div class="testi-author">Denise R. Member since 2023</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"The reformer classes are no joke. I thought pilates would be easy. I was very wrong, and very happy about that."</p>
+          <div class="testi-author">Jordan K. Member since 2023</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"Booking is simple, the studio is spotless, and the instructors are consistent. Everything about this place works exactly the way it should."</p>
+          <div class="testi-author">Amara T. Member since 2021</div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">* * * * *</div>
+          <p class="testi-quote">"I work long hours and need something that doesn't drain me further. The stretch and restore class is what keeps me functional every week."</p>
+          <div class="testi-author">Marcus L. Member since 2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-bg"></div>
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <h2 class="section-title">Your first class<br>is on <em>us.</em></h2>
+      <p>No commitment required. Come in, try a class, and see for yourself why Toronto keeps coming back.</p>
+      <div class="cta-btns">
+        <a href="#contact" class="btn-primary">Claim Your Free Class</a>
+        <a href="#pricing" class="btn-outline">See Memberships</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-info">
+      <p class="section-eyebrow reveal">Get In Touch</p>
+      <h2 class="section-title reveal reveal-delay-1">Ready to<br>start? <em>Let's talk.</em></h2>
+      <p class="section-body reveal reveal-delay-2">Fill in the form and we'll get back to you within one business day to confirm your class, answer any questions, and set you up for your first session.</p>
+      <div class="contact-details reveal reveal-delay-3">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-text">284 King Street West<br>Toronto, ON M5V 1J2</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Studio Hours</div>
+            <div class="contact-item-text">Mon Fri: 6:30am 9:00pm<br>Sat Sun: 8:00am 5:00pm</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 4.18a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9a16 16 0 006.29 6.29l1.08-1.08a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.11z"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-text">416-555-0182</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-text">hello@formapilates.ca</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal reveal-delay-2">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" />
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@email.com" />
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="416-555-0000" />
+      </div>
+      <div class="form-group">
+        <label>I'm interested in</label>
+        <select>
+          <option value="">Select a class type</option>
+          <option>Reformer Pilates</option>
+          <option>Power Pilates</option>
+          <option>Mat Pilates</option>
+          <option>Yoga Flow</option>
+          <option>Stretch & Restore</option>
+          <option>Functional Core</option>
+          <option>Private Session</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message (optional)</label>
+        <textarea placeholder="Tell us about your experience level, any injuries, or questions you have..."></textarea>
+      </div>
+      <button class="form-submit">Send & Book My Free Class</button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" style="display:inline-block; margin-bottom:18px;"><img src="Forma%20logo.png" alt="Forma Pilates Studio" style="height:64px; width:auto; filter:brightness(0) invert(1);" /></a>
+        <p>A boutique pilates and yoga studio in the heart of Toronto. Precise movement, expert instruction, and a community that keeps you coming back.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#classes">Our Classes</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#pricing">Membership</a></li>
+          <li><a href="#">Meet the Team</a></li>
+          <li><a href="#">Studio Rules</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Cancellation Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p class="footer-hours">
+          Monday Friday<br>6:30am 9:00pm<br><br>
+          Saturday<br>8:00am 5:00pm<br><br>
+          Sunday<br>9:00am 4:00pm
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Forma Pilates Studio. All rights reserved.</p>
+      <p class="footer-credit">Website by Ismile Creative & Digital Solutions</p>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll behavior
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const menuClose = document.getElementById('menuClose');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      menuOverlay.classList.add('open');
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.remove('open');
+    }
+    hamburger.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

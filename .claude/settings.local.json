@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sed -n '102p' /Users/noreenhagose/Desktop/ismilefiles/legal-services.html)",
+      "Bash(sed -n '237,244p' /Users/noreenhagose/Desktop/ismilefiles/legal-services.html)",
+      "Bash(python3)",
+      "Bash(python3 -)",
+      "Bash(sed -n '10,175p' /Users/noreenhagose/Desktop/ismilefiles/legal-services.html)",
+      "Read(//tmp/**)"
+    ]
+  }
+}

@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ismile CDS Brand Board</title>
+  <script src="loader.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --amber:      #FBA92C;
+      --warm-black: #1A1410;
+      --white:      #FFFFFF;
+      --off-white:  #FAF8F5;
+      --mid:        #6B6460;
+      --border-l:   rgba(26,20,16,0.08);
+      --border-d:   rgba(255,255,255,0.07);
+    }
+
+    body {
+      background: #EDEAE5;
+      font-family: 'Assistant', sans-serif;
+      font-weight: 300;
+      color: var(--warm-black);
+      padding: 48px 36px 72px;
+    }
+
+    /* ---- Board header ---- */
+    .board-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 52px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .board-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 0.04em;
+      color: var(--warm-black);
+      line-height: 1;
+    }
+
+    .board-name span { color: var(--amber); }
+
+    .board-meta {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-align: right;
+    }
+
+    /* ---- Section labels ---- */
+    .sec {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding-bottom: 12px;
+      border-bottom: 0.5px solid var(--border-l);
+      margin-bottom: 20px;
+    }
+
+    /* ---- Grids ---- */
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    .g5 { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; margin-bottom: 16px; }
+    .gfull { margin-bottom: 16px; }
+    .span2 { grid-column: span 2; }
+
+    /* ---- Base card ---- */
+    .card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 28px;
+      border: 0.5px solid var(--border-l);
+    }
+
+    .card-dark {
+      background: var(--warm-black);
+      border-radius: 14px;
+      padding: 28px;
+      border: 0.5px solid var(--border-d);
+    }
+
+    .card-amber {
+      background: var(--amber);
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .card-off {
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 28px;
+      border: 0.5px solid var(--border-l);
+    }
+
+    /* ---- Color swatches ---- */
+    .swatch-wrap { display: flex; flex-direction: column; gap: 10px; }
+
+    .swatch {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 10px;
+    }
+
+    .sw-amber      { background: var(--amber); }
+    .sw-warm-black { background: var(--warm-black); }
+    .sw-white      { background: var(--white); border: 0.5px solid var(--border-l); }
+    .sw-off-white  { background: var(--off-white); border: 0.5px solid var(--border-l); }
+    .sw-mid        { background: var(--mid); }
+
+    .sw-name {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-black);
+    }
+
+    .sw-hex {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--mid);
+      font-family: 'Courier New', monospace;
+    }
+
+    .sw-role {
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.45;
+    }
+
+    /* ---- Typography ---- */
+    .type-rule {
+      height: 0.5px;
+      background: var(--border-l);
+      margin: 16px 0;
+    }
+
+    .type-meta {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 8px;
+    }
+
+    .t-h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      line-height: 0.92;
+      letter-spacing: 0.03em;
+      color: var(--warm-black);
+    }
+
+    .t-h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      color: var(--warm-black);
+    }
+
+    .t-h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--warm-black);
+    }
+
+    .t-label {
+      font-family: 'Assistant', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .t-sub {
+      font-family: 'Assistant', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--warm-black);
+    }
+
+    .t-body {
+      font-family: 'Assistant', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #4A4440;
+    }
+
+    .t-amber { color: var(--amber); }
+
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.1em;
+      padding: 10px 22px;
+      border-radius: 3px;
+      cursor: default;
+      border: none;
+    }
+
+    .btn-primary   { background: var(--amber); color: var(--warm-black); }
+    .btn-dark      { background: var(--warm-black); color: var(--amber); }
+    .btn-outline   { background: transparent; border: 1px solid rgba(26,20,16,0.25); color: var(--warm-black); }
+    .btn-outline-l { background: transparent; border: 1px solid rgba(255,255,255,0.22); color: var(--white); }
+    .btn-white     { background: var(--white); color: var(--warm-black); }
+
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+
+    /* ---- Tags ---- */
+    .tag {
+      display: inline-flex;
+      font-family: 'Assistant', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 3px;
+    }
+
+    .tag-amber   { background: rgba(251,169,44,0.12); border: 1px solid rgba(251,169,44,0.28); color: #8A6000; }
+    .tag-dark    { background: var(--warm-black); color: var(--amber); }
+    .tag-outline { background: transparent; border: 1px solid var(--border-l); color: var(--mid); }
+    .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ---- Service row preview ---- */
+    .svc-row {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 0.5px solid var(--border-d);
+    }
+
+    .svc-row:first-child { border-top: 0.5px solid var(--border-d); }
+
+    .svc-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: rgba(251,169,44,0.5);
+    }
+
+    .svc-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.03em;
+      color: var(--white);
+    }
+
+    .svc-cat {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ---- Nav preview ---- */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: var(--warm-black);
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 0.06em;
+      color: var(--white);
+    }
+
+    .nav-logo span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .nav-cta {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      background: var(--amber);
+      color: var(--warm-black);
+      padding: 7px 16px;
+      border-radius: 3px;
+    }
+
+    /* ---- Hero preview ---- */
+    .hero-preview {
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 52px 44px;
+      border: 0.5px solid var(--border-l);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    .hero-h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--warm-black);
+      margin-bottom: 20px;
+    }
+
+    .hero-h1 .a { color: var(--amber); }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #5A5250;
+      max-width: 480px;
+      margin-bottom: 28px;
+    }
+
+    /* ---- Footer ---- */
+    .board-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 0.5px solid var(--border-l);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-text {
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--mid);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      color: var(--warm-black);
+    }
+
+    .footer-logo span { color: var(--amber); }
+  </style>
+</head>
+<body>
+
+  <!-- Board Header -->
+  <div class="board-header">
+    <p class="board-name">ISMILE <span>CDS</span></p>
+    <p class="board-meta">Brand Identity System &mdash; 2026<br>byismile.com</p>
+  </div>
+
+  <!-- Color Palette -->
+  <p class="sec">Color Palette</p>
+  <div class="g5" style="margin-bottom:32px;">
+    <div class="swatch-wrap">
+      <div class="swatch sw-amber"></div>
+      <p class="sw-name">Amber</p>
+      <p class="sw-hex">#FBA92C</p>
+      <p class="sw-role">Primary accent. CTA buttons, hover states, key labels only.</p>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch sw-warm-black"></div>
+      <p class="sw-name">Warm Black</p>
+      <p class="sw-hex">#1A1410</p>
+      <p class="sw-role">Dark backgrounds, headings, body text on light.</p>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch sw-white"></div>
+      <p class="sw-name">White</p>
+      <p class="sw-hex">#FFFFFF</p>
+      <p class="sw-role">Cards, text on dark, light section base.</p>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch sw-off-white"></div>
+      <p class="sw-name">Off-White</p>
+      <p class="sw-hex">#FAF8F5</p>
+      <p class="sw-role">Page background. Warm, sits naturally with amber.</p>
+    </div>
+    <div class="swatch-wrap">
+      <div class="swatch sw-mid"></div>
+      <p class="sw-name">Mid Grey</p>
+      <p class="sw-hex">#6B6460</p>
+      <p class="sw-role">Body text, captions, muted labels.</p>
+    </div>
+  </div>
+
+  <!-- Typography -->
+  <p class="sec">Typography System</p>
+  <div class="g2" style="margin-bottom:32px;">
+    <div class="card">
+      <p class="type-meta">H1 Bebas Neue 56px</p>
+      <p class="t-h1">WE BUILD <span class="t-amber">BRANDS.</span></p>
+      <div class="type-rule"></div>
+      <p class="type-meta">H2 Bebas Neue 36px</p>
+      <p class="t-h2">OUR <span class="t-amber">SERVICES.</span></p>
+      <div class="type-rule"></div>
+      <p class="type-meta">H3 Bebas Neue 24px</p>
+      <p class="t-h3">BRAND IDENTITY</p>
+    </div>
+    <div class="card">
+      <p class="type-meta">Label Assistant 600, 0.22em tracking</p>
+      <p class="t-label">What we do</p>
+      <div class="type-rule"></div>
+      <p class="type-meta">Subtitle Assistant Light 300</p>
+      <p class="t-sub">Sharp, intentional work that gets results.</p>
+      <div class="type-rule"></div>
+      <p class="type-meta">Body Assistant Light 300, 1.8 line-height</p>
+      <p class="t-body">We build brands, websites, and marketing systems for entrepreneurs and businesses that are serious about growth. No guesswork. No generic templates. Just sharp, intentional work.</p>
+    </div>
+  </div>
+
+  <!-- UI Elements -->
+  <p class="sec">Buttons & Tags</p>
+  <div class="g2" style="margin-bottom:32px;">
+    <div class="card">
+      <p class="type-meta" style="margin-bottom:14px;">Light context</p>
+      <div class="btn-row">
+        <span class="btn btn-primary">Book a Free Call</span>
+        <span class="btn btn-outline">View Portfolio</span>
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-amber">Brand Identity</span>
+        <span class="tag tag-dark">Web Design</span>
+        <span class="tag tag-outline">Strategy</span>
+      </div>
+    </div>
+    <div class="card-dark">
+      <p class="type-meta" style="color:rgba(255,255,255,0.3);margin-bottom:14px;">Dark context</p>
+      <div class="btn-row">
+        <span class="btn btn-primary">Book a Free Call</span>
+        <span class="btn btn-outline-l">View Portfolio</span>
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-amber">Brand Identity</span>
+        <span class="tag tag-dark">Web Design</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nav preview -->
+  <p class="sec">Navigation Preview</p>
+  <div class="gfull" style="margin-bottom:32px;">
+    <div class="nav-bar">
+      <p class="nav-logo">BY<span>ISMILE</span></p>
+      <div class="nav-links">
+        <span class="nav-link">Work with Yaz</span>
+        <span class="nav-link">Portfolio</span>
+        <span class="nav-link">About</span>
+        <span class="nav-link">Contact</span>
+        <span class="nav-cta">BOOK A FREE CALL</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Service rows preview -->
+  <p class="sec">Service Rows Preview</p>
+  <div class="card-dark" style="margin-bottom:32px;">
+    <div class="svc-row">
+      <span class="svc-num">01</span>
+      <span class="svc-name">BRAND IDENTITY</span>
+      <span class="svc-cat">Branding</span>
+    </div>
+    <div class="svc-row">
+      <span class="svc-num">02</span>
+      <span class="svc-name">WEB DESIGN & DEVELOPMENT</span>
+      <span class="svc-cat">Web</span>
+    </div>
+    <div class="svc-row">
+      <span class="svc-num">03</span>
+      <span class="svc-name">DIGITAL MARKETING</span>
+      <span class="svc-cat">Marketing</span>
+    </div>
+    <div class="svc-row">
+      <span class="svc-num">04</span>
+      <span class="svc-name">SYSTEMS & AUTOMATIONS</span>
+      <span class="svc-cat">Automation</span>
+    </div>
+    <div class="svc-row" style="border-bottom:none;">
+      <span class="svc-num">05</span>
+      <span class="svc-name">BUSINESS CONSULTING & VIRTUAL SUPPORT</span>
+      <span class="svc-cat">Consulting</span>
+    </div>
+  </div>
+
+  <!-- Hero preview -->
+  <p class="sec">Hero Section Preview</p>
+  <div class="hero-preview" style="margin-bottom:32px;">
+    <p class="hero-tag">Toronto-based creative studio</p>
+    <p class="hero-h1">YOUR <span class="a">BRAND</span><br>SHOULD WORK<br>AS <span class="a">HARD</span><br>AS YOU DO.</p>
+    <p class="hero-sub">We build brands, websites, and marketing systems for entrepreneurs and businesses that are serious about growth. No guesswork. No generic templates.</p>
+    <div class="btn-row">
+      <span class="btn btn-primary">Book a Free Strategy Call</span>
+      <span class="btn btn-outline">View Our Work</span>
+    </div>
+  </div>
+
+  <!-- Amber context -->
+  <p class="sec">Amber Context Use Sparingly</p>
+  <div class="card-amber" style="margin-bottom:32px;">
+    <p class="type-meta" style="color:rgba(26,20,16,0.4);margin-bottom:12px;">CTA section / highlight moment</p>
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:0.03em;color:#1A1410;line-height:1;margin-bottom:12px;">LET'S BUILD SOMETHING THAT WORKS.</p>
+    <p style="font-size:14px;font-weight:300;color:rgba(26,20,16,0.6);line-height:1.7;margin-bottom:20px;max-width:440px;">One team. Full picture. Real results. Strategy, design, and tech built as one system around your actual business.</p>
+    <span class="btn btn-dark">Book a Free Call</span>
+  </div>
+
+  <div class="board-footer">
+    <p class="footer-text">Ismile Creative & Digital Solutions Brand Identity System 2026</p>
+    <p class="footer-logo">BY<span>ISMILE</span></p>
+  </div>
+
+</body>
+</html>
