@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ismile Creative & Digital Solutions | Toronto Branding & Web Design Agency</title>
-  <meta name="description" content="Ismile is a Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs and businesses serious about growth. Sharp, intentional work that gets results."/>
+  <title>Toronto Branding Agency | Ismile Creative & Digital Solutions</title>
+  <meta name="description" content="Ismile is a Toronto creative agency building branding and design, websites, and marketing systems for small businesses. Book a free strategy call."/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://www.ismilecds.com/"/>
   <meta name="theme-color" content="#1A1410"/>
@@ -14,14 +14,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://www.ismilecds.com/"/>
-  <meta property="og:title" content="Ismile Creative & Digital Solutions | Toronto Branding & Web Design Agency"/>
-  <meta property="og:description" content="Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs and businesses serious about growth."/>
+  <meta property="og:title" content="Toronto Branding Agency | Ismile Creative & Digital Solutions"/>
+  <meta property="og:description" content="A Toronto creative agency building branding and design, websites, and marketing systems for small businesses across the GTA."/>
   <meta property="og:image" content="https://www.ismilecds.com/og-image.jpg"/>
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Ismile Creative & Digital Solutions"/>
-  <meta name="twitter:description" content="Toronto-based creative agency. Sharp, intentional branding and web design that gets results."/>
+  <meta name="twitter:title" content="Ismile Creative & Digital Solutions | Toronto Branding Agency"/>
+  <meta name="twitter:description" content="A Toronto branding agency offering branding and design, web design, and marketing systems for growing businesses."/>
   <meta name="twitter:image" content="https://www.ismilecds.com/og-image.jpg"/>
   <meta name="twitter:site" content="@ismilecds"/>
   <meta name="twitter:creator" content="@ismilecds"/>
@@ -46,6 +46,7 @@
     "url": "https://www.ismilecds.com/",
     "logo": "https://www.ismilecds.com/logo.png",
     "image": "https://www.ismilecds.com/og-image.jpg",
+    "email": "byismiledesigns@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Toronto",
@@ -287,22 +288,6 @@
       transform:translateY(110%);
       position:relative;
     }
-    .hero-headline .word::before{
-      content:attr(data-text);
-      position:absolute;
-      top:0;left:0;
-      color:var(--amber);
-      filter:url(#graffiti-paint);
-      opacity:0;
-      transition:opacity 0.4s ease;
-      pointer-events:none;
-      white-space:nowrap;
-    }
-    .hero-headline:hover .word::before{opacity:1}
-    .hero-headline:hover .word-wrap:nth-child(1) .word::before{transition-delay:0s}
-    .hero-headline:hover .word-wrap:nth-child(2) .word::before{transition-delay:0.09s}
-    .hero-headline:hover .word-wrap:nth-child(3) .word::before{transition-delay:0.18s}
-    .hero-headline:hover .word-wrap:nth-child(4) .word::before{transition-delay:0.27s}
     .hero-headline .a{color:var(--white)}
 
     .hero-bottom{
@@ -489,8 +474,8 @@
     .svc-desc{font-size:15px;font-weight:300;line-height:1.6;color:rgba(255,255,255,0.45)}
 
     /* Services list — glass boxes, dark */
-    .services-section .section-hd{margin-bottom:16px}
-    .services-section .section-note{text-align:left;max-width:360px}
+    .services-section .section-hd{flex-direction:column;align-items:flex-start;margin-bottom:28px;gap:28px}
+    .services-section .section-note{text-align:left;max-width:360px;margin-bottom:0}
     .services-main .svc-grid{
       grid-template-columns:repeat(2,1fr);gap:18px;
       background:none;border-top:none;
@@ -914,19 +899,6 @@
   </style>
 </head>
 <body>
-  <!-- SVG filter for graffiti paint effect -->
-  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
-    <defs>
-      <filter id="graffiti-paint" x="-15%" y="-30%" width="130%" height="160%" color-interpolation-filters="sRGB">
-        <feTurbulence type="fractalNoise" baseFrequency="0.08 0.1" numOctaves="5" seed="2" result="noise1"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise1" scale="8" xChannelSelector="R" yChannelSelector="G" result="wavy"/>
-        <feMorphology operator="erode" radius="1.6" in="wavy" result="thin"/>
-        <feTurbulence type="fractalNoise" baseFrequency="0.12 0.08" numOctaves="3" seed="9" result="noise2"/>
-        <feDisplacementMap in="thin" in2="noise2" scale="4" xChannelSelector="G" yChannelSelector="R" result="sketchy"/>
-      </filter>
-    </defs>
-  </svg>
-
   <!-- CURSOR -->
   <div class="cursor" id="cursor">
     <div class="cursor-ring" id="cursorRing"></div>
@@ -953,7 +925,7 @@
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <ul class="nav-dropdown">
-          <li><a href="./brand-identity.html">Brand Identity</a></li>
+          <li><a href="./branding-and-design.html">Branding and Design</a></li>
           <li><a href="./web-design.html">Web Design</a></li>
           <li><a href="./digital-marketing.html">Digital Marketing</a></li>
           <li><a href="./systems-automations.html">Systems &amp; Automations</a></li>
@@ -1014,13 +986,13 @@
   <!-- MARQUEE -->
   <div class="marquee-section" aria-hidden="true">
     <div class="marquee-track" id="marqueeTrack">
-      <div class="marquee-item"><span class="marquee-text">BRAND IDENTITY</span><span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span class="marquee-text">BRANDING AND DESIGN</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">WEB DESIGN</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">DIGITAL MARKETING</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">SYSTEMS & AUTOMATIONS</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">BUSINESS CONSULTING</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">VIRTUAL SUPPORT</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span class="marquee-text">BRAND IDENTITY</span><span class="marquee-dot"></span></div>
+      <div class="marquee-item"><span class="marquee-text">BRANDING AND DESIGN</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">WEB DESIGN</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">DIGITAL MARKETING</span><span class="marquee-dot"></span></div>
       <div class="marquee-item"><span class="marquee-text">SYSTEMS & AUTOMATIONS</span><span class="marquee-dot"></span></div>
@@ -1050,7 +1022,7 @@
           <p class="section-note" id="svcNote">Every service is built around your business, not copied from the last client.</p>
         </div>
         <div class="svc-grid">
-          <div class="svc-card"><span class="svc-num">01</span><h3 class="svc-name">BRAND IDENTITY</h3><p class="svc-desc">Your brand is the first decision people make about you before you say a word.</p></div>
+          <div class="svc-card"><span class="svc-num">01</span><h3 class="svc-name">BRANDING & DESIGN</h3><p class="svc-desc">Your brand is the first decision people make about you before you say a word.</p></div>
           <div class="svc-card"><span class="svc-num">02</span><h3 class="svc-name">WEB DESIGN & DEVELOPMENT</h3><p class="svc-desc">Websites that look good and actually do the job.</p></div>
           <div class="svc-card"><span class="svc-num">03</span><h3 class="svc-name">DIGITAL MARKETING</h3><p class="svc-desc">Visibility without strategy is noise.</p></div>
           <div class="svc-card"><span class="svc-num">04</span><h3 class="svc-name">SYSTEMS & AUTOMATIONS</h3><p class="svc-desc">Manual processes cost you time you don't have.</p></div>
@@ -1164,7 +1136,7 @@
         <div class="footer-logo"><img src="logo.png" alt="Ismile" loading="lazy" decoding="async"/></div>
         <p class="footer-desc">Toronto-based creative agency building brands, websites, and marketing systems for entrepreneurs serious about growth.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/></div>
       </div>
-      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./brand-identity.html">Brand Identity</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems & Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
+      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./branding-and-design.html">Branding and Design</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems & Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
       <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
       <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://koalendar.com/e/meet-with-yazmine-ismile">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
     </div>
@@ -1195,11 +1167,6 @@
 
   // Keep ScrollTrigger in sync with Lenis scroll position
   lenis.on('scroll', ScrollTrigger.update);
-
-  // ── GRAFFITI LETTER DATA ──
-  document.querySelectorAll('.hero-headline .word').forEach(w => {
-    w.dataset.text = w.textContent.trim();
-  });
 
   // ── CUSTOM CURSOR ──
   if (!window.matchMedia('(pointer: coarse)').matches) {
