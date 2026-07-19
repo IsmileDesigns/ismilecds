@@ -5,6 +5,7 @@ date: 2026-04-19
 category: "Web Design"
 excerpt: "Your website looks fine to you. But to the potential client who just clicked away, these are the five red flags that made them decide you weren't worth contacting."
 read_time: 10
+description: "Five concrete reasons small business websites lose clients — slow load speed, unclear messaging, weak CTAs, poor mobile design, and no social proof."
 image_gradient: "linear-gradient(135deg,#101820,#1a2830)"
 featured: false
 lead: "Here's a hard truth most small business owners never hear. Your website is probably losing you clients every single week, and you have no way of seeing it happen."
@@ -140,7 +141,7 @@ Depends on the issue. Speed problems and broken links, yes, usually DIY-able. Mo
 
 If you worked through this post and recognized your site in three or more of the signs, that's not a small problem. That's lost revenue compounding every week you don't address it.
 
-At Ismile Creative and Digital Solutions, we offer free website audits for service businesses that want a professional assessment of what's actually costing them clients. No sales pitch, just a real breakdown of what's working, what isn't, and what it would take to fix.
+At Ismile Creative and Digital Solutions, our [web design](./web-design.html) team offers free website audits for service businesses that want a professional assessment of what's actually costing them clients. No sales pitch, just a real breakdown of what's working, what isn't, and what it would take to fix.
 
 [Book a free audit call](https://koalendar.com/e/meet-with-yazmine-ismile) and we'll walk through your site together.
 

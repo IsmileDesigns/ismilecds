@@ -5,6 +5,7 @@ date: 2026-04-18
 category: "Digital Marketing"
 excerpt: "Posting consistently and getting nowhere? The problem isn't your content. It's that you don't have a funnel. Here's how to turn followers into actual paying clients."
 read_time: 11
+description: "Why posting on social media isn't generating clients, and how to build a real marketing funnel with a lead magnet, nurture sequence, and clear CTA."
 image_gradient: "linear-gradient(135deg,#1a1210,#2a1f18)"
 featured: false
 lead: "You post consistently. Your engagement looks decent. People comment, some follow, a few save your posts. And still, every month, the number of actual paying clients that come from social media is close to zero."
@@ -64,7 +65,7 @@ That's not a funnel. That's accidental conversion. It works occasionally but it 
 
 ## Building a funnel for a small service business
 
-You don't need enterprise marketing software or a seven-person team to build a real funnel. You need four pieces working together.
+You don't need enterprise marketing software or a seven-person team to build a real funnel. You need four pieces working together. If building this out feels like a lot to tackle alone, this is exactly the kind of infrastructure our [digital marketing](./digital-marketing.html) team builds for small service businesses.
 
 ### 1. Owned content on your website
 

@@ -5,6 +5,7 @@ date: 2026-04-15
 category: "Studio"
 excerpt: "We say we do sharp, intentional work. Here's what that actually means in practice, what kind of clients we work with, and why we turn down the wrong projects."
 read_time: 9
+description: "What sharp, intentional creative work looks like in practice — our process, the clients we take on, and why we turn down the wrong projects."
 image_gradient: "linear-gradient(135deg,#1a1410,#2e2018)"
 featured: false
 lead: "Most creative studios will tell you they care about quality. They will tell you their process is thorough. They will tell you they take the time to understand your business. The language is so standard at this point that it means almost nothing."
@@ -114,7 +115,7 @@ Toronto, Canada. We work with clients across Canada and remotely with clients el
 
 **What services does the studio offer?**
 
-Brand identity, web design and development, digital marketing, and systems and automations for small and mid-sized service businesses. We don't do everything. We focus on the disciplines where we can genuinely deliver at the level we want to deliver.
+Brand identity, web design and development, digital marketing, systems and automations, and [business consulting](./business-consulting.html) for small and mid-sized service businesses. We don't do everything. We focus on the disciplines where we can genuinely deliver at the level we want to deliver.
 
 **How long do typical projects take?**
 

@@ -5,6 +5,7 @@ date: 2026-04-17
 category: "Systems and Automations"
 excerpt: "Onboarding feels personal because you do it manually. But the back-and-forth is killing your time. Here's how to automate without making clients feel like a number."
 read_time: 11
+description: "How to automate client onboarding — contracts, intake, scheduling, and check-ins — without losing the personal touch that builds retention."
 image_gradient: "linear-gradient(135deg,#0f1a1a,#152828)"
 featured: false
 lead: "Here's the pattern most small service businesses fall into. Client says yes. You send a welcome email. You attach a contract. They sign it, maybe, after two follow-ups. You send an invoice. They pay it eventually. You book a kickoff call. They reschedule twice. You send an intake form. They fill out half of it. You chase the rest."
@@ -204,7 +205,7 @@ A proper CRM (Dubsado, HoneyBook, etc.) makes it easier and more integrated, but
 
 ## Where to start
 
-If onboarding is eating hours you don't have, or if you suspect clients are having a patchy experience at the start of projects, that's a real business problem with a real solution. At Ismile Creative and Digital Solutions, we design and implement onboarding systems for small service businesses that want to stop drowning in admin.
+If onboarding is eating hours you don't have, or if you suspect clients are having a patchy experience at the start of projects, that's a real business problem with a real solution. At Ismile Creative and Digital Solutions, we design and implement onboarding [systems and automations](./systems-automations.html) for small service businesses that want to stop drowning in admin.
 
 [Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to walk through what's currently slowing you down. We'll map the system that fits your business and your tools.
 

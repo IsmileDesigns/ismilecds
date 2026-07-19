@@ -44,6 +44,7 @@ posts.forEach(post => {
   const dateStr = formatDate(post.date);
   const html = fill(postTemplate, {
     title: post.title,
+    description: post.description || '',
     date: dateStr,
     category: post.category,
     read_time: post.read_time,

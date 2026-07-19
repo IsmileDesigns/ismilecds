@@ -5,6 +5,7 @@ date: 2026-04-16
 category: "Business Strategy"
 excerpt: "A freelancer costs less. A studio delivers more. The right answer depends on your stage, your scope, and what you're actually trying to build. Here's the honest breakdown."
 read_time: 10
+description: "An honest cost and scope comparison of hiring a freelancer versus a creative studio, so you pick the right fit for your next project's stakes."
 image_gradient: "linear-gradient(135deg,#1a1815,#2a2520)"
 featured: false
 lead: "Somewhere between 'I'll do it myself' and 'I need a full marketing team,' there's a decision every growing business has to make. Do you hire a freelancer or bring in a creative studio?"
@@ -138,7 +139,7 @@ Choosing on price alone. The second biggest is choosing on portfolio alone witho
 
 If you're trying to figure out whether your next project needs a freelancer, a boutique studio, or something bigger, that conversation is worth having before you start asking for quotes. Otherwise you'll end up comparing proposals that are solving different problems.
 
-At Ismile Creative and Digital Solutions, we take on projects where a studio actually adds value. When it doesn't, we tell people plainly and often refer them to freelancers we trust. That honesty is rare in this industry, and it's the only way we know how to run a business we're proud of.
+At Ismile Creative and Digital Solutions, we take on projects where a studio actually adds value. When it doesn't, we tell people plainly and often refer them to freelancers we trust. That kind of honest scoping conversation is part of our [business consulting](./business-consulting.html) process before any project starts. That honesty is rare in this industry, and it's the only way we know how to run a business we're proud of.
 
 [Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to talk through what you're trying to build. If we're the right fit, we'll tell you. If we aren't, we'll help you find someone who is.
 

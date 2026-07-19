@@ -5,6 +5,7 @@ date: 2026-04-21
 category: "Web Design"
 excerpt: "Social media isn't enough. Here's why every serious small business needs a website in 2026, what it actually costs, and what yours needs to do to compete."
 read_time: 9
+description: "Why social media alone isn't enough in 2026, what a website actually costs, and what yours needs to do to build trust and convert visitors."
 image_gradient: "linear-gradient(135deg,#0f1520,#1a2535)"
 featured: true
 lead: "There's a quiet trap a lot of new entrepreneurs fall into. The business is off the ground, the Instagram is active, DMs are coming in, a few sales have closed. And the thinking goes: I'll build a website when I have the budget, when things are more established, when I know what I'm doing."
@@ -102,7 +103,7 @@ You cap your growth. You can only handle so much through DMs, screenshots, and b
 
 **Do I really need a website if my business runs on Instagram?**
 
-Yes. Social media is rented land. You don't own your followers, the platform can change its algorithm or suspend your account, and search engines don't index your Instagram grid. A website is the only piece of digital real estate you fully own. Use both, but a website is the foundation.
+Yes. Social media is rented land. You don't own your followers, the platform can change its algorithm or suspend your account, and search engines don't index your Instagram grid. A website is the only piece of digital real estate you fully own. Use both — a solid [digital marketing](./digital-marketing.html) strategy across social still matters — but a website is the foundation.
 
 **How much should a new business pay for a website in 2026?**
 
@@ -122,7 +123,7 @@ A site that exists isn't the same as a site that works. A good site loads fast, 
 
 ## Where to start
 
-If you're ready to stop waiting and get a site built that actually does its job, that's the work we do. Ismile Creative and Digital Solutions designs and builds websites for entrepreneurs and service businesses in Toronto and across Canada who are done with placeholder presences and want something sharp, intentional, and built to convert.
+If you're ready to stop waiting and get a site built that actually does its job, that's the work we do. Ismile Creative and Digital Solutions designs and builds [websites](./web-design.html) for entrepreneurs and service businesses in Toronto and across Canada who are done with placeholder presences and want something sharp, intentional, and built to convert.
 
 [Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to talk through what your business actually needs. No upsell, no pressure. Just a conversation about where you are and where a proper site could take you.
 

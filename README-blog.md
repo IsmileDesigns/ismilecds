@@ -13,6 +13,7 @@ slug: your-post-slug
 date: 2026-05-01
 category: Branding
 excerpt: One-sentence summary shown on blog cards.
+description: Unique, under-155-character summary used as the page's meta description tag.
 read_time: 8
 image_gradient: "linear-gradient(135deg,#1e1510,#2e2018)"
 featured: false

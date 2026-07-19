@@ -5,6 +5,7 @@ date: 2026-04-20
 category: "Branding"
 excerpt: "Most business owners use the words interchangeably. They're not the same thing, and the gap between them costs small businesses thousands. Here's the real breakdown."
 read_time: 11
+description: "The real difference between a logo and full branding, what each costs in Canada in 2026, and how to know which tier your business actually needs."
 image_gradient: "linear-gradient(135deg,#1e1510,#2e2018)"
 featured: false
 lead: "There's a conversation that happens in the first 10 minutes of almost every discovery call with a new client. They say they need a logo. We start asking questions, and within a few minutes it's clear they don't actually need a logo. They need a brand."
@@ -100,7 +101,7 @@ The sweet spot for most small businesses is the middle: a proper brand identity 
 
 ## What to look for when hiring
 
-Regardless of your budget tier, a few things separate designers who will actually deliver value from ones who will hand you a file and disappear.
+Regardless of your budget tier, a few things separate designers who will actually deliver value from ones who will hand you a file and disappear. Our [branding and design](./branding-and-design.html) team walks new clients through exactly this kind of evaluation before any design work starts.
 
 **Portfolio depth.** Can they show you three to five brands they've built end to end, not just logos? Do those brands feel consistent across touchpoints? If the portfolio is all one-off logos with no context, they might be good at marks but weaker on systems.
 
