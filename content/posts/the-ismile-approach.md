@@ -11,7 +11,7 @@ featured: false
 lead: "Most creative studios will tell you they care about quality. They will tell you their process is thorough. They will tell you they take the time to understand your business. The language is so standard at this point that it means almost nothing."
 cta_title: "Think we might be the right studio for you?"
 cta_text: "Book a discovery call. 30 minutes, free, no pressure. We'll talk through your business, what you're trying to build, and whether what we do lines up with what you need."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Discovery Call"
 ---
 
@@ -137,6 +137,6 @@ Book a discovery call. 30 minutes, free, no pressure. We'll talk through your bu
 
 If this sounds like the kind of studio partnership you're looking for, the next step is a conversation.
 
-[Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) and we'll talk through what you're building. No sales pitch, no pressure. Just a real discussion about whether what we do lines up with what you need.
+[Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) and we'll talk through what you're building. No sales pitch, no pressure. Just a real discussion about whether what we do lines up with what you need.
 
 We work with clients who want to build something serious. If that's you, we'd love to hear what you're working on.

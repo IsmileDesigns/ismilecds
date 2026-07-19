@@ -11,7 +11,7 @@ featured: false
 lead: "If you've priced out branding with a US agency lately, you already know the number felt high. There's a reason for that, and there's a smarter option most American entrepreneurs don't know exists."
 cta_title: "Want agency-quality branding without the US agency price tag?"
 cta_text: "Book a free call with Ismile Creative. We work remotely with clients across the US and Canada, and we'll tell you exactly what your business needs before you spend a dollar."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 
@@ -143,4 +143,4 @@ Mostly, there isn't one. The two real considerations are time zone overlap for r
 
 If you've been quoted $15,000 to $30,000 USD for a brand identity and the number stopped you from moving forward, that number isn't the only option available to you. It's just the US market price. At Ismile Creative and Digital Solutions, we're a Toronto-based studio with North American reach, and we work remotely with clients across Canada and the United States every week. Same process, same quality standards, and a price built on Canadian overhead instead of Manhattan overhead.
 
-[Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) and we'll walk through what your brand actually needs before you spend a dollar, in whichever currency you're spending it in.
+[Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) and we'll walk through what your brand actually needs before you spend a dollar, in whichever currency you're spending it in.

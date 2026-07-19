@@ -11,7 +11,7 @@ featured: false
 lead: "There's a conversation that happens in the first 10 minutes of almost every discovery call with a new client. They say they need a logo. We start asking questions, and within a few minutes it's clear they don't actually need a logo. They need a brand."
 cta_title: "Not sure if you need a logo or a full brand?"
 cta_text: "Book a free call and we'll figure out which tier your business actually needs before you spend a dollar. No upsell, no pressure. Just clarity on where branding investment makes sense for where you are right now."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 
@@ -141,6 +141,6 @@ For most small businesses, some strategic thinking should happen before any desi
 
 If you're trying to figure out which tier your business actually needs, that's the kind of thing worth talking through before you spend a dollar. At Ismile Creative and Digital Solutions, brand work starts with a real conversation about where your business is and where it's going, not a template package pitched to every prospect.
 
-[Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to figure out whether you need a logo, a full brand identity, or strategy first. No upsell, no pressure. Just clarity.
+[Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to figure out whether you need a logo, a full brand identity, or strategy first. No upsell, no pressure. Just clarity.
 
 Your brand is doing work whether you invest in it or not. Better to make it work for you.

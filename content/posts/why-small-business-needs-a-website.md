@@ -11,7 +11,7 @@ featured: true
 lead: "There's a quiet trap a lot of new entrepreneurs fall into. The business is off the ground, the Instagram is active, DMs are coming in, a few sales have closed. And the thinking goes: I'll build a website when I have the budget, when things are more established, when I know what I'm doing."
 cta_title: "Ready for a website that actually does its job?"
 cta_text: "Book a free call to talk through what your business actually needs. No upsell, no pressure. Just a conversation about where you are and where a proper site could take you."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 
@@ -125,6 +125,6 @@ A site that exists isn't the same as a site that works. A good site loads fast, 
 
 If you're ready to stop waiting and get a site built that actually does its job, that's the work we do. Ismile Creative and Digital Solutions designs and builds [websites](./web-design.html) for entrepreneurs and service businesses in Toronto and across Canada who are done with placeholder presences and want something sharp, intentional, and built to convert.
 
-[Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to talk through what your business actually needs. No upsell, no pressure. Just a conversation about where you are and where a proper site could take you.
+[Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to talk through what your business actually needs. No upsell, no pressure. Just a conversation about where you are and where a proper site could take you.
 
 Your business is serious. Your online presence should match.

@@ -11,7 +11,7 @@ featured: false
 lead: "You post consistently. Your engagement looks decent. People comment, some follow, a few save your posts. And still, every month, the number of actual paying clients that come from social media is close to zero."
 cta_title: "Stop relying on the algorithm to pay your bills"
 cta_text: "Book a free call and we'll look at your current setup and map out what's missing. Lead magnets, email automation, content strategy, and the infrastructure to turn followers into clients."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 
@@ -151,6 +151,6 @@ If you've been posting consistently for months without clients to show for it, t
 
 At Ismile Creative and Digital Solutions, we build funnels and digital marketing systems for small service businesses that want to stop relying on the algorithm. Lead magnets, email automation, content strategy, and the infrastructure to turn followers into clients.
 
-[Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to talk through what your funnel should look like. We'll look at your current setup and map out what's missing.
+[Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to talk through what your funnel should look like. We'll look at your current setup and map out what's missing.
 
 Social media without a funnel is a full-time job for no paycheck. A funnel is the difference.

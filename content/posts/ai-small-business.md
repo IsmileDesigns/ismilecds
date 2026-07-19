@@ -11,7 +11,7 @@ featured: false
 lead: "AI technology has rapidly evolved from a luxury for large corporations to an accessible tool for businesses of all sizes. Small businesses in particular can leverage AI to compete more effectively, streamline operations, and create better customer experiences — often without significant technical expertise or investment."
 cta_title: "Ready to Explore AI for Your Business?"
 cta_text: "At ISmile Creative and Digital Solutions, we specialize in customized AI agent solutions tailored specifically for small businesses. Our experts help you identify the perfect tools and implement them seamlessly into your existing workflow."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Consultation"
 ---
 

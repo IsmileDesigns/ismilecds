@@ -20,7 +20,7 @@ featured: false
 lead: "Opening paragraph shown in large text at the top of the article."
 cta_title: "Your CTA Heading"
 cta_text: "CTA body text."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 

@@ -11,7 +11,7 @@ featured: false
 lead: "In today's oversaturated digital landscape, consumers are bombarded with thousands of marketing messages daily. What separates brands that fade into the background from those that become household names? The answer lies in effective brand storytelling."
 cta_title: "Ready to Tell Your Brand's Story?"
 cta_text: "At Ismile Creative and Digital Solutions, we help entrepreneurs and business owners build brands with narratives that connect, convert, and create lasting loyalty. Let's build yours."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 

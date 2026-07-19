@@ -11,7 +11,7 @@ featured: false
 lead: "Somewhere between 'I'll do it myself' and 'I need a full marketing team,' there's a decision every growing business has to make. Do you hire a freelancer or bring in a creative studio?"
 cta_title: "Not sure which one your project actually needs?"
 cta_text: "Book a free call to talk through what you're trying to build. If a studio is the right fit, we'll tell you. If a freelancer would serve you better, we'll tell you that too and often refer you to someone we trust."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 
@@ -141,6 +141,6 @@ If you're trying to figure out whether your next project needs a freelancer, a b
 
 At Ismile Creative and Digital Solutions, we take on projects where a studio actually adds value. When it doesn't, we tell people plainly and often refer them to freelancers we trust. That kind of honest scoping conversation is part of our [business consulting](./business-consulting.html) process before any project starts. That honesty is rare in this industry, and it's the only way we know how to run a business we're proud of.
 
-[Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to talk through what you're trying to build. If we're the right fit, we'll tell you. If we aren't, we'll help you find someone who is.
+[Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to talk through what you're trying to build. If we're the right fit, we'll tell you. If we aren't, we'll help you find someone who is.
 
 The right team matters more than the cheapest rate. Pick based on fit, not just price.

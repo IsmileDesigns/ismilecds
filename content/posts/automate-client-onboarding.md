@@ -11,7 +11,7 @@ featured: false
 lead: "Here's the pattern most small service businesses fall into. Client says yes. You send a welcome email. You attach a contract. They sign it, maybe, after two follow-ups. You send an invoice. They pay it eventually. You book a kickoff call. They reschedule twice. You send an intake form. They fill out half of it. You chase the rest."
 cta_title: "Stop drowning in onboarding admin"
 cta_text: "Book a free call to walk through what's currently slowing you down. We'll map the onboarding system that fits your business and your tools, so you can stop losing hours to coordination that shouldn't need your time."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 
@@ -207,6 +207,6 @@ A proper CRM (Dubsado, HoneyBook, etc.) makes it easier and more integrated, but
 
 If onboarding is eating hours you don't have, or if you suspect clients are having a patchy experience at the start of projects, that's a real business problem with a real solution. At Ismile Creative and Digital Solutions, we design and implement onboarding [systems and automations](./systems-automations.html) for small service businesses that want to stop drowning in admin.
 
-[Book a free call](https://koalendar.com/e/meet-with-yazmine-ismile) to walk through what's currently slowing you down. We'll map the system that fits your business and your tools.
+[Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to walk through what's currently slowing you down. We'll map the system that fits your business and your tools.
 
 Automation isn't about being less personal. It's about being more professional. Done right, your clients will feel more taken care of, not less.

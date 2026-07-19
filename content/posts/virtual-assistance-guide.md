@@ -11,7 +11,7 @@ featured: true
 lead: "In today's fast-paced business environment, entrepreneurs and business leaders face an ever-growing list of responsibilities. From managing client relationships to handling administrative tasks, marketing efforts, and strategic planning, the demands can quickly become overwhelming. This is where virtual assistance has emerged as a game-changing solution for businesses of all sizes."
 cta_title: "Ready to Build Your Virtual Team?"
 cta_text: "At Ismile Creative and Digital Solutions, we've helped countless businesses transition from traditional staffing models to flexible virtual support systems that enhance performance while reducing costs. Let's map out your strategy."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 

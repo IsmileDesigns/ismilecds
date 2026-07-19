@@ -11,7 +11,7 @@ featured: false
 lead: "Here's a hard truth most small business owners never hear. Your website is probably losing you clients every single week, and you have no way of seeing it happen."
 cta_title: "Want to know what your site is actually doing wrong?"
 cta_text: "Book a free website audit call and we'll walk through your site together. A real breakdown of what's working, what isn't, and what it would take to stop the leak. No sales pitch, just a professional assessment."
-cta_link: "https://koalendar.com/e/meet-with-yazmine-ismile"
+cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Audit"
 ---
 
@@ -143,6 +143,6 @@ If you worked through this post and recognized your site in three or more of the
 
 At Ismile Creative and Digital Solutions, our [web design](./web-design.html) team offers free website audits for service businesses that want a professional assessment of what's actually costing them clients. No sales pitch, just a real breakdown of what's working, what isn't, and what it would take to fix.
 
-[Book a free audit call](https://koalendar.com/e/meet-with-yazmine-ismile) and we'll walk through your site together.
+[Book a free audit call](https://calendar.app.google/oDUSa3P32YjHErMW8) and we'll walk through your site together.
 
 The fastest way to grow revenue isn't more traffic. It's fixing the site that's leaking the traffic you already have.
