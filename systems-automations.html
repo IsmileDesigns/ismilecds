@@ -334,6 +334,34 @@
     </div>
   </section>
 
+  <!-- AI IMPLEMENTATION -->
+  <section class="svc-section">
+    <p class="svc-label" id="aiLabel">AI IMPLEMENTATION</p>
+    <h2 class="svc-section-h">WE BUILD WITH AI TOO.</h2>
+    <div class="svc-grid svc-grid--2 ai-grid">
+      <div class="svc-card">
+        <span class="svc-card-num">01</span>
+        <h3 class="svc-card-name">AI CHATBOTS & CUSTOMER SUPPORT</h3>
+        <p class="svc-card-desc">Trained on your business and your FAQs, answering the questions that used to sit in your inbox overnight.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-card-num">02</span>
+        <h3 class="svc-card-name">AI CONTENT & DRAFTING ASSISTANTS</h3>
+        <p class="svc-card-desc">First-draft emails, proposals, and follow-ups generated in your voice, ready for a quick edit and send.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-card-num">03</span>
+        <h3 class="svc-card-name">AI LEAD SCORING & QUALIFICATION</h3>
+        <p class="svc-card-desc">Every inquiry automatically read, scored, and routed, so you spend time on the leads worth chasing.</p>
+      </div>
+      <div class="svc-card">
+        <span class="svc-card-num">04</span>
+        <h3 class="svc-card-name">CUSTOM AI AGENTS & WORKFLOWS</h3>
+        <p class="svc-card-desc">Purpose-built AI tools wired into your existing stack, not a generic chatbot bolted on top.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="svc-cta">
     <div class="svc-cta-inner">
@@ -398,7 +426,8 @@
     gsap.to(el,{opacity:1,y:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 82%'}});
   });
   // cards
-  gsap.to('.svc-card',{opacity:1,y:0,duration:0.7,stagger:0.08,ease:'power3.out',scrollTrigger:{trigger:'.svc-grid',start:'top 78%'}});
+  gsap.to('.services-main .svc-card',{opacity:1,y:0,duration:0.7,stagger:0.08,ease:'power3.out',scrollTrigger:{trigger:'.services-main .svc-grid',start:'top 78%'}});
+  gsap.to('.ai-grid .svc-card',{opacity:1,y:0,duration:0.7,stagger:0.08,ease:'power3.out',scrollTrigger:{trigger:'.ai-grid',start:'top 78%'}});
   // bunny visual
   gsap.to('.visual-panel',{opacity:1,y:0,scale:1,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.services-visual',start:'top 82%'}});
   (function(){
