@@ -68,16 +68,24 @@
   .svc-section-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4.5vw,64px);line-height:0.92;letter-spacing:0.02em;color:var(--white);margin-bottom:56px;opacity:0;transform:translateY(30px);}
   .svc-section-h--dark{color:var(--warm-black);}
   /* CARD GRID */
-  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;background:none;}
   .svc-grid--2{grid-template-columns:repeat(2,1fr);}
   .svc-grid--3col-only{grid-template-columns:repeat(3,1fr);}
-  .svc-card{background:var(--warm-black);padding:40px 32px;position:relative;overflow:hidden;opacity:0;transform:translateY(30px);}
-  .svc-card::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.4s ease;}
-  .svc-card:hover::after{transform:scaleX(1)}
-  .svc-icon{width:38px;height:38px;color:var(--amber);margin-bottom:20px;}
-  .svc-card-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.04em;color:var(--white);margin-bottom:10px;transition:color 0.2s;}
+  .svc-card{background:rgba(255,255,255,0.035);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border:1px solid rgba(251,169,44,0.4);border-radius:14px;padding:26px 22px;position:relative;overflow:hidden;opacity:0;transform:translateY(30px);transition:border-color 0.25s,background 0.25s;}
+  .svc-card:hover{border-color:var(--amber);background:rgba(255,255,255,0.06);}
+  .svc-card-num{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:0.14em;color:rgba(251,169,44,0.35);display:block;margin-bottom:12px;transition:color 0.2s;}
+  .svc-card:hover .svc-card-num{color:var(--amber)}
+  .svc-card-name{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:0.03em;color:var(--white);margin-bottom:8px;transition:color 0.2s;}
   .svc-card:hover .svc-card-name{color:var(--amber)}
-  .svc-card-desc{font-size:16px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.38);}
+  .svc-card-desc{font-size:14px;font-weight:300;line-height:1.6;color:rgba(255,255,255,0.45);}
+  /* WHAT WE BUILD — CARDS + BUNNY LAYOUT */
+  .services-flex{display:flex;align-items:stretch;gap:56px;}
+  .services-main{flex:1.1;min-width:0;}
+  .services-visual{flex:1;}
+  .services-main .svc-grid{grid-template-columns:repeat(2,1fr);}
+  .visual-panel{position:relative;height:100%;min-height:520px;display:flex;align-items:flex-end;justify-content:center;opacity:0;transform:translateY(40px) scale(0.97);}
+  .nathan-img{position:relative;z-index:1;width:103%;height:120%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 24px 32px rgba(0,0,0,0.5));will-change:transform;}
+  .svc-cloud{position:absolute;z-index:3;bottom:-60px;left:50%;width:160%;transform:translateX(-50%);pointer-events:none;-webkit-mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);}
   /* STEPS / DETAILS */
   .svc-steps{border-top:1px solid var(--bdl);}
   .svc-step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--bdl);opacity:0;transform:translateX(-20px);}
@@ -148,6 +156,9 @@
     footer{padding:56px 32px 36px;}
     .footer-top{grid-template-columns:1fr 1fr;gap:40px;}
     .gallery-item{flex:0 0 300px;}
+    .services-flex{flex-direction:column;gap:40px;}
+    .services-visual{position:static;width:100%;align-self:auto;}
+    .visual-panel{height:44vw;max-height:340px;min-height:0;}
   }
   @media(max-width:640px){
     body{cursor:auto;}.cursor{display:none;}
@@ -175,6 +186,10 @@
     .gallery-item{flex:0 0 260px;}
     .gallery-card{height:300px;}
     .gallery-header{flex-direction:column;align-items:flex-start;}
+    .visual-panel{height:64vw;max-height:280px;min-height:0;}
+    .nathan-img{width:78%;top:16px;}
+    .svc-cloud{width:60%;bottom:-8px;}
+    .services-main .svc-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -247,43 +262,53 @@
 
   <!-- WHAT WE DO -->
   <section class="svc-section">
-    <p class="svc-label" id="whatLabel">WHAT WE BUILD</p>
-    <h2 class="svc-section-h">THE FULL IDENTITY SYSTEM.</h2>
-    <div class="svc-grid">
-      <div class="svc-card">
-        <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 4-9 4-9-4 9-4zM3 10l9 4 9-4M3 16l9 4 9-4"/></svg>
-        <h3 class="svc-card-name">LOGO SUITE</h3>
-        <p class="svc-card-desc">Primary, secondary, and submark variations. Every format for digital, print, and every use case in between.</p>
+    <div class="services-flex">
+      <div class="services-visual" aria-hidden="true">
+        <div class="visual-panel">
+          <img src="Ismile-bunny-branding.png" class="nathan-img" alt="" loading="lazy" decoding="async"/>
+          <img src="clouds-png-8.png" class="svc-cloud" alt="" aria-hidden="true">
+        </div>
       </div>
-      <div class="svc-card">
-        <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.7 0-.4-.2-.8-.4-1.1-.3-.3-.4-.7-.4-1.1a1.6 1.6 0 0 1 1.7-1.7h2c3 0 5.5-2.5 5.5-5.5C21.9 6 17.5 2 12 2z"/><circle cx="8" cy="9" r="1.5"/><circle cx="14" cy="6" r="1.5"/><circle cx="17" cy="11" r="1.5"/></svg>
-        <h3 class="svc-card-name">COLOR SYSTEM</h3>
-        <p class="svc-card-desc">A deliberate palette with hex, RGB, and CMYK values and the rules for when and how to use each one.</p>
-      </div>
-      <div class="svc-card">
-        <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
-        <h3 class="svc-card-name">TYPOGRAPHY</h3>
-        <p class="svc-card-desc">Heading, body, and accent fonts selected for your brand personality and paired for readability.</p>
-      </div>
-      <div class="svc-card">
-        <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        <h3 class="svc-card-name">VISUAL LANGUAGE</h3>
-        <p class="svc-card-desc">Photography styles, patterns, textures, and graphic elements that complete the identity across every touchpoint.</p>
-      </div>
-      <div class="svc-card">
-        <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        <h3 class="svc-card-name">BRAND GUIDELINES</h3>
-        <p class="svc-card-desc">A complete usage document your team, printers, and developers can follow without calling you.</p>
-      </div>
-      <div class="svc-card">
-        <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-        <h3 class="svc-card-name">BRAND STRATEGY</h3>
-        <p class="svc-card-desc">Positioning, target audience research, mission, values, and competitive edge — the thinking behind every visual decision.</p>
-      </div>
-      <div class="svc-card">
-        <svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <h3 class="svc-card-name">VOICE & TONE</h3>
-        <p class="svc-card-desc">The personality and vocabulary your brand uses across every written and spoken touchpoint — consistent, recognisable, and on-brand.</p>
+      <div class="services-main">
+        <p class="svc-label" id="whatLabel">WHAT WE BUILD</p>
+        <h2 class="svc-section-h">THE FULL IDENTITY SYSTEM.</h2>
+        <div class="svc-grid">
+          <div class="svc-card">
+            <span class="svc-card-num">01</span>
+            <h3 class="svc-card-name">LOGO SUITE</h3>
+            <p class="svc-card-desc">Primary, secondary, and submark variations. Every format for digital, print, and every use case in between.</p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-card-num">02</span>
+            <h3 class="svc-card-name">COLOR SYSTEM</h3>
+            <p class="svc-card-desc">A deliberate palette with hex, RGB, and CMYK values and the rules for when and how to use each one.</p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-card-num">03</span>
+            <h3 class="svc-card-name">TYPOGRAPHY</h3>
+            <p class="svc-card-desc">Heading, body, and accent fonts selected for your brand personality and paired for readability.</p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-card-num">04</span>
+            <h3 class="svc-card-name">VISUAL LANGUAGE</h3>
+            <p class="svc-card-desc">Photography styles, patterns, textures, and graphic elements that complete the identity across every touchpoint.</p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-card-num">05</span>
+            <h3 class="svc-card-name">BRAND GUIDELINES</h3>
+            <p class="svc-card-desc">A complete usage document your team, printers, and developers can follow without calling you.</p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-card-num">06</span>
+            <h3 class="svc-card-name">BRAND STRATEGY</h3>
+            <p class="svc-card-desc">Positioning, target audience research, mission, values, and competitive edge — the thinking behind every visual decision.</p>
+          </div>
+          <div class="svc-card">
+            <span class="svc-card-num">07</span>
+            <h3 class="svc-card-name">VOICE & TONE</h3>
+            <p class="svc-card-desc">The personality and vocabulary your brand uses across every written and spoken touchpoint — consistent, recognisable, and on-brand.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -505,6 +530,26 @@
   });
   // cards
   gsap.to('.svc-card',{opacity:1,y:0,duration:0.7,stagger:0.08,ease:'power3.out',scrollTrigger:{trigger:'.svc-grid',start:'top 78%'}});
+  // bunny visual
+  gsap.to('.visual-panel',{opacity:1,y:0,scale:1,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.services-visual',start:'top 82%'}});
+  (function(){
+    var panel=document.querySelector('.visual-panel');
+    var img=document.querySelector('.nathan-img');
+    if(!panel||!img||window.matchMedia('(pointer: coarse)').matches)return;
+    var tx=0,ty=0,cx=0,cy=0;
+    panel.addEventListener('mousemove',function(e){
+      var r=panel.getBoundingClientRect();
+      tx=(e.clientX-r.left)/r.width-0.5;
+      ty=(e.clientY-r.top)/r.height-0.5;
+    });
+    panel.addEventListener('mouseleave',function(){tx=0;ty=0;});
+    (function tick(){
+      cx+=(tx-cx)*0.06;
+      cy+=(ty-cy)*0.06;
+      img.style.transform='translate('+(cx*-14)+'px, '+(cy*-10)+'px) scale(1.04)';
+      requestAnimationFrame(tick);
+    })();
+  })();
   // steps
   gsap.to('.svc-step',{opacity:1,x:0,duration:0.6,stagger:0.09,ease:'power3.out',scrollTrigger:{trigger:'.svc-steps',start:'top 80%'}});
   // cta
