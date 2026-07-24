@@ -7,6 +7,7 @@ excerpt: "Most business owners use the words interchangeably. They're not the sa
 read_time: 11
 description: "The real difference between a logo and full branding, what each costs in Canada in 2026, and how to know which tier your business actually needs."
 image_gradient: "linear-gradient(135deg,#1e1510,#2e2018)"
+image: "./blog-images/brand-identity-guidelines-document.jpg"
 featured: false
 lead: "There's a conversation that happens in the first 10 minutes of almost every discovery call with a new client. They say they need a logo. We start asking questions, and within a few minutes it's clear they don't actually need a logo. They need a brand."
 cta_title: "Not sure if you need a logo or a full brand?"

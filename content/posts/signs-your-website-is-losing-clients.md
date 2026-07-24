@@ -7,6 +7,7 @@ excerpt: "Your website looks fine to you. But to the potential client who just c
 read_time: 10
 description: "Five concrete reasons small business websites lose clients — slow load speed, unclear messaging, weak CTAs, poor mobile design, and no social proof."
 image_gradient: "linear-gradient(135deg,#101820,#1a2830)"
+image: "./blog-images/website-analytics-dashboard-concerned-owner.jpg"
 featured: false
 lead: "Here's a hard truth most small business owners never hear. Your website is probably losing you clients every single week, and you have no way of seeing it happen."
 cta_title: "Want to know what your site is actually doing wrong?"

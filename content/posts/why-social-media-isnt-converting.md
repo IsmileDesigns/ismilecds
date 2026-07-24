@@ -7,6 +7,7 @@ excerpt: "Posting consistently and getting nowhere? The problem isn't your conte
 read_time: 11
 description: "Why posting on social media isn't generating clients, and how to build a real marketing funnel with a lead magnet, nurture sequence, and clear CTA."
 image_gradient: "linear-gradient(135deg,#1a1210,#2a1f18)"
+image: "./blog-images/marketing-funnel-whiteboard-diagram.jpg"
 featured: false
 lead: "You post consistently. Your engagement looks decent. People comment, some follow, a few save your posts. And still, every month, the number of actual paying clients that come from social media is close to zero."
 cta_title: "Stop relying on the algorithm to pay your bills"

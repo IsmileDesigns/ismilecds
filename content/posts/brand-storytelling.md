@@ -7,6 +7,7 @@ excerpt: The most powerful marketing asset your business has isn't an ad — it'
 read_time: 12
 description: "Why brand storytelling builds emotional connection and loyalty, plus a framework for crafting your narrative across your website and marketing."
 image_gradient: "linear-gradient(135deg,#1e1510,#2e2018)"
+image: "./blog-images/designer-brand-identity-workspace.jpg"
 featured: false
 lead: "In today's oversaturated digital landscape, consumers are bombarded with thousands of marketing messages daily. What separates brands that fade into the background from those that become household names? The answer lies in effective brand storytelling."
 cta_title: "Ready to Tell Your Brand's Story?"

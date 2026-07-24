@@ -7,6 +7,7 @@ excerpt: "Onboarding feels personal because you do it manually. But the back-and
 read_time: 11
 description: "How to automate client onboarding — contracts, intake, scheduling, and check-ins — without losing the personal touch that builds retention."
 image_gradient: "linear-gradient(135deg,#0f1a1a,#152828)"
+image: "./blog-images/handwritten-thank-you-note-next-to-laptop.jpg"
 featured: false
 lead: "Here's the pattern most small service businesses fall into. Client says yes. You send a welcome email. You attach a contract. They sign it, maybe, after two follow-ups. You send an invoice. They pay it eventually. You book a kickoff call. They reschedule twice. You send an intake form. They fill out half of it. You chase the rest."
 cta_title: "Stop drowning in onboarding admin"

@@ -39,6 +39,11 @@ function fill(template, vars) {
   );
 }
 
+function heroImageHTML(post) {
+  if (!post.image) return '';
+  return `<img src="${post.image}" alt="${post.title}" class="post-hero-img" loading="eager"/><div class="post-hero-scrim"></div>`;
+}
+
 // Generate individual post pages
 posts.forEach(post => {
   const dateStr = formatDate(post.date);
@@ -49,6 +54,7 @@ posts.forEach(post => {
     category: post.category,
     read_time: post.read_time,
     image_gradient: post.image_gradient,
+    hero_image: heroImageHTML(post),
     lead: post.lead || '',
     body: post.body,
     cta_title: post.cta_title || '',
@@ -65,10 +71,15 @@ posts.forEach(post => {
 const featuredPost = posts.find(p => p.featured) || posts[0];
 const regularPosts = posts.filter(p => p !== featuredPost);
 
+function cardImageHTML(post) {
+  if (!post.image) return '';
+  return `<img src="${post.image}" alt="${post.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;"/>`;
+}
+
 function featuredCardHTML(post) {
   const dateStr = formatDate(post.date);
   return `<a href="./${post.slug}.html" class="blog-featured">
-    <div class="bf-img" style="background:${post.image_gradient};"></div>
+    <div class="bf-img" style="background:${post.image_gradient};">${cardImageHTML(post)}</div>
     <div class="bf-body">
       <p class="blog-cat">${post.category}</p>
       <h2 class="bf-title">${post.title.toUpperCase()}</h2>
@@ -81,7 +92,7 @@ function featuredCardHTML(post) {
 function postCardHTML(post) {
   const dateStr = formatDate(post.date);
   return `<a href="./${post.slug}.html" class="blog-card" data-r>
-      <div class="bc-img" style="background:${post.image_gradient};"></div>
+      <div class="bc-img" style="background:${post.image_gradient};">${cardImageHTML(post)}</div>
       <div class="bc-body">
         <p class="blog-cat">${post.category}</p>
         <h3 class="bc-title">${post.title.toUpperCase()}</h3>

@@ -7,6 +7,7 @@ excerpt: AI isn't just for big corporations anymore. Here's how small businesses
 read_time: 6
 description: "How small businesses can use AI for customer service, marketing, financial management, operations, and content creation to compete and scale."
 image_gradient: "linear-gradient(135deg,#0f1a1a,#152828)"
+image: "./blog-images/email-marketing-dashboard-growth.jpg"
 featured: false
 lead: "AI technology has rapidly evolved from a luxury for large corporations to an accessible tool for businesses of all sizes. Small businesses in particular can leverage AI to compete more effectively, streamline operations, and create better customer experiences — often without significant technical expertise or investment."
 cta_title: "Ready to Explore AI for Your Business?"

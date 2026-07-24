@@ -7,6 +7,7 @@ excerpt: "We say we do sharp, intentional work. Here's what that actually means 
 read_time: 9
 description: "What sharp, intentional creative work looks like in practice — our process, the clients we take on, and why we turn down the wrong projects."
 image_gradient: "linear-gradient(135deg,#1a1410,#2e2018)"
+image: "./blog-images/designer-intentional-work-clean-workspace.jpg"
 featured: false
 lead: "Most creative studios will tell you they care about quality. They will tell you their process is thorough. They will tell you they take the time to understand your business. The language is so standard at this point that it means almost nothing."
 cta_title: "Think we might be the right studio for you?"

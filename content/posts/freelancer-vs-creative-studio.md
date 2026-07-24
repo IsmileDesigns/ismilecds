@@ -7,6 +7,7 @@ excerpt: "A freelancer costs less. A studio delivers more. The right answer depe
 read_time: 10
 description: "An honest cost and scope comparison of hiring a freelancer versus a creative studio, so you pick the right fit for your next project's stakes."
 image_gradient: "linear-gradient(135deg,#1a1815,#2a2520)"
+image: "./blog-images/freelancer-working-alone-home-office.jpg"
 featured: false
 lead: "Somewhere between 'I'll do it myself' and 'I need a full marketing team,' there's a decision every growing business has to make. Do you hire a freelancer or bring in a creative studio?"
 cta_title: "Not sure which one your project actually needs?"

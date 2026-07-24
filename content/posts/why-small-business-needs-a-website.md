@@ -7,6 +7,7 @@ excerpt: "Social media isn't enough. Here's why every serious small business nee
 read_time: 9
 description: "Why social media alone isn't enough in 2026, what a website actually costs, and what yours needs to do to build trust and convert visitors."
 image_gradient: "linear-gradient(135deg,#0f1520,#1a2535)"
+image: "./blog-images/small-business-owner-building-website.jpg"
 featured: true
 lead: "There's a quiet trap a lot of new entrepreneurs fall into. The business is off the ground, the Instagram is active, DMs are coming in, a few sales have closed. And the thinking goes: I'll build a website when I have the budget, when things are more established, when I know what I'm doing."
 cta_title: "Ready for a website that actually does its job?"

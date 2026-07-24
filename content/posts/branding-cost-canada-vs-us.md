@@ -7,6 +7,7 @@ excerpt: "American agencies charge a premium. Canadian agencies deliver the same
 read_time: 12
 description: "A no-fluff breakdown of branding costs in Canada vs the US in 2026, what drives the price difference, and why American small businesses are hiring Canadian agencies."
 image_gradient: "linear-gradient(135deg,#1e1510,#2e2018)"
+image: "./blog-images/small-business-owner-reviewing-brand-guidelines.jpg"
 featured: false
 lead: "If you've priced out branding with a US agency lately, you already know the number felt high. There's a reason for that, and there's a smarter option most American entrepreneurs don't know exists."
 cta_title: "Want agency-quality branding without the US agency price tag?"
