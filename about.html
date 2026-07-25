@@ -94,8 +94,9 @@
     .finput::placeholder{color:rgba(255,255,255,0.22);}
     textarea.finput{resize:vertical;min-height:130px;}
     .fsuccess{display:none;padding:16px;background:rgba(251,169,44,0.08);border:1px solid rgba(251,169,44,0.25);border-radius:4px;font-size:15px;color:var(--amber);margin-top:14px;}
-    @media(max-width:768px){.about-hero{grid-template-columns:1fr;}.ah-left,.ah-right{padding:80px 24px 60px;}.stat-row{grid-template-columns:1fr 1fr;}.val-item{grid-template-columns:40px 1fr;}.val-body{grid-column:2;}.form-grid{grid-template-columns:1fr;}}#nav:not(.scrolled) .nav-links a{color:rgba(26,20,16,0.7);}#nav:not(.scrolled) .nav-links a:hover{color:var(--warm-black);}#nav:not(.scrolled) .nav-links a::after{background:var(--warm-black);}#nav:not(.scrolled) .nav-cta{background:var(--warm-black);color:var(--amber)!important;}#nav:not(.scrolled) .nav-cta:hover{background:#2e2620;}#nav:not(.scrolled) .nav-dropdown li a{color:rgba(255,255,255,0.45);}
+    @media(max-width:768px){.about-hero{grid-template-columns:1fr;}.ah-left,.ah-right{padding:80px 24px 60px;}.stat-row{grid-template-columns:1fr 1fr;}.val-item{grid-template-columns:40px 1fr;}.val-body{grid-column:2;}.form-grid{grid-template-columns:1fr;}.story-grid{grid-template-columns:1fr!important;gap:48px!important;}.testimonial-grid{grid-template-columns:1fr!important;}.contact-grid{grid-template-columns:1fr!important;gap:40px!important;}}#nav:not(.scrolled) .nav-links a{color:rgba(26,20,16,0.7);}#nav:not(.scrolled) .nav-links a:hover{color:var(--warm-black);}#nav:not(.scrolled) .nav-links a::after{background:var(--warm-black);}#nav:not(.scrolled) .nav-cta{background:var(--warm-black);color:var(--amber)!important;}#nav:not(.scrolled) .nav-cta:hover{background:#2e2620;}#nav:not(.scrolled) .nav-dropdown li a{color:rgba(255,255,255,0.45);}
     @media(max-width:640px){
+      body{cursor:auto;}.cursor{display:none;}
       nav{padding:0 20px;height:64px}
       .nav-hamburger{display:flex}
       .nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);flex-direction:column;align-items:center;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1),padding 0.3s;z-index:99;}
@@ -110,6 +111,11 @@
       .nav-dropdown.open{max-height:320px;padding:4px 0 10px;transform:none}
       .nav-dropdown a{text-align:center;color:rgba(255,255,255,0.5);padding:10px 20px;font-size:14px;border-bottom:none;}
       .nav-links .nav-cta{margin:16px auto 0;width:calc(100% - 48px);text-align:center;padding:13px 20px;border-radius:3px;}.nav-dropdown{display:flex!important;flex-direction:column!important;width:100%!important;position:static!important;}.nav-dropdown li{width:100%!important;}.nav-dropdown a{color:rgba(255,255,255,0.75)!important;white-space:normal!important;}
+      #nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,0.45)!important;}
+      #nav:not(.scrolled) .nav-links a:hover{color:var(--white)!important;}
+      #nav:not(.scrolled) .nav-cta{background:var(--amber)!important;color:var(--warm-black)!important;}
+      #nav:not(.scrolled) .nav-cta:hover{background:#ffc04d!important;}
+      #nav:not(.scrolled) .nav-dropdown li a{color:rgba(255,255,255,0.75)!important;}
     }
   </style>
 </head>
@@ -168,7 +174,7 @@
   </div>
 
   <section class="sec">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;">
+    <div class="story-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;">
       <div data-r>
         <p style="font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:20px;"><span style="display:inline-block;width:28px;height:1px;background:var(--amber);"></span>Our Story</p>
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,66px);line-height:0.92;letter-spacing:0.02em;color:var(--white);margin-bottom:28px;">WHO WE<br><span style="color:var(--amber)">ARE.</span></h2>
@@ -202,7 +208,7 @@
   <section class="sec sec-light">
     <p style="font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:rgba(26,20,16,0.45);display:flex;align-items:center;gap:12px;margin-bottom:20px;" data-r><span style="display:inline-block;width:28px;height:1px;background:rgba(26,20,16,0.35);"></span>What Clients Say</p>
     <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,66px);line-height:0.92;letter-spacing:0.02em;color:var(--warm-black);margin-bottom:48px;" data-r>THE RESULTS<br><span style="color:var(--amber)">SPEAK.</span></h2>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" data-s>
+    <div class="testimonial-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" data-s>
       <div style="padding:36px;background:var(--white);border:1px solid var(--bdl);border-radius:12px;"><p style="font-size:15px;font-weight:300;line-height:1.75;color:rgba(26,20,16,0.7);font-style:italic;margin-bottom:20px;">"Ismile is by far one of the BEST companies to work with. Yazmine thinks 10 steps ahead and over-delivers above expectations."</p><p style="font-size:14px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);">Nodjinaissem</p><p style="font-size:13px;color:rgba(26,20,16,0.4);">@naiizhair</p></div>
       <div style="padding:36px;background:var(--white);border:1px solid var(--bdl);border-radius:12px;"><p style="font-size:15px;font-weight:300;line-height:1.75;color:rgba(26,20,16,0.7);font-style:italic;margin-bottom:20px;">"It was a pleasure working with Yazmine. I would definitely recommend her to anyone that wants to take their company to the next level."</p><p style="font-size:14px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);">Christina R.</p><p style="font-size:13px;color:rgba(26,20,16,0.4);">Client</p></div>
       <div style="padding:36px;background:var(--white);border:1px solid var(--bdl);border-radius:12px;"><p style="font-size:15px;font-weight:300;line-height:1.75;color:rgba(26,20,16,0.7);font-style:italic;margin-bottom:20px;">"Yazmine is amazing! She gave me exactly what I needed in a very timely manner. I highly recommend her services."</p><p style="font-size:14px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);">Kiana Davis</p><p style="font-size:13px;color:rgba(26,20,16,0.4);">Client</p></div>
@@ -212,7 +218,7 @@
 
   <section class="sec">
     <p style="font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:20px;" data-r><span style="display:inline-block;width:28px;height:1px;background:var(--amber);"></span>Get In Touch</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+    <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
       <div data-r>
         <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,66px);line-height:0.92;letter-spacing:0.02em;color:var(--white);margin-bottom:20px;">LET'S TALK ABOUT<br>YOUR <span style="color:var(--amber)">BUSINESS.</span></h2>
         <p style="font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.45);margin-bottom:32px;">Fill in the form and we'll get back to you within 1-2 business days.</p>
