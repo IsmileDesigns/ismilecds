@@ -190,10 +190,19 @@ projects.forEach(project => {
 });
 
 // Generate portfolio.html
-const portfolioHTML = fill(portfolioTemplate, {
-  project_items: projects.map(projectItemHTML).join('\n\n    '),
-});
-fs.writeFileSync(path.join(OUT_DIR, 'portfolio.html'), portfolioHTML);
-console.log(`  portfolio → portfolio.html (${projects.length} projects)`);
+// portfolio.html is hand-curated with project cards beyond content/projects/ (see git log).
+// Refuse to overwrite it with fewer cards than it already has.
+const portfolioOutPath = path.join(OUT_DIR, 'portfolio.html');
+const existingPortfolio = fs.existsSync(portfolioOutPath) ? fs.readFileSync(portfolioOutPath, 'utf8') : '';
+const existingCardCount = (existingPortfolio.match(/class="port-item/g) || []).length;
+if (projects.length < existingCardCount) {
+  console.log(`  portfolio → SKIPPED (content/projects/ has ${projects.length} projects, portfolio.html already has ${existingCardCount} hand-curated cards; not overwriting)`);
+} else {
+  const portfolioHTML = fill(portfolioTemplate, {
+    project_items: projects.map(projectItemHTML).join('\n\n    '),
+  });
+  fs.writeFileSync(portfolioOutPath, portfolioHTML);
+  console.log(`  portfolio → portfolio.html (${projects.length} projects)`);
+}
 
 console.log('\nBuild complete.');
