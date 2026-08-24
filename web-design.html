@@ -4,6 +4,22 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>Web Design & Development | Ismile Creative & Digital Solutions</title>
+  <meta name="description" content="Custom website design and development for small businesses in Toronto and across North America — fast, conversion-focused sites built on Shopify, Wix, or custom code."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.byismile.com/web-design.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.byismile.com/web-design.html"/>
+  <meta property="og:title" content="Web Design &amp; Development | Ismile Creative &amp; Digital Solutions"/>
+  <meta property="og:description" content="Custom website design and development for small businesses in Toronto and across North America — fast, conversion-focused sites built on Shopify, Wix, or custom code."/>
+  <meta property="og:image" content="https://www.byismile.com/logo.png"/>
+  <meta property="og:site_name" content="Ismile Creative &amp; Digital Solutions"/>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Web Design &amp; Development | Ismile Creative &amp; Digital Solutions"/>
+  <meta name="twitter:description" content="Custom website design and development for small businesses in Toronto and across North America — fast, conversion-focused sites built on Shopify, Wix, or custom code."/>
+  <meta name="twitter:image" content="https://www.byismile.com/logo.png"/>
+  <script src="./site-widgets.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
@@ -44,6 +60,22 @@
   .nav-hamburger.open span:nth-child(2){opacity:0}
   .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
   /* HERO */
+  .svc-trust-bar{background:var(--amber);padding:14px 56px;display:flex;align-items:center;gap:0;overflow-x:auto;}
+  .svc-trust-item{flex:1;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.16em;color:var(--warm-black);border-right:1px solid rgba(26,20,16,0.2);padding:0 20px;white-space:nowrap;}
+  .svc-trust-item:last-child{border-right:none;}
+  @media(max-width:640px){.svc-trust-bar{padding:14px 20px;justify-content:flex-start;}.svc-trust-item{font-size:11px;padding:0 14px;}}
+  .svc-faq-section{padding:120px 56px;max-width:840px;margin:0 auto;}
+  .svc-faq-eyebrow{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;text-align:center;}
+  .svc-faq-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.5vw,52px);line-height:0.96;letter-spacing:0.02em;text-align:center;margin-bottom:52px;color:var(--white);}
+  .svc-faq-list{display:flex;flex-direction:column;}
+  .svc-faq-item{border-bottom:1px solid var(--bd);padding:24px 0;}
+  .svc-faq-item:first-child{border-top:1px solid var(--bd);}
+  .svc-faq-q{font-size:17px;font-weight:400;color:var(--white);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+  .svc-faq-q::-webkit-details-marker{display:none;}
+  .svc-faq-icon{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--amber);flex-shrink:0;transition:transform 0.25s ease;}
+  .svc-faq-item[open] .svc-faq-icon{transform:rotate(45deg);}
+  .svc-faq-a{font-size:15px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.5);margin-top:14px;max-width:680px;}
+  @media(max-width:768px){.svc-faq-section{padding:80px 24px;}}
   .svc-hero{min-height:88vh;display:flex;align-items:center;padding:140px 56px 100px;background:var(--warm-black);border-bottom:1px solid var(--bd);position:relative;overflow:hidden;}
   .svc-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 72% 50%,rgba(251,169,44,0.04) 0%,transparent 60%);pointer-events:none;}
   .svc-hero::after{content:'';position:absolute;inset:0;background:url('Development.jpg') center/cover no-repeat;opacity:0.1;pointer-events:none;z-index:0;}
@@ -99,6 +131,7 @@
   .svc-step-desc{font-size:16px;font-weight:300;line-height:1.75;color:rgba(26,20,16,0.55);}
   .svc-step-meta{font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-top:6px;}
   /* CTA */
+  .svc-cta-response{font-size:13px;font-weight:600;letter-spacing:0.06em;color:rgba(26,20,16,0.5);margin-top:20px;}
   .svc-cta{padding:130px 56px;background:var(--amber);text-align:center;position:relative;overflow:hidden;}
   .svc-cta-inner{position:relative;opacity:0;transform:translateY(30px);}
   .svc-cta-label{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:rgba(26,20,16,0.5);margin-bottom:16px;}
@@ -111,7 +144,7 @@
   .btn-d:hover{background:#2e2620;transform:translateY(-2px)}
   /* FOOTER */
   footer{background:#100d0a;padding:68px 56px 44px;border-top:1px solid var(--bd);}
-  .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
+  .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
   .footer-logo img{height:48px;width:auto;display:block;margin-bottom:16px;}
   .footer-tagline{font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:16px;}
   .footer-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.3);}
@@ -249,6 +282,13 @@
       <a href="https://calendar.app.google/oDUSa3P32YjHErMW8" class="btn-a">BOOK A FREE CALL <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
     </div>
   </section>
+  <div class="svc-trust-bar">
+    <span class="svc-trust-item">15+ YEARS EXPERIENCE</span>
+    <span class="svc-trust-item">100+ CLIENTS SERVED</span>
+    <span class="svc-trust-item">SHOPIFY &amp; WIX PARTNER</span>
+    <span class="svc-trust-item">REMOTE-FIRST · CANADA &amp; US</span>
+  </div>
+
 
   <!-- STATS -->
   <div class="svc-stats">
@@ -460,6 +500,30 @@
     </div>
   </section>
 
+    <!-- FAQ -->
+  <section class="svc-faq-section" id="faq">
+    <p class="svc-faq-eyebrow">Common Questions</p>
+    <h2 class="svc-faq-heading">FREQUENTLY ASKED<br>QUESTIONS.</h2>
+    <div class="svc-faq-list">
+      <details class="svc-faq-item">
+        <summary class="svc-faq-q">How long does a website take to build?<span class="svc-faq-icon">+</span></summary>
+        <p class="svc-faq-a">Most sites launch in 4–8 weeks depending on page count and how quickly content and feedback come back to us.</p>
+      </details>
+      <details class="svc-faq-item">
+        <summary class="svc-faq-q">Do you build on Shopify, Wix, or custom code?<span class="svc-faq-icon">+</span></summary>
+        <p class="svc-faq-a">All three. We're Shopify and Wix Partners, and we build fully custom sites too — we recommend the platform that fits your budget and needs.</p>
+      </details>
+      <details class="svc-faq-item">
+        <summary class="svc-faq-q">Will my site work on mobile?<span class="svc-faq-icon">+</span></summary>
+        <p class="svc-faq-a">Every site we build is designed mobile-first and tested across devices before launch.</p>
+      </details>
+      <details class="svc-faq-item">
+        <summary class="svc-faq-q">Do you offer ongoing maintenance after launch?<span class="svc-faq-icon">+</span></summary>
+        <p class="svc-faq-a">Yes, we offer monthly maintenance and support plans for clients who want us on call after launch.</p>
+      </details>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="svc-cta">
     <div class="svc-cta-inner">
@@ -467,6 +531,7 @@
       <h2 class="svc-cta-h">LET'S BUILD A SITE THAT ACTUALLY WORKS.</h2>
       <p class="svc-cta-sub">Book a free call. We'll tell you exactly what your current site is costing you and what we'd do differently. We work with clients across Canada and the United States, fully remote.</p>
       <a href="https://calendar.app.google/oDUSa3P32YjHErMW8" class="btn-d">BOOK A FREE CALL <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
+      <p class="svc-cta-response">We respond within 1–2 business days.</p>
     </div>
   </section>
 
@@ -481,6 +546,7 @@
       <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./branding-and-design.html">Branding and Design</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems &amp; Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
       <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
       <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://calendar.app.google/oDUSa3P32YjHErMW8">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
+      <div><p class="footer-col-title">Privacy &amp; Compliance</p><ul class="footer-links"><li><a href="./privacy-policy.html">Privacy Policy</a></li><li><a href="./cookie-policy.html">Cookie Policy</a></li><li><a href="#" data-cookie-prefs-trigger>Cookie Preferences</a></li><li><a href="./accessibility-statement.html">Accessibility Statement</a></li><li><a href="./do-not-sell-my-info.html">Do Not Sell or Share My Personal Information</a></li><li><a href="./data-request.html">Data Request (GDPR / CCPA)</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">&copy; 2026 Ismile Creative &amp; Digital Solutions. All rights reserved. Toronto, Canada.</p>

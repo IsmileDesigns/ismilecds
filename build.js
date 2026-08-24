@@ -50,6 +50,7 @@ posts.forEach(post => {
   const html = fill(postTemplate, {
     title: post.title,
     description: post.description || '',
+    slug: post.slug,
     date: dateStr,
     category: post.category,
     read_time: post.read_time,
@@ -126,13 +127,13 @@ for (let page = 1; page <= totalPages; page++) {
   const start = (page - 1) * POSTS_PER_PAGE;
   const pagePosts = regularPosts.slice(start, start + POSTS_PER_PAGE);
 
+  const outFile = page === 1 ? 'blog.html' : `blog-page-${page}.html`;
   let html = fill(blogTemplate, {
     featured_post: page === 1 ? featuredCardHTML(featuredPost) : '',
     post_cards: pagePosts.map(postCardHTML).join('\n    '),
     pagination: paginationHTML(page, totalPages),
+    canonical_url: `https://www.byismile.com/${outFile}`,
   });
-
-  const outFile = page === 1 ? 'blog.html' : `blog-page-${page}.html`;
   fs.writeFileSync(path.join(OUT_DIR, outFile), html);
   console.log(`  blog → ${outFile} (page ${page}/${totalPages}, ${pagePosts.length} cards)`);
 }
@@ -178,6 +179,8 @@ projects.forEach(project => {
     .join('\n      ');
   const html = fill(projectTemplate, {
     title: project.title,
+    description: project.description || '',
+    slug: project.slug,
     category: project.category,
     cover_image: project.cover_image,
     body: project.body,
