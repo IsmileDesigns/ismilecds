@@ -5,7 +5,7 @@ date: 2026-04-19
 category: "Web Design"
 excerpt: "Your website looks fine to you. But to the potential client who just clicked away, these are the five red flags that made them decide you weren't worth contacting."
 read_time: 10
-description: "Five concrete reasons small business websites lose clients — slow load speed, unclear messaging, weak CTAs, poor mobile design, and no social proof."
+description: "Five concrete reasons small business websites lose clients: slow load speed, unclear messaging, weak CTAs, poor mobile design, and no social proof."
 image_gradient: "linear-gradient(135deg,#101820,#1a2830)"
 image: "./blog-images/website-analytics-dashboard-concerned-owner.jpg"
 featured: false

@@ -139,7 +139,7 @@
         '<label class="ismile-cc-switch"><input type="checkbox" checked disabled/><span class="ismile-cc-slider"></span></label>' +
       '</div>' +
       '<div class="ismile-cc-row" style="border-bottom:none">' +
-        '<div><p class="ismile-cc-row-label">Analytics</p><p class="ismile-cc-row-desc">Google Analytics (GA4) — helps us understand how visitors use the site. No data is sold.</p></div>' +
+        '<div><p class="ismile-cc-row-label">Analytics</p><p class="ismile-cc-row-desc">Google Analytics (GA4) helps us understand how visitors use the site. No data is sold.</p></div>' +
         '<label class="ismile-cc-switch"><input type="checkbox" id="ismileCcAnalytics"/><span class="ismile-cc-slider"></span></label>' +
       '</div>' +
       '<div class="ismile-cc-modal-actions">' +

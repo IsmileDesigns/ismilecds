@@ -5,7 +5,7 @@ date: 2026-04-15
 category: "Studio"
 excerpt: "We say we do sharp, intentional work. Here's what that actually means in practice, what kind of clients we work with, and why we turn down the wrong projects."
 read_time: 9
-description: "What sharp, intentional creative work looks like in practice — our process, the clients we take on, and why we turn down the wrong projects."
+description: "What sharp, intentional creative work looks like in practice: our process, the clients we take on, and why we turn down the wrong projects."
 image_gradient: "linear-gradient(135deg,#1a1410,#2e2018)"
 image: "./blog-images/designer-intentional-work-clean-workspace.jpg"
 featured: false

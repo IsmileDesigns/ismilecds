@@ -5,7 +5,7 @@ date: 2026-04-17
 category: "Systems and Automations"
 excerpt: "Onboarding feels personal because you do it manually. But the back-and-forth is killing your time. Here's how to automate without making clients feel like a number."
 read_time: 11
-description: "How to automate client onboarding — contracts, intake, scheduling, and check-ins — without losing the personal touch that builds retention."
+description: "How to automate client onboarding (contracts, intake, scheduling, and check-ins) without losing the personal touch that builds retention."
 image_gradient: "linear-gradient(135deg,#0f1a1a,#152828)"
 image: "./blog-images/handwritten-thank-you-note-next-to-laptop.jpg"
 featured: false

@@ -104,7 +104,7 @@ You cap your growth. You can only handle so much through DMs, screenshots, and b
 
 **Do I really need a website if my business runs on Instagram?**
 
-Yes. Social media is rented land. You don't own your followers, the platform can change its algorithm or suspend your account, and search engines don't index your Instagram grid. A website is the only piece of digital real estate you fully own. Use both — a solid [digital marketing](./digital-marketing.html) strategy across social still matters — but a website is the foundation.
+Yes. Social media is rented land. You don't own your followers, the platform can change its algorithm or suspend your account, and search engines don't index your Instagram grid. A website is the only piece of digital real estate you fully own. Use both: a solid [digital marketing](./digital-marketing.html) strategy across social still matters, but a website is the foundation.
 
 **How much should a new business pay for a website in 2026?**
 

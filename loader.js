@@ -1,4 +1,4 @@
-/* ismile loader — drop <script src="loader.js"></script> in every page <head> */
+/* ismile loader - drop <script src="loader.js"></script> in every page <head> */
 (function () {
   /* ── inject styles ── */
   var css = document.createElement('style');
@@ -80,7 +80,7 @@
   function mount() {
     document.body.insertBefore(root, document.body.firstChild);
 
-    /* entrance animations — next frame so transitions fire */
+    /* entrance animations - next frame so transitions fire */
     requestAnimationFrame(function () {
       label.style.opacity = '1';
       label.style.transform = 'translateY(0)';
@@ -117,7 +117,7 @@
       showWord(wordIndex);
     }, 900);
 
-    /* progress counter — 2700ms duration */
+    /* progress counter - 2700ms duration */
     var DURATION = 2700;
     var startTime = null;
 
@@ -132,7 +132,7 @@
       if (pct < 100) {
         requestAnimationFrame(tick);
       } else {
-        /* done — wait 400ms then dismiss */
+        /* done - wait 400ms then dismiss */
         setTimeout(dismiss, 400);
       }
     }

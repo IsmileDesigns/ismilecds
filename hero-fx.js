@@ -1,4 +1,4 @@
-/* hero-fx.js — amber particle + geometric animation for service hero banners */
+/* hero-fx.js - amber particle + geometric animation for service hero banners */
 (function () {
 
   /* inject styles immediately (head always exists) */

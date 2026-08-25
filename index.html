@@ -476,7 +476,7 @@
     .svc-card:hover .svc-name{color:var(--amber)}
     .svc-desc{font-size:15px;font-weight:300;line-height:1.6;color:rgba(255,255,255,0.45)}
 
-    /* Services list — glass boxes, dark */
+    /* Services list - glass boxes, dark */
     .services-section .section-hd{flex-direction:column;align-items:flex-start;margin-bottom:28px;gap:28px}
     .services-section .section-note{text-align:left;max-width:360px;margin-bottom:0}
     .services-main .svc-grid{
@@ -592,7 +592,8 @@
       font-size:13px;font-weight:600;letter-spacing:0.06em;
       color:rgba(26,20,16,0.5);margin-top:22px;
     }
-    .faq-section{padding:140px 56px;max-width:840px;margin:0 auto;}
+    .faq-section{padding:140px 56px;background:var(--off-white);}
+    .faq-inner{max-width:840px;margin:0 auto;}
     .faq-eyebrow{
       font-size:12px;font-weight:600;letter-spacing:0.28em;
       text-transform:uppercase;color:var(--amber);margin-bottom:20px;text-align:center;
@@ -600,12 +601,13 @@
     .faq-heading{
       font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,56px);
       line-height:0.95;letter-spacing:0.02em;text-align:center;margin-bottom:56px;
+      color:var(--warm-black);
     }
     .faq-list{display:flex;flex-direction:column;gap:0;}
-    .faq-item{border-bottom:1px solid var(--bd);padding:26px 0;}
-    .faq-item:first-child{border-top:1px solid var(--bd);}
+    .faq-item{border-bottom:1px solid var(--bdl);padding:26px 0;}
+    .faq-item:first-child{border-top:1px solid var(--bdl);}
     .faq-q{
-      font-size:18px;font-weight:400;color:var(--white);cursor:pointer;
+      font-size:18px;font-weight:400;color:var(--warm-black);cursor:pointer;
       list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;
     }
     .faq-q::-webkit-details-marker{display:none;}
@@ -616,7 +618,7 @@
     .faq-item[open] .faq-icon{transform:rotate(45deg);}
     .faq-a{
       font-size:15px;font-weight:300;line-height:1.75;
-      color:rgba(255,255,255,0.5);margin-top:16px;max-width:680px;
+      color:rgba(26,20,16,0.6);margin-top:16px;max-width:680px;
     }
     @media(max-width:768px){.faq-section{padding:96px 24px;}}
     .cta-section{
@@ -1163,25 +1165,27 @@
 
   <!-- FAQ -->
   <section class="faq-section" id="faq">
+    <div class="faq-inner">
     <p class="faq-eyebrow">Common Questions</p>
     <h2 class="faq-heading">FREQUENTLY ASKED<br>QUESTIONS.</h2>
     <div class="faq-list">
       <details class="faq-item">
         <summary class="faq-q">What size businesses do you work with?<span class="faq-icon">+</span></summary>
-        <p class="faq-a">Mostly small businesses and solo entrepreneurs — from brand-new startups to established businesses ready for a rebrand or their first real marketing system.</p>
+        <p class="faq-a">Mostly small businesses and solo entrepreneurs, from brand-new startups to established businesses ready for a rebrand or their first real marketing system.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Do you only work with businesses in Toronto?<span class="faq-icon">+</span></summary>
-        <p class="faq-a">No — we're Toronto-based but remote-first, working with clients across Canada and the United States.</p>
+        <p class="faq-a">No, we're Toronto-based but remote-first, working with clients across Canada and the United States.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">How much does a project cost?<span class="faq-icon">+</span></summary>
-        <p class="faq-a">It depends on scope — branding, web design, and marketing systems all vary in price. Book a free call and we'll give you a straight answer, not a runaround.</p>
+        <p class="faq-a">It depends on scope: branding, web design, and marketing systems all vary in price. Book a free call and we'll give you a straight answer, not a runaround.</p>
       </details>
       <details class="faq-item">
         <summary class="faq-q">How fast can we get started?<span class="faq-icon">+</span></summary>
         <p class="faq-a">Most projects kick off within 1–2 weeks of booking your free call, depending on our current schedule.</p>
       </details>
+    </div>
     </div>
   </section>
 
