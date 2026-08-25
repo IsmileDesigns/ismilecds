@@ -193,6 +193,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://www.byismile.com/terms-and-conditions.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://www.byismile.com/cookie-policy.html</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>yearly</changefreq>
