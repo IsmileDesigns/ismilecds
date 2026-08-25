@@ -388,7 +388,7 @@
       </div>
 
       <div data-r>
-        <form id="legalForm" action="https://formspree.io/f/byismiledesigns@gmail.com" method="POST">
+        <form id="legalForm" action="https://formspree.io/f/hello@byismile.com" method="POST">
           <div class="fg">
             <div class="fgroup"><label class="flabel">First Name</label><input class="finput" type="text" name="firstName" placeholder="Jane" required/></div>
             <div class="fgroup"><label class="flabel">Last Name</label><input class="finput" type="text" name="lastName" placeholder="Smith" required/></div>
@@ -416,8 +416,8 @@
             btn.textContent='SENDING...';btn.disabled=true;
             try{const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
               if(r.ok){ok.style.display='block';this.reset();btn.textContent='SENT';}
-              else{btn.textContent='SEND MESSAGE';btn.disabled=false;alert('Please email byismiledesigns@gmail.com directly.');}
-            }catch(ex){btn.textContent='SEND MESSAGE';btn.disabled=false;alert('Email byismiledesigns@gmail.com');}
+              else{btn.textContent='SEND MESSAGE';btn.disabled=false;alert('Please email hello@byismile.com directly.');}
+            }catch(ex){btn.textContent='SEND MESSAGE';btn.disabled=false;alert('Email hello@byismile.com');}
           });
         </script>
       </div>
