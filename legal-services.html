@@ -199,6 +199,9 @@
     }
   
     @media(max-width:640px){
+      body{cursor:auto;}.cursor{display:none;}
+      .footer-top{grid-template-columns:1fr;gap:32px;}
+      .footer-bottom{flex-direction:column;align-items:flex-start;}
       nav{padding:0 20px;height:64px}
       .nav-hamburger{display:flex}
       .nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);flex-direction:column;align-items:center;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1),padding 0.3s;z-index:99;}
@@ -388,7 +391,11 @@
       </div>
 
       <div data-r>
-        <form id="legalForm" action="https://formspree.io/f/hello@byismile.com" method="POST">
+        <form id="legalForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="e66870ba-5cb7-4ff3-9bef-6076250007fe"/>
+          <input type="hidden" name="subject" value="New Legal Services Inquiry Ismile Creative &amp; Digital Solutions"/>
+          <input type="hidden" name="from_name" value="Ismile Legal Services Form"/>
+          <input type="hidden" name="redirect" value="false"/>
           <div class="fg">
             <div class="fgroup"><label class="flabel">First Name</label><input class="finput" type="text" name="firstName" placeholder="Jane" required/></div>
             <div class="fgroup"><label class="flabel">Last Name</label><input class="finput" type="text" name="lastName" placeholder="Smith" required/></div>
@@ -414,8 +421,8 @@
           document.getElementById('legalForm').addEventListener('submit',async function(e){
             e.preventDefault();const btn=this.querySelector('button');const ok=document.getElementById('legalFormOk');
             btn.textContent='SENDING...';btn.disabled=true;
-            try{const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});
-              if(r.ok){ok.style.display='block';this.reset();btn.textContent='SENT';}
+            try{const r=await fetch(this.action,{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}});const data=await r.json();
+              if(data.success){ok.style.display='block';this.reset();btn.textContent='SENT';}
               else{btn.textContent='SEND MESSAGE';btn.disabled=false;alert('Please email hello@byismile.com directly.');}
             }catch(ex){btn.textContent='SEND MESSAGE';btn.disabled=false;alert('Email hello@byismile.com');}
           });
