@@ -667,7 +667,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       color: var(--white-dim);
-      opacity: 0.5;
+      opacity: 0.75;
     }
 
     .social-links {
@@ -723,8 +723,15 @@
       .menu-tabs { flex-wrap: wrap; }
     }
   </style>
+  <style>
+  /* Accessibility: skip link + keyboard focus ring (added) */
+  .skip-link{position:absolute;top:-100px;left:0;z-index:100000;background:var(--gold);color:var(--black);padding:14px 24px;font-weight:600;font-size:14px;letter-spacing:0.04em;text-decoration:none;border-radius:0 0 4px 0;transition:top 0.2s ease;}
+  .skip-link:focus{top:0;}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+  </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- =====================
        NAVIGATION
@@ -738,6 +745,8 @@
       <li><a href="#reservations" class="nav-reserve">Reserve a Table</a></li>
     </ul>
   </nav>
+
+  <main id="main-content">
 
 
   <!-- =====================
@@ -965,6 +974,8 @@
   <!-- =====================
        FOOTER
   ===================== -->
+  </main>
+
   <footer>
     <div class="footer-grid">
 

@@ -75,7 +75,7 @@
     .footer-links a{font-size:17px;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s,padding-left 0.2s;display:inline-block;}
     .footer-links a:hover{color:var(--amber);padding-left:6px;}
     .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;flex-wrap:wrap;gap:16px;}
-    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.18);}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);}
     .footer-social{display:flex;gap:18px;}
     .footer-social a{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
     .footer-social a:hover{color:var(--amber);}
@@ -122,8 +122,16 @@
     .pi-desc{font-size:17px;font-weight:300;line-height:1.6;color:rgba(255,255,255,0.38);}
     @media(max-width:768px){.port-hero{padding:100px 24px 56px;}.port-masonry{columns:1;padding:0 24px 72px;}}
   </style>
+  <style>
+  /* Accessibility: skip link + keyboard focus ring (added) */
+  .skip-link{position:absolute;top:-100px;left:0;z-index:100000;background:var(--amber);color:var(--warm-black);padding:14px 24px;font-weight:600;font-size:14px;letter-spacing:0.04em;text-decoration:none;border-radius:0 0 4px 0;transition:top 0.2s ease;}
+  .skip-link:focus{top:0;}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px;}
+  .form-input:focus-visible,.finput:focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
+  </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
   <div class="progress-bar" id="progressBar"></div>
   <nav id="nav">
@@ -154,6 +162,8 @@
     </button>
   </nav>
 
+  <main id="main-content">
+
   <section class="port-hero">
     <div class="port-hero-bg"></div>
     <p class="ph-tag" id="phTag">Portfolio</p>
@@ -178,6 +188,8 @@
       <a href="https://calendar.app.google/oDUSa3P32YjHErMW8" class="btn-d">BOOK A FREE STRATEGY CALL <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg></a>
     </div>
   </section>
+
+  </main>
 
   <footer>
     <div class="footer-top">

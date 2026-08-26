@@ -695,7 +695,7 @@
       padding-top:28px;border-top:1px solid var(--bd);
       flex-wrap:wrap;gap:16px;
     }
-    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.18)}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.5)}
     .footer-social{display:flex;gap:18px}
     .footer-social a{
       font-size:13px;font-weight:600;letter-spacing:0.1em;
@@ -943,8 +943,16 @@
     .testimonial-section .dot{background:var(--bd)}
 
   </style>
+  <style>
+  /* Accessibility: skip link + keyboard focus ring (added) */
+  .skip-link{position:absolute;top:-100px;left:0;z-index:100000;background:var(--amber);color:var(--warm-black);padding:14px 24px;font-weight:600;font-size:14px;letter-spacing:0.04em;text-decoration:none;border-radius:0 0 4px 0;transition:top 0.2s ease;}
+  .skip-link:focus{top:0;}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px;}
+  .form-input:focus-visible,.finput:focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
+  </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <!-- CURSOR -->
   <div class="cursor" id="cursor">
     <div class="cursor-ring" id="cursorRing"></div>
@@ -988,6 +996,8 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+
+  <main id="main-content">
 
   <!-- HERO -->
   <section class="hero">
@@ -1150,13 +1160,17 @@
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 16 16"><path d="M10 3L5 8l5 5"/></svg>
         </button>
         <div class="carousel-dots" id="carouselDots">
-          <button class="dot active" data-index="0"></button>
-          <button class="dot" data-index="1"></button>
-          <button class="dot" data-index="2"></button>
-          <button class="dot" data-index="3"></button>
+          <button class="dot active" data-index="0" aria-label="Go to testimonial 1"></button>
+          <button class="dot" data-index="1" aria-label="Go to testimonial 2"></button>
+          <button class="dot" data-index="2" aria-label="Go to testimonial 3"></button>
+          <button class="dot" data-index="3" aria-label="Go to testimonial 4"></button>
         </div>
         <button class="carousel-btn" id="nextBtn" aria-label="Next">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 16 16"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <button class="carousel-btn" id="carouselPauseBtn" aria-label="Pause automatic rotation" aria-pressed="false">
+          <svg id="pauseIcon" width="14" height="14" fill="currentColor" viewBox="0 0 14 14"><rect x="2" y="1" width="3.5" height="12" rx="0.5"/><rect x="8.5" y="1" width="3.5" height="12" rx="0.5"/></svg>
+          <svg id="playIcon" width="14" height="14" fill="currentColor" viewBox="0 0 14 14" style="display:none"><path d="M3 1.5v11l9-5.5-9-5.5z"/></svg>
         </button>
       </div>
 
@@ -1205,6 +1219,8 @@
   </section>
 
   <!-- FOOTER -->
+  </main>
+
   <footer>
     <div class="footer-top">
       <div>
@@ -1538,11 +1554,39 @@
   document.getElementById('prevBtn').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
   dots.forEach(d => d.addEventListener('click', () => { goTo(parseInt(d.dataset.index)); resetAuto(); }));
 
+  // ── Auto-rotate pause/stop control (WCAG 2.2.2) ──
+  let autoPaused = false;
+  const carouselEl = document.getElementById('carousel');
+  const pauseBtn = document.getElementById('carouselPauseBtn');
+  const pauseIcon = document.getElementById('pauseIcon');
+  const playIcon = document.getElementById('playIcon');
+
   function resetAuto() {
     clearInterval(autoTimer);
+    if(autoPaused) return;
     autoTimer = setInterval(() => goTo(current + 1), 5000);
   }
   resetAuto();
+
+  if(pauseBtn){
+    pauseBtn.addEventListener('click', () => {
+      autoPaused = !autoPaused;
+      pauseBtn.setAttribute('aria-pressed', autoPaused);
+      pauseBtn.setAttribute('aria-label', autoPaused ? 'Resume automatic rotation' : 'Pause automatic rotation');
+      pauseIcon.style.display = autoPaused ? 'none' : 'block';
+      playIcon.style.display = autoPaused ? 'block' : 'none';
+      if(autoPaused){ clearInterval(autoTimer); } else { resetAuto(); }
+    });
+  }
+  // Pause while a mouse user is hovering the carousel, and whenever any
+  // control inside it has keyboard focus, so it never rotates a slide out
+  // from under someone who's reading or interacting with it.
+  if(carouselEl){
+    carouselEl.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    carouselEl.addEventListener('mouseleave', () => { if(!autoPaused) resetAuto(); });
+  }
+  document.querySelector('.carousel-controls').addEventListener('focusin', () => clearInterval(autoTimer));
+  document.querySelector('.carousel-controls').addEventListener('focusout', () => { if(!autoPaused) resetAuto(); });
 
   // Touch swipe
   let touchStartX = 0;

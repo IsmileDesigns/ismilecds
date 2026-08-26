@@ -353,7 +353,7 @@
             display: flex; justify-content: space-between; align-items: center;
             padding-top: 28px; border-top: 1px solid rgba(200,169,110,.08);
         }
-        .footer-bottom p { font-size: 12px; color: rgba(154,125,96,.45); }
+        .footer-bottom p { font-size: 12px; color: var(--muted); }
 
         /* ─── SCROLL ANIMATIONS ─── */
         .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
@@ -398,8 +398,15 @@
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
         }
     </style>
+  <style>
+  /* Accessibility: skip link + keyboard focus ring (added) */
+  .skip-link{position:absolute;top:-100px;left:0;z-index:100000;background:var(--gold);color:var(--dark);padding:14px 24px;font-weight:600;font-size:14px;letter-spacing:0.04em;text-decoration:none;border-radius:0 0 4px 0;transition:top 0.2s ease;}
+  .skip-link:focus{top:0;}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
+  </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ─── NAVIGATION ─── -->
 <nav id="nav">
@@ -415,6 +422,8 @@
         <span></span><span></span><span></span>
     </div>
 </nav>
+
+  <main id="main-content">
 
 <!-- ─── HERO ─── -->
 <section id="hero">
@@ -760,7 +769,9 @@
 </section>
 
 <!-- ─── FOOTER ─── -->
-<footer>
+</main>
+
+  <footer>
     <div class="footer-top">
         <div class="f-brand">
             <img src="Logo-sidamo.png" alt="Sidamo Coffee">
