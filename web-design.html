@@ -128,7 +128,7 @@
   .svc-process-layout{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:64px;align-items:start;}
   .svc-process-intro .svc-section-h{margin-bottom:24px;}
   .svc-process-desc{font-size:17px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.45);max-width:320px;margin-bottom:40px;}
-  .svc-process-arrow{color:var(--amber);display:block;}
+  .svc-process-arrow{display:block;width:324px;height:324px;max-width:100%;background-color:var(--amber);-webkit-mask-image:url('expand-arrow-outline-icon.png');mask-image:url('expand-arrow-outline-icon.png');-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:left center;mask-position:left center;}
   .svc-steps{border-top:1px solid var(--bd);}
   .svc-step{display:grid;grid-template-columns:64px minmax(180px,260px) 1fr;grid-template-areas:"num title desc";column-gap:32px;align-items:center;padding:32px 0;border-bottom:1px solid var(--bd);opacity:0;transform:translateX(-20px);}
   .svc-step-num{grid-area:num;width:56px;height:56px;border:1.5px solid var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.04em;color:var(--amber);flex-shrink:0;}
@@ -205,6 +205,7 @@
     .visual-panel{height:44vw;max-height:340px;min-height:0;}
     .svc-process-layout{grid-template-columns:1fr;gap:32px;}
     .svc-process-desc{max-width:none;}
+    .svc-process-arrow{width:220px;height:220px;}
     .svc-step{grid-template-columns:52px 1fr;grid-template-areas:"num title" "desc desc";row-gap:10px;column-gap:20px;padding:28px 0;}
   }
   @media(max-width:640px){
@@ -230,6 +231,7 @@
     .svc-step{grid-template-columns:40px 1fr;grid-template-areas:"num title" "desc desc";row-gap:8px;padding:24px 0;}
     .svc-step-num{width:40px;height:40px;font-size:13px;}
     .svc-step-name{font-size:22px;}
+    .svc-process-arrow{width:140px;height:140px;}
     .svc-cta{padding:72px 20px;}
     footer{padding:48px 20px 32px;}
     .footer-top{grid-template-columns:1fr;gap:32px;}
@@ -473,11 +475,7 @@
         <p class="svc-label" id="detailLabel">HOW IT WORKS</p>
         <h2 class="svc-section-h">OUR PROCESS.</h2>
         <p class="svc-process-desc">A clear, five-step path from first conversation to launch day, so you always know what's happening and when to expect it.</p>
-        <svg class="svc-process-arrow" width="72" height="72" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 40 V56 H24"/>
-          <path d="M8 56 L56 8"/>
-          <path d="M38 8 H56 V26"/>
-        </svg>
+        <span class="svc-process-arrow" role="img" aria-label="Arrow pointing to growth"></span>
       </div>
       <div class="svc-steps">
         <div class="svc-step">
