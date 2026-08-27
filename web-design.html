@@ -67,7 +67,7 @@
   .svc-faq-section{padding:120px 56px;background:var(--off-white);}
   .svc-faq-inner{max-width:840px;margin:0 auto;}
   .svc-faq-eyebrow{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;text-align:center;}
-  .svc-faq-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.5vw,52px);line-height:0.96;letter-spacing:0.02em;text-align:center;margin-bottom:52px;color:var(--warm-black);}
+  .svc-faq-heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.5vw,52px);line-height:0.96;letter-spacing:0.02em;text-align:center;margin-bottom:52px;color:#000;}
   .svc-faq-list{display:flex;flex-direction:column;}
   .svc-faq-item{border-bottom:1px solid var(--bdl);padding:24px 0;}
   .svc-faq-item:first-child{border-top:1px solid var(--bdl);}
@@ -125,12 +125,17 @@
   .nathan-img{position:relative;z-index:1;width:103%;height:120%;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 24px 32px rgba(0,0,0,0.5));will-change:transform;}
   .svc-cloud{position:absolute;z-index:3;bottom:-60px;left:50%;width:160%;transform:translateX(-50%);pointer-events:none;-webkit-mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);mask-image:linear-gradient(to right, transparent 0%, black 18%, black 82%, transparent 100%);}
   /* STEPS / DETAILS */
-  .svc-steps{border-top:1px solid var(--bdl);}
-  .svc-step{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--bdl);opacity:0;transform:translateX(-20px);}
-  .svc-step-num{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:0.14em;color:rgba(251,169,44,0.5);padding-top:3px;}
-  .svc-step-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.03em;color:var(--warm-black);margin-bottom:6px;}
-  .svc-step-desc{font-size:16px;font-weight:300;line-height:1.75;color:rgba(26,20,16,0.55);}
-  .svc-step-meta{font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-top:6px;}
+  .svc-process-layout{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:64px;align-items:start;}
+  .svc-process-intro .svc-section-h{margin-bottom:24px;}
+  .svc-process-desc{font-size:17px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.45);max-width:320px;margin-bottom:40px;}
+  .svc-process-arrow{color:var(--amber);display:block;}
+  .svc-steps{border-top:1px solid var(--bd);}
+  .svc-step{display:grid;grid-template-columns:64px minmax(180px,260px) 1fr;grid-template-areas:"num title desc";column-gap:32px;align-items:center;padding:32px 0;border-bottom:1px solid var(--bd);opacity:0;transform:translateX(-20px);}
+  .svc-step-num{grid-area:num;width:56px;height:56px;border:1.5px solid var(--amber);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.04em;color:var(--amber);flex-shrink:0;}
+  .svc-step-title{grid-area:title;}
+  .svc-step-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,2.3vw,32px);letter-spacing:0.03em;color:var(--white);margin-bottom:6px;}
+  .svc-step-desc{grid-area:desc;font-size:16px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.45);}
+  .svc-step-meta{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);}
   /* CTA */
   .svc-cta-response{font-size:13px;font-weight:600;letter-spacing:0.06em;color:rgba(26,20,16,0.5);margin-top:20px;}
   .svc-cta{padding:130px 56px;background:var(--amber);text-align:center;position:relative;overflow:hidden;}
@@ -163,15 +168,15 @@
   .gallery-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:24px;}
   .gallery-header-text{max-width:600px;}
   .gallery-section .svc-section-h{margin-bottom:10px;}
-  .gallery-subtitle{font-size:17px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.38);}
+  .gallery-subtitle{font-size:17px;font-weight:300;line-height:1.75;color:rgba(26,20,16,0.55);}
   .gallery-nav-btns{display:flex;gap:10px;flex-shrink:0;}
-  .gallery-nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s,color 0.2s,opacity 0.2s;}
+  .gallery-nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid rgba(26,20,16,0.15);background:transparent;color:rgba(26,20,16,0.6);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color 0.2s,color 0.2s,opacity 0.2s;}
   .gallery-nav-btn:hover{border-color:var(--amber);color:var(--amber);}
   .gallery-nav-btn:disabled{opacity:0.3;cursor:default;pointer-events:none;}
   .gallery-viewport{overflow:hidden;}
   .gallery-track{display:flex;gap:24px;transition:transform 0.55s cubic-bezier(0.25,0.1,0.25,1);will-change:transform;}
   .gallery-item{flex:0 0 340px;}
-  .gallery-card{position:relative;border-radius:24px;overflow:hidden;height:360px;border:1px solid rgba(255,255,255,0.07);cursor:pointer;text-decoration:none;display:block;}
+  .gallery-card{position:relative;border-radius:24px;overflow:hidden;height:360px;border:1px solid rgba(26,20,16,0.08);cursor:pointer;text-decoration:none;display:block;}
   .gallery-card-img-wrap{position:relative;height:100%;width:100%;transition:height 0.5s ease;}
   .gallery-card-img-wrap img{height:100%;width:100%;object-fit:cover;object-position:center;display:block;}
   .gallery-card-overlay{position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top,rgba(0,0,0,0.55),transparent);opacity:0;transition:opacity 0.5s ease;}
@@ -198,6 +203,9 @@
     .services-flex{flex-direction:column;gap:40px;}
     .services-visual{position:static;width:100%;align-self:auto;}
     .visual-panel{height:44vw;max-height:340px;min-height:0;}
+    .svc-process-layout{grid-template-columns:1fr;gap:32px;}
+    .svc-process-desc{max-width:none;}
+    .svc-step{grid-template-columns:52px 1fr;grid-template-areas:"num title" "desc desc";row-gap:10px;column-gap:20px;padding:28px 0;}
   }
   @media(max-width:640px){
     body{cursor:auto;}.cursor{display:none;}
@@ -219,7 +227,9 @@
     .svc-stats{grid-template-columns:1fr 1fr;}
     .svc-section{padding:60px 20px;}
     .svc-grid{grid-template-columns:1fr;}
-    .svc-step{grid-template-columns:40px 1fr;}
+    .svc-step{grid-template-columns:40px 1fr;grid-template-areas:"num title" "desc desc";row-gap:8px;padding:24px 0;}
+    .svc-step-num{width:40px;height:40px;font-size:13px;}
+    .svc-step-name{font-size:22px;}
     .svc-cta{padding:72px 20px;}
     footer{padding:48px 20px 32px;}
     .footer-top{grid-template-columns:1fr;gap:32px;}
@@ -353,11 +363,11 @@
   </section>
 
   <!-- FEATURED WORK -->
-  <section class="svc-section gallery-section">
+  <section class="svc-section gallery-section svc-section--light">
     <div class="gallery-header">
       <div class="gallery-header-text">
         <p class="svc-label" id="galleryLabel">FEATURED PROJECTS</p>
-        <h2 class="svc-section-h">OUR WORK.</h2>
+        <h2 class="svc-section-h svc-section-h--dark">OUR WORK.</h2>
         <p class="gallery-subtitle">A look at the sites we've built for businesses that needed more than just a pretty page.</p>
       </div>
       <div class="gallery-nav-btns">
@@ -457,48 +467,58 @@
   </section>
 
   <!-- DETAILS -->
-  <section class="svc-section svc-section--light">
-    <p class="svc-label" id="detailLabel">HOW IT WORKS</p>
-    <h2 class="svc-section-h svc-section-h--dark">OUR PROCESS.</h2>
-    <div class="svc-steps">
-      <div class="svc-step">
-        <span class="svc-step-num">01</span>
-        <div>
-          <h3 class="svc-step-name">Discovery</h3>
+  <section class="svc-section">
+    <div class="svc-process-layout">
+      <div class="svc-process-intro">
+        <p class="svc-label" id="detailLabel">HOW IT WORKS</p>
+        <h2 class="svc-section-h">OUR PROCESS.</h2>
+        <p class="svc-process-desc">A clear, five-step path from first conversation to launch day, so you always know what's happening and when to expect it.</p>
+        <svg class="svc-process-arrow" width="72" height="72" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 40 V56 H24"/>
+          <path d="M8 56 L56 8"/>
+          <path d="M38 8 H56 V26"/>
+        </svg>
+      </div>
+      <div class="svc-steps">
+        <div class="svc-step">
+          <span class="svc-step-num">01</span>
+          <div class="svc-step-title">
+            <h3 class="svc-step-name">Discovery</h3>
+            <p class="svc-step-meta">Week 1</p>
+          </div>
           <p class="svc-step-desc">Goals, audience, content inventory, and competitive landscape. We understand your business before we design anything.</p>
-          <p class="svc-step-meta">Week 1</p>
         </div>
-      </div>
-      <div class="svc-step">
-        <span class="svc-step-num">02</span>
-        <div>
-          <h3 class="svc-step-name">Wireframes</h3>
+        <div class="svc-step">
+          <span class="svc-step-num">02</span>
+          <div class="svc-step-title">
+            <h3 class="svc-step-name">Wireframes</h3>
+            <p class="svc-step-meta">Week 1–2</p>
+          </div>
           <p class="svc-step-desc">Page structure and user flow mapped before any visual design begins. You approve the blueprint before we build the house.</p>
-          <p class="svc-step-meta">Week 1–2</p>
         </div>
-      </div>
-      <div class="svc-step">
-        <span class="svc-step-num">03</span>
-        <div>
-          <h3 class="svc-step-name">Design</h3>
+        <div class="svc-step">
+          <span class="svc-step-num">03</span>
+          <div class="svc-step-title">
+            <h3 class="svc-step-name">Design</h3>
+            <p class="svc-step-meta">Week 2–3</p>
+          </div>
           <p class="svc-step-desc">Full visual design, desktop and mobile. Presented for your feedback and refined until it's right.</p>
-          <p class="svc-step-meta">Week 2–3</p>
         </div>
-      </div>
-      <div class="svc-step">
-        <span class="svc-step-num">04</span>
-        <div>
-          <h3 class="svc-step-name">Development</h3>
+        <div class="svc-step">
+          <span class="svc-step-num">04</span>
+          <div class="svc-step-title">
+            <h3 class="svc-step-name">Development</h3>
+            <p class="svc-step-meta">Week 3–5</p>
+          </div>
           <p class="svc-step-desc">Clean, fast code. Tested across devices, browsers, and screen sizes before you see it.</p>
-          <p class="svc-step-meta">Week 3–5</p>
         </div>
-      </div>
-      <div class="svc-step">
-        <span class="svc-step-num">05</span>
-        <div>
-          <h3 class="svc-step-name">Launch</h3>
+        <div class="svc-step">
+          <span class="svc-step-num">05</span>
+          <div class="svc-step-title">
+            <h3 class="svc-step-name">Launch</h3>
+            <p class="svc-step-meta">Week 5–6</p>
+          </div>
           <p class="svc-step-desc">Deployment, final QA, handover, and 30 days of post-launch support.</p>
-          <p class="svc-step-meta">Week 5–6</p>
         </div>
       </div>
     </div>
