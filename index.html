@@ -264,10 +264,6 @@
       margin-bottom:28px;
       opacity:0;transform:translateY(20px);
     }
-    .eyebrow-line{
-      width:0;height:1px;
-      background:var(--amber);
-    }
     .eyebrow-text{
       font-size:12px;font-weight:600;
       letter-spacing:0.28em;text-transform:uppercase;
@@ -566,12 +562,6 @@
       margin-bottom:36px;
       display:flex;align-items:center;justify-content:center;gap:14px;
     }
-    .t-label::before,.t-label::after{
-      content:'';height:1px;background:var(--amber);
-      width:0;transition:width 1s ease;
-    }
-    .t-inner.visible .t-label::before,
-    .t-inner.visible .t-label::after{width:36px}
     .t-quote{
       font-family:'Bebas Neue',sans-serif;
       font-size:clamp(26px,3.8vw,46px);
@@ -936,6 +926,47 @@
     .testimonial-section .carousel-btn{border-color:var(--bd);color:var(--white)}
     .testimonial-section .dot{background:var(--bd)}
 
+    /* ── DESKTOP ONLY: tighter line spacing + gaps (tablet ≤900 and mobile ≤640 unchanged) ── */
+    @media(min-width:901px){
+      /* line spacing */
+      .hero-sub{line-height:1.55}
+      .section-note{line-height:1.5}
+      .svc-desc{line-height:1.45}
+      .faq-a{line-height:1.55}
+      .cta-sub{line-height:1.5}
+      .footer-desc{line-height:1.5}
+
+      /* section rhythm */
+      .stats-section{padding-block:76px}
+      .services-section{padding-block:96px}
+      .work-section{padding-block:96px}
+      .testimonial-section{padding-block:96px}
+      .faq-section{padding-block:100px}
+      .cta-section{padding-block:104px}
+      footer{padding-block:52px 36px}
+
+      /* hero */
+      .hero-text-col{padding-block:56px 44px}
+      .hero-eyebrow{margin-bottom:20px}
+      .hero-bottom{margin-top:22px;gap:18px}
+
+      /* headings + grids */
+      .services-section .section-hd{margin-bottom:20px;gap:20px}
+      .work-header{margin-bottom:40px}
+      .services-flex{gap:40px}
+      .services-main .svc-grid{gap:14px}
+      .services-main .svc-card{padding-block:22px}
+      .work-grid{gap:18px}
+      .stat-item{padding-block:40px}
+
+      /* testimonial + faq + footer */
+      .t-label{margin-bottom:24px}
+      .t-quote{margin-bottom:28px}
+      .faq-heading{margin-bottom:40px}
+      .faq-item{padding-block:20px}
+      .footer-top{gap:40px;margin-bottom:44px}
+    }
+
   </style>
   <style>
   /* Accessibility: skip link + keyboard focus ring (added) */
@@ -1005,7 +1036,6 @@
 
     <div class="hero-text-col">
       <div class="hero-eyebrow" id="heroEyebrow">
-        <div class="eyebrow-line" id="eyebrowLine"></div>
         <span class="eyebrow-text">Toronto Branding &amp; Web Design Agency</span>
       </div>
 
@@ -1188,7 +1218,7 @@
       </details>
       <details class="faq-item">
         <summary class="faq-q">How fast can we get started?<span class="faq-icon">+</span></summary>
-        <p class="faq-a">Most projects kick off within 1–2 weeks of booking your free call, depending on our current schedule.</p>
+        <p class="faq-a">Most projects kick off within 1 to 2 weeks of booking your free call, depending on our current schedule.</p>
       </details>
     </div>
     </div>
@@ -1205,7 +1235,7 @@
         BOOK A FREE CALL
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
       </a>
-      <p class="cta-response-time">We respond within 1–2 business days.</p>
+      <p class="cta-response-time">We respond within 1 to 2 business days.</p>
     </div>
   </section>
 
@@ -1282,8 +1312,7 @@
   // ── HERO LOAD ANIMATION ──
   const heroTl = gsap.timeline({delay:0.15});
   heroTl
-    .to('#eyebrowLine', {width:40, duration:0.8, ease:'power3.out'})
-    .to('#heroEyebrow', {opacity:1, y:0, duration:0.6, ease:'power3.out'}, '-=0.5')
+    .to('#heroEyebrow', {opacity:1, y:0, duration:0.6, ease:'power3.out'})
     .to('.hero-headline .word', {
       y:'0%', duration:1.1, ease:'power4.out', stagger:0.07
     }, '-=0.3')
