@@ -44,6 +44,9 @@
     nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 56px;height:76px;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,border-color 0.5s;border-bottom:1px solid transparent;}
     nav.scrolled{background:rgba(13,10,6,0.96);backdrop-filter:blur(16px);border-bottom-color:rgba(251,169,44,0.12);}
     .nav-logo img{height:40px;width:auto;display:block;background:transparent;}
+    .nav-logo .logo-on-dark{display:none;}
+    nav.scrolled .nav-logo .logo-on-light{display:none;}
+    nav.scrolled .nav-logo .logo-on-dark{display:block;}
     .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
     .nav-links a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:rgba(26,20,16,0.5);text-decoration:none;transition:color 0.2s;position:relative;}
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
@@ -364,7 +367,7 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
   <div class="progress-bar" id="progressBar"></div>
-  <nav id="nav">    <a href="./index.html" class="nav-logo"><img src="./Ismile-logo-yellow.png" alt="Ismile" /></a>
+  <nav id="nav">    <a href="./index.html" class="nav-logo"><img class="logo-on-light" src="./Ismile-logo-yellow.png" alt="Ismile" /><img class="logo-on-dark" src="./logo-white-new.png" alt="Ismile" /></a>
   <ul class="nav-links" id="navLinks">
       <li><a href="./index.html">Home</a></li>
             <li class="nav-item has-dropdown">
@@ -736,7 +739,7 @@
   <footer>
     <div class="footer-top">
       <div>
-        <div class="footer-logo"><img src="./logo.png" alt="Ismile"/></div>
+        <div class="footer-logo"><img src="./logo-white-new.png" alt="Ismile"/></div>
         <p class="footer-desc">Legal marketing and virtual assistant services for Ontario law firms and paralegals.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);"/></div>
       </div>
       <div>

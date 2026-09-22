@@ -20,7 +20,7 @@ Most American entrepreneurs price out branding once, wince at the number, and ei
 
 This post is that second quote. What US agencies actually charge, what Canadian agencies actually charge, why the gap exists, and what it means for your business if you're building a brand in 2026 without wanting to overpay for it.
 
-![Business owner comparing agency quotes on a laptop at a desk](blog-images/comparing-branding-quotes-laptop-desk.jpg)
+![Business owner reviewing options on a laptop in a cafe](blog-images/business-owner-comparing-options-cafe.jpg)
 
 ## The Price Gap Is Real, and Here's Why
 
@@ -38,7 +38,6 @@ Walk through the math on an actual project. Say a Canadian studio quotes you $8,
 
 Stack that against the US agency quote from the previous section, $15,000 to $30,000 USD for comparable scope, and the total gap isn't 20 or 30%. It's frequently 60 to 70%. That's the difference between a project that requires financing and a project you can pay out of this quarter's revenue without touching a line of credit.
 
-![Currency exchange calculator showing Canadian dollar to US dollar conversion](blog-images/currency-exchange-calculator-cad-usd.jpg)
 
 ## Quality Is Not the Tradeoff
 
@@ -108,7 +107,6 @@ One detail worth knowing: Canadian businesses generally don't charge GST or HST 
 
 Time zones are less of an obstacle than people assume. Toronto runs on Eastern time, which overlaps directly with the entire US Eastern seaboard and has a workable overlap with Central time as well. Even Pacific time clients typically find a few hours of morning overlap, which is enough for a weekly call and async communication for everything else. Most of the actual work, design rounds, copy, revisions, happens asynchronously regardless of which time zone the studio operates in, so the time difference matters far less than it would for a job requiring constant real-time coordination.
 
-![Video call between a US business owner and a Canadian design team](blog-images/remote-video-call-us-canada-team.jpg)
 
 ## Frequently Asked Questions
 

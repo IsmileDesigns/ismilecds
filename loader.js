@@ -4,7 +4,7 @@
   var css = document.createElement('style');
   css.textContent = [
     '#isl{position:fixed;inset:0;z-index:99999;background:#1A1410;overflow:hidden;',
-    'transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1);}',
+    'transition:opacity 0.3s cubic-bezier(0.4,0,0.2,1);}',
 
     '#isl-label{position:absolute;top:32px;left:32px;',
     'font-family:"Assistant",sans-serif;font-size:11px;font-weight:400;',
@@ -80,6 +80,11 @@
   function mount() {
     document.body.insertBefore(root, document.body.firstChild);
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      dismiss();
+      return;
+    }
+
     /* entrance animations - next frame so transitions fire */
     requestAnimationFrame(function () {
       label.style.opacity = '1';
@@ -103,7 +108,7 @@
           word.style.opacity = '1';
           word.style.transform = 'translateY(0)';
         });
-      }, 400);
+      }, 150);
     }
 
     showWord(0);
@@ -115,10 +120,10 @@
         return;
       }
       showWord(wordIndex);
-    }, 900);
+    }, 280);
 
-    /* progress counter - 2700ms duration */
-    var DURATION = 2700;
+    /* Short visual introduction without delaying access to the page. */
+    var DURATION = 850;
     var startTime = null;
 
     function tick(ts) {
@@ -132,8 +137,7 @@
       if (pct < 100) {
         requestAnimationFrame(tick);
       } else {
-        /* done - wait 400ms then dismiss */
-        setTimeout(dismiss, 400);
+        setTimeout(dismiss, 100);
       }
     }
 
@@ -151,7 +155,7 @@
 
     setTimeout(function () {
       if (root.parentNode) root.parentNode.removeChild(root);
-    }, 650);
+    }, 350);
   }
 
   if (document.readyState === 'loading') {
