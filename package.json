@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "Blog build system for Ismile Creative & Digital Solutions",
   "scripts": {
-    "build": "node build.js",
-    "compress": "node compress-images.js"
+    "build": "node build.js && node scripts/enrich-static-case-studies.js && node scripts/optimize-html-images.js",
+    "compress": "node compress-images.js",
+    "seo:check": "node scripts/seo-check.js",
+    "indexnow": "node scripts/submit-indexnow.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

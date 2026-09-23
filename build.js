@@ -8,6 +8,136 @@ const PROJECTS_DIR = path.join(__dirname, 'content/projects');
 const TEMPLATES_DIR = path.join(__dirname, 'templates');
 const OUT_DIR = __dirname;
 const POSTS_PER_PAGE = 6;
+const SITE_URL = 'https://www.byismile.com';
+const ORGANIZATION_ID = `${SITE_URL}/#organization`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+
+const POST_SEO_TITLES = {
+  'ai-small-business': 'AI for Small Businesses: Practical Use Cases | Ismile',
+  'automate-client-onboarding': 'How to Automate Client Onboarding | Ismile',
+  'brand-storytelling': 'Brand Storytelling: A Practical Framework | Ismile',
+  'branding-cost-canada-vs-us': 'Branding Costs in Canada vs. the U.S. (2026) | Ismile',
+  'branding-vs-logo-design': 'Branding vs. Logo Design: Costs & Differences | Ismile',
+  'freelancer-vs-creative-studio': 'Freelancer vs. Creative Studio: How to Choose | Ismile',
+  'signs-your-website-is-losing-clients': '5 Signs Your Website Is Costing You Clients | Ismile',
+  'the-ismile-approach': 'The Ismile Approach to Brand and Website Projects',
+  'virtual-assistance-guide': 'Virtual Assistance Guide for Small Businesses | Ismile',
+  'why-small-business-needs-a-website': 'Why Small Businesses Need a Website in 2026 | Ismile',
+  'why-social-media-isnt-converting': "Why Social Media Isn't Converting | Ismile",
+};
+
+function absoluteUrl(value) {
+  if (!value) return `${SITE_URL}/logo.png`;
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${SITE_URL}/${value.replace(/^\.\//, '')}`;
+}
+
+function jsonLd(graph) {
+  const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2)
+    .replace(/</g, '\\u003c');
+  return `<script type="application/ld+json">\n${json}\n  </script>`;
+}
+
+function breadcrumb(items, id) {
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': id,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+function articleSchema(post) {
+  const pageUrl = `${SITE_URL}/${post.slug}.html`;
+  const image = absoluteUrl(post.image);
+  const crumbsId = `${pageUrl}#breadcrumb`;
+  return jsonLd([
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: post.title,
+      description: post.description || post.excerpt,
+      isPartOf: { '@id': WEBSITE_ID },
+      breadcrumb: { '@id': crumbsId },
+      primaryImageOfPage: { '@type': 'ImageObject', url: image },
+    },
+    {
+      '@type': 'BlogPosting',
+      '@id': `${pageUrl}#article`,
+      headline: post.title,
+      description: post.description || post.excerpt,
+      image,
+      datePublished: new Date(post.date).toISOString().slice(0, 10),
+      dateModified: new Date(post.modified || post.date).toISOString().slice(0, 10),
+      mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+      author: { '@id': ORGANIZATION_ID },
+      publisher: { '@id': ORGANIZATION_ID },
+      about: post.category,
+    },
+    breadcrumb([
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Insights', url: `${SITE_URL}/blog.html` },
+      { name: post.title, url: pageUrl },
+    ], crumbsId),
+  ]);
+}
+
+function projectSchema(project) {
+  const pageUrl = `${SITE_URL}/${project.slug}.html`;
+  const crumbsId = `${pageUrl}#breadcrumb`;
+  return jsonLd([
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: `${project.title} — ${project.category}`,
+      description: project.description,
+      isPartOf: { '@id': WEBSITE_ID },
+      breadcrumb: { '@id': crumbsId },
+      about: { '@id': `${pageUrl}#project` },
+    },
+    {
+      '@type': 'CreativeWork',
+      '@id': `${pageUrl}#project`,
+      name: project.title,
+      description: project.description,
+      genre: project.category,
+      image: absoluteUrl(project.cover_image),
+      creator: { '@id': ORGANIZATION_ID },
+      mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+    },
+    breadcrumb([
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Portfolio', url: `${SITE_URL}/portfolio.html` },
+      { name: project.title, url: pageUrl },
+    ], crumbsId),
+  ]);
+}
+
+function blogSchema(page, pageUrl, pagePosts) {
+  const name = page === 1 ? 'Small Business Branding, Web & Marketing Insights' : `Small Business Insights — Page ${page}`;
+  const crumbsId = `${pageUrl}#breadcrumb`;
+  return jsonLd([
+    {
+      '@type': 'CollectionPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name,
+      isPartOf: { '@id': WEBSITE_ID },
+      breadcrumb: { '@id': crumbsId },
+      hasPart: pagePosts.map(post => ({ '@id': `${SITE_URL}/${post.slug}.html#article` })),
+    },
+    breadcrumb([
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: page === 1 ? 'Insights' : `Insights — Page ${page}`, url: pageUrl },
+    ], crumbsId),
+  ]);
+}
 
 const postTemplate = fs.readFileSync(path.join(TEMPLATES_DIR, 'post-template.html'), 'utf8');
 const blogTemplate = fs.readFileSync(path.join(TEMPLATES_DIR, 'blog-template.html'), 'utf8');
@@ -49,6 +179,7 @@ posts.forEach(post => {
   const dateStr = formatDate(post.date);
   const html = fill(postTemplate, {
     title: post.title,
+    seo_title: POST_SEO_TITLES[post.slug] || `${post.title} | Ismile`,
     description: post.description || '',
     slug: post.slug,
     date: dateStr,
@@ -56,6 +187,8 @@ posts.forEach(post => {
     read_time: post.read_time,
     image_gradient: post.image_gradient,
     hero_image: heroImageHTML(post),
+    og_image: absoluteUrl(post.image),
+    schema: articleSchema(post),
     lead: post.lead || '',
     body: post.body,
     cta_title: post.cta_title || '',
@@ -132,7 +265,14 @@ for (let page = 1; page <= totalPages; page++) {
     featured_post: page === 1 ? featuredCardHTML(featuredPost) : '',
     post_cards: pagePosts.map(postCardHTML).join('\n    '),
     pagination: paginationHTML(page, totalPages),
-    canonical_url: `https://www.byismile.com/${outFile}`,
+    canonical_url: `${SITE_URL}/${outFile}`,
+    seo_title: page === 1
+      ? 'Small Business Branding, Web & Marketing Insights | Ismile'
+      : `Small Business Insights — Page ${page} | Ismile`,
+    seo_description: page === 1
+      ? 'Practical branding, website, marketing, automation, and business guidance for small and service-based businesses.'
+      : `More practical branding, website, marketing, automation, and business guidance from Ismile. Browse insights page ${page}.`,
+    schema: blogSchema(page, `${SITE_URL}/${outFile}`, page === 1 ? [featuredPost, ...pagePosts] : pagePosts),
   });
   fs.writeFileSync(path.join(OUT_DIR, outFile), html);
   console.log(`  blog → ${outFile} (page ${page}/${totalPages}, ${pagePosts.length} cards)`);
@@ -179,6 +319,7 @@ projects.forEach(project => {
     .join('\n      ');
   const html = fill(projectTemplate, {
     title: project.title,
+    seo_title: `${project.title} ${project.category} Case Study | Ismile`,
     description: project.description || '',
     slug: project.slug,
     category: project.category,
@@ -187,6 +328,7 @@ projects.forEach(project => {
     hero_link: heroLink,
     link_cta: linkCta,
     gallery_html: galleryHtml,
+    schema: projectSchema(project),
   });
   fs.writeFileSync(path.join(OUT_DIR, `${project.slug}.html`), html);
   console.log(`  project → ${project.slug}.html`);
@@ -207,5 +349,66 @@ if (projects.length < existingCardCount) {
   fs.writeFileSync(portfolioOutPath, portfolioHTML);
   console.log(`  portfolio → portfolio.html (${projects.length} projects)`);
 }
+
+function xmlEscape(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function sitemapSource(file) {
+  const slug = file.replace(/\.html$/, '');
+  const postSource = path.join(POSTS_DIR, `${slug}.md`);
+  const projectSource = path.join(PROJECTS_DIR, `${slug}.md`);
+  if (fs.existsSync(postSource)) return postSource;
+  if (fs.existsSync(projectSource)) return projectSource;
+  if (/^blog(?:-page-\d+)?\.html$/.test(file)) return POSTS_DIR;
+  return path.join(OUT_DIR, file);
+}
+
+function lastModified(file) {
+  const source = sitemapSource(file);
+  let modified = fs.statSync(source).mtime;
+  if (fs.statSync(source).isDirectory()) {
+    const dates = fs.readdirSync(source)
+      .filter(name => name.endsWith('.md'))
+      .map(name => fs.statSync(path.join(source, name)).mtime.getTime());
+    modified = new Date(Math.max(...dates));
+  }
+  return modified.toISOString().slice(0, 10);
+}
+
+function generateSitemap() {
+  const urls = fs.readdirSync(OUT_DIR)
+    .filter(file => file.endsWith('.html'))
+    .map(file => ({ file, html: fs.readFileSync(path.join(OUT_DIR, file), 'utf8') }))
+    .filter(({ html }) => /<meta\s+name="robots"\s+content="index, follow"/i.test(html))
+    .map(({ file, html }) => {
+      const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i);
+      return canonical ? { file, url: canonical[1] } : null;
+    })
+    .filter(Boolean)
+    .sort((a, b) => {
+      if (a.url === `${SITE_URL}/`) return -1;
+      if (b.url === `${SITE_URL}/`) return 1;
+      return a.url.localeCompare(b.url);
+    });
+
+  const body = urls.map(({ file, url }) => [
+    '  <url>',
+    `    <loc>${xmlEscape(url)}</loc>`,
+    `    <lastmod>${lastModified(file)}</lastmod>`,
+    '  </url>',
+  ].join('\n')).join('\n');
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
+  fs.writeFileSync(path.join(OUT_DIR, 'sitemap.xml'), sitemap);
+  console.log(`  sitemap → sitemap.xml (${urls.length} canonical URLs)`);
+}
+
+generateSitemap();
 
 console.log('\nBuild complete.');

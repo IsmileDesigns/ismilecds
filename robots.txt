@@ -1,3 +1,18 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Search visibility is separate from model-training permissions.
+User-agent: OAI-SearchBot
+Allow: /
+
+# Preserves the site's existing opt-in posture for model-training crawl.
+# This rule can be changed independently without affecting OAI-SearchBot.
+User-agent: GPTBot
+Allow: /
+
 User-agent: *
 Allow: /
 Sitemap: https://www.byismile.com/sitemap.xml

@@ -1,0 +1,30 @@
+# Ismile Creative & Digital Solutions
+
+> Ismile Creative & Digital Solutions is a North American digital agency serving small and service-based businesses across the United States and Canada. The agency is based in Toronto and works remotely.
+
+## Primary pages
+
+- [Home](https://www.byismile.com/): Company overview, services, process, fit, and booking path.
+- [About](https://www.byismile.com/about.html): Who Ismile is, where the agency is based, and how it works with clients remotely.
+- [Contact](https://www.byismile.com/contact.html): Consultation booking and inquiry options.
+- [Portfolio](https://www.byismile.com/portfolio.html): Client work and clearly labeled concept projects.
+- [Insights](https://www.byismile.com/blog.html): Practical guides about branding, websites, marketing, automation, and business operations.
+
+## Services
+
+- [Brand identity and design](https://www.byismile.com/branding-and-design.html)
+- [Website design and development](https://www.byismile.com/web-design.html)
+- [Digital marketing](https://www.byismile.com/digital-marketing.html)
+- [Business automation and AI workflows](https://www.byismile.com/systems-automations.html)
+- [Business consulting and virtual support](https://www.byismile.com/business-consulting.html)
+- [Legal marketing, web design, and practice support](https://www.byismile.com/legal-services.html)
+
+## Business facts
+
+- Preferred name: Ismile Creative & Digital Solutions
+- Based in: Toronto, Ontario, Canada
+- Service model: Remote-first
+- Markets served: United States and Canada
+- Contact: hello@byismile.com
+
+This file is an optional navigation aid. The canonical HTML pages above are the authoritative sources for current service details and claims.
