@@ -75,11 +75,11 @@
       if (pageHide) pageHide.remove();
       root.classList.add("logo-exiting");
       root.classList.add("is-leaving");
-    }, reducedMotion ? 40 : 620);
+    }, reducedMotion ? 40 : 1050);
 
     window.setTimeout(function () {
       root.remove();
-    }, reducedMotion ? 80 : 1320);
+    }, reducedMotion ? 80 : 1780);
   }
 
   function transitionTo(url) {
