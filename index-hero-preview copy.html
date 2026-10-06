@@ -201,28 +201,17 @@
       justify-content: space-between;
       gap: 20px;
       padding: 18px 24px;
-      border: 1px solid #fff;
+      border: 1px solid var(--amber);
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      transition: color 200ms ease, background 200ms ease, border-color 200ms ease;
+      transition: color 200ms ease, background 200ms ease;
     }
 
-    .primary-cta {
-      width: 100%;
-      min-height: 0;
-      display: flex;
-      padding: 19px 20px;
-      color: var(--paper);
-      background: rgba(255,255,255,.1);
-      border-color: rgba(255,255,255,.12);
-      font-size: 13px;
-      letter-spacing: .06em;
-      transition: background 180ms ease;
-    }
-    .primary-cta:hover { color: var(--ink); background: var(--amber); border-color: var(--amber); }
+    .primary-cta { width: 100%; color: var(--ink); background: var(--amber); }
+    .primary-cta:hover { background: #ffc057; }
 
     .secondary-cta {
       display: none;
@@ -287,8 +276,6 @@
     .video-button:hover { border-color: var(--amber); background: rgba(11, 10, 9, 0.8); }
 
     .menu-button {
-      position: fixed;
-      z-index: 102;
       top: clamp(18px, 2.7vw, 42px);
       right: clamp(18px, 2.7vw, 42px);
       width: clamp(62px, 5vw, 82px);
@@ -348,50 +335,43 @@
       background: var(--amber);
     }
 
-    .menu-backdrop { position: fixed; inset: 0; z-index: 99; padding: 0; visibility: hidden; opacity: 0; background: rgba(0,0,0,.76); border: 0; cursor: pointer; transition: opacity 420ms ease, visibility 420ms ease; }
-    .menu-backdrop.is-open { visibility: visible; opacity: 1; }
     .menu-panel {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: 100;
-      width: min(58vw, 1180px);
-      display: grid;
-      grid-template-columns: 40% 60%;
-      overflow: hidden;
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(32px, 5vw, 88px);
       visibility: hidden;
-      background: #050505;
-      border: 1px solid rgba(255,255,255,.18);
-      transform: translateX(calc(100% + 24px));
-      transition: transform 560ms cubic-bezier(.2,.75,.25,1), visibility 560ms ease;
+      opacity: 0;
+      background: rgba(14, 12, 10, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: opacity 240ms ease, visibility 240ms ease;
     }
 
-    .menu-panel.is-open { visibility: visible; transform: translateX(0); }
-    body.menu-open { overflow: hidden; }
+    .menu-panel.is-open { visibility: visible; opacity: 1; }
 
-    .menu-drawer-visual { position: relative; overflow: hidden; background: #075f82; border-right: 1px solid rgba(255,255,255,.18); }
-    .menu-drawer-visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 36%, rgba(0,0,0,.18)); }
-    .menu-drawer-visual img { position: absolute; inset: 0; width: 100%; max-width: none; height: 100%; object-fit: cover; object-position: center; }
-    .menu-drawer-content { min-width: 0; display: flex; flex-direction: column; padding: clamp(36px, 4vw, 76px) clamp(34px, 4.4vw, 86px) 28px; }
-    .menu-panel nav { display: flex; flex: 1; flex-direction: column; align-items: flex-start; justify-content: center; }
-    .menu-panel a { color: var(--paper); text-decoration: none; }
-    .menu-panel nav a {
+    .menu-panel nav { display: flex; flex-direction: column; align-items: flex-start; }
+
+    .menu-panel a {
       font-family: "Bebas Neue", Impact, sans-serif;
-      font-size: clamp(58px, 5.5vw, 112px);
-      line-height: .94;
+      font-size: clamp(44px, 5vw, 78px);
+      line-height: 1.05;
+      text-decoration: none;
       transition: color 160ms ease, transform 160ms ease;
     }
-    .menu-panel nav a:hover { color: var(--amber); transform: translateX(8px); }
-    .menu-drawer-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
-    .menu-drawer-label { margin: 0 0 10px; color: var(--amber); font-family: "Caveat", cursive; font-size: clamp(24px, 2vw, 34px); font-weight: 700; line-height: .9; }
-    .menu-socials { display: flex; flex-wrap: wrap; gap: 8px 22px; }
-    .menu-socials a { font-size: clamp(15px, 1.3vw, 21px); font-weight: 600; }
-    .menu-socials a:hover, .menu-drawer-email:hover { color: var(--amber); }
-    .menu-drawer-email { display: inline-block; max-width: 100%; overflow-wrap: anywhere; font-size: clamp(15px, 1.25vw, 20px); font-weight: 700; }
 
-    @media (max-width: 1100px) {
-      .menu-panel { width: 82vw; grid-template-columns: 38% 62%; }
+    .menu-panel a:hover { color: var(--amber); transform: translateX(8px); }
+
+    .menu-kicker {
+      margin-bottom: 24px;
+      color: var(--amber);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
     :focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
@@ -441,7 +421,7 @@
       h1 { font-size: clamp(58px, 17vw, 92px); }
       .hero-description { font-size: 15px; }
       .hero-actions { margin-top: 24px; }
-      .primary-cta { padding: 19px 20px; }
+      .primary-cta { min-height: 58px; padding: 15px 18px; }
 
       .hero-visual {
         order: -1;
@@ -451,11 +431,7 @@
 
       .menu-button { position: fixed; top: 18px; right: 18px; width: 58px; }
       .video-button { width: 42px; height: 42px; }
-      .menu-panel { inset: 12px 12px 12px auto; width: calc(100vw - 24px); grid-template-columns: 1fr; }
-      .menu-drawer-visual { display: none; }
-      .menu-drawer-content { padding: 72px 26px 24px; }
-      .menu-panel nav a { font-size: clamp(56px, 18vw, 92px); }
-      .menu-drawer-footer { grid-template-columns: 1fr; gap: 20px; }
+      .menu-panel { position: fixed; padding: 28px; }
       .visual-caption { left: 18px; bottom: 20px; }
     }
 
@@ -941,6 +917,7 @@
     }
 
     /* Recording-aligned homepage continuation */
+    .menu-button { position: fixed; }
 
     .floating-logo {
       position: fixed;
@@ -989,25 +966,6 @@
       line-height: .85;
     }
 
-    .handwritten-wave-char {
-      display: inline-block;
-      transform-origin: 50% 80%;
-      animation: handwritten-wave 2.4s ease-in-out infinite;
-      animation-delay: calc(var(--wave-index) * -70ms);
-      will-change: transform;
-    }
-
-    @keyframes handwritten-wave {
-      0%, 100% { transform: translateY(0) rotate(0); }
-      24% { transform: translate(-.018em, -.026em) rotate(-.5deg); }
-      49% { transform: translate(.014em, .012em) rotate(.32deg); }
-      73% { transform: translate(-.01em, -.018em) rotate(.46deg); }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .handwritten-wave-char { animation: none; }
-    }
-
     .record-heading {
       display: flex;
       align-items: flex-end;
@@ -1018,6 +976,7 @@
     }
 
     .record-heading h2,
+    .crew-title h2,
     .faq-v2 .faq-heading h2 {
       margin: 7px 0 0;
       font-family: "Bebas Neue", Impact, sans-serif;
@@ -1040,7 +999,7 @@
     .manifesto-v2::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.66)); }
     .manifesto-background { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: contrast(1.08) brightness(.82); }
     .manifesto-v2-copy { position: relative; z-index: 2; max-width: 740px; text-align: center; }
-    .manifesto-v2-copy > .script-label { width: 100%; text-align: center; transform: translateY(-30%); }
+    .manifesto-v2-copy > .script-label { transform: translateY(-30%); }
     .manifesto-v2-copy h2 { margin: 8px 0 22px; font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(104px, 14.5vw, 230px); font-weight: 400; line-height: .72; text-transform: uppercase; text-shadow: 0 5px 32px rgba(0,0,0,.8); }
     .manifesto-v2-copy > p:last-child { max-width: 560px; margin: 0 auto; color: rgba(255,255,255,.72); font-size: clamp(16px, 1.35vw, 21px); line-height: 1.55; }
 
@@ -1125,72 +1084,27 @@
     .work-project-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 900ms cubic-bezier(.2,.75,.25,1), filter 500ms ease; }
     .work-project:hover .work-project-media img { transform: scale(1.025); filter: contrast(1.04); }
 
-    .services-v2 { overflow: visible; padding: 0; background: #050505; }
-    .service-list-heading { min-height: 70svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: clamp(110px, 12vw, 190px) 24px clamp(80px, 9vw, 140px); text-align: center; }
-    .service-list-heading .script-label { margin-bottom: clamp(24px, 3vw, 46px); font-size: clamp(34px, 3.4vw, 56px); transform: translateY(70%); }
-    .service-list-heading > h2 { margin: 0; color: var(--paper); font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(100px, 11.5vw, 220px); font-weight: 400; letter-spacing: -.025em; line-height: .76; text-transform: uppercase; }
-    .service-list-v2 { border-top: 1px solid var(--line); overflow-anchor: none; }
-    .service-list-v2 .service-row {
-      position: relative;
-      display: block;
-      min-height: 0;
-      padding: 0;
-      color: var(--paper);
-      background: #050505;
-      border-bottom: 1px solid var(--line);
-      transition: background 420ms ease, padding 420ms ease;
-    }
+    .services-v2 { overflow: visible; padding-block: clamp(100px, 11vw, 180px); background: #050505; }
+    .services-v2-layout { display: grid; grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr); gap: clamp(48px, 7vw, 118px); max-width: 1280px; margin: 0 auto; align-items: start; }
+    .service-preview { position: sticky; top: calc(50svh - 112px); width: 100%; height: 224px; overflow: hidden; align-self: start; background: #11100f; border: 1px solid var(--line); }
+    .service-preview img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.035); transition: opacity 520ms ease, transform 720ms cubic-bezier(.2,.75,.25,1); will-change: opacity, transform; }
+    .service-preview img.is-visible { opacity: 1; transform: scale(1); }
+    .service-list-heading { margin: 0 0 clamp(26px, 4vh, 48px); }
+    .service-list-heading .script-label { font-size: clamp(32px, 3.3vw, 52px); }
+    .service-list-v2 { border: 0; }
+    .service-list-v2 .service-row { grid-template-columns: 46px 1fr; min-height: 31svh; padding: 0; border: 0; }
     .service-list-v2 .service-row:hover,
     .service-list-v2 .service-row.is-active { padding-left: 0; }
-    .service-list-v2 .service-row.is-active { background: #181818; }
-    .service-summary {
-      width: 100%;
-      min-height: clamp(170px, 22svh, 250px);
-      display: grid;
-      grid-template-columns: clamp(160px, 23vw, 460px) minmax(280px, .82fr) minmax(320px, 1fr);
-      align-items: center;
-      gap: clamp(18px, 3vw, 48px);
-      padding: 0 clamp(24px, 2.4vw, 48px);
-      color: inherit;
-      background: transparent;
-      border: 0;
-      font: inherit;
-      text-align: left;
-      cursor: pointer;
-      overflow: hidden;
-      will-change: height, opacity;
-    }
-    .service-list-v2 .service-number { color: rgba(255,255,255,.26); font-family: "Assistant", Arial, sans-serif; font-size: clamp(38px, 3.2vw, 58px); font-weight: 500; letter-spacing: -.06em; line-height: .8; transition: color 260ms ease, font-size 420ms ease; }
-    .service-dot { color: var(--amber); }
-    .service-list-v2 .service-name { grid-column: 3; margin: 0; color: rgba(255,255,255,.48); font-family: "Assistant", Arial, sans-serif; font-size: clamp(32px, 2.7vw, 50px); font-weight: 600; letter-spacing: -.045em; line-height: 1; text-transform: none; transition: color 260ms ease, opacity 220ms ease; }
-    .service-list-v2 .service-row:hover .service-name,
-    .service-list-v2 .service-row.is-active .service-name { color: var(--paper); }
-    .service-list-v2 .service-row.is-active .service-number { color: rgba(255,255,255,.3); }
-    .service-toggle { display: none; }
-    .service-panel { height: 0; overflow: hidden; opacity: 0; visibility: hidden; will-change: height, opacity; }
-    .service-panel-inner { min-height: 0; overflow: hidden; }
-    .service-panel-content {
-      display: grid;
-      grid-template-columns: clamp(160px, 23vw, 460px) minmax(280px, .82fr) minmax(320px, 1fr);
-      gap: clamp(24px, 4vw, 64px);
-      padding: clamp(66px, 6vw, 104px) clamp(24px, 2.4vw, 48px) clamp(66px, 7vw, 112px);
-    }
-    .service-panel-number { grid-column: 1; align-self: start; color: rgba(255,255,255,.3); font-family: "Assistant", Arial, sans-serif; font-size: clamp(64px, 6.2vw, 108px); font-weight: 500; letter-spacing: -.06em; line-height: .8; }
-    .service-panel-number .service-dot { color: var(--amber); }
-    .service-card-image { grid-column: 2; align-self: start; overflow: hidden; aspect-ratio: 4 / 3; border-radius: 8px; background: #0d0d0d; }
-    .service-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 800ms cubic-bezier(.2,.75,.25,1); }
-    .service-row.is-active:hover .service-card-image img { transform: scale(1.025); }
-    .service-details { grid-column: 3; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
-    .service-detail-title { margin: 0 0 14px; color: var(--paper); font-size: clamp(42px, 4.6vw, 78px); font-weight: 600; letter-spacing: -.055em; line-height: .95; }
-    .service-details p { max-width: 650px; margin: 0; color: rgba(255,255,255,.58); font-size: clamp(17px, 1.55vw, 25px); line-height: 1.35; }
-    .service-tags { display: flex; flex-wrap: wrap; gap: 9px; margin: clamp(24px, 3vw, 42px) 0 0; padding: 0; list-style: none; }
-    .service-tags li { padding: 9px 14px; color: rgba(255,255,255,.64); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .service-list-v2 .service-number { align-self: center; color: rgba(255,255,255,.32); }
+    .service-list-v2 .service-name { font-size: clamp(72px, 9.4vw, 158px); color: rgba(255,255,255,.24); transition: color 260ms ease; }
+    .service-list-v2 .service-row.is-active .service-name,
+    .service-list-v2 .service-row:hover .service-name { color: var(--paper); }
+    .service-list-v2 .service-row.is-active .service-number { color: var(--amber); }
 
     .why-v2 { padding: 0; }
     .why-top, .why-bottom { display: grid; grid-template-columns: .82fr 1.18fr; min-height: 78svh; }
     .why-bottom { grid-template-columns: 1.18fr .82fr; }
     .why-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(45px, 7vw, 110px); }
-    .why-copy > .script-label { transform: translateY(60%); }
     .why-copy h2 { max-width: 570px; margin: 16px 0 0; font-size: clamp(30px, 3.5vw, 58px); line-height: 1.12; }
     .why-visual { position: relative; display: grid; place-items: end center; overflow: hidden; background: #13110f; }
     .why-visual img { max-width: 84%; max-height: 86%; object-fit: contain; filter: drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
@@ -1213,6 +1127,18 @@
     .testimonial-v2 .quote-tabs { border-color: var(--line); }
     .testimonial-v2 .quote-tab { color: rgba(255,255,255,.3); border-color: var(--line); }
     .testimonial-v2 .quote-tab.is-active { color: var(--paper); background: rgba(251,169,44,.08); box-shadow: inset 0 3px var(--amber); }
+
+    .crew-v2 { min-height: 105svh; background: radial-gradient(circle at center, #1a1816, #090807 70%); }
+    .crew-title { position: absolute; z-index: 0 !important; inset: 50% auto auto 50%; text-align: center; transform: translate(-50%,-50%); white-space: nowrap; }
+    .crew-title h2 { color: rgba(255,255,255,.16); font-size: clamp(98px, 15vw, 240px); }
+    .crew-grid { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 7vw; max-width: 1200px; margin: 0 auto; }
+    .crew-grid article { position: relative; min-height: 560px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(180deg, #d0922a, #5d421d); border: 1px solid rgba(255,255,255,.12); }
+    .crew-grid article:nth-child(2) { margin-top: 16vw; }
+    .crew-grid article:nth-child(3) { margin-top: 6vw; }
+    .crew-grid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
+    .crew-grid article > div { position: relative; z-index: 1; padding: 22px; background: linear-gradient(transparent, rgba(0,0,0,.84)); }
+    .crew-grid h3 { margin: 60px 0 0; font-family: "Bebas Neue", Impact, sans-serif; font-size: 35px; font-weight: 400; text-transform: uppercase; }
+    .crew-grid p { margin: 0; color: var(--amber); font-family: "Caveat", cursive; font-size: 21px; }
 
     .package-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 1120px; margin: 0 auto; }
     .package-card { overflow: hidden; border: 1px solid var(--line); background: #121110; }
@@ -1237,69 +1163,44 @@
     .journal-v2 .journal-card h3 { color: var(--paper); }
     .journal-v2 .journal-image { border: 1px solid var(--line); filter: saturate(.75) contrast(1.05); }
 
-    .project-cta { min-height: 43svh; display: grid; align-items: start; padding: clamp(54px, 5.5vw, 84px) clamp(24px, 3vw, 52px) clamp(38px, 4vw, 62px); }
-    .project-cta > a { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: clamp(28px, 4vw, 70px); color: var(--paper); text-decoration: none; }
-    .project-cta h2 { margin: 0; font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(96px, 10.8vw, 175px); font-weight: 400; line-height: .76; letter-spacing: -.018em; text-transform: uppercase; white-space: nowrap; transition: color 220ms ease; }
-    .project-cta svg { width: clamp(104px, 13vw, 205px); flex: 0 0 auto; transition: transform 260ms ease; }
-    .project-cta > a:hover h2 { color: var(--amber); }
-    .project-cta > a:hover svg { transform: translate(8px, -8px); }
+    .project-cta { padding-block: clamp(100px, 13vw, 190px); }
+    .project-cta > a { display: flex; align-items: center; justify-content: space-between; gap: 40px; max-width: 1320px; margin: 0 auto; color: var(--amber); text-decoration: none; }
+    .project-cta h2 { margin: 0; font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(110px, 18vw, 290px); font-weight: 400; line-height: .7; text-transform: uppercase; }
+    .project-cta svg { width: clamp(100px, 14vw, 220px); flex: 0 0 auto; }
 
-    .footer-v2 { position: relative; display: grid; grid-template-columns: 20% 22% 18% 40%; color: var(--paper); background: #080706; border-top: 1px solid var(--line); }
-    .footer-v2 > div, .footer-v2 > nav { min-height: 355px; padding: 30px; border-right: 1px solid var(--line); }
-    .footer-brand-panel { grid-row: 1 / span 2; display: flex; flex-direction: column; color: var(--ink); background: var(--amber); }
+    .footer-v2 { position: relative; display: grid; grid-template-columns: .85fr .9fr .75fr 1.3fr; color: var(--paper); background: #080706; border-top: 1px solid var(--line); }
+    .footer-v2 > div, .footer-v2 > nav { min-height: 330px; padding: 34px; border-right: 1px solid var(--line); }
+    .footer-brand-panel { color: var(--ink); background: var(--amber); }
     .footer-brand-panel img { width: 100%; height: auto; filter: brightness(0); }
-    .footer-brand-panel p { max-width: 250px; margin: auto 0 0; font-size: 18px; font-weight: 700; line-height: 1.15; }
+    .footer-brand-panel p { max-width: 220px; margin: 54px 0 0; font-weight: 700; }
     .footer-menu { display: flex; flex-direction: column; padding: 0 !important; }
-    .footer-menu a { display: flex; flex: 1; align-items: center; justify-content: space-between; padding: 0 28px; color: var(--paper); border-bottom: 1px solid var(--line); text-decoration: none; font-size: clamp(20px, 1.6vw, 27px); font-weight: 700; }
+    .footer-menu a { display: flex; flex: 1; align-items: center; justify-content: space-between; padding: 0 26px; color: var(--paper); border-bottom: 1px solid var(--line); text-decoration: none; font-size: 20px; }
     .footer-menu a:hover { background: rgba(255,255,255,.06); }
     .footer-connect { display: flex; flex-direction: column; }
-    .footer-connect a { margin-top: 14px; color: var(--paper); text-decoration: none; font-size: clamp(18px, 1.5vw, 24px); font-weight: 600; }
-    .footer-connect a:hover { color: var(--amber); }
-    .footer-note { position: relative; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding: 30px 0 82px !important; }
-    .footer-newsletter-copy { position: relative; z-index: 2; padding: 0 30px 26px; }
-    .footer-newsletter-copy .script-label { margin-bottom: 14px; }
-    .footer-newsletter-copy > p:not(.script-label) { margin: 0; color: var(--muted); font-size: clamp(16px, 1.35vw, 21px); line-height: 1.45; }
-    .footer-newsletter-status { min-height: 1.4em; margin-top: 12px !important; color: var(--paper) !important; font-size: 14px !important; }
-    .footer-newsletter-status[data-state="success"] { color: var(--amber) !important; }
-    .footer-newsletter-status[data-state="error"] { color: #ff8b79 !important; }
-    .footer-marquee { position: absolute; z-index: 0; left: 0; right: 0; top: 38px; overflow: hidden; pointer-events: none; }
-    .footer-marquee-track { display: flex; width: max-content; will-change: transform; animation: footer-marquee 15s linear infinite; }
-    .footer-marquee span { flex: 0 0 auto; padding-right: .22em; color: rgba(255,255,255,.09); font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(76px, 8vw, 132px); line-height: .8; white-space: nowrap; }
-    @keyframes footer-marquee { to { transform: translateX(-50%); } }
-    @media (prefers-reduced-motion: reduce) {
-      .footer-marquee-track { animation-play-state: paused; }
-    }
-    .footer-newsletter-form { position: absolute; z-index: 3; left: 0; right: 0; bottom: 0; min-height: 82px; display: grid; grid-template-columns: minmax(0, 1fr) auto; border-top: 1px solid var(--line); }
-    .footer-newsletter-form input { min-width: 0; width: 100%; padding: 0 30px; color: var(--paper); background: transparent; border: 0; outline: 0; font: inherit; font-size: clamp(18px, 1.5vw, 24px); font-weight: 700; }
-    .footer-newsletter-form input::placeholder { color: rgba(255,255,255,.32); opacity: 1; }
-    .footer-newsletter-form button { min-width: clamp(132px, 11vw, 190px); padding: 0 24px; color: var(--paper); background: rgba(255,255,255,.16); border: 0; border-left: 1px solid var(--line); font: inherit; font-size: 16px; font-weight: 700; cursor: pointer; transition: color 180ms ease, background 180ms ease; }
-    .footer-newsletter-form button:hover { color: var(--ink); background: var(--amber); }
-    .footer-newsletter-form button:disabled { cursor: wait; opacity: .72; }
-    .newsletter-honeypot { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
-    .footer-reach { grid-column: 2 / -1; min-height: 132px !important; display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; padding-block: 22px !important; border-top: 1px solid var(--line); }
-    .footer-reach .script-label { flex: 0 0 auto; }
-    .footer-email { color: var(--paper); font-size: clamp(34px, 5vw, 80px); font-weight: 700; letter-spacing: -.04em; line-height: .9; text-decoration: none; }
-    .footer-email:hover { color: var(--amber); }
+    .footer-connect a { margin-top: 10px; color: var(--paper); text-decoration: none; font-size: 18px; }
+    .footer-connect .reach { margin-top: auto; }
+    .footer-email { color: var(--amber) !important; }
+    .footer-note { overflow: hidden; }
+    .footer-note > p:not(.script-label) { color: var(--muted); }
+    .footer-note::before { content: "STAY SHARP"; position: absolute; left: 0; right: 0; top: 40px; color: rgba(255,255,255,.07); font-family: "Bebas Neue", Impact, sans-serif; font-size: 8vw; white-space: nowrap; }
+    .footer-note a { display: inline-block; margin-top: 30px; padding: 13px 16px; color: var(--paper); border: 1px solid var(--line); text-decoration: none; }
     .footer-legal { grid-column: 1 / -1; min-height: 0 !important; display: flex; justify-content: space-between; padding: 18px 30px !important; color: rgba(255,255,255,.4); border-top: 1px solid var(--line); font-size: 12px; }
 
     @media (max-width: 900px) {
-      .why-top, .why-bottom { grid-template-columns: 1fr; }
+      .services-v2-layout, .why-top, .why-bottom { grid-template-columns: 1fr; }
       .work-project { position: relative; top: auto; grid-template-columns: 1fr; min-height: auto; }
       .work-project-copy { min-height: 72svh; border-right: 0; border-bottom: 1px solid var(--line); }
       .work-project-media { min-height: 68svh; }
-      .service-summary { grid-template-columns: 110px minmax(0, 1fr); }
-      .service-list-v2 .service-name { grid-column: 2; }
-      .service-panel-content { grid-template-columns: minmax(220px, .9fr) minmax(260px, 1fr); }
-      .service-panel-number { grid-column: 1 / -1; }
-      .service-card-image { grid-column: 1; }
-      .service-details { grid-column: 2; }
+      .service-preview { position: sticky; top: 74px; z-index: 3; width: min(100%, 520px); height: min(38svh, 300px); margin: 0 auto; }
+      .service-list-heading { margin-top: 20px; }
+      .service-list-v2 .service-row { min-height: 28svh; }
       .why-copy { min-height: 55svh; }
       .why-visual { min-height: 68svh; }
       .why-bottom .why-visual { order: 2; }
       .stats-v2 { min-height: 64svh; }
+      .crew-grid { grid-template-columns: 1fr 1fr; }
+      .crew-grid article:nth-child(2), .crew-grid article:nth-child(3) { margin-top: 0; }
       .footer-v2 { grid-template-columns: 1fr 1fr; }
-      .footer-brand-panel { grid-row: auto; }
-      .footer-reach { grid-column: 1 / -1; }
       .footer-legal { grid-column: 1 / -1; }
     }
 
@@ -1311,7 +1212,7 @@
       .manifesto-v2-copy { text-align: left; }
       .manifesto-v2-copy > p:last-child { margin-left: 0; }
       .record-heading { align-items: flex-start; }
-      .record-heading h2, .faq-v2 .faq-heading h2 { font-size: 67px; }
+      .record-heading h2, .crew-title h2, .faq-v2 .faq-heading h2 { font-size: 67px; }
       .record-heading > a { min-width: auto; }
       .works-v2 > .record-heading { padding: 78px 20px 52px; }
       .work-project-copy { min-height: 66svh; padding: 24px 20px; }
@@ -1319,30 +1220,25 @@
       .work-project h3 { font-size: clamp(38px, 11vw, 54px); }
       .work-project-details > div { grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
       .work-project-media { min-height: 52svh; }
-      .service-list-heading { min-height: 58svh; padding: 110px 20px 74px; }
-      .service-list-heading > h2 { font-size: clamp(76px, 20vw, 116px); line-height: .8; }
-      .service-summary { min-height: 150px; grid-template-columns: 56px minmax(0, 1fr); gap: 14px; padding-inline: 20px; }
-      .service-list-v2 .service-number { font-size: 52px; }
-      .service-list-v2 .service-name { grid-column: 2; font-size: clamp(34px, 10vw, 54px); }
-      .service-panel-content { grid-template-columns: 1fr; gap: 26px; padding: 0 20px 54px; }
-      .service-card-image, .service-details { grid-column: 1; }
-      .service-card-image { aspect-ratio: 16 / 11; }
-      .service-tags { margin-top: 30px; padding-top: 0; }
+      .services-v2 { padding-inline: 20px; }
+      .service-list-v2 .service-name { font-size: clamp(54px, 18vw, 92px); }
+      .service-list-v2 .service-row { grid-template-columns: 34px 1fr; }
       .stats-v2 > div { grid-template-columns: .75fr 1.25fr; }
       .testimonial-v2 .quote-stage { min-height: 450px; padding: 90px 26px 50px; }
       .testimonial-v2 .quote-tabs { grid-template-columns: 1fr 1fr; }
+      .crew-v2 { min-height: auto; }
+      .crew-title { position: relative; inset: auto; margin-bottom: 45px; transform: none; white-space: normal; }
+      .crew-title h2 { color: var(--paper); }
+      .crew-grid { grid-template-columns: 1fr; gap: 22px; }
+      .crew-grid article { min-height: 520px; }
       .package-grid { grid-template-columns: 1fr; }
       .bespoke-row { align-items: flex-start; flex-direction: column; }
       .journal-grid { grid-template-columns: 1fr; }
       .project-cta > a { align-items: flex-end; }
-      .project-cta { min-height: 52svh; }
-      .project-cta h2 { font-size: 28vw; white-space: normal; }
+      .project-cta h2 { font-size: 29vw; }
       .project-cta svg { width: 72px; }
       .footer-v2 { grid-template-columns: 1fr; }
       .footer-v2 > div, .footer-v2 > nav { min-height: 280px; border-right: 0; border-bottom: 1px solid var(--line); }
-      .footer-brand-panel { min-height: 420px !important; }
-      .footer-reach { grid-column: auto; min-height: 190px !important; align-items: flex-start; flex-direction: column; }
-      .footer-email { font-size: clamp(30px, 10vw, 52px); }
       .footer-legal { grid-column: auto; flex-direction: column; gap: 8px; }
     }
 
@@ -1385,7 +1281,9 @@
         <div class="hero-actions">
           <a class="primary-cta" href="https://calendar.app.google/oDUSa3P32YjHErMW8">
             <span>Book a free strategy call</span>
-            <span aria-hidden="true">↗</span>
+            <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M4 16 16 4M7 4h9v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </a>
           <a class="secondary-cta" href="portfolio.html" aria-label="View selected work">
             <svg class="arrow" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -1409,30 +1307,21 @@
         <svg class="play-icon" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="m4 2 10 6-10 6z" /></svg>
       </button>
 
+      <div class="menu-panel" id="menuPanel" aria-hidden="true">
+        <p class="menu-kicker">Explore Ismile</p>
+        <nav aria-label="Preview navigation">
+          <a href="portfolio.html">Portfolio</a>
+          <a href="branding-and-design.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
     </section>
   </div>
-
-  <button class="menu-backdrop" id="menuBackdrop" type="button" aria-label="Close menu" tabindex="-1"></button>
-  <div class="menu-panel" id="menuPanel" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
-    <div class="menu-drawer-visual" aria-hidden="true"><img src="menutype.jpg" alt="" width="2752" height="1536" /></div>
-    <div class="menu-drawer-content">
-      <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="portfolio.html">Works</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="menu-drawer-footer">
-        <div><p class="menu-drawer-label">Follow us</p><div class="menu-socials"><a href="https://www.instagram.com/ismilecds">Instagram</a><a href="https://www.behance.net/IsmileDesigns">Behance</a></div></div>
-        <div><p class="menu-drawer-label">Reach out</p><a class="menu-drawer-email" href="mailto:hello@byismile.com">hello@byismile.com</a></div>
-      </div>
-    </div>
-  </div>
-
-  <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
-    <span class="menu-icon" aria-hidden="true"></span>
-  </button>
 
   <a class="floating-logo" href="#hero-title" aria-label="Back to the top"><img src="logo-white-new.png" alt="" width="713" height="395" /></a>
 
@@ -1441,7 +1330,7 @@
     <div class="manifesto-v2-copy reveal">
       <p class="script-label">Manifesto</p>
       <h2 id="manifesto-title">No generic<br />stuff.</h2>
-      <p>We bring a clear point of view to every brand, website, and system, so your business looks like itself and works like it should.</p>
+      <p>We bring a clear point of view to every brand, website, and system—so your business looks like itself and works like it should.</p>
     </div>
   </section>
 
@@ -1514,43 +1403,21 @@
   </section>
 
   <section class="record-section services-v2" id="services" aria-labelledby="services-title">
-    <div class="service-list-heading"><p class="script-label">Services</p><h2 id="services-title">How can we help</h2></div>
-    <div class="service-list service-list-v2">
-      <article class="service-row">
-        <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-branding-panel"><span class="service-number">01<span class="service-dot">.</span></span><span class="service-name">Branding</span><span class="service-toggle" aria-hidden="true">+</span></button>
-        <div class="service-panel" id="service-branding-panel" role="region" aria-label="Branding service details"><div class="service-panel-inner"><div class="service-panel-content">
-          <div class="service-card-image"><img src="branding.webp" alt="Colourful brand design markers" width="1920" height="1280" loading="lazy" /></div>
-          <div class="service-details"><h3 class="service-detail-title">Branding</h3><p>Distinctive brand systems that clarify what you stand for and make your business immediately recognizable.</p><ul class="service-tags"><li>Logo Design</li><li>Brand Strategy</li><li>Visual Identity</li><li>Brand Guidelines</li></ul></div>
-        </div></div></div>
-      </article>
-      <article class="service-row">
-        <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-marketing-panel"><span class="service-number">02<span class="service-dot">.</span></span><span class="service-name">Digital marketing</span><span class="service-toggle" aria-hidden="true">+</span></button>
-        <div class="service-panel" id="service-marketing-panel" role="region" aria-label="Digital marketing service details"><div class="service-panel-inner"><div class="service-panel-content">
-          <div class="service-card-image"><img src="digitalmarketing.jpg" alt="Digital marketing campaign creative" width="1920" height="1280" loading="lazy" /></div>
-          <div class="service-details"><h3 class="service-detail-title">Digital marketing</h3><p>Focused campaigns and content systems that keep your brand visible, relevant, and connected to the right audience.</p><ul class="service-tags"><li>Social Media</li><li>Content Strategy</li><li>Email Marketing</li><li>Paid Campaigns</li></ul></div>
-        </div></div></div>
-      </article>
-      <article class="service-row">
-        <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-web-panel"><span class="service-number">03<span class="service-dot">.</span></span><span class="service-name">Web design</span><span class="service-toggle" aria-hidden="true">+</span></button>
-        <div class="service-panel" id="service-web-panel" role="region" aria-label="Web design service details"><div class="service-panel-inner"><div class="service-panel-content">
-          <div class="service-card-image"><img src="Development.jpg" alt="Website design and development workspace" width="1920" height="1280" loading="lazy" /></div>
-          <div class="service-details"><h3 class="service-detail-title">Web design &amp; development</h3><p>Responsive, conversion-minded websites that express your brand clearly and guide visitors toward taking action.</p><ul class="service-tags"><li>UX/UI Design</li><li>Responsive Design</li><li>Development</li><li>SEO Foundations</li></ul></div>
-        </div></div></div>
-      </article>
-      <article class="service-row">
-        <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-systems-panel"><span class="service-number">04<span class="service-dot">.</span></span><span class="service-name">Systems &amp; automation</span><span class="service-toggle" aria-hidden="true">+</span></button>
-        <div class="service-panel" id="service-systems-panel" role="region" aria-label="Systems and automation service details"><div class="service-panel-inner"><div class="service-panel-content">
-          <div class="service-card-image"><img src="systems.webp" alt="Connected digital business systems" width="1920" height="1280" loading="lazy" /></div>
-          <div class="service-details"><h3 class="service-detail-title">Systems &amp; automation</h3><p>Connected workflows that reduce repetitive work and create a smoother journey from first inquiry through follow-up.</p><ul class="service-tags"><li>CRM Setup</li><li>Client Onboarding</li><li>Automations</li><li>Integrations</li></ul></div>
-        </div></div></div>
-      </article>
-      <article class="service-row">
-        <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-consulting-panel"><span class="service-number">05<span class="service-dot">.</span></span><span class="service-name">Consulting</span><span class="service-toggle" aria-hidden="true">+</span></button>
-        <div class="service-panel" id="service-consulting-panel" role="region" aria-label="Business consulting service details"><div class="service-panel-inner"><div class="service-panel-content">
-          <div class="service-card-image"><img src="consulting.webp" alt="Telephone representing business consultation" width="1920" height="1280" loading="lazy" /></div>
-          <div class="service-details"><h3 class="service-detail-title">Consulting</h3><p>Practical creative and digital direction that turns scattered ideas into a focused plan your business can execute.</p><ul class="service-tags"><li>Digital Strategy</li><li>Growth Planning</li><li>Process Audit</li><li>Roadmaps</li></ul></div>
-        </div></div></div>
-      </article>
+    <div class="services-v2-layout">
+      <div class="service-preview reveal">
+        <img class="is-visible" id="serviceImageA" src="branding.webp" alt="Colourful brand design markers" width="1920" height="1280" loading="lazy" />
+        <img id="serviceImageB" src="branding.webp" alt="" width="1920" height="1280" aria-hidden="true" />
+      </div>
+      <div>
+        <div class="service-list-heading"><h2 class="script-label" id="services-title">Services</h2></div>
+        <div class="service-list service-list-v2">
+          <a class="service-row is-active" href="branding-and-design.html" data-service-image="branding.webp" data-service-alt="Colourful brand design markers"><span class="service-number">01</span><h3 class="service-name">Branding</h3></a>
+          <a class="service-row" href="digital-marketing.html" data-service-image="digitalmarketing.jpg" data-service-alt="Digital marketing services"><span class="service-number">02</span><h3 class="service-name">Digital marketing</h3></a>
+          <a class="service-row" href="web-design.html" data-service-image="Development.jpg" data-service-alt="Website development code"><span class="service-number">03</span><h3 class="service-name">Web design</h3></a>
+          <a class="service-row" href="systems-automations.html" data-service-image="systems.webp" data-service-alt="Connected computer systems"><span class="service-number">04</span><h3 class="service-name">Systems &amp; automation</h3></a>
+          <a class="service-row" href="business-consulting.html" data-service-image="consulting.webp" data-service-alt="Telephone representing business consultation"><span class="service-number">05</span><h3 class="service-name">Consulting</h3></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1580,6 +1447,15 @@
         <button class="quote-tab" type="button" data-quote="She rebuilt my business systems in a way that actually makes sense, cutting down my workload and reducing costs." data-byline="Liz Thomas · Google Review">Liz Thomas</button>
         <button class="quote-tab" type="button" data-quote="My website looks professional, modern, and true to my brand. Ismile exceeded my expectations." data-byline="Derek Moore · Google Review">Derek Moore</button>
       </div>
+    </div>
+  </section>
+
+  <section class="record-section crew-v2" aria-labelledby="crew-title">
+    <div class="crew-title reveal"><p class="script-label">Our specialists</p><h2 id="crew-title">The right crew.</h2></div>
+    <div class="crew-grid">
+      <article><img src="Ismile-bunny-branding.png" alt="Brand strategy and design character" width="477" height="635" loading="lazy" /><div><h3>Brand Builder</h3><p>Strategy &amp; identity</p></div></article>
+      <article><img src="Ismile-bunny-web-design.png" alt="Website design character" width="603" height="647" loading="lazy" /><div><h3>Web Maker</h3><p>Design &amp; development</p></div></article>
+      <article><img src="Ismile_bunny_systems_automations.png" alt="Systems and automation character" width="769" height="922" loading="lazy" /><div><h3>Systems Thinker</h3><p>Automation &amp; operations</p></div></article>
     </div>
   </section>
 
@@ -1617,13 +1493,11 @@
   <footer class="footer-v2">
     <div class="footer-brand-panel"><img src="logo.png" alt="Ismile" width="713" height="395" loading="lazy" /><p>Creative and digital solutions for service businesses.</p></div>
     <nav class="footer-menu" aria-label="Footer navigation"><a href="portfolio.html">Works <span>↗</span></a><a href="about.html">About <span>↗</span></a><a href="blog.html">Blog <span>↗</span></a><a href="contact.html">Contact <span>↗</span></a></nav>
-    <div class="footer-connect"><p class="script-label">Follow us</p><a href="https://www.instagram.com/ismilecds">Instagram</a><a href="https://www.behance.net/IsmileDesigns">Behance</a></div>
-    <div class="footer-note"><div class="footer-marquee" aria-hidden="true"><div class="footer-marquee-track"><span>STAY SHARP · STAY SHARP ·&nbsp;</span><span>STAY SHARP · STAY SHARP ·&nbsp;</span></div></div><div class="footer-newsletter-copy"><p class="script-label">Newsletter</p><p>Subscribe to our newsletter for sharp ideas on better brands, websites, and systems.</p><p class="footer-newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p></div><form class="footer-newsletter-form" action="/api/newsletter" method="post"><input type="email" name="email" placeholder="Your Email" aria-label="Your email address" autocomplete="email" maxlength="254" required /><label class="newsletter-honeypot" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label><button type="submit">Subscribe</button></form></div>
-    <div class="footer-reach"><p class="script-label">Reach out</p><a class="footer-email" href="mailto:hello@byismile.com">hello@byismile.com</a></div>
+    <div class="footer-connect"><p class="script-label">Follow us</p><a href="https://www.instagram.com/ismilecds">Instagram</a><a href="https://www.behance.net/IsmileDesigns">Behance</a><p class="script-label reach">Reach out</p><a class="footer-email" href="mailto:hello@byismile.com">hello@byismile.com</a></div>
+    <div class="footer-note"><p class="script-label">Newsletter</p><p>Sharp ideas for better brands, websites, and systems.</p><a href="mailto:hello@byismile.com?subject=Newsletter">Join the list ↗</a></div>
     <div class="footer-legal"><span>© 2026 Ismile Creative &amp; Digital Solutions</span><span>Toronto, Canada · Working remotely</span></div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
   <script>
     const timeElement = document.querySelector("#localTime");
     const updateTorontoTime = () => {
@@ -1666,25 +1540,16 @@
 
     const menuButton = document.querySelector("#menuButton");
     const menuPanel = document.querySelector("#menuPanel");
-    const menuBackdrop = document.querySelector("#menuBackdrop");
 
     const setMenu = (isOpen) => {
       menuButton.setAttribute("aria-expanded", String(isOpen));
       menuButton.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       menuPanel.setAttribute("aria-hidden", String(!isOpen));
       menuPanel.classList.toggle("is-open", isOpen);
-      menuBackdrop.classList.toggle("is-open", isOpen);
-      document.body.classList.toggle("menu-open", isOpen);
-      if (isOpen) window.setTimeout(() => menuPanel.querySelector("a")?.focus(), 240);
     };
 
     menuButton.addEventListener("click", () => {
       setMenu(menuButton.getAttribute("aria-expanded") !== "true");
-    });
-    menuBackdrop.addEventListener("click", () => setMenu(false));
-
-    menuPanel.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => setMenu(false));
     });
 
     document.addEventListener("keydown", (event) => {
@@ -1699,110 +1564,75 @@
     window.addEventListener("scroll", updateFloatingHeader, { passive: true });
 
     const serviceRows = [...document.querySelectorAll(".service-row")];
+    const serviceImages = [document.querySelector("#serviceImageA"), document.querySelector("#serviceImageB")];
+    const servicesSection = document.querySelector(".services-v2");
+    let visibleServiceImage = serviceImages[0];
     let activeServiceRow = serviceRows.find((row) => row.classList.contains("is-active"));
-    let lastServiceScrollAt = 0;
-    let serviceHoverTimer;
-    let serviceTransitionLockUntil = 0;
-    const hasGsap = typeof window.gsap !== "undefined";
-    const serviceReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.addEventListener("scroll", () => { lastServiceScrollAt = performance.now(); }, { passive: true });
+    let serviceSwapToken = 0;
 
-    const setActiveService = (row) => {
+    serviceRows.forEach((row) => {
+      const preload = new Image();
+      preload.src = row.dataset.serviceImage;
+    });
+
+    const setServiceImage = async (row) => {
       if (!row || row === activeServiceRow) return;
-      const previousRow = activeServiceRow;
-      const nextSummary = row.querySelector(".service-summary");
-      const nextPanel = row.querySelector(".service-panel");
-      row.dataset.closedHeight = String(nextSummary.getBoundingClientRect().height);
       activeServiceRow = row;
+      serviceRows.forEach((item) => item.classList.toggle("is-active", item === row));
+      const nextImage = row.dataset.serviceImage;
+      if (visibleServiceImage.getAttribute("src") === nextImage) return;
 
-      serviceRows.forEach((item) => {
-        const isActive = item === row;
-        item.classList.toggle("is-active", isActive);
-        item.querySelector(".service-summary")?.setAttribute("aria-expanded", String(isActive));
-        const panel = item.querySelector(".service-panel");
-        panel?.setAttribute("aria-hidden", String(!isActive));
-        panel?.toggleAttribute("inert", !isActive);
-      });
+      const swapToken = ++serviceSwapToken;
+      const incomingImage = serviceImages.find((image) => image !== visibleServiceImage);
+      incomingImage.classList.remove("is-visible");
+      incomingImage.src = nextImage;
+      incomingImage.alt = row.dataset.serviceAlt;
 
-      if (!hasGsap || serviceReducedMotion) {
-        if (previousRow) {
-          const previousSummary = previousRow.querySelector(".service-summary");
-          const previousPanel = previousRow.querySelector(".service-panel");
-          previousSummary.removeAttribute("style");
-          Object.assign(previousPanel.style, { height: "0px", opacity: "0", visibility: "hidden" });
-        }
-        Object.assign(nextSummary.style, { height: "0px", minHeight: "0px", opacity: "0", visibility: "hidden" });
-        Object.assign(nextPanel.style, { height: "auto", opacity: "1", visibility: "visible" });
-        return;
+      try {
+        await incomingImage.decode();
+      } catch (_) {
+        /* The browser can still display the image when decode() is unavailable. */
       }
+      if (swapToken !== serviceSwapToken) return;
 
-      const timeline = window.gsap.timeline({ defaults: { overwrite: "auto" } });
-      const nextContent = nextPanel.querySelectorAll(".service-panel-number, .service-card-image, .service-details");
-      window.gsap.killTweensOf([nextSummary, nextPanel, ...nextContent]);
-
-      if (previousRow) {
-        const previousSummary = previousRow.querySelector(".service-summary");
-        const previousPanel = previousRow.querySelector(".service-panel");
-        const previousClosedHeight = Number(previousRow.dataset.closedHeight) || 200;
-        window.gsap.killTweensOf([previousSummary, previousPanel]);
-        timeline
-          .to(previousPanel, { height: 0, autoAlpha: 0, duration: .5, ease: "power3.inOut" }, 0)
-          .to(previousSummary, {
-            height: previousClosedHeight,
-            minHeight: 0,
-            autoAlpha: 1,
-            duration: .5,
-            ease: "power3.inOut",
-            onComplete: () => window.gsap.set(previousSummary, { clearProps: "height,minHeight,opacity,visibility" })
-          }, .03);
-      }
-
-      window.gsap.set(nextPanel, { visibility: "visible" });
-      timeline
-        .to(nextSummary, { height: 0, minHeight: 0, autoAlpha: 0, duration: .46, ease: "power2.inOut" }, 0)
-        .fromTo(nextPanel,
-          { height: 0, autoAlpha: 0 },
-          { height: "auto", autoAlpha: 1, duration: .68, ease: "power3.out", onComplete: () => window.gsap.set(nextPanel, { height: "auto" }) },
-          .04
-        )
-        .fromTo(nextContent,
-          { y: 14, autoAlpha: 0 },
-          { y: 0, autoAlpha: 1, duration: .44, stagger: .035, ease: "power2.out" },
-          .2
-        );
+      incomingImage.removeAttribute("aria-hidden");
+      incomingImage.classList.add("is-visible");
+      visibleServiceImage.classList.remove("is-visible");
+      visibleServiceImage.setAttribute("aria-hidden", "true");
+      visibleServiceImage.alt = "";
+      visibleServiceImage = incomingImage;
     };
 
     serviceRows.forEach((row) => {
-      const summary = row.querySelector(".service-summary");
-      const panel = row.querySelector(".service-panel");
-      const panelContent = row.querySelector(".service-panel-content");
-      const numberText = summary.querySelector(".service-number").textContent.replace(".", "").trim();
-      const panelNumber = document.createElement("span");
-      panelNumber.className = "service-panel-number";
-      panelNumber.setAttribute("aria-hidden", "true");
-      panelNumber.innerHTML = `${numberText}<span class="service-dot">.</span>`;
-      panelContent.prepend(panelNumber);
-      const isActive = row === activeServiceRow;
-      panel.setAttribute("aria-hidden", String(!isActive));
-      panel.toggleAttribute("inert", !isActive);
-      if (hasGsap) window.gsap.set(panel, { height: 0, autoAlpha: 0 });
-      row.addEventListener("pointerenter", (event) => {
-        if (event.pointerType !== "mouse") return;
-        window.clearTimeout(serviceHoverTimer);
-        serviceHoverTimer = window.setTimeout(() => {
-          const now = performance.now();
-          if (!row.matches(":hover") || now - lastServiceScrollAt < 220 || now < serviceTransitionLockUntil) return;
-          serviceTransitionLockUntil = now + 720;
-          setActiveService(row);
-        }, 240);
-      });
-      row.addEventListener("pointerleave", () => window.clearTimeout(serviceHoverTimer));
-      summary.addEventListener("click", () => {
-        serviceTransitionLockUntil = performance.now() + 720;
-        setActiveService(row);
-      });
-      summary.addEventListener("focus", () => setActiveService(row));
+      row.addEventListener("mouseenter", () => setServiceImage(row));
+      row.addEventListener("focus", () => setServiceImage(row));
     });
+
+    let serviceScrollFrame;
+    const updateServiceFromScroll = () => {
+      serviceScrollFrame = undefined;
+      const sectionBounds = servicesSection.getBoundingClientRect();
+      if (sectionBounds.bottom <= 0 || sectionBounds.top >= window.innerHeight) return;
+      const focusLine = window.innerHeight * 0.5;
+      const closest = serviceRows.reduce((closestMatch, row) => {
+        const bounds = row.getBoundingClientRect();
+        const distance = Math.abs(bounds.top + bounds.height / 2 - focusLine);
+        return distance < closestMatch.distance ? { row, distance } : closestMatch;
+      }, { row: serviceRows[0], distance: Infinity });
+      if (closest.row !== activeServiceRow) {
+        const activeBounds = activeServiceRow.getBoundingClientRect();
+        const activeDistance = Math.abs(activeBounds.top + activeBounds.height / 2 - focusLine);
+        if (closest.distance + 36 >= activeDistance) return;
+      }
+      setServiceImage(closest.row);
+    };
+    const requestServiceUpdate = () => {
+      if (serviceScrollFrame) return;
+      serviceScrollFrame = window.requestAnimationFrame(updateServiceFromScroll);
+    };
+    updateServiceFromScroll();
+    window.addEventListener("scroll", requestServiceUpdate, { passive: true });
+    window.addEventListener("resize", requestServiceUpdate);
 
     const quote = document.querySelector("#clientQuote");
     const byline = document.querySelector("#clientByline");
@@ -1822,60 +1652,6 @@
         document.querySelectorAll(".faq-item").forEach((other) => {
           if (other !== item) other.removeAttribute("open");
         });
-      });
-    });
-
-    const newsletterForm = document.querySelector(".footer-newsletter-form");
-    const newsletterStatus = document.querySelector("#newsletterStatus");
-    if (newsletterForm && newsletterStatus) {
-      newsletterForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        const submitButton = newsletterForm.querySelector("button[type='submit']");
-        const formData = new FormData(newsletterForm);
-        const defaultButtonText = "Subscribe";
-
-        newsletterStatus.textContent = "";
-        newsletterStatus.removeAttribute("data-state");
-        submitButton.disabled = true;
-        submitButton.textContent = "Joining…";
-
-        try {
-          const response = await fetch(newsletterForm.action, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify({
-              email: formData.get("email"),
-              company: formData.get("company")
-            })
-          });
-          const result = await response.json().catch(() => ({}));
-          if (!response.ok) throw new Error(result.message || "Unable to subscribe right now.");
-
-          newsletterForm.reset();
-          newsletterStatus.dataset.state = "success";
-          newsletterStatus.textContent = result.message || "You're on the list.";
-          submitButton.textContent = "Subscribed";
-        } catch (error) {
-          newsletterStatus.dataset.state = "error";
-          newsletterStatus.textContent = error.message || "Unable to subscribe right now. Please try again.";
-          submitButton.textContent = defaultButtonText;
-        } finally {
-          submitButton.disabled = false;
-        }
-      });
-    }
-
-    document.querySelectorAll(".script-label, .menu-drawer-label, .work-project-details dt").forEach((label) => {
-      const labelText = label.textContent;
-      label.setAttribute("aria-label", labelText);
-      label.textContent = "";
-      Array.from(labelText).forEach((character, index) => {
-        const characterSpan = document.createElement("span");
-        characterSpan.className = "handwritten-wave-char";
-        characterSpan.setAttribute("aria-hidden", "true");
-        characterSpan.style.setProperty("--wave-index", index);
-        characterSpan.textContent = character === " " ? "\u00a0" : character;
-        label.append(characterSpan);
       });
     });
 
