@@ -104,7 +104,7 @@
 
     window.setTimeout(function () {
       window.location.href = url;
-    }, reducedMotion ? 40 : 940);
+    }, reducedMotion ? 40 : 1180);
   }
 
   function eligibleLink(event, anchor) {
