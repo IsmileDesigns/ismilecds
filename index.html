@@ -371,11 +371,11 @@
       top: 20px;
       right: 20px;
       bottom: 20px;
-      left: 20px;
+      left: auto;
       z-index: 100;
-      width: auto;
+      width: calc(50vw - 20px);
       display: grid;
-      grid-template-columns: 40% 60%;
+      grid-template-columns: 36% 64%;
       overflow: hidden;
       visibility: hidden;
       background: #050505;
@@ -391,15 +391,56 @@
     .menu-drawer-visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.08), transparent 36%, rgba(0,0,0,.18)); }
     .menu-drawer-visual img { position: absolute; inset: 0; width: 100%; max-width: none; height: 100%; object-fit: cover; object-position: center; }
     .menu-drawer-content { min-width: 0; display: flex; flex-direction: column; padding: clamp(36px, 4vw, 76px) clamp(34px, 4.4vw, 86px) 28px; }
-    .menu-panel nav { display: flex; flex: 1; flex-direction: column; align-items: flex-start; justify-content: center; }
+    .menu-panel nav { display: flex; flex: 1; min-height: 0; flex-direction: column; align-items: stretch; justify-content: center; overflow-y: auto; }
     .menu-panel a { color: var(--paper); text-decoration: none; }
-    .menu-panel nav a {
+    .menu-panel nav > a,
+    .menu-service-heading > a {
       font-family: "Bebas Neue", Impact, sans-serif;
-      font-size: clamp(58px, 5.5vw, 112px);
+      font-size: clamp(46px, 3.5vw, 72px);
       line-height: .94;
       transition: color 160ms ease, transform 160ms ease;
     }
-    .menu-panel nav a:hover { color: var(--amber); transform: translateX(8px); }
+    .menu-panel nav > a:hover,
+    .menu-service-heading > a:hover { color: var(--amber); transform: translateX(8px); }
+    .menu-services { width: 100%; }
+    .menu-service-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .menu-service-heading > a { display: inline-block; }
+    .menu-service-toggle {
+      flex: 0 0 36px;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      color: var(--amber);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      font-size: 23px;
+      line-height: 1;
+      cursor: pointer;
+      transition: color 180ms ease, border-color 180ms ease, transform 260ms ease;
+    }
+    .menu-service-toggle:hover { color: var(--paper); border-color: var(--amber); }
+    .menu-service-toggle[aria-expanded="true"] { transform: rotate(45deg); }
+    .menu-services-submenu {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 320ms cubic-bezier(.2,.75,.25,1), opacity 220ms ease;
+    }
+    .menu-services-submenu.is-open { grid-template-rows: 1fr; opacity: 1; }
+    .menu-services-submenu-inner { min-height: 0; overflow: hidden; display: grid; gap: 4px; padding-left: 12px; }
+    .menu-services-submenu.is-open .menu-services-submenu-inner { padding-top: 10px; padding-bottom: 14px; }
+    .menu-services-submenu a {
+      width: fit-content;
+      color: rgba(255,255,255,.6);
+      font-size: clamp(12px, .85vw, 15px);
+      font-weight: 700;
+      letter-spacing: .06em;
+      line-height: 1.35;
+      text-transform: uppercase;
+      transition: color 160ms ease, transform 160ms ease;
+    }
+    .menu-services-submenu a:hover { color: var(--amber); transform: translateX(5px); }
     .menu-drawer-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
     .menu-drawer-label { margin: 0 0 10px; color: var(--amber); font-family: "Caveat", cursive; font-size: clamp(24px, 2vw, 34px); font-weight: 700; line-height: .9; }
     .menu-socials { display: flex; flex-wrap: wrap; gap: 8px 22px; }
@@ -408,7 +449,7 @@
     .menu-drawer-email { display: inline-block; max-width: 100%; overflow-wrap: anywhere; font-size: clamp(15px, 1.25vw, 20px); font-weight: 700; }
 
     @media (max-width: 1100px) {
-      .menu-panel { left: 10vw; grid-template-columns: 38% 62%; }
+      .menu-panel { grid-template-columns: 34% 66%; }
     }
 
     :focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
@@ -471,7 +512,9 @@
       .menu-panel { inset: 12px; width: auto; grid-template-columns: 1fr; }
       .menu-drawer-visual { display: none; }
       .menu-drawer-content { padding: 72px 26px 24px; }
-      .menu-panel nav a { font-size: clamp(56px, 18vw, 92px); }
+      .menu-panel nav > a,
+      .menu-service-heading > a { font-size: clamp(52px, 16vw, 78px); }
+      .menu-services-submenu a { font-size: 13px; }
       .menu-drawer-footer { grid-template-columns: 1fr; gap: 20px; }
       .visual-caption { left: 18px; bottom: 20px; }
     }
@@ -1435,7 +1478,21 @@
     <div class="menu-drawer-content">
       <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="#services">Services</a>
+        <div class="menu-services">
+          <div class="menu-service-heading">
+            <a href="#services">Services</a>
+            <button class="menu-service-toggle" id="menuServiceToggle" type="button" aria-label="Show service pages" aria-expanded="false" aria-controls="menuServicesSubmenu">+</button>
+          </div>
+          <div class="menu-services-submenu" id="menuServicesSubmenu" aria-hidden="true">
+            <div class="menu-services-submenu-inner">
+              <a href="branding-and-design.html">Branding &amp; Design</a>
+              <a href="web-design.html">Web Design</a>
+              <a href="digital-marketing.html">Digital Marketing</a>
+              <a href="systems-automations.html">Systems &amp; Automations</a>
+              <a href="business-consulting.html">Business Consulting</a>
+            </div>
+          </div>
+        </div>
         <a href="portfolio.html">Works</a>
         <a href="about.html">About</a>
         <a href="blog.html">Blog</a>
@@ -1685,6 +1742,15 @@
     const menuButton = document.querySelector("#menuButton");
     const menuPanel = document.querySelector("#menuPanel");
     const menuBackdrop = document.querySelector("#menuBackdrop");
+    const menuServiceToggle = document.querySelector("#menuServiceToggle");
+    const menuServicesSubmenu = document.querySelector("#menuServicesSubmenu");
+
+    const setServicesSubmenu = (isOpen) => {
+      menuServiceToggle.setAttribute("aria-expanded", String(isOpen));
+      menuServiceToggle.setAttribute("aria-label", isOpen ? "Hide service pages" : "Show service pages");
+      menuServicesSubmenu.setAttribute("aria-hidden", String(!isOpen));
+      menuServicesSubmenu.classList.toggle("is-open", isOpen);
+    };
 
     const setMenu = (isOpen) => {
       menuButton.setAttribute("aria-expanded", String(isOpen));
@@ -1693,6 +1759,7 @@
       menuPanel.classList.toggle("is-open", isOpen);
       menuBackdrop.classList.toggle("is-open", isOpen);
       document.body.classList.toggle("menu-open", isOpen);
+      if (!isOpen) setServicesSubmenu(false);
       if (isOpen) window.setTimeout(() => menuPanel.querySelector("a")?.focus(), 240);
     };
 
@@ -1700,6 +1767,9 @@
       setMenu(menuButton.getAttribute("aria-expanded") !== "true");
     });
     menuBackdrop.addEventListener("click", () => setMenu(false));
+    menuServiceToggle.addEventListener("click", () => {
+      setServicesSubmenu(menuServiceToggle.getAttribute("aria-expanded") !== "true");
+    });
 
     menuPanel.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => setMenu(false));
