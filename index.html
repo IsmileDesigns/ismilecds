@@ -371,8 +371,9 @@
       top: 20px;
       right: 20px;
       bottom: 20px;
+      left: 20px;
       z-index: 100;
-      width: min(58vw, 1180px);
+      width: auto;
       display: grid;
       grid-template-columns: 40% 60%;
       overflow: hidden;
@@ -407,7 +408,7 @@
     .menu-drawer-email { display: inline-block; max-width: 100%; overflow-wrap: anywhere; font-size: clamp(15px, 1.25vw, 20px); font-weight: 700; }
 
     @media (max-width: 1100px) {
-      .menu-panel { width: 82vw; grid-template-columns: 38% 62%; }
+      .menu-panel { left: 10vw; grid-template-columns: 38% 62%; }
     }
 
     :focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
@@ -467,7 +468,7 @@
 
       .menu-button { position: fixed; top: 18px; right: 18px; width: 58px; }
       .video-button { width: 42px; height: 42px; }
-      .menu-panel { inset: 12px 12px 12px auto; width: calc(100vw - 24px); grid-template-columns: 1fr; }
+      .menu-panel { inset: 12px; width: auto; grid-template-columns: 1fr; }
       .menu-drawer-visual { display: none; }
       .menu-drawer-content { padding: 72px 26px 24px; }
       .menu-panel nav a { font-size: clamp(56px, 18vw, 92px); }
@@ -1434,6 +1435,7 @@
     <div class="menu-drawer-content">
       <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
+        <a href="#services">Services</a>
         <a href="portfolio.html">Works</a>
         <a href="about.html">About</a>
         <a href="blog.html">Blog</a>
