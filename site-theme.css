@@ -3,8 +3,8 @@
 /* Shared visual system derived from the 2026 Ismile homepage. */
 :root {
   --amber: #fba92c;
-  --warm-black: #120f0c;
-  --ink: #120f0c;
+  --warm-black: #000;
+  --ink: #000;
   --white: #fffdf9;
   --paper: #fffdf9;
   --off-white: #efede8;
@@ -39,7 +39,7 @@ body::before {
 .progress-bar { height: 3px; background: var(--amber); }
 ::selection { color: var(--ink); background: var(--amber); }
 
-/* Navigation becomes the same compact, right-side menu language as the homepage. */
+/* Use the homepage's floating controls and split navigation drawer site-wide. */
 #nav {
   position: fixed !important;
   top: 0 !important;
@@ -48,43 +48,60 @@ body::before {
   left: 0 !important;
   z-index: 1000 !important;
   width: 100%;
-  height: 94px;
+  height: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 clamp(22px, 3vw, 54px);
-  background: rgba(5, 5, 5, 0.94) !important;
-  border-bottom: 1px solid var(--line) !important;
-  /* A backdrop filter on the nav makes its fixed drawer use the nav as its
-     containing block in some browsers. Keep the drawer viewport-fixed. */
+  padding: 0;
+  pointer-events: none;
+  background: transparent !important;
+  border: 0 !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
 }
 
-#nav .nav-logo { position: relative; z-index: 222; }
-#nav .nav-logo img { width: auto; height: clamp(48px, 4.2vw, 66px); }
+#nav .nav-logo {
+  position: fixed;
+  top: 22px;
+  left: clamp(18px, 3vw, 46px);
+  z-index: 219;
+  width: 82px;
+  pointer-events: auto;
+  transition: opacity 220ms ease;
+}
+#nav .nav-logo img { display: block; width: 100%; height: auto; }
 
 #nav .nav-hamburger {
-  position: relative;
+  position: fixed;
+  top: clamp(18px, 2.7vw, 42px);
+  right: clamp(18px, 2.7vw, 42px);
   z-index: 222;
   display: flex !important;
-  width: 58px;
-  height: 58px;
+  width: clamp(62px, 5vw, 82px);
+  height: auto;
+  aspect-ratio: 1;
   gap: 7px;
-  padding: 0;
-  background: #090909;
-  border: 1px solid var(--line);
+  padding: 0 18px;
+  pointer-events: auto;
+  color: var(--amber);
+  background: rgba(11, 10, 9, .58);
+  border: 1px solid rgba(255,255,255,.22);
   border-radius: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color 180ms ease, background 180ms ease;
 }
+
+#nav .nav-hamburger:hover { border-color: var(--amber); background: rgba(11,10,9,.8); }
 
 #nav .nav-hamburger span {
-  width: 27px;
-  height: 2px;
-  background: var(--amber);
+  width: 100%;
+  height: 3px;
+  background: currentColor;
 }
 
-#nav .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-#nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+#nav .nav-hamburger.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+#nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 
 #nav .nav-links {
   position: fixed !important;
@@ -100,14 +117,15 @@ body::before {
   gap: 0;
   padding: 116px 42px 42px;
   overflow-y: auto;
-  background: #070707;
+  background: #000;
   border-left: 1px solid var(--line);
+  pointer-events: none;
   transform: translateX(105%);
   transition: transform 420ms cubic-bezier(.22,.72,.24,1);
   box-shadow: -24px 0 70px rgba(0,0,0,.35);
 }
 
-#nav .nav-links.open { transform: translateX(0); }
+#nav .nav-links.open { pointer-events: auto; transform: translateX(0); }
 #nav .nav-links > li { width: 100%; text-align: left; }
 
 #nav .nav-links > li > a {
@@ -210,10 +228,10 @@ body:has(#navLinks.open)::after { opacity: 1; }
 /* Enhanced split menu, matching the homepage navigation panel. */
 #nav .nav-links.is-enhanced {
   inset: 20px 20px 20px auto !important;
-  width: min(94vw, 1480px);
+  width: calc(50vw - 20px);
   height: calc(100dvh - 40px);
   display: grid;
-  grid-template-columns: minmax(320px, 40%) minmax(0, 60%);
+  grid-template-columns: 36% 64%;
   grid-template-rows: 1fr;
   padding: 0;
   overflow: hidden;
@@ -226,14 +244,14 @@ body:has(#navLinks.open)::after { opacity: 1; }
   border-color: transparent !important;
   backdrop-filter: none;
 }
-#nav:has(.nav-links.open) .nav-logo { opacity: .14; }
+#nav:has(.nav-links.open) .nav-logo { opacity: 0; pointer-events: none; }
 
 #nav .nav-links.is-enhanced > .theme-menu-visual {
   position: relative;
   width: auto;
   height: 100%;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #000;
   border-right: 1px solid rgba(255,255,255,.2);
 }
 
@@ -259,7 +277,7 @@ body:has(#navLinks.open)::after { opacity: 1; }
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding: clamp(82px, 8vh, 124px) clamp(38px, 5vw, 86px) clamp(28px, 4vh, 50px);
+  padding: clamp(36px, 4vw, 76px) clamp(34px, 4.4vw, 86px) 28px;
   overflow-y: auto;
   text-align: left;
 }
@@ -282,7 +300,7 @@ body:has(#navLinks.open)::after { opacity: 1; }
   color: var(--paper) !important;
   border: 0;
   font-family: "Bebas Neue", Impact, sans-serif;
-  font-size: clamp(48px, 7vh, 92px);
+  font-size: clamp(46px, 3.5vw, 72px);
   font-weight: 400;
   line-height: .93;
   letter-spacing: -.01em;
@@ -312,8 +330,8 @@ body:has(#navLinks.open)::after { opacity: 1; }
 #nav .theme-menu-footer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(24px, 4vw, 72px);
-  padding-top: 26px;
+  gap: 24px;
+  padding-top: 24px;
   border-top: 1px solid rgba(255,255,255,.2);
 }
 
@@ -322,7 +340,7 @@ body:has(#navLinks.open)::after { opacity: 1; }
   padding-block: .08em .14em;
   color: var(--amber);
   font-family: "Caveat", cursive;
-  font-size: clamp(25px, 2.1vw, 36px);
+  font-size: clamp(24px, 2vw, 34px);
   font-weight: 700;
   line-height: 1.16;
   overflow: visible;
@@ -376,14 +394,14 @@ body:has(#navLinks.open)::after { opacity: 1; }
 
 .about-hero, .port-hero, .blog-hero, .c-hero, .svc-hero,
 .post-hero, .project-hero, .legal-hero {
-  background-color: #070707 !important;
+  background-color: #000 !important;
   border-bottom: 1px solid var(--line);
 }
 
-.ah-left { background: #050505 !important; }
+.ah-left { background: #000 !important; }
 .ah-right {
   color: var(--paper);
-  background: #11100e !important;
+  background: #000 !important;
   border-left: 1px solid var(--line);
 }
 .ah-right-h { color: var(--paper) !important; }
@@ -452,7 +470,7 @@ a[class*="cta-btn"], button[class*="cta-btn"] {
 /* Shared footer becomes a bordered editorial grid like the homepage footer. */
 footer:not(.footer-v2) {
   padding: 0 !important;
-  background: #080706 !important;
+  background: #000 !important;
   border-top: 1px solid var(--line);
 }
 
@@ -503,18 +521,19 @@ footer:not(.footer-v2) .footer-bottom {
   border-top: 0;
 }
 
+@media (max-width: 1100px) {
+  #nav .nav-links.is-enhanced { grid-template-columns: 34% 66%; }
+}
+
 @media (max-width: 1050px) {
-  #nav .nav-links.is-enhanced { width: calc(100vw - 40px); grid-template-columns: 38% 62%; }
-  #nav .nav-links.is-enhanced > .theme-menu-content { padding-inline: clamp(30px, 4vw, 54px); }
   footer:not(.footer-v2) .footer-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   footer:not(.footer-v2) .footer-top > div:first-child { grid-column: 1 / -1; }
   footer:not(.footer-v2) .footer-top > div { min-height: 0; }
 }
 
-@media (max-width: 640px) {
-  #nav { height: 76px; padding-inline: 18px; }
-  #nav .nav-logo img { height: 46px; }
-  #nav .nav-hamburger { width: 50px; height: 50px; }
+@media (max-width: 760px) {
+  #nav .nav-logo { top: 18px; left: 18px; width: 66px; }
+  #nav .nav-hamburger { top: 18px; right: 18px; width: 58px; }
   #nav .nav-links { width: 100%; padding: 96px 24px 32px; }
   #nav .nav-links > li > a { font-size: clamp(42px, 15vw, 64px); }
   #nav .nav-links.is-enhanced {
@@ -525,9 +544,12 @@ footer:not(.footer-v2) .footer-bottom {
     padding: 0;
   }
   #nav .nav-links.is-enhanced > .theme-menu-visual { display: none; }
-  #nav .nav-links.is-enhanced > .theme-menu-content { padding: 82px 24px 26px; }
-  #nav .theme-menu-primary > li > a { font-size: clamp(40px, 13vw, 60px); }
+  #nav .nav-links.is-enhanced > .theme-menu-content { padding: 72px 26px 24px; }
+  #nav .theme-menu-primary > li > a { font-size: clamp(52px, 16vw, 78px); }
   #nav .theme-menu-footer { grid-template-columns: 1fr; gap: 18px; padding-top: 20px; }
+}
+
+@media (max-width: 640px) {
   footer:not(.footer-v2) .footer-top { grid-template-columns: 1fr; }
   footer:not(.footer-v2) .footer-top > div:first-child { grid-column: auto; }
   footer:not(.footer-v2) .footer-bottom { align-items: flex-start; flex-direction: column; }
@@ -539,10 +561,6 @@ img, video, svg { max-width: 100%; }
 @media (max-width: 1024px) {
   html, body { max-width: 100%; overflow-x: clip; }
   main, header, section, footer, nav, article, aside, form { min-width: 0; }
-
-  #nav { height: 82px; padding-inline: 22px; }
-  #nav .nav-logo img { height: 52px; max-width: min(190px, 46vw); object-fit: contain; }
-  #nav .nav-hamburger { width: 52px; height: 52px; flex: 0 0 52px; }
 
   .about-hero, .port-hero, .blog-hero, .c-hero, .svc-hero,
   .post-hero, .project-hero, .legal-hero { min-width: 0; }
@@ -576,14 +594,16 @@ img, video, svg { max-width: 100%; }
 @media (max-width: 640px) {
   #nav {
     height: 68px;
-    padding-inline: 14px;
-    background: rgba(5, 5, 5, .97) !important;
+    padding: 0;
+    background: rgba(0, 0, 0, .98) !important;
+    border-bottom: 1px solid var(--line) !important;
   }
-  #nav .nav-logo img { width: auto; height: 40px; max-width: 132px; }
-  #nav .nav-hamburger { width: 46px; height: 46px; flex-basis: 46px; gap: 6px; }
-  #nav .nav-hamburger span { width: 23px; }
-  #nav .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-  #nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+  #nav .nav-logo { top: 14px; left: 16px; width: 56px; }
+  #nav .nav-logo img { width: 100%; height: auto; max-width: none; }
+  #nav .nav-hamburger { top: 14px; right: 14px; width: 50px; height: auto; flex: 0 0 50px; gap: 7px; padding-inline: 14px; }
+  #nav .nav-hamburger span { width: 100%; height: 3px; }
+  #nav .nav-hamburger.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+  #nav .nav-hamburger.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
 
   #nav .nav-links.is-enhanced { inset: 8px !important; height: calc(100dvh - 16px); }
   #nav .nav-links.is-enhanced > .theme-menu-content { padding: 68px 18px 20px; }
