@@ -38,6 +38,12 @@
       primary.appendChild(item);
     });
 
+    var servicesToggle = primary.querySelector(".nav-dropdown-toggle");
+    if (servicesToggle) {
+      servicesToggle.innerHTML = '<span class="theme-menu-plus" aria-hidden="true">+</span>';
+      servicesToggle.setAttribute("aria-label", "Show service pages");
+    }
+
     footer.className = "theme-menu-footer";
     footer.innerHTML =
       '<div><p class="theme-menu-label">Follow us</p><div class="theme-menu-socials">' +
@@ -52,6 +58,22 @@
     navLinks.appendChild(content);
     navLinks.classList.add("is-enhanced");
     navLinks.setAttribute("aria-label", "Site menu");
+
+    /* Keep the inner-page drawer identical to the homepage even when an older
+       cached stylesheet is still present. The phone drawer remains full width. */
+    var phoneMenu = window.matchMedia("(max-width: 760px)");
+    function syncDrawerSize() {
+      if (phoneMenu.matches) {
+        navLinks.style.removeProperty("width");
+        navLinks.style.removeProperty("grid-template-columns");
+      } else {
+        navLinks.style.setProperty("width", "calc(50vw - 20px)");
+        navLinks.style.setProperty("grid-template-columns", "36% 64%");
+      }
+    }
+    syncDrawerSize();
+    if (phoneMenu.addEventListener) phoneMenu.addEventListener("change", syncDrawerSize);
+    else phoneMenu.addListener(syncDrawerSize);
 
     button.addEventListener("click", function () {
       window.requestAnimationFrame(function () {
