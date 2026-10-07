@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Brand, website, marketing, and client systems for service businesses across the U.S. and Canada." />
   <meta name="twitter:image" content="https://www.byismile.com/logo.png" />
   <meta name="twitter:site" content="@ismilecds" />
-  <script src="./site-widgets.js" defer></script>
+  <script src="./site-widgets.js?v=20261006-responsive1" defer></script>
   <script src="./loader.js?v=20261006-amber2" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -442,7 +442,7 @@
     }
     .menu-services-submenu a:hover { color: var(--amber); transform: translateX(5px); }
     .menu-drawer-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
-    .menu-drawer-label { margin: 0 0 10px; color: var(--amber); font-family: "Caveat", cursive; font-size: clamp(24px, 2vw, 34px); font-weight: 700; line-height: .9; }
+    .menu-drawer-label { margin: 0 0 10px; padding-block: .08em .14em; color: var(--amber); font-family: "Caveat", cursive; font-size: clamp(24px, 2vw, 34px); font-weight: 700; line-height: 1.16; overflow: visible; }
     .menu-socials { display: flex; flex-wrap: wrap; gap: 8px 22px; }
     .menu-socials a { font-size: clamp(15px, 1.3vw, 21px); font-weight: 600; }
     .menu-socials a:hover, .menu-drawer-email:hover { color: var(--amber); }
@@ -1042,11 +1042,13 @@
 
     .script-label {
       margin: 0;
+      padding-block: .08em .14em;
       color: var(--amber);
       font-family: "Caveat", cursive;
       font-size: clamp(24px, 2.2vw, 38px);
       font-weight: 700;
-      line-height: .85;
+      line-height: 1.16;
+      overflow: visible;
     }
 
     .handwritten-wave-char {
@@ -1100,7 +1102,7 @@
     .manifesto-v2::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,.42), rgba(0,0,0,.66)); }
     .manifesto-background { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: contrast(1.08) brightness(.82); }
     .manifesto-v2-copy { position: relative; z-index: 2; max-width: 740px; text-align: center; }
-    .manifesto-v2-copy > .script-label { width: 100%; text-align: center; transform: translateY(-30%); }
+    .manifesto-v2-copy > .script-label { width: 100%; text-align: center; }
     .manifesto-v2-copy h2 { margin: 8px 0 22px; font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(104px, 14.5vw, 230px); font-weight: 400; line-height: .72; text-transform: uppercase; text-shadow: 0 5px 32px rgba(0,0,0,.8); }
     .manifesto-v2-copy > p:last-child { max-width: 560px; margin: 0 auto; color: rgba(255,255,255,.72); font-size: clamp(16px, 1.35vw, 21px); line-height: 1.55; }
 
@@ -1159,7 +1161,7 @@
     .work-project-description { max-width: 500px; margin: clamp(18px, 2.2vh, 28px) 0 0; color: rgba(255,255,255,.58); font-size: clamp(15px, 1.08vw, 18px); line-height: 1.5; }
     .work-project-details { margin: clamp(22px, 2.8vh, 34px) 0 0; border-top: 1px solid var(--line); }
     .work-project-details > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); align-items: center; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--line); }
-    .work-project-details dt { color: var(--amber); font-family: "Caveat", cursive; font-size: 21px; font-weight: 700; }
+    .work-project-details dt { padding-block: .08em .14em; color: var(--amber); font-family: "Caveat", cursive; font-size: 21px; font-weight: 700; line-height: 1.16; overflow: visible; }
     .work-project-details dd { margin: 0; color: rgba(255,255,255,.62); font-size: 14px; }
     .work-service-tags { display: flex; flex-wrap: wrap; gap: 6px; }
     .work-service-tags span { padding: 5px 9px; color: rgba(255,255,255,.67); border: 1px solid rgba(255,255,255,.2); border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .05em; line-height: 1; text-transform: uppercase; }
@@ -1187,7 +1189,7 @@
 
     .services-v2 { overflow: visible; padding: 0; background: #050505; }
     .service-list-heading { min-height: 70svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: clamp(110px, 12vw, 190px) 24px clamp(80px, 9vw, 140px); text-align: center; }
-    .service-list-heading .script-label { margin-bottom: clamp(24px, 3vw, 46px); font-size: clamp(34px, 3.4vw, 56px); transform: translateY(70%); }
+    .service-list-heading .script-label { margin-bottom: clamp(12px, 1.8vw, 28px); font-size: clamp(34px, 3.4vw, 56px); }
     .service-list-heading > h2 { margin: 0; color: var(--paper); font-family: "Bebas Neue", Impact, sans-serif; font-size: clamp(100px, 11.5vw, 220px); font-weight: 400; letter-spacing: -.025em; line-height: .76; text-transform: uppercase; }
     .service-list-v2 { border-top: 1px solid var(--line); overflow-anchor: none; }
     .service-list-v2 .service-row {
@@ -1250,7 +1252,7 @@
     .why-top, .why-bottom { display: grid; grid-template-columns: .82fr 1.18fr; min-height: 78svh; }
     .why-bottom { grid-template-columns: 1.18fr .82fr; }
     .why-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(45px, 7vw, 110px); }
-    .why-copy > .script-label { transform: translateY(60%); }
+    .why-copy > .script-label { margin-bottom: 4px; }
     .why-copy h2 { max-width: 570px; margin: 16px 0 0; font-size: clamp(30px, 3.5vw, 58px); line-height: 1.12; }
     .why-visual { position: relative; display: grid; place-items: end center; overflow: hidden; background: #13110f; }
     .why-visual img { max-width: 84%; max-height: 86%; object-fit: contain; filter: drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
@@ -1404,6 +1406,171 @@
       .footer-reach { grid-column: auto; min-height: 190px !important; align-items: flex-start; flex-direction: column; }
       .footer-email { font-size: clamp(30px, 10vw, 52px); }
       .footer-legal { grid-column: auto; flex-direction: column; gap: 8px; }
+    }
+
+    /* Responsive fit pass: keep the editorial layout inside small screens. */
+    @media (max-width: 1024px) {
+      body { overflow-x: clip; }
+      img, video, svg { max-width: 100%; }
+
+      .menu-panel {
+        width: min(720px, calc(100vw - 24px));
+        inset: 12px 12px 12px auto;
+      }
+
+      .record-section { padding-inline: clamp(22px, 4.5vw, 46px); }
+      .record-heading h2,
+      .faq-v2 .faq-heading h2 {
+        font-size: clamp(58px, 11vw, 104px);
+        line-height: .82;
+      }
+
+      .script-label,
+      .menu-drawer-label,
+      .work-project-details dt {
+        max-width: 100%;
+        line-height: 1.16;
+        letter-spacing: normal;
+        text-wrap: balance;
+      }
+
+      .project-cta h2 {
+        min-width: 0;
+        font-size: clamp(76px, 13vw, 128px);
+        white-space: normal;
+      }
+
+      .footer-v2 > div,
+      .footer-v2 > nav { min-width: 0; }
+      .footer-email { max-width: 100%; overflow-wrap: anywhere; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { min-height: auto; border-width: 4px; }
+      .hero-visual { min-height: 48svh; }
+      .hero-copy { min-height: auto; padding: 18px 18px 28px; }
+      .brand { width: min(48vw, 200px); margin-top: 38px; }
+      .meta-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .meta-block:last-child { transform: none; }
+      .hero-message { padding-top: 44px; }
+      h1 { max-width: 100%; font-size: clamp(50px, 15vw, 68px); line-height: .86; }
+      .hero-description { max-width: 38rem; }
+      .visual-caption { right: 76px; font-size: 9px; letter-spacing: .12em; }
+
+      .menu-button {
+        top: max(14px, env(safe-area-inset-top));
+        right: 14px;
+        width: 50px;
+        padding-inline: 14px;
+      }
+      .floating-logo { top: max(14px, env(safe-area-inset-top)); left: 16px; width: 56px; }
+      body:has(.floating-logo.is-visible)::before {
+        content: "";
+        position: fixed;
+        z-index: 10;
+        inset: 0 0 auto 0;
+        height: calc(76px + env(safe-area-inset-top));
+        background: rgba(5, 5, 5, .94);
+        pointer-events: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .menu-panel { inset: 8px; width: auto; }
+      .menu-drawer-content { padding: 66px 20px 20px; }
+      .menu-panel nav > a,
+      .menu-service-heading > a { font-size: clamp(40px, 13vw, 56px); }
+      .menu-service-toggle { width: 34px; height: 34px; flex-basis: 34px; }
+
+      .record-section { padding: 64px 18px; }
+      .script-label { font-size: clamp(25px, 8.5vw, 34px); }
+      .handwritten-wave-char { display: inline; animation: none; will-change: auto; }
+      .record-heading { width: 100%; gap: 18px; margin-bottom: 44px; }
+      .record-heading h2,
+      .faq-v2 .faq-heading h2 {
+        max-width: 100%;
+        font-size: clamp(48px, 14vw, 64px);
+        line-height: .84;
+        overflow-wrap: normal;
+      }
+
+      .manifesto-v2 { min-height: 68svh; }
+      .manifesto-v2-copy { width: 100%; max-width: 34rem; }
+      .manifesto-v2-copy h2 { font-size: clamp(82px, 27vw, 116px); line-height: .74; }
+
+      .works-v2 > .record-heading { padding: 64px 18px 40px; }
+      .work-project-copy { min-height: auto; padding: 44px 18px; }
+      .work-project-meta { flex-wrap: wrap; justify-content: flex-start; gap: 8px 18px; }
+      .work-project-client { font-size: 19px; }
+      .work-project h3 { max-width: 100%; font-size: clamp(34px, 10vw, 46px); overflow-wrap: anywhere; }
+      .work-project-description { font-size: 15px; }
+      .work-project-details > div { grid-template-columns: 68px minmax(0, 1fr); }
+      .work-project-media { min-height: 44svh; }
+
+      .service-list-heading { min-height: auto; padding: 82px 18px 62px; }
+      .service-list-heading .script-label { margin-bottom: 20px; transform: none; }
+      .service-list-heading > h2 { max-width: 100%; font-size: clamp(60px, 18vw, 82px); line-height: .82; }
+      .service-summary { min-height: 116px; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding-inline: 18px; }
+      .service-list-v2 .service-number { font-size: 38px; }
+      .service-list-v2 .service-name { min-width: 0; font-size: clamp(28px, 8.5vw, 40px); overflow-wrap: anywhere; }
+      .service-panel-content { padding: 0 18px 44px; }
+      .service-detail-title { font-size: clamp(36px, 11vw, 48px); overflow-wrap: anywhere; }
+      .service-details p { font-size: 16px; }
+
+      .why-copy { min-height: auto; padding: 64px 18px; }
+      .why-copy > .script-label { transform: none; }
+      .why-copy h2 { margin-top: 12px; font-size: clamp(28px, 8vw, 38px); }
+      .why-visual { min-height: 52svh; }
+      .stats-v2 { min-height: auto; padding: 52px 18px; }
+      .stats-v2 > div { grid-template-columns: 90px minmax(0, 1fr); }
+      .stats-v2 strong { font-size: 64px; }
+      .stats-v2 p { font-size: 16px; }
+
+      .testimonial-v2 .quote-stage { min-height: 340px; padding: 74px 20px 42px; }
+      .testimonial-v2 .client-quote { font-size: clamp(22px, 6.5vw, 30px); }
+      .quote-tab { min-width: 0; padding: 16px 10px; font-size: 11px; overflow-wrap: anywhere; }
+
+      .package-card,
+      .bespoke-row { width: 100%; min-width: 0; }
+      .package-image { height: auto; aspect-ratio: 16 / 10; }
+      .package-content { padding: 20px; }
+      .package-content h3,
+      .bespoke-row h3 { font-size: clamp(28px, 8.5vw, 36px); overflow-wrap: anywhere; }
+      .package-content li { display: grid; grid-template-columns: 20px minmax(0, 1fr); }
+      .package-content li::before { margin-right: 0; }
+      .package-content a,
+      .bespoke-row > a { width: 100%; min-width: 0; overflow-wrap: anywhere; }
+      .bespoke-row { gap: 22px; padding: 20px; }
+
+      .faq-item summary { gap: 12px; padding: 22px 0; font-size: 18px; }
+      .faq-answer { font-size: 16px; }
+      .journal-image { aspect-ratio: 16 / 10; }
+      .journal-card h3 { font-size: clamp(28px, 9vw, 40px); overflow-wrap: anywhere; }
+
+      .project-cta { min-height: 38svh; padding: 58px 18px 46px; }
+      .project-cta > a { align-items: center; gap: 16px; }
+      .project-cta h2 { font-size: clamp(62px, 19vw, 88px); line-height: .8; }
+      .project-cta svg { width: 48px; }
+
+      .footer-v2 { overflow: hidden; }
+      .footer-v2 > div,
+      .footer-v2 > nav { min-height: 0; padding: 24px 18px; }
+      .footer-brand-panel { min-height: 0 !important; gap: 26px; }
+      .footer-brand-panel img { width: min(150px, 45vw); }
+      .footer-brand-panel p { max-width: 22rem; margin: 0; font-size: 16px; }
+      .footer-menu { min-height: 0; padding: 0 !important; }
+      .footer-menu a { min-height: 64px; flex: none; padding: 0 20px; font-size: 20px; }
+      .footer-connect { min-height: 0; padding-block: 32px !important; }
+      .footer-note { min-height: 260px !important; padding: 34px 0 64px !important; }
+      .footer-newsletter-copy { padding: 0 18px 22px; }
+      .footer-newsletter-copy > p:not(.script-label) { max-width: 32rem; font-size: 16px; }
+      .footer-marquee { top: 34px; }
+      .footer-marquee span { font-size: 74px; }
+      .footer-newsletter-form { min-height: 64px; grid-template-columns: minmax(0, 1fr) minmax(112px, 34%); }
+      .footer-newsletter-form input { padding: 0 18px; font-size: 16px; }
+      .footer-newsletter-form button { min-width: 0; padding: 0 12px; font-size: 14px; }
+      .footer-reach { min-height: 0 !important; gap: 24px; padding: 34px 18px !important; }
+      .footer-email { font-size: clamp(27px, 8.5vw, 40px); }
+      .footer-legal { min-height: 0 !important; padding: 18px !important; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1952,20 +2119,6 @@
         }
       });
     }
-
-    document.querySelectorAll(".script-label, .menu-drawer-label, .work-project-details dt").forEach((label) => {
-      const labelText = label.textContent;
-      label.setAttribute("aria-label", labelText);
-      label.textContent = "";
-      Array.from(labelText).forEach((character, index) => {
-        const characterSpan = document.createElement("span");
-        characterSpan.className = "handwritten-wave-char";
-        characterSpan.setAttribute("aria-hidden", "true");
-        characterSpan.style.setProperty("--wave-index", index);
-        characterSpan.textContent = character === " " ? "\u00a0" : character;
-        label.append(characterSpan);
-      });
-    });
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const revealItems = document.querySelectorAll(".reveal");
