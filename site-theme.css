@@ -466,6 +466,105 @@ a[class*="cta-btn"], button[class*="cta-btn"] {
   transform: translateY(-2px);
 }
 
+/* Keep the portfolio CTA grounded and reserve amber for the primary action. */
+.portfolio-cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(84px, 9vw, 132px) clamp(22px, 4vw, 72px);
+  text-align: center;
+  color: var(--paper);
+  background: #000;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.portfolio-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(240px, 32vw);
+  height: 3px;
+  background: var(--amber);
+  transform: translateX(-50%);
+}
+
+.portfolio-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.portfolio-cta h2 {
+  margin: 0 0 24px;
+  color: var(--paper);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(52px, 7vw, 100px);
+  font-weight: 400;
+  line-height: .9;
+  letter-spacing: .02em;
+}
+
+.portfolio-cta p {
+  max-width: 520px;
+  margin: 0 auto 36px;
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.portfolio-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.portfolio-cta-primary,
+.portfolio-cta-secondary {
+  min-height: 58px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px;
+  font-family: "Assistant", sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-decoration: none;
+  transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.portfolio-cta-primary {
+  color: #000;
+  background: var(--amber);
+  border: 1px solid var(--amber);
+}
+
+.portfolio-cta-primary:hover {
+  color: #000;
+  background: #ffc04d;
+  border-color: #ffc04d;
+  transform: translateY(-2px);
+}
+
+.portfolio-cta-secondary {
+  color: var(--paper);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .28);
+}
+
+.portfolio-cta-secondary:hover {
+  color: var(--amber);
+  border-color: var(--amber);
+  transform: translateY(-2px);
+}
+
 .finput, .form-input, input, textarea, select {
   border-color: var(--line) !important;
   border-radius: 0 !important;
@@ -558,6 +657,18 @@ footer:not(.footer-v2) .footer-bottom {
 }
 
 @media (max-width: 640px) {
+  .portfolio-cta { padding: 76px 18px; }
+  .portfolio-cta h2 { font-size: clamp(48px, 15vw, 68px); }
+  .portfolio-cta p { font-size: 16px; }
+  .portfolio-cta-actions { flex-direction: column; align-items: stretch; }
+  .portfolio-cta-primary,
+  .portfolio-cta-secondary {
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+  }
+
   footer:not(.footer-v2) .footer-top { grid-template-columns: 1fr; }
   footer:not(.footer-v2) .footer-top > div:first-child { grid-column: auto; }
   footer:not(.footer-v2) .footer-bottom { align-items: flex-start; flex-direction: column; }
