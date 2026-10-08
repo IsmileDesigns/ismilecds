@@ -880,8 +880,9 @@ body.service-page .svc-cta-note a:hover { color: var(--paper, #fffdf9); }
   body.service-page .gallery-item { flex-basis: 84vw; }
   body.service-page .gallery-card { height: 400px; }
 
-  body.service-page .svc-faq-inner { grid-template-columns: 1fr; gap: 28px; }
-  body.service-page .svc-faq-heading { position: relative; top: auto; grid-column: 1; font-size: clamp(62px, 19vw, 98px) !important; }
+  body.service-page .svc-faq-inner { grid-template-columns: 1fr; gap: 0; }
+  body.service-page .svc-faq-eyebrow { margin-bottom: -6px; }
+  body.service-page .svc-faq-heading { position: relative; top: auto; grid-column: 1; margin-bottom: 32px; font-size: clamp(62px, 19vw, 98px) !important; }
   body.service-page .svc-faq-list { grid-column: 1; grid-row: auto; }
 
   body.service-page .svc-cta { min-height: 76svh; }

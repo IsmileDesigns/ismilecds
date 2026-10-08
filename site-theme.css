@@ -647,13 +647,34 @@ footer:not(.footer-v2) .footer-bottom {
     inset: 12px !important;
     width: auto;
     height: calc(100dvh - 24px);
+    max-height: none !important;
     display: block;
     padding: 0;
+    overflow: hidden;
   }
   #nav .nav-links.is-enhanced > .theme-menu-visual { display: none; }
-  #nav .nav-links.is-enhanced > .theme-menu-content { padding: 72px 26px 24px; }
+  #nav .nav-links.is-enhanced > .theme-menu-content {
+    height: 100%;
+    min-height: 0;
+    padding: 72px 26px 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+  #nav .theme-menu-primary { flex: none; justify-content: flex-start; }
   #nav .theme-menu-primary > li > a { font-size: clamp(52px, 16vw, 78px); }
-  #nav .theme-menu-footer { grid-template-columns: 1fr; gap: 18px; padding-top: 20px; }
+  #nav .theme-menu-primary a::before,
+  #nav .theme-menu-primary a::after { content: none !important; display: none !important; }
+  #nav .theme-menu-footer { flex: none; grid-template-columns: 1fr; gap: 18px; margin-top: 28px; padding-top: 20px; }
+
+  body.theme-menu-open,
+  body:has(#navLinks.open) { overflow: hidden; }
+  body.theme-menu-open .progress-bar,
+  body:has(#navLinks.open) .progress-bar,
+  body.theme-menu-open .ismile-sticky-cta,
+  body:has(#navLinks.open) .ismile-sticky-cta { display: none !important; }
 }
 
 @media (max-width: 640px) {

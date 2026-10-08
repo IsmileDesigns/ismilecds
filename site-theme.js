@@ -1,6 +1,7 @@
 (function () {
   function closeMenu(navLinks, button) {
     navLinks.classList.remove("open");
+    document.body.classList.remove("theme-menu-open");
     button.classList.remove("open");
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-label", "Open menu");
@@ -78,6 +79,7 @@
     button.addEventListener("click", function () {
       window.requestAnimationFrame(function () {
         var isOpen = navLinks.classList.contains("open");
+        document.body.classList.toggle("theme-menu-open", isOpen);
         button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       });
     });
