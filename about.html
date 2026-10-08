@@ -110,9 +110,9 @@
     @media(max-width:768px){nav{padding:0 24px;}.sec{padding:72px 24px;}footer{padding:48px 24px 32px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
     .about-script{width:max-content;max-width:100%;padding:3px 10px 6px 1px;color:var(--amber);font-family:'Caveat',cursive;font-size:clamp(24px,2.2vw,38px);font-weight:700;line-height:1.16;overflow:visible;}
     .about-hero-v2{position:relative;background:#000;border-bottom:1px solid var(--bd);}
-    .about-hero-image{position:relative;height:clamp(260px,28svh,420px);overflow:hidden;background:#0b0b0b url('about.jpg') 50% 43%/cover no-repeat;}
+    .about-hero-image{position:relative;height:clamp(210px,23svh,340px);overflow:hidden;background:#0b0b0b url('founderyaz.png') 50% 28%/cover no-repeat;background-image:image-set(url('founderyaz.webp') type('image/webp'),url('founderyaz.png') type('image/png'));}
     .about-hero-image picture,.about-hero-image img{position:absolute;inset:0;display:block;width:100%;height:100%;}
-    .about-hero-image img{object-fit:cover;object-position:50% 43%;}
+    .about-hero-image img{object-fit:cover;object-position:50% 28%;}
     .about-hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.14) 0%,rgba(0,0,0,.08) 38%,rgba(0,0,0,.88) 100%);pointer-events:none;}
     .about-hero-copy{position:relative;z-index:2;margin-top:clamp(-72px,-5vw,-44px);padding:0 56px clamp(58px,7vw,92px);}
     .about-hero-copy .about-script{margin-bottom:4px;}
@@ -185,9 +185,8 @@
     @media(max-width:640px){
       body{cursor:auto;}.cursor{display:none;}
       .about-hero-v2{padding-top:68px;}
-      .about-hero-image{height:clamp(240px,30svh,320px);}
-      .about-hero-image{background-position:50% 42%;}
-      .about-hero-image img{object-position:50% 42%;}
+      .about-hero-image{height:clamp(150px,20svh,210px);background-position:50% 20%;}
+      .about-hero-image img{object-position:50% 20%;}
       .about-hero-copy{margin-top:-38px;padding-bottom:54px;}
       .about-story-media{aspect-ratio:4/3;}
       .about-story-lead,.about-cta-copy>p:not(.about-script){font-size:16px;}
@@ -264,7 +263,8 @@
   <section class="about-hero-v2" aria-labelledby="aboutTitle">
     <div class="about-hero-image" aria-hidden="true">
       <picture>
-        <img src="about.jpg" alt="" width="1680" height="944" fetchpriority="high" decoding="async"/>
+        <source srcset="founderyaz.webp" type="image/webp"/>
+        <img src="founderyaz.png" alt="" width="1856" height="2304" fetchpriority="high" decoding="async"/>
       </picture>
     </div>
     <div class="about-hero-copy">
@@ -275,7 +275,7 @@
 
   <section class="about-story-v2" aria-labelledby="aboutStoryTitle">
     <figure class="about-story-media" data-r>
-      <img src="branding.webp" alt="Colourful markers arranged during the creative process" width="1920" height="1280" loading="lazy" decoding="async"/>
+      <img src="about.jpg" alt="Designer holding a laptop" width="1680" height="944" loading="lazy" decoding="async"/>
     </figure>
     <div class="about-story-copy" data-r>
       <p class="about-script">Who we are</p>
