@@ -54,60 +54,7 @@
     });
   }
 
-  function addHeroParallax() {
-    if (reduceMotion.matches) return;
-
-    var hero = document.querySelector(".svc-hero");
-    var art = document.querySelector(".svc-hero-art");
-    var word = document.querySelector(".svc-art-word");
-    if (!hero || !art || !word) return;
-
-    var pointerX = 0;
-    var pointerY = 0;
-    var currentX = 0;
-    var currentY = 0;
-    var scrollProgress = 0;
-    var frameRequested = false;
-
-    function paint() {
-      frameRequested = false;
-      currentX += (pointerX - currentX) * 0.075;
-      currentY += (pointerY - currentY) * 0.075;
-      word.style.setProperty("--art-x", (currentX * -18).toFixed(2) + "px");
-      word.style.setProperty("--art-y", ((currentY * -12) + (scrollProgress * 44)).toFixed(2) + "px");
-      if (Math.abs(pointerX - currentX) > 0.002 || Math.abs(pointerY - currentY) > 0.002) {
-        requestFrame();
-      }
-    }
-
-    function requestFrame() {
-      if (frameRequested) return;
-      frameRequested = true;
-      window.requestAnimationFrame(paint);
-    }
-
-    art.addEventListener("pointermove", function (event) {
-      var rect = art.getBoundingClientRect();
-      pointerX = (event.clientX - rect.left) / rect.width - 0.5;
-      pointerY = (event.clientY - rect.top) / rect.height - 0.5;
-      requestFrame();
-    });
-
-    art.addEventListener("pointerleave", function () {
-      pointerX = 0;
-      pointerY = 0;
-      requestFrame();
-    });
-
-    window.addEventListener("scroll", function () {
-      var rect = hero.getBoundingClientRect();
-      scrollProgress = Math.max(0, Math.min(1, -rect.top / Math.max(1, rect.height)));
-      requestFrame();
-    }, { passive: true });
-  }
-
   animateHandwrittenLabels();
   observeReveals();
   addCardLight();
-  addHeroParallax();
 })();
