@@ -13,7 +13,7 @@ body.service-page {
   color: var(--paper, #fffdf9);
 }
 
-body.service-brand { --svc-photo: url("branding.webp"); --svc-photo-position: center; --svc-note: "make them remember"; }
+body.service-brand { --svc-photo: url("branding.png"); --svc-photo-position: center; --svc-note: "make them remember"; }
 body.service-web { --svc-photo: url("Development.jpg"); --svc-photo-position: 56% center; --svc-note: "make the click count"; }
 body.service-marketing { --svc-photo: url("digitalmarketing.jpg"); --svc-photo-position: center; --svc-note: "say it louder"; }
 body.service-systems { --svc-photo: url("systems.webp"); --svc-photo-position: center; --svc-note: "let it run"; }
