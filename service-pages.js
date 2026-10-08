@@ -17,23 +17,10 @@
       var copy = label.textContent.trim();
       if (!copy) return;
 
+      copy = copy.toLowerCase();
       label.dataset.handAnimated = "true";
-      label.setAttribute("aria-label", copy);
-      label.textContent = "";
-
-      Array.from(copy).forEach(function (character, index) {
-        if (character === " ") {
-          label.appendChild(document.createTextNode(" "));
-          return;
-        }
-
-        var letter = document.createElement("span");
-        letter.className = "service-hand-char";
-        letter.setAttribute("aria-hidden", "true");
-        letter.style.setProperty("--char-index", index);
-        letter.textContent = character;
-        label.appendChild(letter);
-      });
+      label.textContent = copy;
+      label.classList.add("service-hand-label");
     });
   }
 
@@ -73,8 +60,7 @@
     var hero = document.querySelector(".svc-hero");
     var art = document.querySelector(".svc-hero-art");
     var word = document.querySelector(".svc-art-word");
-    var orbit = document.querySelector(".svc-art-orbit");
-    if (!hero || !art || !word || !orbit) return;
+    if (!hero || !art || !word) return;
 
     var pointerX = 0;
     var pointerY = 0;
@@ -89,8 +75,6 @@
       currentY += (pointerY - currentY) * 0.075;
       word.style.setProperty("--art-x", (currentX * -18).toFixed(2) + "px");
       word.style.setProperty("--art-y", ((currentY * -12) + (scrollProgress * 44)).toFixed(2) + "px");
-      orbit.style.setProperty("--orbit-turn", ((currentX * 7) + (scrollProgress * 42)).toFixed(2) + "deg");
-
       if (Math.abs(pointerX - currentX) > 0.002 || Math.abs(pointerY - currentY) > 0.002) {
         requestFrame();
       }
