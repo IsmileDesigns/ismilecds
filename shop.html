@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#080706" />
+  <title>Digital Shop — Templates, Tools &amp; Resources | Ismile</title>
+  <meta name="description" content="Shop sharp, practical digital tools from Ismile—brand workbooks, website resources, marketing templates, and client systems." />
+  <link rel="canonical" href="https://www.byismile.com/shop.html" />
+  <link rel="icon" href="favicon-ismile.png" type="image/png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.byismile.com/shop.html" />
+  <meta property="og:title" content="Digital Shop | Ismile" />
+  <meta property="og:description" content="Practical digital resources with an Ismile point of view." />
+  <meta property="og:image" content="https://www.byismile.com/Ismile-bunny-branding.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Digital Shop | Ismile" />
+  <meta name="twitter:description" content="Practical digital resources with an Ismile point of view." />
+  <meta name="twitter:image" content="https://www.byismile.com/Ismile-bunny-branding.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Bebas+Neue&amp;family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shop.css?v=20261012-1" />
+  <script src="shop.js?v=20261012-1" defer></script>
+  <script src="site-widgets.js?v=20261006-responsive1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#products">Skip to products</a>
+  <div class="shop-ticker" aria-hidden="true"><div><span>DIGITAL GOODS · NO GENERIC STUFF · BUILT TO USE · </span><span>DIGITAL GOODS · NO GENERIC STUFF · BUILT TO USE · </span></div></div>
+
+  <header class="shop-header">
+    <a class="shop-logo" href="index.html" aria-label="Ismile home"><img src="logo-white-new.png" alt="Ismile" width="713" height="395" /></a>
+    <nav aria-label="Shop navigation">
+      <a href="index.html">Studio</a>
+      <a href="#products">Shop all</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="cart-trigger" id="cartTrigger" type="button" aria-controls="cartDrawer" aria-expanded="false">
+      Cart <span id="cartCount" aria-label="items in cart">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="shop-hero" aria-labelledby="shop-title">
+      <div class="shop-hero-copy">
+        <p class="kicker"><span></span> Ismile Digital Shop</p>
+        <h1 id="shop-title">Tools for<br /><em>building sharp.</em></h1>
+        <div class="hero-bottom">
+          <p>Templates, workbooks, and systems made for business owners who want clarity—not more clutter.</p>
+          <a href="#products">Browse the drop <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="shop-hero-art" aria-hidden="true">
+        <div class="art-number">01</div>
+        <div class="art-stamp"><span>Made in</span><strong>Toronto</strong><span>For anywhere</span></div>
+        <img src="Ismile-bunny-branding.png" alt="" width="2000" height="2000" />
+        <p>Good ideas.<br />Useful files.</p>
+      </div>
+    </section>
+
+    <section class="shop-intro" aria-label="About the shop">
+      <p class="script">Downloads, but better.</p>
+      <p>Every resource is designed to get you from “I should really sort this out” to a clear, usable next step.</p>
+      <ul>
+        <li>Instant access</li>
+        <li>Made for real work</li>
+        <li>Lifetime use</li>
+      </ul>
+    </section>
+
+    <section class="catalog" id="products" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div><p class="index-label">01 / THE GOODS</p><h2 id="catalog-title">Shop all</h2></div>
+        <div class="filters" id="filters" aria-label="Filter products"></div>
+      </div>
+      <p class="catalog-status" id="catalogStatus" role="status">Loading the good stuff…</p>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="shop-note">
+      <p class="script">A little less chaos.</p>
+      <h2>Made to move your business forward—not sit in your downloads folder.</h2>
+      <a href="mailto:hello@byismile.com">Questions? Talk to a human <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer class="shop-footer">
+    <div class="footer-mark"><img src="logo.png" alt="Ismile" width="713" height="395" /><p>Creative and digital solutions for service businesses.</p></div>
+    <nav aria-label="Footer navigation"><a href="portfolio.html">Works</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav>
+    <div><p class="footer-label">Need help?</p><a class="footer-email" href="mailto:hello@byismile.com">hello@byismile.com</a></div>
+    <div class="footer-legal"><span>© 2026 Ismile Creative &amp; Digital Solutions</span><a href="terms-and-conditions.html">Terms</a><a href="privacy-policy.html">Privacy</a><a href="shop-admin.html" rel="nofollow">Shop admin</a></div>
+  </footer>
+
+  <div class="drawer-backdrop" id="cartBackdrop" hidden></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true">
+    <div class="cart-head"><div><p class="index-label">YOUR PICKS</p><h2 id="cartTitle">Cart</h2></div><button id="cartClose" type="button" aria-label="Close cart">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span>0</span><p>Your cart is keeping it minimal.</p><button type="button" id="cartShopButton">Browse products</button></div>
+    <div class="cart-summary" id="cartSummary" hidden>
+      <div><span>Subtotal</span><strong id="cartTotal">$0.00 CAD</strong></div>
+      <p>Prices shown in CAD. Secure payment and receipt provided by Stripe.</p>
+      <button class="checkout-button" id="checkoutButton" type="button">Secure checkout <span>↗</span></button>
+      <p class="checkout-status" id="checkoutStatus" role="status"></p>
+    </div>
+  </aside>
+
+  <dialog class="product-modal" id="productModal">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Close product details">×</button>
+    <div class="modal-image"><img id="modalImage" src="" alt="" width="1200" height="900" /></div>
+    <div class="modal-copy">
+      <p class="index-label" id="modalEyebrow"></p>
+      <h2 id="modalName"></h2>
+      <p id="modalDescription"></p>
+      <div class="modal-buy"><strong id="modalPrice"></strong><button id="modalAdd" type="button">Add to cart <span>+</span></button></div>
+      <ul><li>Instant digital delivery</li><li>Use it again and again</li><li>Secure checkout with Stripe</li></ul>
+    </div>
+  </dialog>
+
+  <template id="productTemplate">
+    <article class="product-card">
+      <button class="product-visual" type="button"><img src="" alt="" width="1200" height="900" loading="lazy" /><span class="product-index"></span><span class="product-view">View details ↗</span></button>
+      <div class="product-meta"><div><p class="product-eyebrow"></p><h3></h3></div><p class="product-price"></p></div>
+      <button class="product-add" type="button"><span>Add to cart</span><b>+</b></button>
+    </article>
+  </template>
+</body>
+</html>

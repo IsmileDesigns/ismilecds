@@ -39,6 +39,16 @@
       primary.appendChild(item);
     });
 
+    if (!primary.querySelector('a[href$="shop.html"]')) {
+      var shopItem = document.createElement("li");
+      shopItem.innerHTML = '<a href="./shop.html">Shop</a>';
+      var contactItem = Array.prototype.find.call(primary.children, function (item) {
+        var link = item.querySelector(":scope > a");
+        return link && link.textContent.trim() === "Contact";
+      });
+      primary.insertBefore(shopItem, contactItem || null);
+    }
+
     var servicesToggle = primary.querySelector(".nav-dropdown-toggle");
     if (servicesToggle) {
       servicesToggle.innerHTML = '<span class="theme-menu-plus" aria-hidden="true">+</span>';
@@ -59,6 +69,17 @@
     navLinks.appendChild(content);
     navLinks.classList.add("is-enhanced");
     navLinks.setAttribute("aria-label", "Site menu");
+
+    document.querySelectorAll(".footer-menu").forEach(function (footerMenu) {
+      if (footerMenu.querySelector('a[href$="shop.html"]')) return;
+      var shopLink = document.createElement("a");
+      shopLink.href = "./shop.html";
+      shopLink.innerHTML = 'Shop <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"></path></svg>';
+      var contactLink = Array.prototype.find.call(footerMenu.children, function (link) {
+        return link.textContent.trim().indexOf("Contact") === 0;
+      });
+      footerMenu.insertBefore(shopLink, contactLink || null);
+    });
 
     /* Keep the inner-page drawer identical to the homepage even when an older
        cached stylesheet is still present. The phone drawer remains full width. */

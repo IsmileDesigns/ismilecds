@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#fba92c" />
+  <title>Your downloads | Ismile Digital Shop</title>
+  <link rel="icon" href="favicon-ismile.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Bebas+Neue&amp;family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root{--amber:#fba92c;--ink:#080706;--paper:#fffdf9;--muted:rgba(255,253,249,.6);--line:rgba(255,255,255,.16)}*{box-sizing:border-box}body{margin:0;min-width:320px;min-height:100svh;color:var(--paper);background:var(--ink);font-family:"Assistant",Arial,sans-serif}body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}.top{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,62px);background:#000;border-bottom:1px solid var(--line)}.top img{width:92px}.top a{color:var(--paper);font-size:12px;font-weight:700;letter-spacing:.1em;text-decoration:none;text-transform:uppercase}.success{min-height:calc(100svh - 90px);display:grid;grid-template-columns:42% 58%}.success-art{position:relative;overflow:hidden;color:#000;background:var(--amber)}.success-art::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(25% - 1px),rgba(0,0,0,.13) 25%)}.success-art img{position:absolute;left:-30%;bottom:-16%;width:155%;filter:contrast(1.15);mix-blend-mode:multiply;transform:rotate(-8deg)}.success-art span{position:absolute;top:34px;left:34px;width:100px;height:100px;display:grid;place-items:center;border:2px solid #000;border-radius:50%;font-family:"Bebas Neue",sans-serif;font-size:30px;transform:rotate(-9deg)}.success-copy{display:flex;flex-direction:column;justify-content:center;padding:clamp(45px,8vw,130px)}.eyebrow{margin:0;color:var(--amber);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}.success h1{margin:18px 0 28px;font-family:"Bebas Neue",sans-serif;font-size:clamp(72px,9vw,155px);font-weight:400;line-height:.75;text-transform:uppercase}.success h1 em{display:block;color:var(--amber);font-family:"Caveat",cursive;font-size:.55em;text-transform:none}.message{max-width:620px;margin:0;color:var(--muted);font-size:18px;line-height:1.6}.downloads{max-width:650px;margin-top:38px;border-top:1px solid var(--line)}.download{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;color:var(--paper);border-bottom:1px solid var(--line);text-decoration:none;font-weight:700}.download span{width:36px;height:36px;display:grid;place-items:center;color:#000;background:var(--amber);border-radius:50%}.download:hover{color:var(--amber)}.help{margin-top:34px;color:var(--muted);font-size:13px}.help a{color:var(--paper)}.status{margin-top:30px;color:var(--amber)}@media(max-width:760px){.top{height:75px}.success{grid-template-columns:1fr}.success-art{min-height:330px}.success-copy{padding:60px 22px 80px}.success h1{font-size:86px}}
+  </style>
+</head>
+<body>
+  <header class="top"><a href="index.html"><img src="logo-white-new.png" alt="Ismile home" width="713" height="395" /></a><a href="shop.html">Back to shop ↗</a></header>
+  <main class="success">
+    <div class="success-art" aria-hidden="true"><span>✓</span><img src="Ismile-bunny-branding.png" alt="" width="2000" height="2000" /></div>
+    <section class="success-copy" aria-labelledby="successTitle">
+      <p class="eyebrow">Order confirmed</p>
+      <h1 id="successTitle">Good move.<em>Your files are ready.</em></h1>
+      <p class="message" id="successMessage">We’re confirming your payment and preparing your downloads.</p>
+      <div class="downloads" id="downloads"></div>
+      <p class="status" id="orderStatus" role="status">Checking your order…</p>
+      <p class="help">Keep this page until your files are saved. Something off? Email <a href="mailto:hello@byismile.com">hello@byismile.com</a>.</p>
+    </section>
+  </main>
+  <script>
+    (async function () {
+      const sessionId = new URLSearchParams(location.search).get("session_id");
+      const status = document.getElementById("orderStatus");
+      const message = document.getElementById("successMessage");
+      if (!sessionId) { status.textContent = "This order link is incomplete."; return; }
+      try {
+        const response = await fetch(`/api/shop/checkout-status?session_id=${encodeURIComponent(sessionId)}`);
+        const data = await response.json();
+        if (!response.ok && response.status !== 202) throw new Error(data.message || "We could not confirm the order.");
+        if (data.status !== "paid") { status.textContent = "Payment is still processing. Refresh this page in a moment."; return; }
+        try { localStorage.removeItem("ismileShopCart"); } catch {}
+        message.textContent = data.email ? `A receipt is on its way to ${data.email}. Download your files below.` : "Your payment is confirmed. Download your files below.";
+        status.textContent = data.downloads.length ? "" : "Your order is paid. Files will appear here once they are attached in Shop Admin.";
+        document.getElementById("downloads").replaceChildren(...data.downloads.map((download) => {
+          const link = document.createElement("a"); link.className = "download"; link.href = download.url; link.innerHTML = `<strong></strong><span aria-hidden="true">↓</span>`; link.querySelector("strong").textContent = download.name; return link;
+        }));
+      } catch (error) { status.textContent = error.message; }
+    }());
+  </script>
+</body>
+</html>
