@@ -7,7 +7,7 @@ The storefront and admin are implemented in the existing Cloudflare Pages archit
 In the Cloudflare dashboard:
 
 1. Create a D1 database named `ismile-shop`.
-2. Open its console and run `migrations/0001_shop.sql`. This creates the product table and four editable starter products.
+2. Open its console and run `migrations/0001_shop.sql`, followed by later numbered migrations in order. This creates the product table and four editable starter products.
 3. Create an R2 bucket named `ismile-shop-assets`.
 4. In the Pages project, add a D1 binding named exactly `SHOP_DB` and select `ismile-shop`.
 5. Add an R2 binding named exactly `SHOP_ASSETS` and select `ismile-shop-assets`.
@@ -16,6 +16,7 @@ For a Wrangler-based workflow, the migration can instead be applied with:
 
 ```bash
 npx wrangler d1 execute ismile-shop --remote --file=migrations/0001_shop.sql
+npx wrangler d1 execute ismile-shop --remote --file=migrations/0002_shop_artwork.sql
 ```
 
 ## 2. Create the admin sign-in secrets

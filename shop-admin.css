@@ -7,3 +7,18 @@
 @media(max-width:850px){.login-view{grid-template-columns:1fr}.login-art{min-height:42vh}.login-art h1{font-size:120px}.login-panel{min-height:58vh}.admin-header{grid-template-columns:100px 1fr auto}.admin-header>div span,.admin-header>a:not(.admin-logo){display:none}.admin-shell{grid-template-columns:1fr}.admin-sidebar{display:none}.stats{grid-template-columns:1fr 1fr}.stats>div:nth-child(2){border-right:0}.stats>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.admin-product{grid-template-columns:65px 1fr .7fr auto}.admin-product>img{width:65px;height:55px}.product-category,.status-pill{display:none}}
 @media(max-width:560px){.login-art{padding:25px 20px}.login-art h1{font-size:96px}.login-panel{padding:45px 20px}.admin-header{height:70px;grid-template-columns:80px 1fr auto;padding:0 15px;gap:10px}.admin-header>div p{font-size:13px}.admin-main{padding:45px 15px}.admin-title{align-items:flex-start}.admin-title h1{font-size:70px}.new-button{padding:12px}.new-button span{font-size:18px}.stats{margin-top:35px}.product-toolbar{flex-direction:column}.product-toolbar select{width:100%}.admin-product{grid-template-columns:58px 1fr auto;gap:12px}.admin-product>img{width:58px}.product-admin-price{display:none}.product-editor>header,.product-editor form{padding-inline:18px}.two-fields{grid-template-columns:1fr}.toggle-row{flex-direction:column;gap:20px}.upload-box{min-height:200px}.editor-actions{flex-wrap:wrap}.save-button{flex:1}.delete-button{width:100%;order:2}}
 @media(prefers-reduced-motion:reduce){.product-editor{transition:none}}
+
+/* Refined sign-in composition: quieter, image-led, and consistent with the shop. */
+.login-view{grid-template-columns:minmax(420px,47%) minmax(0,53%);background:#080706}
+.login-art{color:#fffdf8;background:#17130f url("shop-assets/shop-collection.webp") center/cover no-repeat;isolation:isolate}
+.login-art::before{z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.74));content:""}
+.login-art>a,.login-art>div,.login-art>span{position:relative;z-index:1}
+.login-art img{filter:none}
+.login-art p{color:#efb451;font-size:11px}
+.login-art h1{max-width:720px;margin-top:18px;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(72px,7.7vw,132px);font-weight:500;line-height:.75;letter-spacing:-.045em;text-transform:none}
+.login-art h1 em{color:#efb451;font-weight:500}
+.login-art>span{color:rgba(255,253,248,.66);font-size:10px}
+.login-panel{background:#080706}
+.login-panel h2{font-family:"Cormorant Garamond",Georgia,serif;font-size:72px;font-weight:500;letter-spacing:-.035em;text-transform:none}
+.login-panel button[type=submit]{background:#d99a2b}
+@media(max-width:850px){.login-view{grid-template-columns:1fr}.login-art{min-height:46vh}.login-art h1{font-size:82px}.login-panel{min-height:54vh}}

@@ -8,11 +8,17 @@
     selected: null
   };
   const previewProducts = [
-    { id: "brand-foundation-workbook", name: "Brand Foundation Workbook", eyebrow: "Strategy tool", description: "A focused workbook for defining your audience, position, brand promise, voice, and next best moves.", price_cents: 3900, compare_at_cents: 0, category: "Brand", image_url: "branding.webp", image_alt: "Ismile brand strategy workbook preview" },
-    { id: "client-onboarding-os", name: "Client Onboarding OS", eyebrow: "Systems kit", description: "A clean client journey with intake prompts, kickoff checklists, handoff templates, and automation maps.", price_cents: 5900, compare_at_cents: 0, category: "Systems", image_url: "systems.webp", image_alt: "Client onboarding system template preview" },
-    { id: "website-copy-prompt-deck", name: "Website Copy Prompt Deck", eyebrow: "Copy resource", description: "Sharp prompts and page-by-page guidance for writing a website that sounds human and moves people to act.", price_cents: 2900, compare_at_cents: 0, category: "Web", image_url: "WebDesign.png", image_alt: "Website copy prompt deck on a laptop" },
-    { id: "content-planning-system", name: "No-Fluff Content Planner", eyebrow: "Marketing template", description: "A practical content system for turning one strong idea into a month of useful, on-brand marketing.", price_cents: 2400, compare_at_cents: 0, category: "Marketing", image_url: "digitalmarketing.png", image_alt: "Digital content planning template preview" }
+    { id: "brand-foundation-workbook", name: "Brand Foundation Workbook", eyebrow: "Strategy tool", description: "A focused workbook for defining your audience, position, brand promise, voice, and next best moves.", price_cents: 3900, compare_at_cents: 0, category: "Brand", image_url: "shop-assets/brand-foundation.webp", image_alt: "Black Ismile brand strategy workbook with ivory worksheets" },
+    { id: "client-onboarding-os", name: "Client Onboarding OS", eyebrow: "Systems kit", description: "A clean client journey with intake prompts, kickoff checklists, handoff templates, and automation maps.", price_cents: 5900, compare_at_cents: 0, category: "Systems", image_url: "shop-assets/client-onboarding.webp", image_alt: "Ismile client onboarding process cards and black folder" },
+    { id: "website-copy-prompt-deck", name: "Website Copy Prompt Deck", eyebrow: "Copy resource", description: "Sharp prompts and page-by-page guidance for writing a website that sounds human and moves people to act.", price_cents: 2900, compare_at_cents: 0, category: "Web", image_url: "shop-assets/copy-prompt-deck.webp", image_alt: "Ivory website copy prompt cards on a dark studio table" },
+    { id: "content-planning-system", name: "No-Fluff Content Planner", eyebrow: "Marketing template", description: "A practical content system for turning one strong idea into a month of useful, on-brand marketing.", price_cents: 2400, compare_at_cents: 0, category: "Marketing", image_url: "shop-assets/content-planner.webp", image_alt: "Open ring-bound content planner with amber tabs" }
   ];
+  const starterArtwork = {
+    "brand-foundation-workbook": { old: ["branding.webp", "/branding.webp"], url: "/shop-assets/brand-foundation.webp", alt: "Black Ismile brand strategy workbook with ivory worksheets" },
+    "client-onboarding-os": { old: ["systems.webp", "/systems.webp"], url: "/shop-assets/client-onboarding.webp", alt: "Ismile client onboarding process cards and black folder" },
+    "website-copy-prompt-deck": { old: ["WebDesign.png", "/WebDesign.png"], url: "/shop-assets/copy-prompt-deck.webp", alt: "Ivory website copy prompt cards on a dark studio table" },
+    "content-planning-system": { old: ["digitalmarketing.png", "/digitalmarketing.png"], url: "/shop-assets/content-planner.webp", alt: "Open ring-bound content planner with amber tabs" }
+  };
   const money = new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD" });
   const grid = document.getElementById("productGrid");
   const status = document.getElementById("catalogStatus");
@@ -167,7 +173,12 @@
       const response = await fetch("/api/shop/products", { headers: { Accept: "application/json" } });
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || "Products could not be loaded.");
-      state.products = Array.isArray(data.products) ? data.products : [];
+      state.products = (Array.isArray(data.products) ? data.products : []).map((product) => {
+        const artwork = starterArtwork[product.id];
+        return artwork && artwork.old.includes(product.image_url)
+          ? { ...product, image_url: artwork.url, image_alt: artwork.alt }
+          : product;
+      });
       renderFilters();
       renderProducts();
       renderCart();
