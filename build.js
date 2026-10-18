@@ -11,19 +11,20 @@ const POSTS_PER_PAGE = 6;
 const SITE_URL = 'https://www.byismile.com';
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
+const BRAND_NAME = 'ISMILE CDS';
 
 const POST_SEO_TITLES = {
-  'ai-small-business': 'AI for Small Businesses: Practical Use Cases | Ismile',
-  'automate-client-onboarding': 'How to Automate Client Onboarding | Ismile',
-  'brand-storytelling': 'Brand Storytelling: A Practical Framework | Ismile',
-  'branding-cost-canada-vs-us': 'Branding Costs in Canada vs. the U.S. (2026) | Ismile',
-  'branding-vs-logo-design': 'Branding vs. Logo Design: Costs & Differences | Ismile',
-  'freelancer-vs-creative-studio': 'Freelancer vs. Creative Studio: How to Choose | Ismile',
-  'signs-your-website-is-losing-clients': '5 Signs Your Website Is Costing You Clients | Ismile',
-  'the-ismile-approach': 'The Ismile Approach to Brand and Website Projects',
-  'virtual-assistance-guide': 'Virtual Assistance Guide for Small Businesses | Ismile',
-  'why-small-business-needs-a-website': 'Why Small Businesses Need a Website in 2026 | Ismile',
-  'why-social-media-isnt-converting': "Why Social Media Isn't Converting | Ismile",
+  'ai-small-business': `AI for Small Businesses: Practical Use Cases | ${BRAND_NAME}`,
+  'automate-client-onboarding': `How to Automate Client Onboarding | ${BRAND_NAME}`,
+  'brand-storytelling': `Brand Storytelling: A Practical Framework | ${BRAND_NAME}`,
+  'branding-cost-canada-vs-us': `Branding Costs in Canada vs. the U.S. (2026) | ${BRAND_NAME}`,
+  'branding-vs-logo-design': `Branding vs. Logo Design: Costs & Differences | ${BRAND_NAME}`,
+  'freelancer-vs-creative-studio': `Freelancer vs. Creative Studio: How to Choose | ${BRAND_NAME}`,
+  'signs-your-website-is-losing-clients': `5 Signs Your Website Is Costing You Clients | ${BRAND_NAME}`,
+  'the-ismile-approach': 'The ISMILE CDS Approach to Brand and Website Projects',
+  'virtual-assistance-guide': `Virtual Assistance Guide for Small Businesses | ${BRAND_NAME}`,
+  'why-small-business-needs-a-website': `Why Small Businesses Need a Website in 2026 | ${BRAND_NAME}`,
+  'why-social-media-isnt-converting': `Why Social Media Isn't Converting | ${BRAND_NAME}`,
 };
 
 function absoluteUrl(value) {
@@ -179,7 +180,7 @@ posts.forEach(post => {
   const dateStr = formatDate(post.date);
   const html = fill(postTemplate, {
     title: post.title,
-    seo_title: POST_SEO_TITLES[post.slug] || `${post.title} | Ismile`,
+    seo_title: POST_SEO_TITLES[post.slug] || `${post.title} | ${BRAND_NAME}`,
     description: post.description || '',
     slug: post.slug,
     date: dateStr,
@@ -267,11 +268,11 @@ for (let page = 1; page <= totalPages; page++) {
     pagination: paginationHTML(page, totalPages),
     canonical_url: `${SITE_URL}/${outFile}`,
     seo_title: page === 1
-      ? 'Small Business Branding, Web & Marketing Insights | Ismile'
-      : `Small Business Insights — Page ${page} | Ismile`,
+      ? `Small Business Branding, Web & Marketing Insights | ${BRAND_NAME}`
+      : `Small Business Insights — Page ${page} | ${BRAND_NAME}`,
     seo_description: page === 1
       ? 'Practical branding, website, marketing, automation, and business guidance for small and service-based businesses.'
-      : `More practical branding, website, marketing, automation, and business guidance from Ismile. Browse insights page ${page}.`,
+      : `More practical branding, website, marketing, automation, and business guidance from ${BRAND_NAME}. Browse insights page ${page}.`,
     schema: blogSchema(page, `${SITE_URL}/${outFile}`, page === 1 ? [featuredPost, ...pagePosts] : pagePosts),
   });
   fs.writeFileSync(path.join(OUT_DIR, outFile), html);
@@ -315,15 +316,16 @@ projects.forEach(project => {
     ? project.images
     : [project.cover_image];
   const galleryHtml = galleryImages
-    .map(url => `<img class="project-gallery-img" src="${url}" alt="${project.title}" loading="lazy" />`)
+    .map((url, index) => `<img class="project-gallery-img" src="${url}" alt="${(project.image_alts && project.image_alts[index]) || project.cover_alt || `${project.title} ${project.category} project image`}" loading="lazy" />`)
     .join('\n      ');
   const html = fill(projectTemplate, {
     title: project.title,
-    seo_title: `${project.title} ${project.category} Case Study | Ismile`,
+    seo_title: `${project.title} ${project.category} Case Study | ${BRAND_NAME}`,
     description: project.description || '',
     slug: project.slug,
     category: project.category,
     cover_image: project.cover_image,
+    cover_alt: project.cover_alt || `${project.title} ${project.category} project`,
     body: project.body,
     hero_link: heroLink,
     link_cta: linkCta,

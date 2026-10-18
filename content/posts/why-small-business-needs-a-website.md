@@ -124,7 +124,7 @@ A site that exists isn't the same as a site that works. A good site loads fast, 
 
 ## Where to start
 
-If you're ready to stop waiting and get a site built that actually does its job, that's the work we do. Ismile Creative and Digital Solutions designs and builds [websites](./web-design.html) for entrepreneurs and service businesses in Toronto and across Canada who are done with placeholder presences and want something sharp, intentional, and built to convert.
+If you're ready to stop waiting and get a site built that actually does its job, that's the work we do. ISMILE CDS designs and builds [websites](./web-design.html) for entrepreneurs and service businesses in Toronto and across Canada who are done with placeholder presences and want something sharp, intentional, and built to convert.
 
 [Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to talk through what your business actually needs. No upsell, no pressure. Just a conversation about where you are and where a proper site could take you.
 

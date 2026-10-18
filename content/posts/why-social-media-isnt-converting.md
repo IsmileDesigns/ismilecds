@@ -150,7 +150,7 @@ Parts of it, yes. Email setup, nurture sequence writing, blog content, and funne
 
 If you've been posting consistently for months without clients to show for it, the problem isn't your content. It's the missing infrastructure underneath it. A real funnel turns the same social media effort you're already putting in into actual revenue.
 
-At Ismile Creative and Digital Solutions, we build funnels and digital marketing systems for small service businesses that want to stop relying on the algorithm. Lead magnets, email automation, content strategy, and the infrastructure to turn followers into clients.
+At ISMILE CDS, we build funnels and digital marketing systems for small service businesses that want to stop relying on the algorithm. Lead magnets, email automation, content strategy, and the infrastructure to turn followers into clients.
 
 [Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to talk through what your funnel should look like. We'll look at your current setup and map out what's missing.
 

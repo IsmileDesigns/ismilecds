@@ -1,5 +1,5 @@
 ---
-title: "What Sharp, Intentional Work Actually Looks Like: The Ismile Approach"
+title: "What Sharp, Intentional Work Actually Looks Like: The ISMILE CDS Approach"
 slug: "the-ismile-approach"
 date: 2026-04-15
 category: "Studio"
@@ -110,7 +110,7 @@ We work with a small number of clients each year. The work we put out is the wor
 
 ## Frequently asked questions
 
-**Where is Ismile Creative and Digital Solutions based?**
+**Where is ISMILE CDS based?**
 
 Toronto, Canada. We work with clients across Canada and remotely with clients elsewhere, but most of our in-person work happens in the GTA.
 

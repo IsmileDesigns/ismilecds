@@ -1,11 +1,11 @@
-# Ismile Creative & Digital Solutions
+# ISMILE CDS
 
-> Ismile Creative & Digital Solutions is a North American digital agency serving small and service-based businesses across the United States and Canada. The agency is based in Toronto and works remotely.
+> ISMILE CDS is a Toronto creative and digital studio serving small and service-based businesses across Canada and the United States.
 
 ## Primary pages
 
 - [Home](https://www.byismile.com/): Company overview, services, process, fit, and booking path.
-- [About](https://www.byismile.com/about.html): Who Ismile is, where the agency is based, and how it works with clients remotely.
+- [About](https://www.byismile.com/about.html): Who ISMILE CDS is, where the studio is based, and how it works with clients remotely.
 - [Contact](https://www.byismile.com/contact.html): Consultation booking and inquiry options.
 - [Portfolio](https://www.byismile.com/portfolio.html): Client work and clearly labeled concept projects.
 - [Insights](https://www.byismile.com/blog.html): Practical guides about branding, websites, marketing, automation, and business operations.
@@ -21,7 +21,7 @@
 
 ## Business facts
 
-- Preferred name: Ismile Creative & Digital Solutions
+- Preferred name: ISMILE CDS
 - Based in: Toronto, Ontario, Canada
 - Service model: Remote-first
 - Markets served: United States and Canada

@@ -206,7 +206,7 @@ A proper CRM (Dubsado, HoneyBook, etc.) makes it easier and more integrated, but
 
 ## Where to start
 
-If onboarding is eating hours you don't have, or if you suspect clients are having a patchy experience at the start of projects, that's a real business problem with a real solution. At Ismile Creative and Digital Solutions, we design and implement onboarding [systems and automations](./systems-automations.html) for small service businesses that want to stop drowning in admin.
+If onboarding is eating hours you don't have, or if you suspect clients are having a patchy experience at the start of projects, that's a real business problem with a real solution. At ISMILE CDS, we design and implement onboarding [systems and automations](./systems-automations.html) for small service businesses that want to stop drowning in admin.
 
 [Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to walk through what's currently slowing you down. We'll map the system that fits your business and your tools.
 

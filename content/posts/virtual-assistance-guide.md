@@ -11,12 +11,12 @@ image: "./blog-images/scheduling-meeting-calendar-app-phone.jpg"
 featured: true
 lead: "In today's fast-paced business environment, entrepreneurs and business leaders face an ever-growing list of responsibilities. From managing client relationships to handling administrative tasks, marketing efforts, and strategic planning, the demands can quickly become overwhelming. This is where virtual assistance has emerged as a game-changing solution for businesses of all sizes."
 cta_title: "Ready to Build Your Virtual Team?"
-cta_text: "At Ismile Creative and Digital Solutions, we've helped countless businesses transition from traditional staffing models to flexible virtual support systems that enhance performance while reducing costs. Let's map out your strategy."
+cta_text: "At ISMILE CDS, we've helped countless businesses transition from traditional staffing models to flexible virtual support systems that enhance performance while reducing costs. Let's map out your strategy."
 cta_link: "https://calendar.app.google/oDUSa3P32YjHErMW8"
 cta_button: "Book a Free Call"
 ---
 
-At Ismile Creative and Digital Solutions, we've witnessed firsthand how virtual assistance has transformed our clients' operations, allowing them to focus on core business activities while skilled professionals handle essential tasks remotely, a shift we help guide through our [business consulting](./business-consulting.html) engagements. The virtual assistance industry has experienced explosive growth, expanding from an $85.6 billion market in 2018 to projected values exceeding $335 billion by 2025.
+At ISMILE CDS, we've witnessed firsthand how virtual assistance has transformed our clients' operations, allowing them to focus on core business activities while skilled professionals handle essential tasks remotely, a shift we help guide through our [business consulting](./business-consulting.html) engagements. The virtual assistance industry has experienced explosive growth, expanding from an $85.6 billion market in 2018 to projected values exceeding $335 billion by 2025.
 
 This comprehensive guide covers everything from understanding what virtual assistants do to implementing effective systems for managing remote support teams, whether you're considering hiring your first VA or looking to optimize your existing virtual assistance relationships.
 

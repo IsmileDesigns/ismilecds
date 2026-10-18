@@ -142,7 +142,7 @@ Depends on the issue. Speed problems and broken links, yes, usually DIY-able. Mo
 
 If you worked through this post and recognized your site in three or more of the signs, that's not a small problem. That's lost revenue compounding every week you don't address it.
 
-At Ismile Creative and Digital Solutions, our [web design](./web-design.html) team offers free website audits for service businesses that want a professional assessment of what's actually costing them clients. No sales pitch, just a real breakdown of what's working, what isn't, and what it would take to fix.
+At ISMILE CDS, our [web design](./web-design.html) team offers free website audits for service businesses that want a professional assessment of what's actually costing them clients. No sales pitch, just a real breakdown of what's working, what isn't, and what it would take to fix.
 
 [Book a free audit call](https://calendar.app.google/oDUSa3P32YjHErMW8) and we'll walk through your site together.
 

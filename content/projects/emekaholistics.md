@@ -2,15 +2,16 @@
 title: Emekaholistics
 slug: emekaholistics
 category: Branding + E-commerce
-description: Full product label suite and Shopify storefront for a natural wellness brand. Built to hold up on the shelf and online.
+description: "Client work for a natural wellness brand: logo, colour palette, typography, brand guidelines, product labels, and a Shopify storefront."
 cover_image: https://static.wixstatic.com/media/8c52be_ad2c379a69484ab0bb862a45d6d60364~mv2.jpg/v1/crop/x_0,y_105,w_768,h_835/fill/w_768,h_835,al_c,q_80,enc_avif,quality_auto/IMG_0132_JPG.jpg
+cover_alt: Emekaholistics natural wellness product packaging and brand identity
 image_aspect_ratio: "4/5"
 order: 1
 link_url: ""
 link_label: ""
 ---
 
-Emekaholistics came to us with a clear vision: a natural wellness brand rooted in holistic living, but no visual identity to match it. The founder needed packaging that could compete on retail shelves while also converting online, and a storefront that felt as considered as the products themselves.
+This client project began with a clear vision: a natural wellness brand rooted in holistic living, but no visual identity to match it. Emekaholistics needed to reach wellness-conscious customers looking for considered, natural products, with packaging that could compete on retail shelves and a storefront that felt as intentional as the products themselves.
 
 ## The Challenge
 
@@ -39,3 +40,5 @@ The e-commerce build carried the brand identity directly into the digital experi
 ## The Result
 
 A brand that looks like it belongs in a Whole Foods aisle and converts like it was built by a growth team. The founder launched with confidence, and the packaging has since been the single most-commented piece of the business by customers and stockists alike.
+
+Explore the [brand identity design and logo design services](./branding-and-design.html) behind projects like this one.

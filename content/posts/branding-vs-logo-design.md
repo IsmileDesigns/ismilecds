@@ -26,9 +26,9 @@ This post breaks down the real difference between branding and logo design, what
 
 ## Let's define the terms properly
 
-**A logo** is a single visual mark. It's the symbol, wordmark, or icon that sits at the top of your website and on your business card. That's it. A logo is one piece of your brand, not the whole thing.
+**A logo** is a single visual mark. It's the symbol, wordmark, or icon that sits at the top of your website and on your business card. That's it. A logo is one piece of your brand, not the whole thing. See what a complete [logo design and brand identity service](./branding-and-design.html) includes beyond the mark itself.
 
-**Brand identity** is the full visual system. It includes your logo, yes, but also your color palette, your typography, your imagery style, the patterns and textures you use, the way your visuals feel together across every touchpoint. Brand identity is what makes your Instagram feed, your website, your invoices, and your business card all feel like they belong to the same company.
+**Brand identity** is the full visual system. It includes your logo, yes, but also your color palette, your typography, your imagery style, the patterns and textures you use, the way your visuals feel together across every touchpoint. Brand identity is what makes your Instagram feed, your website, your invoices, and your business card all feel like they belong to the same company. Our [Toronto brand identity design process](./branding-and-design.html) brings those elements into one usable system.
 
 **Branding** is the biggest of the three. It's the strategy, the positioning, the voice, the story, the reason your business exists and the promise you make to your customers. Branding is what your business stands for before any designer opens Illustrator. The logo and the identity are the visible result of the strategic work underneath.
 
@@ -106,6 +106,8 @@ Regardless of your budget tier, a few things separate designers who will actuall
 
 **Portfolio depth.** Can they show you three to five brands they've built end to end, not just logos? Do those brands feel consistent across touchpoints? If the portfolio is all one-off logos with no context, they might be good at marks but weaker on systems.
 
+Look for relevant examples, too: compare hospitality identity work for [Sidamo Cafe](./sidamo-cafe.html) and [Ember Room](./ember-room.html), wellness branding for [Emekaholistics](./emekaholistics.html) and [Forma Pilates](./forma-pilates.html), and the clearly labelled [Leo Law professional-services concept](./leo-law.html).
+
 **Process.** Ask about their process. A designer who jumps straight into Illustrator without discovery, research, or strategy questions is giving you aesthetics without thinking. A designer who asks about your business, customers, competitors, and goals before sketching anything is giving you design that actually serves your business.
 
 **Brand guidelines.** Do they deliver written guidelines with the logo? If the answer is no, you're buying a logo, not a brand. Guidelines are what make the design usable by anyone else who touches your brand in the future.
@@ -140,7 +142,9 @@ For most small businesses, some strategic thinking should happen before any desi
 
 ## Where to start
 
-If you're trying to figure out which tier your business actually needs, that's the kind of thing worth talking through before you spend a dollar. At Ismile Creative and Digital Solutions, brand work starts with a real conversation about where your business is and where it's going, not a template package pitched to every prospect.
+If you're trying to figure out which tier your business actually needs, that's the kind of thing worth talking through before you spend a dollar. At ISMILE CDS, brand work starts with a real conversation about where your business is and where it's going, not a template package pitched to every prospect.
+
+Review our [branding deliverables, from logo variations to brand guidelines](./branding-and-design.html), or browse [brand identity portfolio examples](./portfolio.html) to see how those systems work in practice.
 
 [Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to figure out whether you need a logo, a full brand identity, or strategy first. No upsell, no pressure. Just clarity.
 

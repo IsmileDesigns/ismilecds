@@ -140,7 +140,7 @@ Choosing on price alone. The second biggest is choosing on portfolio alone witho
 
 If you're trying to figure out whether your next project needs a freelancer, a boutique studio, or something bigger, that conversation is worth having before you start asking for quotes. Otherwise you'll end up comparing proposals that are solving different problems.
 
-At Ismile Creative and Digital Solutions, we take on projects where a studio actually adds value. When it doesn't, we tell people plainly and often refer them to freelancers we trust. That kind of honest scoping conversation is part of our [business consulting](./business-consulting.html) process before any project starts. That honesty is rare in this industry, and it's the only way we know how to run a business we're proud of.
+At ISMILE CDS, we take on projects where a studio actually adds value. When it doesn't, we tell people plainly and often refer them to freelancers we trust. That kind of honest scoping conversation is part of our [business consulting](./business-consulting.html) process before any project starts. That honesty is rare in this industry, and it's the only way we know how to run a business we're proud of.
 
 [Book a free call](https://calendar.app.google/oDUSa3P32YjHErMW8) to talk through what you're trying to build. If we're the right fit, we'll tell you. If we aren't, we'll help you find someone who is.
 
