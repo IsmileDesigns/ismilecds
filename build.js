@@ -68,8 +68,9 @@ function articleSchema(post) {
       primaryImageOfPage: { '@type': 'ImageObject', url: image },
     },
     {
-      '@type': 'BlogPosting',
+      '@type': ['Article', 'BlogPosting'],
       '@id': `${pageUrl}#article`,
+      url: pageUrl,
       headline: post.title,
       description: post.description || post.excerpt,
       image,
@@ -184,6 +185,7 @@ posts.forEach(post => {
     description: post.description || '',
     slug: post.slug,
     date: dateStr,
+    date_iso: new Date(post.date).toISOString().slice(0, 10),
     category: post.category,
     read_time: post.read_time,
     image_gradient: post.image_gradient,
@@ -411,6 +413,7 @@ function generateSitemap() {
   console.log(`  sitemap → sitemap.xml (${urls.length} canonical URLs)`);
 }
 
+require('./scripts/inject-organization-schema.js');
 generateSitemap();
 
 console.log('\nBuild complete.');

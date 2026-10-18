@@ -48,8 +48,34 @@
         ],
         "sameAs": [
           "https://www.instagram.com/ismilecds",
-          "https://www.behance.net/IsmileDesigns"
+          "https://www.behance.net/IsmileDesigns",
+          "https://g.page/r/CWTNDtsyFif3EAI"
         ]
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.byismile.com/#localbusiness",
+        "name": "ISMILE CDS",
+        "url": "https://www.byismile.com/",
+        "logo": "https://www.byismile.com/logo.png",
+        "image": "https://www.byismile.com/logo.png",
+        "email": "hello@byismile.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Toronto",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Canada" },
+          { "@type": "Country", "name": "United States" }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/ismilecds",
+          "https://www.behance.net/IsmileDesigns",
+          "https://g.page/r/CWTNDtsyFif3EAI"
+        ],
+        "parentOrganization": { "@id": "https://www.byismile.com/#organization" }
       },
       {
         "@type": "WebSite",
@@ -68,6 +94,38 @@
         "isPartOf": { "@id": "https://www.byismile.com/#website" },
         "about": { "@id": "https://www.byismile.com/#organization" },
         "inLanguage": "en-CA"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.byismile.com/#faq",
+        "url": "https://www.byismile.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What size businesses do you work with?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Mostly small businesses and owner-led teams with an established service to sell—especially when the brand, website, or client process has fallen behind the business." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I hire ISMILE CDS for only one service?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. A website, brand project, marketing engagement, or workflow cleanup can stand alone." }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does a project cost?",
+            "acceptedAnswer": { "@type": "Answer", "text": "It depends on what needs to be made and connected. We talk through your goals before recommending a scope and quote." }
+          },
+          {
+            "@type": "Question",
+            "name": "Where do you work with clients?",
+            "acceptedAnswer": { "@type": "Answer", "text": "ISMILE CDS is based in Toronto and works remotely with service businesses across Canada and the United States." }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after the consultation?",
+            "acceptedAnswer": { "@type": "Answer", "text": "If the project is a fit, we follow up with a proposed scope, timeline, and quote." }
+          }
+        ]
       }
     ]
   }
@@ -102,6 +160,18 @@
     a { color: inherit; }
     button { font: inherit; }
     [hidden] { display: none !important; }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
 
     .skip-link {
       position: fixed;
@@ -1317,6 +1387,7 @@
     .service-row.is-active:hover .service-card-image img { transform: scale(1.025); }
     .service-details { grid-column: 3; display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
     .service-detail-title { margin: 0 0 14px; color: var(--paper); font-size: clamp(42px, 4.6vw, 78px); font-weight: 600; letter-spacing: -.055em; line-height: .95; }
+    .service-detail-title a { color: inherit; text-decoration: none; }
     .service-details p { max-width: 650px; margin: 0; color: rgba(255,255,255,.58); font-size: clamp(17px, 1.55vw, 25px); line-height: 1.35; }
     .service-tags { display: flex; flex-wrap: wrap; gap: 9px; margin: clamp(24px, 3vw, 42px) 0 0; padding: 0; list-style: none; }
     .service-tags li { padding: 9px 14px; color: rgba(255,255,255,.64); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; font-size: 12px; font-weight: 600; }
@@ -1697,10 +1768,11 @@
     </section>
 
     <section class="hero-visual" aria-label="ISMILE CDS rabbit brand film">
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" aria-label="Animated ISMILE CDS rabbit">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" aria-label="Animated ISMILE CDS rabbit" aria-describedby="heroVideoDescription">
         <source src="herorabbit.mp4" type="video/mp4" />
         Your browser does not support background video.
       </video>
+      <p class="sr-only" id="heroVideoDescription">A looping brand animation shows the ISMILE CDS rabbit mascot moving through a dark, cinematic scene.</p>
 
       <p class="visual-caption">Make a memorable first impression</p>
 
@@ -1752,7 +1824,7 @@
   <a class="floating-logo" href="#hero-title" aria-label="Back to the top"><img src="logo-white-new.png" alt="" width="713" height="395" decoding="async"/></a>
 
   <section class="record-section manifesto-v2" aria-labelledby="manifesto-title">
-    <img class="manifesto-background" src="GrillsBG.png" alt="" width="1672" height="941" loading="lazy" decoding="async"/>
+    <img class="manifesto-background" src="GrillsBG.png" alt="" aria-hidden="true" width="1672" height="941" loading="lazy" decoding="async"/>
     <div class="manifesto-v2-copy reveal">
       <p class="script-label">Manifesto</p>
       <h2 id="manifesto-title">No generic<br />stuff.</h2>
@@ -1818,10 +1890,10 @@
               <div><dt>Year</dt><dd>2026</dd></div>
               <div><dt>Services</dt><dd class="work-service-tags"><span>Brand Identity</span><span>Web Design</span><span>Art Direction</span><span>Concept Project</span></dd></div>
             </dl>
-            <a class="work-project-link" href="The Ember Room/index.html"><span>View case study</span><svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></a>
+            <a class="work-project-link" href="ember-room.html"><span>View the Ember Room case study</span><svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></a>
           </div>
         </div>
-        <a class="work-project-media" href="The Ember Room/index.html" aria-label="View the Ember Room case study">
+        <a class="work-project-media" href="ember-room.html" aria-label="View the Ember Room case study">
           <img src="ember-room-Site-mockup.png" alt="Ember Room restaurant website concept" width="1264" height="1276" loading="lazy" decoding="async"/>
         </a>
       </article>
@@ -1835,35 +1907,35 @@
         <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-branding-panel"><span class="service-number">01<span class="service-dot">.</span></span><span class="service-name">Branding</span><span class="service-toggle" aria-hidden="true">+</span></button>
         <div class="service-panel" id="service-branding-panel" role="region" aria-label="Branding service details"><div class="service-panel-inner"><div class="service-panel-content">
           <div class="service-card-image"><img src="branding.webp" alt="Colourful brand design markers" width="1920" height="1280" loading="lazy" decoding="async"/></div>
-          <div class="service-details"><h3 class="service-detail-title">Branding</h3><p>Distinctive brand systems that clarify what you stand for and make your business immediately recognizable.</p><ul class="service-tags"><li>Logo Design</li><li>Brand Strategy</li><li>Visual Identity</li><li>Brand Guidelines</li></ul></div>
+          <div class="service-details"><h3 class="service-detail-title"><a href="branding-and-design.html">Branding</a></h3><p>Distinctive brand systems that clarify what you stand for and make your business immediately recognizable.</p><ul class="service-tags"><li>Logo Design</li><li>Brand Strategy</li><li>Visual Identity</li><li>Brand Guidelines</li></ul></div>
         </div></div></div>
       </article>
       <article class="service-row">
         <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-marketing-panel"><span class="service-number">02<span class="service-dot">.</span></span><span class="service-name">Digital marketing</span><span class="service-toggle" aria-hidden="true">+</span></button>
         <div class="service-panel" id="service-marketing-panel" role="region" aria-label="Digital marketing service details"><div class="service-panel-inner"><div class="service-panel-content">
           <div class="service-card-image"><img src="digitalmarketing.jpg" alt="Digital marketing campaign creative" width="1920" height="1280" loading="lazy" decoding="async"/></div>
-          <div class="service-details"><h3 class="service-detail-title">Digital marketing</h3><p>Focused campaigns and content systems that keep your brand visible, relevant, and connected to the right audience.</p><ul class="service-tags"><li>Social Media</li><li>Content Strategy</li><li>Email Marketing</li><li>Paid Campaigns</li></ul></div>
+          <div class="service-details"><h3 class="service-detail-title"><a href="digital-marketing.html">Digital marketing</a></h3><p>Focused campaigns and content systems that keep your brand visible, relevant, and connected to the right audience.</p><ul class="service-tags"><li>Social Media</li><li>Content Strategy</li><li>Email Marketing</li><li>Paid Campaigns</li></ul></div>
         </div></div></div>
       </article>
       <article class="service-row">
         <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-web-panel"><span class="service-number">03<span class="service-dot">.</span></span><span class="service-name">Web design</span><span class="service-toggle" aria-hidden="true">+</span></button>
         <div class="service-panel" id="service-web-panel" role="region" aria-label="Web design service details"><div class="service-panel-inner"><div class="service-panel-content">
           <div class="service-card-image"><img src="Development.jpg" alt="Website design and development workspace" width="1920" height="1280" loading="lazy" decoding="async"/></div>
-          <div class="service-details"><h3 class="service-detail-title">Web design &amp; development</h3><p>Responsive, conversion-minded websites that express your brand clearly and guide visitors toward taking action.</p><ul class="service-tags"><li>UX/UI Design</li><li>Responsive Design</li><li>Development</li><li>SEO Foundations</li></ul></div>
+          <div class="service-details"><h3 class="service-detail-title"><a href="web-design.html">Web design &amp; development</a></h3><p>Responsive, conversion-minded websites that express your brand clearly and guide visitors toward taking action.</p><ul class="service-tags"><li>UX/UI Design</li><li>Responsive Design</li><li>Development</li><li>SEO Foundations</li></ul></div>
         </div></div></div>
       </article>
       <article class="service-row">
         <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-systems-panel"><span class="service-number">04<span class="service-dot">.</span></span><span class="service-name">Systems &amp; automation</span><span class="service-toggle" aria-hidden="true">+</span></button>
         <div class="service-panel" id="service-systems-panel" role="region" aria-label="Systems and automation service details"><div class="service-panel-inner"><div class="service-panel-content">
           <div class="service-card-image"><img src="systems.webp" alt="Connected digital business systems" width="1920" height="1280" loading="lazy" decoding="async"/></div>
-          <div class="service-details"><h3 class="service-detail-title">Systems &amp; automation</h3><p>Connected workflows that reduce repetitive work and create a smoother journey from first inquiry through follow-up.</p><ul class="service-tags"><li>CRM Setup</li><li>Client Onboarding</li><li>Automations</li><li>Integrations</li></ul></div>
+          <div class="service-details"><h3 class="service-detail-title"><a href="systems-automations.html">Systems &amp; automation</a></h3><p>Connected workflows that reduce repetitive work and create a smoother journey from first inquiry through follow-up.</p><ul class="service-tags"><li>CRM Setup</li><li>Client Onboarding</li><li>Automations</li><li>Integrations</li></ul></div>
         </div></div></div>
       </article>
       <article class="service-row">
         <button class="service-summary" type="button" aria-expanded="false" aria-controls="service-consulting-panel"><span class="service-number">05<span class="service-dot">.</span></span><span class="service-name">Consulting</span><span class="service-toggle" aria-hidden="true">+</span></button>
         <div class="service-panel" id="service-consulting-panel" role="region" aria-label="Business consulting service details"><div class="service-panel-inner"><div class="service-panel-content">
           <div class="service-card-image"><img src="consulting.webp" alt="Telephone representing business consultation" width="1920" height="1280" loading="lazy" decoding="async"/></div>
-          <div class="service-details"><h3 class="service-detail-title">Consulting</h3><p>Practical creative and digital direction that turns scattered ideas into a focused plan your business can execute.</p><ul class="service-tags"><li>Digital Strategy</li><li>Growth Planning</li><li>Process Audit</li><li>Roadmaps</li></ul></div>
+          <div class="service-details"><h3 class="service-detail-title"><a href="business-consulting.html">Consulting</a></h3><p>Practical creative and digital direction that turns scattered ideas into a focused plan your business can execute.</p><ul class="service-tags"><li>Digital Strategy</li><li>Growth Planning</li><li>Process Audit</li><li>Roadmaps</li></ul></div>
         </div></div></div>
       </article>
     </div>
@@ -1895,6 +1967,12 @@
         <button class="quote-tab" type="button" data-quote="She rebuilt my business systems in a way that actually makes sense, cutting down my workload and reducing costs." data-byline="Liz Thomas · Google Review">Liz Thomas</button>
         <button class="quote-tab" type="button" data-quote="My website looks professional, modern, and true to my brand. ISMILE CDS exceeded my expectations." data-byline="Derek Moore · Google Review">Derek Moore</button>
       </div>
+      <ul class="sr-only" aria-label="Testimonial transcripts">
+        <li><blockquote>ISMILE CDS is by far one of the best companies to work with. Yazmine thinks 10 steps ahead and over-delivers.</blockquote><p>Nodjinaissem · @naiizhair</p></li>
+        <li><blockquote>You went a step further than I expected. You have an eye for innovation. That’s a very rare quality.</blockquote><p>Tyree Dunn · Client</p></li>
+        <li><blockquote>She rebuilt my business systems in a way that actually makes sense, cutting down my workload and reducing costs.</blockquote><p>Liz Thomas · Google Review</p></li>
+        <li><blockquote>My website looks professional, modern, and true to my brand. ISMILE CDS exceeded my expectations.</blockquote><p>Derek Moore · Google Review</p></li>
+      </ul>
     </div>
   </section>
 
@@ -1932,10 +2010,10 @@
   <footer class="footer-v2">
     <div class="footer-brand-panel"><img src="logo.png" alt="ISMILE CDS" width="713" height="395" loading="lazy" decoding="async"/><p>Creative and digital solutions for service businesses.</p></div>
     <nav class="footer-menu" aria-label="Footer navigation"><a href="portfolio.html">Works <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></a><a href="about.html">About <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></a><a href="blog.html">Blog <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></a><a href="contact.html">Contact <svg class="link-arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 16 16 4M7 4h9v9"/></svg></a></nav>
-    <div class="footer-connect"><p class="script-label">Follow us</p><a href="https://www.instagram.com/ismilecds">Instagram</a><a href="https://www.behance.net/IsmileDesigns">Behance</a></div>
+    <div class="footer-connect"><p class="script-label">Follow us</p><a href="https://www.instagram.com/ismilecds">Instagram</a><a href="https://www.behance.net/IsmileDesigns">Behance</a><a href="https://g.page/r/CWTNDtsyFif3EAI">Google Business Profile</a></div>
     <div class="footer-note"><div class="footer-marquee" aria-hidden="true"><div class="footer-marquee-track"><span>STAY SHARP · STAY SHARP ·&nbsp;</span><span>STAY SHARP · STAY SHARP ·&nbsp;</span></div></div><div class="footer-newsletter-copy"><p class="script-label">Newsletter</p><p>Subscribe to our newsletter for sharp ideas on better brands, websites, and systems.</p><p class="footer-newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p></div><form class="footer-newsletter-form" action="/api/newsletter" method="post"><input type="email" name="email" placeholder="Your Email" aria-label="Your email address" autocomplete="email" maxlength="254" required /><label class="newsletter-honeypot" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label><button type="submit">Subscribe</button></form></div>
     <div class="footer-reach"><p class="script-label">Reach out</p><a class="footer-email" href="mailto:hello@byismile.com">hello@byismile.com</a></div>
-    <div class="footer-legal"><span>© 2026 ISMILE CDS</span><span>Toronto, Canada · Working remotely</span></div>
+    <div class="footer-legal"><span>© 2026 ISMILE CDS</span><span>Toronto, Ontario, Canada · Serving Canada and the U.S.</span></div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>

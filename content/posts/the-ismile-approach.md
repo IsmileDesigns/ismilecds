@@ -112,7 +112,7 @@ We work with a small number of clients each year. The work we put out is the wor
 
 **Where is ISMILE CDS based?**
 
-Toronto, Canada. We work with clients across Canada and remotely with clients elsewhere, but most of our in-person work happens in the GTA.
+Toronto, Ontario, Canada. We work with clients across Canada and remotely with clients elsewhere, but most of our in-person work happens in the GTA.
 
 **What services does the studio offer?**
 
