@@ -1,6 +1,6 @@
 # Content SEO Plan
 
-The priority is consultation-producing content, not traffic for its own sake. Publish only when Ismile can add real experience, examples, templates, or a defensible point of view. U.S.-wide and industry/problem intent comes first; Toronto-specific content is selective and should not become the default modifier.
+The priority is consultation-producing content, not traffic for its own sake. Publish only when ISMILE CDS can add real experience, examples, templates, or a defensible point of view. U.S.-wide and industry/problem intent comes first; Toronto-specific content is selective and should not become the default modifier.
 
 ## BOFU — buyer intent
 
@@ -32,7 +32,7 @@ The priority is consultation-producing content, not traffic for its own sake. Pu
 | 2. What is workflow automation in a small business? | Definition/education | Owners early in automation research | Medium/high | Trigger-action workflow basics | examples, exceptions, integrations, security | Automation, onboarding article | Identify one workflow to improve |
 | 3. What makes a service-business homepage effective? | Education/checklist | Founders building or reviewing a website | High | Homepage jobs and content sequence | positioning, audience, services, proof, CTA, mobile | Web design, website-loss article | Run the homepage checklist |
 | 4. How local SEO works for service businesses | Education | Local operators and professional services | High | Relevance, prominence, proximity, and conversion | website, profiles, reviews, citations, service areas | Digital marketing, future local SEO guide | Request a local SEO review |
-| 5. What a professional website handover should include | Education/trust | Businesses comparing vendors | Medium/high | Ownership and operational handoff | domains, hosting, analytics, assets, training, backups | Web design, approach, contact | Ask for Ismile’s handover scope |
+| 5. What a professional website handover should include | Education/trust | Businesses comparing vendors | Medium/high | Ownership and operational handoff | domains, hosting, analytics, assets, training, backups | Web design, approach, contact | Ask for ISMILE CDS’s handover scope |
 
 ## Recommended publishing order
 
@@ -49,7 +49,7 @@ This sequence covers the highest-value service lines first and creates natural s
 
 ## AI-citation and original-resource opportunities
 
-These are opportunities to create genuinely referenceable assets. They should use Ismile’s method, anonymized first-party observations, or transparent calculations. Do not label general opinions as research.
+These are opportunities to create genuinely referenceable assets. They should use ISMILE CDS’s method, anonymized first-party observations, or transparent calculations. Do not label general opinions as research.
 
 1. **Website scope-to-cost calculator:** a transparent input model for page count, copy, ecommerce, integrations, and complexity, with U.S./Canada currency assumptions dated and disclosed.
 2. **Website redesign decision tree:** a downloadable framework for choosing refresh, redesign, replatform, or rebuild.
@@ -64,7 +64,7 @@ These are opportunities to create genuinely referenceable assets. They should us
 11. **Local SEO monthly operating checklist:** profile updates, review response, on-site changes, citations, service-area coverage, and measurement.
 12. **Content-to-consultation measurement template:** define assisted conversions, booked calls, qualified leads, and revenue attribution without over-crediting last click.
 13. **Website handover inventory:** domains, DNS, hosting, CMS access, source files, analytics, pixels, licenses, backups, redirects, and training.
-14. **Anonymized onboarding time study:** only after Ismile collects real baseline and post-automation data from consenting projects; publish method, sample size, and limitations.
+14. **Anonymized onboarding time study:** only after ISMILE CDS collects real baseline and post-automation data from consenting projects; publish method, sample size, and limitations.
 15. **Annual small-service-business digital operations benchmark:** only if enough first-party audit data exists; report anonymized aggregates and methodology, not invented statistics.
 16. **Annotated case studies:** show actual constraints, choices, deliverables, stack, and outcomes; use qualitative outcomes when numerical metrics are unavailable.
 
@@ -73,7 +73,7 @@ These are opportunities to create genuinely referenceable assets. They should us
 - Add a visible author or organizational byline to future articles and link it to About.
 - Show `datePublished` and `dateModified` only when accurate; update the visible page when changing schema dates.
 - Cite primary sources for platform behavior, laws, standards, statistics, and current market/pricing claims.
-- Label experience-based guidance as Ismile’s approach rather than a universal rule.
+- Label experience-based guidance as ISMILE CDS’s approach rather than a universal rule.
 - Never publish fictional performance numbers, reviews, offices, client results, or credentials.
 - Place the clearest answer in the first one or two sentences of question-led sections, then explain nuance.
 - Use tables, checklists, and diagrams only when they make a decision or process easier to understand.

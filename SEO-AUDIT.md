@@ -1,4 +1,4 @@
-# SEO Audit — Ismile Creative & Digital Solutions
+# SEO Audit — ISMILE CDS
 
 Audit date: 2026-09-22  
 Primary market: United States  
@@ -88,7 +88,7 @@ Nothing below was claimed as configured because the repository does not provide 
 
 ### Google Business Profile
 
-- Confirm the exact public business name is “Ismile Creative & Digital Solutions”; do not add keywords to the name.
+- Confirm the exact public business name is “ISMILE CDS”; do not add keywords to the name.
 - Use the truthful Toronto base and configure service-area/hide-address settings according to the real operating model.
 - Add only services actually offered, use the canonical website URL, maintain current hours/contact details, and request/respond to genuine reviews.
 - Link GBP to GA4/Search Console reporting where the account supports it and tag the website URL consistently.

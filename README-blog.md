@@ -1,4 +1,4 @@
-# Ismile Blog System
+# ISMILE CDS Blog System
 
 Static markdown-based blog. No build step on Cloudflare — run `node build.js` locally before pushing.
 

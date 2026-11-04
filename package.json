@@ -1,7 +1,7 @@
 {
   "name": "ismile-blog",
   "version": "1.0.0",
-  "description": "Blog build system for Ismile Creative & Digital Solutions",
+  "description": "Blog build system for ISMILE CDS",
   "scripts": {
     "build": "node build.js && node scripts/enrich-static-case-studies.js && node scripts/optimize-html-images.js",
     "compress": "node compress-images.js",

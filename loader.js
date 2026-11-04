@@ -1,4 +1,4 @@
-/* Ismile amber stepped page transition. Include once in each page <head>. */
+/* ISMILE CDS amber stepped page transition. Include once in each page <head>. */
 (function () {
   if (window.__ismileTransitionInit) return;
   window.__ismileTransitionInit = true;

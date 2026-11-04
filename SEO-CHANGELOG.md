@@ -4,9 +4,9 @@ Date: 2026-09-22
 
 ## North American agency positioning
 
-- `index.html` — repositioned Ismile as a North American digital agency serving businesses across the U.S. and Canada in the title, description, social metadata, hero, FAQ, footer, and Organization/WebPage schema.
+- `index.html` — repositioned ISMILE CDS as a North American digital agency serving businesses across the U.S. and Canada in the title, description, social metadata, hero, FAQ, footer, and Organization/WebPage schema.
 - `about.html` — made the North American service area the lead positioning while retaining Toronto as the agency's factual base and remote operating model.
-- Shared footers and build templates — standardized the site-wide line to “North American digital agency serving businesses across the U.S. and Canada. Based in Toronto, working remotely.”
+- Shared footers and build templates — standardized the site-wide line to “Toronto creative and digital studio serving service businesses across Canada and the U.S.”
 - `llms.txt` and `SEO-KEYWORD-MAP.md` — aligned machine-readable business facts and keyword strategy with the new positioning.
 
 ## USA commercial modifiers
@@ -97,7 +97,7 @@ The existing compression script losslessly/re-encoded the following oversized so
 - `Ethos-posts-mockup.png`
 - `Foodsitemockup.png`
 - `Forma-site.png`
-- `Homepage-Ismile.png`
+- `Homepage-ISMILE CDS.png`
 - `Ismile-bunny-branding.png`
 - `Ismile-bunny-web-design.png`
 - `Ismile_CREATIVE_DIGITAL_SOLUTIONS_Bunny2.png`
