@@ -75,11 +75,11 @@
       if (pageHide) pageHide.remove();
       root.classList.add("logo-exiting");
       root.classList.add("is-leaving");
-    }, reducedMotion ? 40 : 1050);
+    }, reducedMotion ? 40 : 500);
 
     window.setTimeout(function () {
       root.remove();
-    }, reducedMotion ? 80 : 1780);
+    }, reducedMotion ? 80 : 1380);
   }
 
   function transitionTo(url) {
@@ -100,11 +100,11 @@
 
     window.setTimeout(function () {
       root.classList.add("logo-visible");
-    }, reducedMotion ? 10 : 540);
+    }, reducedMotion ? 10 : 280);
 
     window.setTimeout(function () {
       window.location.href = url;
-    }, reducedMotion ? 40 : 1180);
+    }, reducedMotion ? 40 : 700);
   }
 
   function eligibleLink(event, anchor) {

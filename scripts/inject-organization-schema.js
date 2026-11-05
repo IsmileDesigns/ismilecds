@@ -5,32 +5,82 @@ const ROOT = path.resolve(__dirname, '..');
 const START = '<!-- organization-json-ld:start -->';
 const END = '<!-- organization-json-ld:end -->';
 
+const sharedAddress = {
+  '@type': 'PostalAddress',
+  addressLocality: 'Toronto',
+  addressRegion: 'ON',
+  postalCode: 'M5A',
+  addressCountry: 'CA',
+};
+
+const sharedAreaServed = [
+  { '@type': 'AdministrativeArea', name: 'Ontario, Canada' },
+  { '@type': 'City', name: 'Toronto' },
+  { '@type': 'City', name: 'GTA' },
+  { '@type': 'Country', name: 'Canada' },
+  { '@type': 'Country', name: 'United States' },
+];
+
+const sharedSameAs = [
+  'https://www.instagram.com/ismilecds',
+  'https://www.behance.net/IsmileDesigns',
+  'https://www.linkedin.com/company/ismilecds',
+  'https://g.page/r/CWTNDtsyFif3EAI',
+];
+
 const organization = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://www.byismile.com/#organization',
-  name: 'ISMILE CDS',
-  url: 'https://www.byismile.com/',
-  logo: {
-    '@type': 'ImageObject',
-    url: 'https://www.byismile.com/logo.png',
-  },
-  email: 'hello@byismile.com',
-  description: 'A Toronto creative and digital studio providing branding, website design, digital marketing, business systems, and consulting for service businesses.',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Toronto',
-    addressRegion: 'ON',
-    addressCountry: 'CA',
-  },
-  areaServed: [
-    { '@type': 'Country', name: 'Canada' },
-    { '@type': 'Country', name: 'United States' },
-  ],
-  sameAs: [
-    'https://www.instagram.com/ismilecds',
-    'https://www.behance.net/IsmileDesigns',
-    'https://g.page/r/CWTNDtsyFif3EAI',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.byismile.com/#organization',
+      name: 'ISMILE CDS',
+      legalName: 'ISMILE Creative & Digital Studio',
+      url: 'https://www.byismile.com/',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.byismile.com/logo.png',
+      },
+      email: 'hello@byismile.com',
+      description: 'A Toronto, Ontario creative and digital studio specializing in brand strategy, web design, digital marketing, and business systems for service businesses and law firms across Canada and the U.S.',
+      address: sharedAddress,
+      areaServed: sharedAreaServed,
+      knowsAbout: [
+        'Brand Strategy',
+        'Brand Identity Design',
+        'Web Design',
+        'Web Development',
+        'Digital Marketing',
+        'Law Firm Website Design',
+        'Legal Marketing',
+        'Business Systems Automation',
+        'Creative Studio',
+        'Small Business Marketing',
+        'Ontario Service Businesses',
+      ],
+      sameAs: sharedSameAs,
+    },
+    {
+      '@type': ['LocalBusiness', 'ProfessionalService'],
+      '@id': 'https://www.byismile.com/#localbusiness',
+      name: 'ISMILE CDS',
+      legalName: 'ISMILE Creative & Digital Studio',
+      url: 'https://www.byismile.com/',
+      logo: 'https://www.byismile.com/logo.png',
+      image: 'https://www.byismile.com/logo.png',
+      email: 'hello@byismile.com',
+      description: 'Toronto, Ontario creative and digital studio — brand strategy, web design, digital marketing, and law firm website design for service businesses across Canada and the GTA.',
+      priceRange: '$$',
+      address: sharedAddress,
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: 43.6532,
+        longitude: -79.3832,
+      },
+      areaServed: sharedAreaServed,
+      sameAs: sharedSameAs,
+      parentOrganization: { '@id': 'https://www.byismile.com/#organization' },
+    },
   ],
 };
 
@@ -54,7 +104,7 @@ for (const file of fs.readdirSync(ROOT).filter(name => name.endsWith('.html'))) 
 
   const existingBlock = new RegExp(`\\s*${START}[\\s\\S]*?${END}\\s*`, 'i');
   if (existingBlock.test(html)) html = html.replace(existingBlock, '\n');
-  if (!/"@type"\s*:\s*"Organization"/.test(html)) {
+  if (!/"@id"\s*:\s*"https:\/\/www\.byismile\.com\/#organization"/.test(html)) {
     html = html.replace('</head>', `${block}</head>`);
     changed += 1;
   }

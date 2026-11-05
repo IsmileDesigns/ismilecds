@@ -29,13 +29,14 @@
         "@type": "Organization",
         "@id": "https://www.byismile.com/#organization",
         "name": "ISMILE CDS",
+        "legalName": "ISMILE Creative & Digital Studio",
         "url": "https://www.byismile.com/",
         "logo": {
           "@type": "ImageObject",
           "url": "https://www.byismile.com/logo.png"
         },
         "email": "hello@byismile.com",
-        "description": "A Toronto creative and digital studio providing branding, website design, digital marketing, business systems, and consulting for service businesses.",
+        "description": "A Toronto, Ontario creative and digital studio specializing in brand strategy, web design, digital marketing, and business systems for service businesses and law firms across Canada and the U.S.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Toronto",
@@ -43,36 +44,112 @@
           "addressCountry": "CA"
         },
         "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Ontario, Canada" },
+          { "@type": "City", "name": "Toronto" },
+          { "@type": "City", "name": "GTA" },
           { "@type": "Country", "name": "Canada" },
           { "@type": "Country", "name": "United States" }
+        ],
+        "knowsAbout": [
+          "Brand Strategy",
+          "Brand Identity Design",
+          "Web Design",
+          "Web Development",
+          "Digital Marketing",
+          "Law Firm Website Design",
+          "Legal Marketing",
+          "Business Systems Automation",
+          "Creative Studio",
+          "Small Business Marketing",
+          "Ontario Service Businesses"
         ],
         "sameAs": [
           "https://www.instagram.com/ismilecds",
           "https://www.behance.net/IsmileDesigns",
+          "https://www.linkedin.com/company/ismilecds",
           "https://g.page/r/CWTNDtsyFif3EAI"
         ]
       },
       {
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": "https://www.byismile.com/#localbusiness",
         "name": "ISMILE CDS",
+        "legalName": "ISMILE Creative & Digital Studio",
         "url": "https://www.byismile.com/",
         "logo": "https://www.byismile.com/logo.png",
         "image": "https://www.byismile.com/logo.png",
         "email": "hello@byismile.com",
+        "description": "Toronto, Ontario creative and digital studio — brand strategy, web design, digital marketing, and law firm website design for service businesses across Canada and the GTA.",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Toronto",
           "addressRegion": "ON",
+          "postalCode": "M5A",
           "addressCountry": "CA"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 43.6532,
+          "longitude": -79.3832
+        },
         "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Ontario, Canada" },
+          { "@type": "City", "name": "Toronto" },
+          { "@type": "City", "name": "GTA" },
           { "@type": "Country", "name": "Canada" },
           { "@type": "Country", "name": "United States" }
         ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Creative & Digital Studio Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand Strategy & Identity Design",
+                "description": "Full brand strategy, visual identity, logo design, and brand guidelines for service businesses and owner-led brands in Toronto and Ontario."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Web Design & Development",
+                "description": "Conversion-focused website design and development on Shopify, Wix, and custom platforms for small businesses across Toronto and the GTA."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Law Firm Website Design & Legal Marketing",
+                "description": "Specialized web design, local SEO, and digital marketing for Ontario lawyers, paralegals, and small law firms."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Digital Marketing & Content Strategy",
+                "description": "Social media, email marketing, and content strategy for service businesses in Toronto and across Canada."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Business Systems & Client Automation",
+                "description": "Workflow design and client process automation for service-based businesses."
+              }
+            }
+          ]
+        },
         "sameAs": [
           "https://www.instagram.com/ismilecds",
           "https://www.behance.net/IsmileDesigns",
+          "https://www.linkedin.com/company/ismilecds",
           "https://g.page/r/CWTNDtsyFif3EAI"
         ],
         "parentOrganization": { "@id": "https://www.byismile.com/#organization" }
@@ -134,7 +211,7 @@
   <script src="./loader.js?v=20261006-amber2" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Bebas+Neue&amp;family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Bebas+Neue&amp;family=Caveat:wght@600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&amp;family=Bebas+Neue&amp;family=Caveat:wght@600;700&amp;display=swap" rel="stylesheet" /></noscript>
   <style>
     :root {
       --amber: #fba92c;
@@ -1745,7 +1822,7 @@
       </div>
 
       <a class="brand" href="index.html" aria-label="ISMILE CDS home">
-        <img src="logo-white-new.png" alt="ISMILE CDS" width="713" height="395" decoding="async"/>
+        <img src="logo-white-new.png" alt="ISMILE Creative and Digital Studio – Toronto branding and web design" width="713" height="395" decoding="async" fetchpriority="high"/>
       </a>
 
       <div class="hero-message">
@@ -1768,7 +1845,7 @@
     </section>
 
     <section class="hero-visual" aria-label="ISMILE CDS rabbit brand film">
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" aria-label="Animated ISMILE CDS rabbit" aria-describedby="heroVideoDescription">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" aria-label="Animated ISMILE CDS rabbit" aria-describedby="heroVideoDescription">
         <source src="herorabbit.mp4" type="video/mp4" />
         Your browser does not support background video.
       </video>
@@ -1786,7 +1863,7 @@
 
   <button class="menu-backdrop" id="menuBackdrop" type="button" aria-label="Close menu" tabindex="-1"></button>
   <div class="menu-panel" id="menuPanel" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
-    <div class="menu-drawer-visual" aria-hidden="true"><img src="menutype.jpg" alt="" width="2752" height="1536" decoding="async"/></div>
+    <div class="menu-drawer-visual" aria-hidden="true"><img src="menutype.jpg" alt="" width="2752" height="1536" decoding="async" loading="lazy"/></div>
     <div class="menu-drawer-content">
       <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
