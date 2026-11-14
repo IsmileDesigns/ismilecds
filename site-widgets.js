@@ -7,6 +7,32 @@
   if (window.__ismileWidgetsInit) return;
   window.__ismileWidgetsInit = true;
 
+  /* ───────────────────────── FIRST-TOUCH SOURCE ─────────────────────────
+     Remembers, for this browser session only, where the visitor came from so the
+     project form can report it. Share links as byismile.com/?ref=reddit (or
+     utm_source=reddit) and the lead arrives tagged with that platform. */
+  (function () {
+    try {
+      if (sessionStorage.getItem('ismileFirstTouch')) return;
+      var NAMES = { reddit: 'Reddit', instagram: 'Instagram', ig: 'Instagram', tiktok: 'TikTok', pinterest: 'Pinterest',
+        linkedin: 'LinkedIn', youtube: 'YouTube', facebook: 'Facebook', fb: 'Facebook', google: 'Google search',
+        bing: 'Google search', duckduckgo: 'Google search', flyer: 'Flyer or in person', email: 'Other', newsletter: 'Other' };
+      var params = new URLSearchParams(location.search);
+      var tag = (params.get('utm_source') || params.get('ref') || '').toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
+      var host = '';
+      try { host = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+      if (host === location.hostname.replace(/^www\./, '')) host = '';
+      var source = NAMES[tag] || '';
+      if (!source && host) {
+        Object.keys(NAMES).forEach(function (key) { if (!source && key.length > 2 && host.indexOf(key) !== -1) source = NAMES[key]; });
+        if (!source && /(^|\.)(youtu\.be|redd\.it|lnkd\.in|pin\.it)$/.test(host)) {
+          source = { 'youtu.be': 'YouTube', 'redd.it': 'Reddit', 'lnkd.in': 'LinkedIn', 'pin.it': 'Pinterest' }[host.split('.').slice(-2).join('.')] || '';
+        }
+      }
+      sessionStorage.setItem('ismileFirstTouch', JSON.stringify({ source: source || tag, referrer: host, landing: location.pathname }));
+    } catch (e) {}
+  })();
+
   /* ───────────────────────── CONFIG ───────────────────────── */
   var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: replace with your real GA4 Measurement ID (analytics.google.com)
   var BOOKING_URL = 'https://calendar.app.google/oDUSa3P32YjHErMW8';
