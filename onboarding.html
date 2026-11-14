@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Client Onboarding Questionnaire | ISMILE CDS</title>
+  <meta name="description" content="Onboarding questionnaire for new ISMILE CDS clients."/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="canonical" href="https://www.byismile.com/onboarding.html"/>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.byismile.com/onboarding.html"/>
+  <meta property="og:title" content="Client Onboarding Questionnaire | ISMILE CDS"/>
+  <meta property="og:description" content="Onboarding questionnaire for new ISMILE CDS clients."/>
+  <meta property="og:image" content="https://www.byismile.com/logo.png"/>
+  <meta property="og:site_name" content="ISMILE CDS"/>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:site" content="@ismilecds"/>
+  <meta name="twitter:title" content="Client Onboarding Questionnaire | ISMILE CDS"/>
+  <meta name="twitter:description" content="Onboarding questionnaire for new ISMILE CDS clients."/>
+  <meta name="twitter:image" content="https://www.byismile.com/logo.png"/>
+  <script src="./site-widgets.js?v=20261006-responsive1" defer></script>
+  <script src="./loader.js?v=20261006-amber2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" /><noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet" /></noscript>
+  <style>
+    :root{--amber:#FBA92C;--warm-black:#1A1410;--white:#FFFFFF;--off-white:#FAF8F5;--mid:#6B6460;--bd:rgba(255,255,255,0.08);--bdl:rgba(26,20,16,0.09);}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{overflow-x:hidden;scroll-behavior:auto}
+    body{background:var(--warm-black);color:var(--white);font-family:'Assistant',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;}
+    .cursor-dot{position:absolute;width:8px;height:8px;background:var(--white);border-radius:50%;transform:translate(-50%,-50%);}
+    .cursor-ring{position:absolute;width:36px;height:36px;border:1px solid rgba(255,255,255,0.6);border-radius:50%;transform:translate(-50%,-50%);}
+    .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--amber);z-index:200;width:0%;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 56px;height:76px;display:flex;align-items:center;justify-content:space-between;transition:background 0.5s,border-color 0.5s;border-bottom:1px solid transparent;}
+    nav.scrolled{background:rgba(26,20,16,0.94);backdrop-filter:blur(14px);border-bottom-color:var(--bd);}
+    .nav-logo img{height:40px;width:auto;display:block;background:transparent;}
+    .nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+    .nav-links a{font-size:13px;font-weight:400;letter-spacing:0.06em;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--amber);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-cta{font-family:'Bebas Neue',sans-serif!important;font-size:15px!important;background:var(--amber);color:var(--warm-black)!important;padding:8px 18px;border-radius:3px;transition:background 0.2s;letter-spacing:0.1em!important;}
+    .nav-cta:hover{background:#ffc04d;}
+    .nav-cta::after{display:none!important;}
+    .nav-item.has-dropdown{position:relative;display:flex;align-items:center;gap:3px}
+    .nav-dropdown-toggle{background:none;border:none;padding:2px;margin:0;color:rgba(255,255,255,0.4);cursor:pointer;display:flex;align-items:center;transition:color 0.2s;}
+    .nav-dropdown-toggle svg{transition:transform 0.25s ease}
+    .nav-item.has-dropdown:hover .nav-dropdown-toggle,.nav-dropdown-toggle.open{color:var(--white)}
+    .nav-item.has-dropdown:hover .nav-dropdown-toggle svg,.nav-dropdown-toggle.open svg{transform:rotate(180deg)}
+    .nav-dropdown{position:absolute;top:100%;left:50%;margin-top:14px;transform:translateX(-50%) translateY(6px);background:rgba(20,16,13,0.98);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:10px;padding:8px;min-width:230px;list-style:none;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.25s ease,transform 0.25s ease;z-index:150;}
+    .nav-dropdown.open{opacity:1;visibility:visible;pointer-events:auto}
+    @media(min-width:641px){.nav-item.has-dropdown:hover .nav-dropdown,.nav-item.has-dropdown:focus-within .nav-dropdown,.nav-dropdown.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}}
+    .nav-dropdown li{width:100%}
+    .nav-dropdown a{display:block;padding:10px 14px;border-radius:6px;font-size:13px;letter-spacing:0.03em;color:rgba(255,255,255,0.6);white-space:nowrap;}
+    .nav-dropdown a::after{display:none}
+    .nav-dropdown a:hover{background:rgba(251,169,44,0.1);color:var(--white)}
+    .nav-hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:40px;height:40px;background:transparent;border:none;cursor:pointer;padding:4px;}
+    .nav-hamburger span{display:block;width:24px;height:1.5px;background:var(--white);transition:transform 0.3s ease,opacity 0.3s ease;}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .a{color:var(--amber);}
+    .btn-a{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;background:var(--amber);color:var(--warm-black);padding:13px 30px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;}
+    .btn-a:hover{background:#ffc04d;transform:translateY(-2px);}
+    .btn-d{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:0.1em;background:var(--warm-black);color:var(--amber);padding:13px 30px;border-radius:3px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;}
+    .btn-d:hover{background:#2e2620;transform:translateY(-2px);}
+    .sec{padding:100px 56px;border-bottom:1px solid var(--bd);}
+    .sec-light{background:var(--off-white);border-bottom:1px solid var(--bdl);}
+    .sec-amber{background:var(--amber);border-bottom:none;}
+    footer{background:#100d0a;padding:68px 56px 44px;border-top:1px solid var(--bd);}
+    .footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr 1fr;gap:52px;margin-bottom:64px;}
+    .footer-logo img{height:48px;width:auto;display:block;margin-bottom:16px;background:transparent;}
+    .footer-desc{font-size:17px;font-weight:300;line-height:1.7;color:rgba(255,255,255,0.3);}
+    .footer-col-title{font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:20px;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .footer-links a{font-size:17px;font-weight:300;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s,padding-left 0.2s;display:inline-block;}
+    .footer-links a:hover{color:var(--amber);padding-left:6px;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:1px solid var(--bd);flex-wrap:wrap;gap:16px;}
+    .footer-copy{font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);}
+    .footer-social{display:flex;gap:18px;}
+    .footer-social a{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);text-decoration:none;transition:color 0.2s;}
+    .footer-social a:hover{color:var(--amber);}
+    @media(max-width:768px){nav{padding:0 24px;}.sec{padding:72px 24px;}footer{padding:48px 24px 32px;}.footer-top{grid-template-columns:1fr 1fr;gap:32px;}}
+    .c-hero{min-height:60vh;background:var(--warm-black);display:flex;align-items:flex-end;padding:120px 56px 64px;position:relative;overflow:hidden;}
+    .c-hero-line{position:absolute;left:0;bottom:0;right:0;height:1px;background:linear-gradient(to right,var(--amber) 20%,transparent 100%);}
+    .ch-tag{font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;opacity:0;}
+    .ch-h{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,12vw,160px);line-height:0.88;letter-spacing:0.02em;color:var(--white);}
+    .ch-h .ww{display:inline-block;overflow:hidden;vertical-align:bottom;}
+    .ch-h .wd{display:inline-block;transform:translateY(110%);}
+    .ch-sub{font-size:18px;font-weight:300;line-height:1.75;color:rgba(255,255,255,0.4);max-width:400px;margin-top:20px;opacity:0;}
+    .ch-remote{font-size:14px;font-weight:400;line-height:1.6;color:var(--amber);max-width:400px;margin-top:16px;}
+    .contact-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .cb-left{padding:80px 56px;border-right:1px solid var(--bd);}
+    .cb-right{padding:80px 56px;}
+    .ci-item{padding:28px 0;border-bottom:1px solid var(--bd);}
+    .ci-item:first-child{border-top:1px solid var(--bd);}
+    .ci-label{font-size:12px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:8px;}
+    .ci-value{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.04em;color:var(--white);}
+    .ci-value a{color:inherit;text-decoration:none;transition:color 0.2s;}
+    .ci-value a:hover{color:var(--amber);}
+    .ci-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,0.3);margin-top:4px;}
+    .form-label{font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:8px;}
+    .form-input{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:13px 16px;font-family:'Assistant',sans-serif;font-size:15px;font-weight:300;color:var(--white);outline:none;transition:border-color 0.2s;width:100%;display:block;margin-bottom:20px;}
+    .form-input:focus{border-color:var(--amber);}
+    .form-input::placeholder{color:rgba(255,255,255,0.22);}
+    select.form-input{background:#1A1410;}
+    textarea.form-input{resize:vertical;min-height:130px;margin-bottom:20px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+    .fsuccess{display:none;padding:16px;background:rgba(251,169,44,0.08);border:1px solid rgba(251,169,44,0.25);border-radius:4px;font-size:15px;color:var(--amber);margin-top:14px;}
+    @media(max-width:768px){.c-hero{padding:100px 24px 56px;}.contact-body{grid-template-columns:1fr;}.cb-left,.cb-right{padding:56px 24px;}.cb-left{border-right:none;border-bottom:1px solid var(--bd);}.form-row{grid-template-columns:1fr;}}
+    @media(max-width:640px){
+      body{cursor:auto;}.cursor{display:none;}
+      .footer-top{grid-template-columns:1fr!important;gap:40px!important;}
+      nav{padding:0 20px;height:64px}
+      .nav-hamburger{display:flex}
+      .nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(26,20,16,0.97);backdrop-filter:blur(16px);flex-direction:column;align-items:center;gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.4,0,0.2,1),padding 0.3s;z-index:99;}
+      .nav-links.open{max-height:85vh;overflow-y:auto;padding:16px 0 24px}
+      .nav-links li{width:100%;text-align:center}
+      .nav-links a{display:block;padding:14px 20px;font-size:15px;letter-spacing:0.08em;text-align:center;border-bottom:1px solid rgba(255,255,255,0.05);}
+      .nav-links a::after{display:none}
+      .nav-item.has-dropdown{flex-wrap:wrap;justify-content:center;border-bottom:1px solid rgba(255,255,255,0.05);}
+      .nav-item.has-dropdown a{border-bottom:none}
+      .nav-dropdown-toggle{width:32px;height:32px;justify-content:center}
+      .nav-dropdown{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;background:rgba(255,255,255,0.03);border:none;border-radius:0;width:100%;padding:0;margin-top:0;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;}
+      .nav-dropdown.open{max-height:320px;padding:4px 0 10px;transform:none}
+      .nav-dropdown a{text-align:center;color:rgba(255,255,255,0.5);padding:10px 20px;font-size:14px;border-bottom:none;}
+      .nav-links .nav-cta{margin:16px auto 0;width:calc(100% - 48px);text-align:center;padding:13px 20px;border-radius:3px;}.nav-dropdown{display:flex!important;flex-direction:column!important;width:100%!important;position:static!important;}.nav-dropdown li{width:100%!important;}.nav-dropdown a{color:rgba(255,255,255,0.75)!important;white-space:normal!important;}
+    }
+  
+    .qf .form-input{margin-bottom:22px;}
+    .qf-help{font-size:14px;color:rgba(255,255,255,0.45);margin:-14px 0 22px;line-height:1.5;}
+    .qf-group{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:0.04em;color:var(--white);margin:26px 0 18px;padding-top:26px;border-top:1px solid var(--bd);}
+    .qf-group:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+    .qf-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+    .qf-error{display:none;padding:14px 16px;border:1px solid rgba(255,120,100,0.5);border-radius:4px;font-size:15px;color:#ffb4a6;margin-top:14px;}
+    .qf-done{display:none;padding:32px;background:rgba(251,169,44,0.08);border:1px solid rgba(251,169,44,0.25);border-radius:4px;}
+    .qf-done h2{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:0.95;letter-spacing:0.02em;color:var(--amber);margin-bottom:14px;}
+    .qf-done p{font-size:17px;line-height:1.7;color:rgba(255,255,255,0.8);margin-bottom:14px;}
+    .qf-done a{color:var(--amber);}
+    .qf-step{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.04em;color:var(--white);}
+  </style>
+  <style>
+  /* Accessibility: skip link + keyboard focus ring (added) */
+  .skip-link{position:absolute;top:-100px;left:0;z-index:100000;background:var(--amber);color:var(--warm-black);padding:14px 24px;font-weight:600;font-size:14px;letter-spacing:0.04em;text-decoration:none;border-radius:0 0 4px 0;transition:top 0.2s ease;}
+  .skip-link:focus{top:0;}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:2px;}
+  .form-input:focus-visible,.finput:focus-visible{outline:2px solid var(--amber);outline-offset:2px;}
+  </style>
+  <script src="./site-theme.js?v=20261014-noshop1" defer></script>
+  <link rel="stylesheet" href="./site-theme.css?v=20261008-mobilemenu1"/>
+  <!-- organization-json-ld:start -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.byismile.com/#organization",
+  "name": "ISMILE CDS",
+  "url": "https://www.byismile.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://www.byismile.com/logo.png"
+  },
+  "email": "hello@byismile.com",
+  "description": "A Toronto creative and digital studio providing branding, website design, digital marketing, business systems, and consulting for service businesses.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Toronto",
+    "addressRegion": "ON",
+    "addressCountry": "CA"
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Canada"
+    },
+    {
+      "@type": "Country",
+      "name": "United States"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/ismilecds",
+    "https://www.behance.net/IsmileDesigns",
+    "https://g.page/r/CWTNDtsyFif3EAI"
+  ]
+}
+  </script>
+  <!-- organization-json-ld:end -->
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="cursor" id="cursor"><div class="cursor-ring" id="cursorRing"></div><div class="cursor-dot" id="cursorDot"></div></div>
+  <div class="progress-bar" id="progressBar"></div>
+  <nav id="nav">    <a href="./index.html" class="nav-logo"><img src="logo-white-new.png" alt="ISMILE CDS" width="713" height="395" decoding="async"/></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./index.html">Home</a></li>
+            <li class="nav-item has-dropdown">
+        <a href="./index.html#services">Services</a>
+        <button class="nav-dropdown-toggle" aria-label="Toggle services submenu" aria-expanded="false">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <ul class="nav-dropdown">
+          <li><a href="./branding-and-design.html">Branding and Design</a></li>
+          <li><a href="./web-design.html">Web Design</a></li>
+          <li><a href="./digital-marketing.html">Digital Marketing</a></li>
+          <li><a href="./systems-automations.html">Systems &amp; Automations</a></li>
+          <li><a href="./business-consulting.html">Business Consulting</a></li>
+        </ul>
+      </li>
+      <li><a href="./portfolio.html">Portfolio</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="https://calendar.app.google/oDUSa3P32YjHErMW8" class="nav-cta" aria-label="Book a Free Strategy Call">BOOK A CALL</a></li>
+    </ul>    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main-content">
+
+  <section class="c-hero">
+    <div class="c-hero-line"></div>
+    <div>
+      <p class="ch-tag" id="chTag">Client Onboarding</p>
+      <h1 class="ch-h">
+        <span class="ww"><span class="wd">LET'S GET</span></span>
+        <span class="ww"><span class="wd"><span style="color:var(--amber)">YOU SET UP.</span></span></span>
+      </h1>
+      <p class="ch-sub" id="chSub">Your answers shape the whole project. Take your time, and skip anything that does not apply.</p>
+    </div>
+  </section>
+
+  <div class="contact-body">
+    <div class="cb-left" data-r>
+      <p style="font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:36px;"><span style="display:inline-block;width:28px;height:1px;background:var(--amber);"></span>Before You Start</p>
+      <div class="ci-item"><p class="ci-label">Time</p><p class="qf-step">About 15 minutes</p><p class="ci-sub">Only the first few questions are required. Short answers are fine.</p></div><div class="ci-item"><p class="ci-label">Have Ready</p><p class="qf-step">Links and files</p><p class="ci-sub">Your website, social profiles, and a shared folder with your logo and photos if you have them.</p></div><div class="ci-item"><p class="ci-label">Passwords</p><p class="qf-step">Keep them out of this form</p><p class="ci-sub">We will arrange secure access to your accounts separately.</p></div>
+      <div class="ci-item"><p class="ci-label">Questions</p><p class="ci-value"><a href="mailto:hello@byismile.com">hello@byismile.com</a></p><p class="ci-sub">Reply to any email from us and it reaches the same place.</p></div>
+    </div>
+    <div class="cb-right" data-r>
+      <p style="font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:36px;"><span style="display:inline-block;width:28px;height:1px;background:var(--amber);"></span>Onboarding Questionnaire</p>
+      <form id="onboardingForm" class="qf" data-inquiry="onboarding"><p class="qf-group">You And Your Business</p><div class="form-row"><div><label class="form-label" for="qf-name">Your Name</label><input id="qf-name" class="form-input" type="text" name="name" placeholder="" required/></div><div><label class="form-label" for="qf-business">Business Name</label><input id="qf-business" class="form-input" type="text" name="business" placeholder="" required/></div></div><div class="form-row"><div><label class="form-label" for="qf-email">Email Address</label><input id="qf-email" class="form-input" type="email" name="email" placeholder="" required/></div><div><label class="form-label" for="qf-phone">Phone Number</label><input id="qf-phone" class="form-input" type="tel" name="phone" placeholder=""/></div></div><label class="form-label" for="qf-link">Website And Social Links</label><textarea id="qf-link" class="form-input" name="link" placeholder="One per line."></textarea><label class="form-label" for="qf-oneLine">What Does Your Business Do</label><textarea id="qf-oneLine" class="form-input" name="oneLine" placeholder="In a sentence or two, the way you would say it to a new customer." required></textarea><label class="form-label" for="qf-customer">Who Is Your Ideal Customer</label><textarea id="qf-customer" class="form-input" name="customer" placeholder="Who they are, what they are struggling with, and why they pick you." required></textarea><p class="qf-group">Goals</p><label class="form-label" for="qf-goals">What Should This Project Do For The Business</label><textarea id="qf-goals" class="form-input" name="goals" placeholder="More bookings, a higher price point, fewer admin hours, a launch date to hit." required></textarea><label class="form-label" for="qf-success">How Will You Know It Worked</label><textarea id="qf-success" class="form-input" name="success" placeholder="What would be different three months after launch."></textarea><p class="qf-group">Look And Voice</p><label class="form-label" for="qf-admire">Brands Or Websites You Like, And Why</label><textarea id="qf-admire" class="form-input" name="admire" placeholder="Links are welcome. Say what you like about each one."></textarea><label class="form-label" for="qf-avoid">Anything You Want To Avoid</label><textarea id="qf-avoid" class="form-input" name="avoid" placeholder="Colours, styles, words, or competitors you do not want to look like."></textarea><label class="form-label" for="qf-voice">Your Brand Voice In A Few Words</label><input id="qf-voice" class="form-input" type="text" name="voice" placeholder="Direct, warm, premium, playful..."/><label class="form-label" for="qf-assets">What Brand Assets Already Exist</label><textarea id="qf-assets" class="form-input" name="assets" placeholder="Logo files, colours, fonts, photos, a style guide. Say what you have and what is missing."></textarea><p class="qf-group">Content And Scope</p><label class="form-label" for="qf-content">Who Is Providing The Words And Photos</label><textarea id="qf-content" class="form-input" name="content" placeholder="You, us, or a mix. Mention anything that still needs to be written or shot."></textarea><label class="form-label" for="qf-scope">Pages Or Features You Need</label><textarea id="qf-scope" class="form-input" name="scope" placeholder="Home, about, services, booking, payments, client portal, email sign-up..."></textarea><p class="qf-group">Access And Timing</p><label class="form-label" for="qf-access">Domain, Hosting And Accounts</label><textarea id="qf-access" class="form-input" name="access" placeholder="Where your domain and hosting live, and which accounts we will need access to. Do not put passwords here."></textarea><p class="qf-help">Never send passwords through this form. We will set up secure access separately.</p><label class="form-label" for="qf-files">Shared Folder Link For Your Files</label><input id="qf-files" class="form-input" type="url" name="files" placeholder="Google Drive or Dropbox link"/><div class="form-row"><div><label class="form-label" for="qf-deadline">Launch Date Or Deadline</label><input id="qf-deadline" class="form-input" type="text" name="deadline" placeholder="A date, or what is driving the timing"/></div><div><label class="form-label" for="qf-approver">Who Gives Final Approval</label><input id="qf-approver" class="form-input" type="text" name="approver" placeholder="Name and role"/></div></div><label class="form-label" for="qf-contactPref">Best Way To Reach You</label><select id="qf-contactPref" class="form-input" name="contactPref"><option value="" disabled selected>Select one...</option><option>Email</option><option>Text message</option><option>Phone call</option><option>Video call</option></select><label class="form-label" for="qf-extra">Anything Else We Should Know</label><textarea id="qf-extra" class="form-input" name="extra" placeholder=""></textarea><div class="qf-hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="company_site" tabindex="-1" autocomplete="off"/></label></div><button type="submit" class="btn-a">SEND MY ANSWERS <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5"/></svg></button><div class="qf-error" data-inquiry-status role="alert"></div></form><div class="qf-done" data-inquiry-done="onboardingForm" role="status"><h2>ALL SET.</h2><p>Your answers are in and a confirmation is on its way to your inbox.</p><p>We will come back to you within 2 business days with next steps.</p></div>
+    </div>
+  </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-top">
+      <div><div class="footer-logo"><img src="logo-white-new.png" alt="ISMILE CDS" width="713" height="395" decoding="async"/></div><p class="footer-desc">Toronto, Ontario, Canada creative and digital studio serving service businesses across Canada and the U.S.</p><div style="display:flex;align-items:center;gap:16px;margin-top:20px;"><img src="shopify-partners-logo.png" alt="Shopify Partner" height="38" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);" width="228" decoding="async"/><img src="wixpartner.avif" alt="Wix Partner" height="46" loading="lazy" style="opacity:0.6;filter:brightness(0) invert(1);" width="48" decoding="async"/></div></div>
+      <div><p class="footer-col-title">Services</p><ul class="footer-links"><li><a href="./branding-and-design.html">Branding and Design</a></li><li><a href="./web-design.html">Web Design</a></li><li><a href="./digital-marketing.html">Digital Marketing</a></li><li><a href="./systems-automations.html">Systems &amp; Automations</a></li><li><a href="./business-consulting.html">Business Consulting</a></li></ul></div>
+      <div><p class="footer-col-title">Company</p><ul class="footer-links"><li><a href="./about.html">About</a></li><li><a href="./portfolio.html">Portfolio</a></li><li><a href="./blog.html">Blog</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+      <div><p class="footer-col-title">Get Started</p><ul class="footer-links"><li><a href="https://calendar.app.google/oDUSa3P32YjHErMW8">Book a Free Call</a></li><li><a href="https://g.page/r/CWTNDtsyFif3EAI/review">Leave a Review</a></li></ul></div>
+      <div><p class="footer-col-title">Privacy &amp; Compliance</p><ul class="footer-links"><li><a href="./privacy-policy.html">Privacy Policy</a></li><li><a href="./terms-and-conditions.html">Terms &amp; Conditions</a></li><li><a href="./cookie-policy.html">Cookie Policy</a></li><li><a href="#" data-cookie-prefs-trigger>Cookie Preferences</a></li><li><a href="./accessibility-statement.html">Accessibility Statement</a></li><li><a href="./do-not-sell-my-info.html">Do Not Sell or Share My Personal Information</a></li><li><a href="./data-request.html">Data Request (GDPR / CCPA)</a></li><li><a href="./contact.html">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p class="footer-copy">© 2026 ISMILE CDS. All rights reserved. Toronto, Ontario, Canada.</p><div class="footer-social"><a href="https://www.instagram.com/ismilecds" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a><a href="https://www.behance.net/IsmileDesigns" aria-label="Behance"><svg width="20" height="14" viewBox="0 0 25 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 1.5h5.7v1.3h-5.7V1.5zm2.7 3.2c-3.5 0-5.9 2.4-5.9 5.9 0 3.6 2.3 5.9 6 5.9 2.6 0 4.4-1.1 5.4-3.2h-2.8c-.4.7-1.4 1.1-2.4 1.1-1.6 0-2.8-.9-3-2.7H24c.2-3.8-1.8-7-5.8-7zm-2.7 4.6c.2-1.4 1.2-2.3 2.6-2.3 1.4 0 2.5.9 2.5 2.3h-5.1zM0 .3h6.7c2.4 0 4.7.8 4.7 3.5 0 1.4-.7 2.4-1.9 3 1.7.5 2.7 1.7 2.7 3.5 0 3-2.3 4.2-5 4.2H0V.3zm3.2 5.6h3c1.2 0 1.9-.5 1.9-1.7S7.3 2.6 6 2.6H3.2v3.3zm0 5.7h3.4c1.3 0 2.2-.6 2.2-1.9 0-1.4-1-1.9-2.3-1.9H3.2v3.8z"/></svg></a></div></div>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script>
+  gsap.registerPlugin(ScrollTrigger);
+  const lenis=new Lenis({duration:1.4,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),smoothWheel:true});
+  gsap.ticker.add(t=>lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+  lenis.on('scroll',ScrollTrigger.update);
+  const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;gsap.to(dot,{x:mx,y:my,duration:0.1});});
+  gsap.ticker.add(()=>{rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;gsap.set(ring,{x:rx,y:ry});});
+  document.querySelectorAll('a,button,input,textarea,select').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{gsap.to(ring,{scale:2.2,opacity:0.4,duration:0.3});gsap.to(dot,{scale:0.4,duration:0.3});});
+    el.addEventListener('mouseleave',()=>{gsap.to(ring,{scale:1,opacity:1,duration:0.3});gsap.to(dot,{scale:1,duration:0.3});});
+  });
+  lenis.on('scroll',({scroll,limit})=>{document.getElementById('progressBar').style.width=(scroll/limit*100)+'%';});
+  lenis.on('scroll',({scroll})=>{document.getElementById('nav').classList.toggle('scrolled',scroll>60);});
+  document.querySelectorAll('[data-r]').forEach(el=>{
+    gsap.fromTo(el,{opacity:0,y:44},{opacity:1,y:0,duration:0.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 83%'}});
+  });
+  document.querySelectorAll('[data-s]').forEach(parent=>{
+    gsap.fromTo(parent.children,{opacity:0,y:32},{opacity:1,y:0,duration:0.7,stagger:0.11,ease:'power3.out',scrollTrigger:{trigger:parent,start:'top 80%'}});
+  });
+  gsap.to('#chTag',{opacity:1,duration:0.6,delay:0.3});
+  gsap.to('.ch-h .wd',{y:'0%',duration:1.1,ease:'power4.out',stagger:0.07,delay:0.4});
+  gsap.to('#chSub',{opacity:1,duration:0.8,delay:0.9});
+</script>
+<script src="./inquiry-form.js?v=20261114" defer></script>
+<script>
+  // Hamburger menu
+  (function(){
+    var btn = document.getElementById('navHamburger');
+    var links = document.getElementById('navLinks');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+      var open = links.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        links.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+
+  // Services dropdown toggle
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(function(toggle){
+    toggle.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var dropdown = toggle.nextElementSibling;
+      if(!dropdown) return;
+      var isOpen = dropdown.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+  });
+</script>
+</body>
+</html>
